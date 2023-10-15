@@ -128,7 +128,8 @@
     <value>Register</value>
   </data>
   <data name="LblConfirmPassword" xml:space="preserve">
-    <value>Confirm Password</value>
+    <value>Confirm 
+Password</value>
   </data>
   <data name="LblEmail" xml:space="preserve">
     <value>Email</value>
