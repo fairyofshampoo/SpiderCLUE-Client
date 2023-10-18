@@ -24,5 +24,11 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
         }
+
+        private void lblRegister_Clicked(object sender, MouseButtonEventArgs mouseEvent)
+        {
+            Register registerWindow = new Register();
+            this.NavigationService.Navigate(registerWindow);
+        }
     }
 }

@@ -96,8 +96,21 @@
                         <ColumnDefinition Width = "350"/>
                         <ColumnDefinition Width = "*"/>
                     </Grid.ColumnDefinitions>
-                    <Border CornerRadius="15" Grid.Column="0" BorderBrush="LightGray" BorderThickness="3" Margin="100,5,0,0">
-                        <PasswordBox Height="20" Name="txtPassword"/>
+                    <Border 
+                                    CornerRadius="5" 
+                                    BorderBrush="LightGray"
+                                    BorderThickness="3"
+                                    Grid.Row="4"
+                                    Grid.Column="0"
+                                    Margin="100,0,0,0">
+                        <PasswordBox x:Name="txtPassword"
+                                 FontSize="13"
+                                 FontWeight="Medium"
+                                 FontFamily="Montserrat"
+                                 Background="LightGray"
+                                 Foreground="Black"
+                                 BorderThickness="0">
+                        </PasswordBox>
                     </Border>
                     <Button x:Name="btnPasswordVisibility" Grid.Column="1"
                             Cursor="Hand">
@@ -202,7 +215,8 @@
                        Grid.Column="0"
                        VerticalAlignment="Center"
                        Margin="100,1,0,0"
-                       Cursor="Hand" />
+                       Cursor="Hand"
+                       MouseLeftButtonDown="lblRegister_Clicked"/>
             </StackPanel>
         </Grid>
     </Grid>
