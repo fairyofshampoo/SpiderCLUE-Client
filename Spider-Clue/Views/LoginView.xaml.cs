@@ -24,5 +24,23 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
         }
+
+        private void LblRegister_Clicked(object sender, MouseButtonEventArgs mouseEvent)
+        {
+            Register registerView = new Register();
+            this.NavigationService.Navigate(registerView);
+        }
+
+        private void BtnGuestPlayer_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenuView mainMenuView = new MainMenuView();
+            this.NavigationService.Navigate(mainMenuView);
+        }
+
+        private void LblForgotPassword_Clicked(object sender, MouseButtonEventArgs e)
+        {
+            PasswordRecoveryView passwordRecoveryView = new PasswordRecoveryView();
+            this.NavigationService.Navigate(passwordRecoveryView);
+        }
     }
 }

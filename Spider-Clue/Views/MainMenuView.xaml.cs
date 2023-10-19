@@ -24,6 +24,5 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
         }
-
     }
 }

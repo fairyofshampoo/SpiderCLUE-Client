@@ -1,0 +1,7 @@
+# Archivos que deben tener fin de línea LF
+*.js text eol=lf
+*.css text eol=lf
+
+# Archivos que deben tener fin de línea CRLF
+*.sln text eol=crlf
+*.csproj text eol=crlf
