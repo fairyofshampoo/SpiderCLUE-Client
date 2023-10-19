@@ -15,16 +15,14 @@ using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    public partial class Register : Page
+    /// <summary>
+    /// Interaction logic for ProfileEditionView.xaml
+    /// </summary>
+    public partial class ProfileEditionView : Page
     {
-        public Register()
+        public ProfileEditionView()
         {
             InitializeComponent();
-        }
-
-        private void txtName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }
