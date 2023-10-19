@@ -79,11 +79,29 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Exit to desktop.
+        /// </summary>
+        public static string BtnExitToDesktop {
+            get {
+                return ResourceManager.GetString("BtnExitToDesktop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Guest Player.
         /// </summary>
         public static string BtnGuestPlayer {
             get {
                 return ResourceManager.GetString("BtnGuestPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Join to Party.
+        /// </summary>
+        public static string BtnJoinToParty {
+            get {
+                return ResourceManager.GetString("BtnJoinToParty", resourceCulture);
             }
         }
         
@@ -97,11 +115,29 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Play.
+        /// </summary>
+        public static string BtnPlay {
+            get {
+                return ResourceManager.GetString("BtnPlay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string BtnRegister {
             get {
                 return ResourceManager.GetString("BtnRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string BtnSettings {
+            get {
+                return ResourceManager.GetString("BtnSettings", resourceCulture);
             }
         }
         
@@ -139,6 +175,15 @@ namespace Spider_Clue.Properties {
         public static string LblLastName {
             get {
                 return ResourceManager.GetString("LblLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Level.
+        /// </summary>
+        public static string LblLevel {
+            get {
+                return ResourceManager.GetString("LblLevel", resourceCulture);
             }
         }
         
