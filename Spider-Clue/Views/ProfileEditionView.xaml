@@ -1,0 +1,41 @@
+﻿<Page x:Class="Spider_Clue.Views.ProfileEditionView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Spider_Clue.Views"
+      xmlns:p = "clr-namespace:Spider_Clue.Properties"
+      mc:Ignorable="d" 
+      Title="ProfileEditionView"
+      Background="Transparent">
+
+    <Grid>
+        <Border Margin="0,0,-9,0">
+            <Border.Background>
+                <ImageBrush ImageSource = "/Images/RegisterBackground.png"
+                            Stretch = "Fill">
+                </ImageBrush>
+            </Border.Background>
+        </Border>
+
+        <Label x:Name = "lblProfileEditionViewTitle" Content = "{x:Static p:Resources.LblUsername}"
+               Foreground = "White"
+               FontWeight = "Light"
+               FontSize = "40"
+               FontFamily = "Monsterrat"
+               HorizontalAlignment="Center"
+               Margin="0,65,0,329"
+               Grid.Row="0"/>
+
+        <Border 
+            CornerRadius="10"
+            Background="#B45959"
+            Height="150"
+            Width="300"
+            Margin="10,0,0,0">
+            
+            
+        </Border>
+        
+    </Grid>
+</Page>

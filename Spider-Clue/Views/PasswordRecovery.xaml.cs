@@ -15,16 +15,14 @@ using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    public partial class Register : Page
+    /// <summary>
+    /// Interaction logic for PasswordRecovery.xaml
+    /// </summary>
+    public partial class PasswordRecovery : Page
     {
-        public Register()
+        public PasswordRecovery()
         {
             InitializeComponent();
-        }
-
-        private void txtName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

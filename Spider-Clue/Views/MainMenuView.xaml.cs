@@ -15,16 +15,15 @@ using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    public partial class Register : Page
+    /// <summary>
+    /// Interaction logic for MainMenuView.xaml
+    /// </summary>
+    public partial class MainMenuView : Page
     {
-        public Register()
+        public MainMenuView()
         {
             InitializeComponent();
         }
 
-        private void txtName_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
     }
 }
