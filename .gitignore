@@ -1,0 +1,4 @@
+# Ignorar carpetas
+Spider-Clue/obj/
+Spider-Clue/bin/
+Spider-Clue/.vs/
