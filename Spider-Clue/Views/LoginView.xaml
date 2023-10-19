@@ -174,7 +174,7 @@
                         FontFamily="Montserrat"
                         Cursor="Hand"
                         Margin="0,0,0,0"
-                            HorizontalAlignment="Right">
+                            HorizontalAlignment="Right" Click="BtnGuestPlayer_Click">
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="#48457D" />
@@ -205,7 +205,8 @@
                        Grid.Column="0"
                        VerticalAlignment="Center"
                        Margin="100,5,0,0"
-                       Cursor="Hand" />
+                       Cursor="Hand" 
+                       MouseLeftButtonDown="LblForgotPassword_Clicked"/>
 
                 <Label x:Name="lblRegister" Content="{x:Static p:Resources.LblRegister}"
                        Foreground="White"
@@ -216,7 +217,7 @@
                        VerticalAlignment="Center"
                        Margin="100,1,0,0"
                        Cursor="Hand"
-                       MouseLeftButtonDown="lblRegister_Clicked"/>
+                       MouseLeftButtonDown="LblRegister_Clicked"/>
             </StackPanel>
         </Grid>
     </Grid>

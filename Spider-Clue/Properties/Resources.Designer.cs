@@ -61,6 +61,24 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account Recovery.
+        /// </summary>
+        public static string AccountRecoveryTitle {
+            get {
+                return ResourceManager.GetString("AccountRecoveryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm.
+        /// </summary>
+        public static string BtnConfirm {
+            get {
+                return ResourceManager.GetString("BtnConfirm", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Guest Player.
         /// </summary>
         public static string BtnGuestPlayer {
@@ -88,7 +106,8 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Confirm Password.
+        ///   Looks up a localized string similar to Confirm 
+        ///Password.
         /// </summary>
         public static string LblConfirmPassword {
             get {
@@ -156,6 +175,15 @@ namespace Spider_Clue.Properties {
         public static string LblPasswordError {
             get {
                 return ResourceManager.GetString("LblPasswordError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password Recovery.
+        /// </summary>
+        public static string LblPasswordRecoveryTitle {
+            get {
+                return ResourceManager.GetString("LblPasswordRecoveryTitle", resourceCulture);
             }
         }
         
