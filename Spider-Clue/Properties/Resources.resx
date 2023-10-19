@@ -123,15 +123,27 @@
   <data name="BtnConfirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
+  <data name="BtnExitToDesktop" xml:space="preserve">
+    <value>Exit to desktop</value>
+  </data>
   <data name="BtnGuestPlayer" xml:space="preserve">
     <value>Guest Player</value>
+  </data>
+  <data name="BtnJoinToParty" xml:space="preserve">
+    <value>Join to Party</value>
   </data>
   <data name="BtnLogin" xml:space="preserve">
     <value>Log in</value>
     <comment>Text for the button that logs in </comment>
   </data>
+  <data name="BtnPlay" xml:space="preserve">
+    <value>Play</value>
+  </data>
   <data name="BtnRegister" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="BtnSettings" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="LblConfirmPassword" xml:space="preserve">
     <value>Confirm 
@@ -145,6 +157,9 @@ Password</value>
   </data>
   <data name="LblLastName" xml:space="preserve">
     <value>Last Name</value>
+  </data>
+  <data name="LblLevel" xml:space="preserve">
+    <value>Level</value>
   </data>
   <data name="LblLoginTitle" xml:space="preserve">
     <value>Login</value>
