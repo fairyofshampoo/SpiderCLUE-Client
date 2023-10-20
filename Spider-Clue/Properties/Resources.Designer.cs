@@ -162,9 +162,12 @@ namespace Spider_Clue.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Account Recovery.
         /// </summary>
-        public static string LblAccountRecoveryTitle {
+        public static string LblAccountRecoveryTitle
+        {
             get {
                 return ResourceManager.GetString("LblAccountRecoveryTitle", resourceCulture);
+            }
+        }
         ///   Looks up a localized string similar to Change Avatar.
         /// </summary>
         public static string LblChangeAvatar {

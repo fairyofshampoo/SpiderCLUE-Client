@@ -127,7 +127,7 @@ namespace Spider_Clue.Views
 
         private bool IsEmailExisting()
         {
-
+            return true;
         }
     }
 }
