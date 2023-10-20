@@ -120,6 +120,9 @@
   <data name="AccountRecoveryTitle" xml:space="preserve">
     <value>Account Recovery</value>
   </data>
+  <data name="BtnChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
   <data name="BtnConfirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
@@ -141,6 +144,9 @@
   </data>
   <data name="BtnRegister" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="BtnSave" xml:space="preserve">
+    <value>Save</value>
   </data>
   <data name="BtnSettings" xml:space="preserve">
     <value>Settings</value>

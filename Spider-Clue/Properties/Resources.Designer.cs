@@ -70,6 +70,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change Password.
+        /// </summary>
+        public static string BtnChangePassword {
+            get {
+                return ResourceManager.GetString("BtnChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm.
         /// </summary>
         public static string BtnConfirm {
@@ -129,6 +138,15 @@ namespace Spider_Clue.Properties {
         public static string BtnRegister {
             get {
                 return ResourceManager.GetString("BtnRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string BtnSave {
+            get {
+                return ResourceManager.GetString("BtnSave", resourceCulture);
             }
         }
         
