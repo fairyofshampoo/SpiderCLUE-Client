@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountRecoveryTitle" xml:space="preserve">
+    <value>Account Recovery</value>
+  </data>
+  <data name="BtnChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
   <data name="BtnConfirm" xml:space="preserve">
     <value>Confirm</value>
   </data>
@@ -139,11 +145,16 @@
   <data name="BtnRegister" xml:space="preserve">
     <value>Register</value>
   </data>
+  <data name="BtnSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
   <data name="BtnSettings" xml:space="preserve">
     <value>Settings</value>
   </data>
   <data name="LblAccountRecoveryTitle" xml:space="preserve">
     <value>Account Recovery</value>
+  <data name="LblChangeAvatar" xml:space="preserve">
+    <value>Change Avatar</value>
   </data>
   <data name="LblConfirmPassword" xml:space="preserve">
     <value>Confirm 
@@ -175,6 +186,9 @@ Password</value>
   </data>
   <data name="LblPasswordRecoveryTitle" xml:space="preserve">
     <value>Password Recovery</value>
+  </data>
+  <data name="LblProfileEdition" xml:space="preserve">
+    <value>Profile Edition</value>
   </data>
   <data name="LblRegister" xml:space="preserve">
     <value>Sign up</value>

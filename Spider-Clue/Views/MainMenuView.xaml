@@ -18,10 +18,15 @@
             </Border.Background>
         </Border>
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width = "*"/>
                 <ColumnDefinition Width = "*"/>
             </Grid.ColumnDefinitions>
+
 
             <Grid 
                 HorizontalAlignment="Right"
@@ -84,7 +89,7 @@
             </Grid>
 
             <Grid
-                Grid.Row = "0"
+                Grid.Row = "1"
                 Grid.Column = "0"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center">
@@ -209,7 +214,6 @@
                             <Setter Property = "Background" Value = "#8A8884"/>
                         </Style>
                     </Button.Style>
-
                     <Button.Template>
                         <ControlTemplate TargetType = "Button">
                             <Border Width = "180" Height = "40"
@@ -221,7 +225,15 @@
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
+                <Grid/>
             </Grid>
+            <DataGrid x:Name = "FriendsTable"
+                              AutoGenerateColumns = "True"
+                              Height = "250"
+                              Width = "300" 
+                              Grid.Row = "1"
+                              Grid.Column = "1"/>
         </Grid>
     </Grid>
 </Page>
+

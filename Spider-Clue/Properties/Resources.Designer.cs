@@ -61,6 +61,24 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account Recovery.
+        /// </summary>
+        public static string AccountRecoveryTitle {
+            get {
+                return ResourceManager.GetString("AccountRecoveryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change Password.
+        /// </summary>
+        public static string BtnChangePassword {
+            get {
+                return ResourceManager.GetString("BtnChangePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm.
         /// </summary>
         public static string BtnConfirm {
@@ -124,6 +142,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Save.
+        /// </summary>
+        public static string BtnSave {
+            get {
+                return ResourceManager.GetString("BtnSave", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string BtnSettings {
@@ -138,6 +165,11 @@ namespace Spider_Clue.Properties {
         public static string LblAccountRecoveryTitle {
             get {
                 return ResourceManager.GetString("LblAccountRecoveryTitle", resourceCulture);
+        ///   Looks up a localized string similar to Change Avatar.
+        /// </summary>
+        public static string LblChangeAvatar {
+            get {
+                return ResourceManager.GetString("LblChangeAvatar", resourceCulture);
             }
         }
         
@@ -229,6 +261,15 @@ namespace Spider_Clue.Properties {
         public static string LblPasswordRecoveryTitle {
             get {
                 return ResourceManager.GetString("LblPasswordRecoveryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile Edition.
+        /// </summary>
+        public static string LblProfileEdition {
+            get {
+                return ResourceManager.GetString("LblProfileEdition", resourceCulture);
             }
         }
         
