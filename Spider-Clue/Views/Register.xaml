@@ -4,273 +4,277 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Spider_Clue.Views"
-      xmlns:p = "clr-namespace:Spider_Clue.Properties"
+      xmlns:p="clr-namespace:Spider_Clue.Properties"
       mc:Ignorable="d"
       Title="{x:Static p:Resources.RegisterTitle}"
       Background="Transparent">
-
-    <Page.Resources>
-        <BooleanToVisibilityConverter x:Key="BooleanToVisibility"/>
-    </Page.Resources>
-
-    <Page.Visibility>
-        <Binding Path="IsViewVisible" Mode="TwoWay" Converter="{StaticResource BooleanToVisibility}"/>
-    </Page.Visibility>
-    <Border>
-
+    <DockPanel>
         <Grid>
             <Border>
                 <Border.Background>
-                    <ImageBrush ImageSource="/Images/backgroundREGISTER.png"
-                            Stretch="Fill">
+                    <ImageBrush 
+                        ImageSource="/Images/backgroundREGISTER.png"
+                        Stretch="Fill">
                     </ImageBrush>
                 </Border.Background>
             </Border>
-
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height = "30" />
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-
-                    <Label x:Name="lblTitle" Content = "{x:Static p:Resources.RegisterTitle}"
-                               Foreground = "White"
-                               FontSize = "10"
-                               FontFamily = "Montserrat"
-                               Grid.Column = "0"
-                               VerticalAlignment = "Center"
-                               Margin = "10,0,0,0"/>
-                </Grid>
-                <StackPanel Width="350"
-                        Grid.Row="1"
+            <Button
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="50" Height="50"
+                BorderThickness="0"
+                Margin="100,50,40,10"
+                Click="Button_Click"
+                Cursor="Hand">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="/Images/GoBackIcon.png" 
+                                    Stretch="Uniform">
+                        </Image>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <StackPanel Width="380"
                         Orientation="Vertical"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
                         Margin="0,35,0,0">
-
-                    <Label x:Name = "lblRegisterTitle" Content = "{x:Static p:Resources.RegisterTitle}"
-                           Foreground = "White"
-                           FontWeight = "Light"
-                           FontSize = "35"
-                           FontFamily = "Monsterrat"
-                           Margin="70,0,0,0"/>
-
-                    <Border 
+                <Label x:Name="lblRegisterTitle" Content="{x:Static p:Resources.RegisterTitle}"
+                       Foreground="White"
+                       FontWeight="Light"
+                       FontSize="35"
+                       FontFamily="Monsterrat"
+                       Margin="70,0,0,0"/>
+                <Border 
                     CornerRadius="10"
-                    Height="270"
+                    Height="Auto"
                     Background="#B45959"
                     Width="300">
-                        <StackPanel >
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition />
-                                    <ColumnDefinition Width="200" />
-                                </Grid.ColumnDefinitions>
-
-
-                                <Label x:Name = "lblName" Content = "{x:Static p:Resources.LblName}"
-                                   Foreground ="White"
-                                   FontWeight = "Bold"
-                                   FontSize = "15"
-                                   FontFamily = "Monsterrat"
-                                   Margin="15,20,0,39" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                    <StackPanel
+                        Width="Auto"
+                        Height="Auto"
+                        Margin="0,0,0,10">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="200" />
+                            </Grid.ColumnDefinitions>
+                            <Label x:Name="lblName" Content="{x:Static p:Resources.LblName}"
+                                   Foreground="White"
+                                   FontWeight="Bold"
+                                   FontSize="15"
+                                   FontFamily="Monsterrat"
+                                   Margin="15,20,0,0"
+                                   OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="0"
                                    Grid.Column="0" Grid.RowSpan="2"/>
+                            <Border
+                                CornerRadius="5"
+                                BorderBrush="LightGray"
+                                BorderThickness="3" Grid.Row="0" 
+                                Grid.Column="1"
+                                Height="25"
+                                Margin="15,20,12,0">
+                                <TextBox x:Name="txtName"
+                                         FontSize="13"
+                                         FontWeight="Medium"
+                                         FontFamily="Montserrat"
+                                         Background="LightGray"
+                                         Foreground="Black"
+                                         BorderThickness="0">
+                                </TextBox>
+                            </Border>
 
-                                <Border 
-                                    CornerRadius="5" 
-                                    BorderBrush="LightGray" 
-                                    BorderThickness="3" Grid.Row="0" 
-                                    Grid.Column="1"
-                                    Margin="11,24,12,4">
-                                    <TextBox x:Name="txtName"
-                                  Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
-                                 FontSize="13"
-                                 FontWeight="Medium"
-                                 FontFamily="Montserrat"
-                                 Background="LightGray"
-                                 Foreground="Black"
-                                 BorderThickness="0">
-                                    </TextBox>
-                                </Border>
-
-
-                                <Label x:Name = "lblLastName" Content = "{x:Static p:Resources.LblLastName}"
-                                   Foreground ="White"
-                                   FontWeight = "Medium"
-                                   FontSize = "15"
-                                   FontFamily = "Monsterrat"
-                                   Margin="15,10,0,0" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                            <Label x:Name="lblInvalidName" Content="{x:Static p:Resources.LblName}"
+                                   Foreground="Black"
+                                   FontWeight="Medium"
+                                   FontSize="10"
+                                   FontFamily="Monsterrat"
+                                   Margin="0,0,0,0"
+                                   OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="1"
+                                   Grid.Column="1"/>
+
+                            <Label x:Name="lblLastName" Content="{x:Static p:Resources.LblLastName}"
+                                   Foreground="White"
+                                   FontWeight="Medium"
+                                   FontSize="15"
+                                   FontFamily="Monsterrat"
+                                   Margin="15,5,0,0"
+                                   OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                                   Grid.Row="2"
                                    Grid.Column="0"/>
+                            <Border
+                                CornerRadius="5"
+                                BorderBrush="LightGray"
+                                BorderThickness="3" 
+                                Grid.Row="2"
+                                Grid.Column="1"
+                                Height="25"
+                                Margin="15,5,12,0">
+                                <TextBox x:Name="txtLastName"
+                                         FontSize="13"
+                                         FontWeight="Medium"
+                                         FontFamily="Montserrat"
+                                         Background="LightGray"
+                                         Foreground="Black"
+                                         BorderThickness="0">
+                                </TextBox>
+                            </Border>
 
-                                <Border 
-                                    CornerRadius="5" 
-                                    BorderBrush="LightGray" 
-                                    BorderThickness="3" Grid.Row="1" 
-                                    Grid.Column="1"
-                                    Margin="11,14,12,4">
-                                    <TextBox x:Name="txtLastName"
-                                  Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
-                                 FontSize="13"
-                                 FontWeight="Medium"
-                                 FontFamily="Montserrat"
-                                 Background="LightGray"
-                                 Foreground="Black"
-                                 BorderThickness="0">
-                                    </TextBox>
-                                </Border>
+                            <Label x:Name="lblInvalidLastName" Content="{x:Static p:Resources.LblName}"
+                                   Foreground="Black"
+                                   FontWeight="Medium"
+                                   FontSize="10"
+                                   FontFamily="Monsterrat"
+                                   Margin="0,0,0,0"
+                                   OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                                   Grid.Row="3"
+                                   Grid.Column="3"/>
 
-
-
-                                <Label x:Name = "lblUsername" Content = "{x:Static p:Resources.LblUsername}"
-                                   Foreground ="White"
-                                   FontWeight = "Medium"
-                                   FontSize = "15"
-                                   FontFamily = "Monsterrat"
-                                   Margin="15,10,0,0" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
-                                   Grid.Row="2" Grid.Column="0"/>
-
-                                <Border 
-                                    CornerRadius="5" 
-                                    BorderBrush="LightGray" 
-                                    BorderThickness="3" 
-                                    Grid.Row="2" 
-                                    Grid.Column="1"
-                                    Margin="11,14,12,4">
-                                    <TextBox x:Name="txtUserName"
-                                  Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
-                                 FontSize="13"
-                                 FontWeight="Medium"
-                                 FontFamily="Montserrat"
-                                 Background="LightGray"
-                                 Foreground="Black"
-                                 BorderThickness="0">
-                                    </TextBox>
-                                </Border>
-
-                                <Label x:Name = "lblEmail" Content = "{x:Static p:Resources.LblEmail}"
-                                   Foreground ="White"
-                                   FontWeight = "Medium"
-                                   FontSize = "15"
-                                   FontFamily = "Monsterrat"
-                                   Margin="15,10,0,0" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
-                                   Grid.Row="3" Grid.Column="0"/>
-
-
-                                <Border 
-                                    CornerRadius="5" 
-                                    BorderBrush="LightGray" 
-                                    BorderThickness="3" 
-                                    Grid.Row="3" 
-                                    Grid.Column="1"
-                                    Margin="11,14,12,4">
-                                    <TextBox x:Name="txtEmail"
-                                  Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
-                                 FontSize="13"
-                                 FontWeight="Medium"
-                                 FontFamily="Montserrat"
-                                 Background="LightGray"
-                                 Foreground="Black"
-                                 BorderThickness="0">
-                                    </TextBox>
-                                </Border>
-
-                                <Label x:Name = "lblPassword" Content = "{x:Static p:Resources.LblPassword}"
-                                   Foreground ="White"
-                                   FontWeight = "Medium"
-                                   FontSize = "15"
-                                   FontFamily = "Monsterrat"
-                                   Margin="15,10,0,0" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
-                                   Grid.Row="4" Grid.Column="0" />
-
-                                <Border 
+                            <Label x:Name="lblGamerTag" Content="{x:Static p:Resources.LblUsername}"
+                                   Foreground="White"
+                                   FontWeight="Medium"
+                                   FontSize="15"
+                                   FontFamily="Monsterrat"
+                                   Margin="15,5,0,0"
+                                   OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                                   Grid.Row="4" Grid.Column="0"/>
+                            <Border
+                                CornerRadius="5"
+                                BorderBrush="LightGray"
+                                BorderThickness="3"
+                                Grid.Row="4"
+                                Grid.Column="1"
+                                Height="25"
+                                Margin="15,5,12,0">
+                                <TextBox x:Name="txtGamerTag"
+                                         FontSize="13"
+                                         FontWeight="Medium"
+                                         FontFamily="Montserrat"
+                                         Background="LightGray"
+                                         Foreground="Black"
+                                         BorderThickness="0">
+                                </TextBox>
+                            </Border>
+                            <Label x:Name="lblEmail" Content="{x:Static p:Resources.LblEmail}"
+                                   Foreground="White"
+                                   FontWeight="Medium"
+                                   FontSize="15"
+                                   FontFamily="Monsterrat"
+                                   Margin="15,10,0,0"
+                                   OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                                   Grid.Row="6" Grid.Column="0"/>
+                            <Border
+                                CornerRadius="5"
+                                BorderBrush="LightGray"
+                                BorderThickness="3"
+                                Grid.Row="6"
+                                Grid.Column="1"
+                                Height="25"
+                                Margin="15,5,12,0">
+                                <TextBox x:Name="txtEmail"
+                                         FontSize="13"
+                                         FontWeight="Medium"
+                                         FontFamily="Montserrat"
+                                         Background="LightGray"
+                                         Foreground="Black"
+                                         BorderThickness="0">
+                                </TextBox>
+                            </Border>
+        
+                            <Label x:Name="lblPassword" Content="{x:Static p:Resources.LblPassword}"
+                                   Foreground="White"
+                                   FontWeight="Medium"
+                                   FontSize="15"
+                                   FontFamily="Monsterrat"
+                                   Margin="15,10,0,0"
+                                   OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                                   Grid.Row="8" Grid.Column="0" />
+                            <Border 
                                     CornerRadius="5" 
                                     BorderBrush="LightGray"
                                     BorderThickness="3"
-                                    Grid.Row="4"
+                                    Grid.Row="8"
                                     Grid.Column="1"
-                                    Margin="11,14,12,4">
-                                    <PasswordBox x:Name="txtPassword"
+                                    Height="25"
+                                Margin="15,20,12,0">
+                                <PasswordBox x:Name="txtPassword"
                                  FontSize="13"
                                  FontWeight="Medium"
                                  FontFamily="Montserrat"
                                  Background="LightGray"
                                  Foreground="Black"
                                  BorderThickness="0">
-                                    </PasswordBox>
-                                </Border>
-
-                                <Label x:Name = "lblConfirmPassword" Content = "{x:Static p:Resources.LblConfirmPassword}"
-                                   Foreground ="White"
-                                   FontWeight = "Medium"
-                                   FontSize = "15"
-                                   FontFamily = "Monsterrat"
-                                   Margin="15,10,0,0" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                                </PasswordBox>
+                            </Border>
+                            <Label x:Name="lblConfirmPassword" Content="{x:Static p:Resources.LblConfirmPassword}"
+                                   Foreground="White"
+                                   FontWeight="Medium"
+                                   FontSize="15"
+                                   FontFamily="Monsterrat"
+                                   Margin="15,10,0,0"
+                                   OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="5" Grid.Column="0" />
-
-                                <Border 
+                            <Border 
                                     CornerRadius="5" 
                                     BorderBrush="LightGray"
                                     BorderThickness="3"
                                     Grid.Row="5"
                                     Grid.Column="1"
                                     Margin="11,30,12,4">
-                                    <PasswordBox x:Name="txtConfirmPasssword"
+                                <PasswordBox x:Name="txtConfirmPasssword"
                                  FontSize="13"
                                  FontWeight="Medium"
                                  FontFamily="Montserrat"
                                  Background="LightGray"
                                  Foreground="Black"
                                  BorderThickness="0">
-                                    </PasswordBox>
-                                </Border>
-                            </Grid>
-
-
-                        </StackPanel>
-                    </Border>
-
-                    <Button x:Name = "btnLogin"
-                            BorderThickness = "0"
-                            Content = "{x:Static p:Resources.BtnRegister}"
-                            Foreground = "White"
-                            FontSize = "12"
-                            FontWeight="Bold"
-                            Cursor = "Hand"
-                            Grid.Column = "2"
-                            Margin = "0,20,0,0">
-
-                        <Button.Style>
-                            <Style TargetType = "Button">
-                                <Setter Property = "Background" Value = "#AB2E2E"/>
-                            </Style>
-                        </Button.Style>
-
-                        <Button.Template>
-                            <ControlTemplate TargetType = "Button">
-                                <Border Width = "150" Height = "30"
-                                        CornerRadius = "10"
-                                        Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
-                                                      HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
-                </StackPanel>
-            </Grid>
+                                </PasswordBox>
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+                <Button x:Name="btnRegister"
+                        BorderThickness="0"
+                        Content="{x:Static p:Resources.BtnRegister}"
+                        Foreground="White"
+                        FontSize="12"
+                        FontWeight="Bold"
+                        Cursor="Hand"
+                        Grid.Column="2"
+                        Margin="0,20,0,0">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#AB2E2E"/>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="150" Height="30"
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </StackPanel>
         </Grid>
-    </Border>
+    </DockPanel>
 </Page>

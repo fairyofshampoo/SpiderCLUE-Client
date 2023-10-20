@@ -151,6 +151,9 @@
   <data name="BtnSettings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="LblAccountRecoveryTitle" xml:space="preserve">
+    <value>Account Recovery</value>
+  </data>
   <data name="LblChangeAvatar" xml:space="preserve">
     <value>Change Avatar</value>
   </data>
