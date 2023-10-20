@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Spider_Clue.Views"
+      xmlns:p = "clr-namespace:Spider_Clue.Properties"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="AccountRecoveryView">
@@ -16,5 +17,175 @@
                 </ImageBrush>
             </Border.Background>
         </Border>
+
+        <StackPanel Width="500"
+                    Orientation="Vertical"
+                    HorizontalAlignment="Center">
+
+            <Label x:Name = "lblAccountRecovery" Content = "{x:Static p:Resources.LblAccountRecoveryTitle}"
+                   Foreground = "White"
+                   FontWeight = "Light"
+                   FontSize = "35"
+                   FontFamily = "Monsterrat"
+                   HorizontalContentAlignment="Center"
+                   Margin="0,50,0,10"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition Height = "Auto" />
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Border
+                    CornerRadius="10"
+                    Height="Auto"
+                    Width="400"
+                    Background="#B45959"
+                    Grid.Row="0">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Label x:Name = "lblEmailForRecovery" Content = "{x:Static p:Resources.LblPassword}"
+                                   Width="360"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "15"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center"
+                                   Margin="0,5,0,0" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                                   Grid.Row="0"/>
+                            <Border
+                                Width="270"
+                                CornerRadius="5"
+                                BorderBrush="LightGray"
+                                BorderThickness="3"
+                                Grid.Row="1"
+                                Margin="15,10,15,10">
+                                <TextBox x:Name="txtEmailForRecovery" 
+                                         Height="20"
+                                         FontSize="13"
+                                         FontWeight="Medium"
+                                         FontFamily="Montserrat"
+                                         Background="LightGray"
+                                         Foreground="Black"
+                                         BorderThickness="0"/>
+                            </Border>
+                        </Grid>
+
+                        <Button x:Name = "btnSendCode"
+                            BorderThickness = "0"
+                            Content = "{x:Static p:Resources.BtnConfirm}"
+                            Foreground = "White"
+                            FontSize = "12"
+                            FontWeight="Bold"
+                            Cursor = "Hand"
+                            Margin = "0,5,0,10">
+
+                            <Button.Style>
+                                <Style TargetType = "Button">
+                                    <Setter Property = "Background" Value = "Black"/>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType = "Button">
+                                    <Border Width = "150" Height = "30"
+                                        CornerRadius = "10"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
+                </Border>
+
+                <Border
+                    CornerRadius="10"
+                    Height="Auto"
+                    Width="400"
+                    Background="#655E73"
+                    Grid.Row="1"
+                    Margin="0,50,0,0">
+                    <StackPanel>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label x:Name = "lblCode" Content = "{x:Static p:Resources.LblPassword}"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "15"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Left"
+                                   Margin="15,15,0,0" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                                   Grid.Row="0"
+                                   Grid.Column="0"/>
+                            <Border
+                                CornerRadius="5"
+                                BorderBrush="LightGray"
+                                BorderThickness="3"
+                                Grid.Row="0"
+                                Grid.Column="1"
+                                Width="250"
+                                Margin="15,15,15,10">
+                                <TextBox x:Name="txtCode" 
+                                         Height="20"
+                                         FontSize="13"
+                                         FontWeight="Medium"
+                                         FontFamily="Montserrat"
+                                         Background="LightGray"
+                                         Foreground="Black"
+                                         BorderThickness="0"/>
+                            </Border>
+                        </Grid>
+
+                        <Button x:Name = "btnRecover"
+                                BorderThickness = "0"
+                                Content = "{x:Static p:Resources.BtnConfirm}"
+                                Foreground = "White"
+                                FontSize = "12"
+                                FontWeight="Bold"
+                                Cursor = "Hand"
+                                Grid.Row="1"
+                                Grid.Column = "1"
+                                Margin = "0,5,0,10">
+                            
+                            <Button.Style>
+                                <Style TargetType = "Button">
+                                    <Setter Property = "Background" Value = "Black"/>
+                                </Style>
+                            </Button.Style>
+
+                            <Button.Template>
+                                <ControlTemplate TargetType = "Button">
+                                    <Border Width = "150" Height = "30"
+                                        CornerRadius = "10"
+                                        Background="{TemplateBinding Background}">
+                                        <ContentPresenter VerticalAlignment="Center"
+                                                          HorizontalAlignment="Center"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </StackPanel>
+                </Border>
+            </Grid>
+            
+        </StackPanel>
+
     </Grid>
 </Page>

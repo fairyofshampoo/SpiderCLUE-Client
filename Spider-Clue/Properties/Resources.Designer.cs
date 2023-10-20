@@ -61,15 +61,6 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Account Recovery.
-        /// </summary>
-        public static string AccountRecoveryTitle {
-            get {
-                return ResourceManager.GetString("AccountRecoveryTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Confirm.
         /// </summary>
         public static string BtnConfirm {
@@ -138,6 +129,15 @@ namespace Spider_Clue.Properties {
         public static string BtnSettings {
             get {
                 return ResourceManager.GetString("BtnSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account Recovery.
+        /// </summary>
+        public static string LblAccountRecoveryTitle {
+            get {
+                return ResourceManager.GetString("LblAccountRecoveryTitle", resourceCulture);
             }
         }
         

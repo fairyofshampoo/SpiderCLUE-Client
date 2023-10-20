@@ -33,9 +33,6 @@
                 <RowDefinition Height = "25" />
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
             <Grid>
                 <Label x:Name="lblTitle" Content = "{x:Static p:Resources.LblLoginTitle}"
                        Foreground = "White"

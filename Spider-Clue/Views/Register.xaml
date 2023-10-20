@@ -177,13 +177,13 @@
                                     Grid.Column="1"
                                     Margin="11,14,12,4">
                                     <TextBox x:Name="txtEmail"
-                                  Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
-                                 FontSize="13"
-                                 FontWeight="Medium"
-                                 FontFamily="Montserrat"
-                                 Background="LightGray"
-                                 Foreground="Black"
-                                 BorderThickness="0">
+                                             Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                                             FontSize="13"
+                                             FontWeight="Medium"
+                                             FontFamily="Montserrat"
+                                             Background="LightGray"
+                                             Foreground="Black"
+                                             BorderThickness="0">
                                     </TextBox>
                                 </Border>
 
