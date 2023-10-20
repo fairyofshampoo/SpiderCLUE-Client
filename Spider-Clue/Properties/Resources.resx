@@ -145,6 +145,9 @@
   <data name="BtnSettings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="LblChangeAvatar" xml:space="preserve">
+    <value>Change Avatar</value>
+  </data>
   <data name="LblConfirmPassword" xml:space="preserve">
     <value>Confirm 
 Password</value>
@@ -175,6 +178,9 @@ Password</value>
   </data>
   <data name="LblPasswordRecoveryTitle" xml:space="preserve">
     <value>Password Recovery</value>
+  </data>
+  <data name="LblProfileEdition" xml:space="preserve">
+    <value>Profile Edition</value>
   </data>
   <data name="LblRegister" xml:space="preserve">
     <value>Sign up</value>

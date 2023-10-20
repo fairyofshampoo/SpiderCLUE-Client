@@ -18,7 +18,7 @@
             </Border.Background>
         </Border>
 
-        <Label x:Name = "lblProfileEditionViewTitle" Content = "{x:Static p:Resources.LblUsername}"
+        <Label x:Name = "lblProfileEditionViewTitle" Content = "{x:Static p:Resources.LblProfileEdition}"
                Foreground = "White"
                FontWeight = "Light"
                FontSize = "40"
@@ -33,9 +33,71 @@
             Height="150"
             Width="300"
             Margin="10,0,0,0">
-            
-            
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <Border 
+                CornerRadius="10"
+                Margin="20,20,0,0"
+                Width="40"
+                Height="40"
+                Grid.Column="0"
+                VerticalAlignment="Top">
+                    <Border.Background>
+                        <ImageBrush ImageSource = "/Images/MilesMoralesICON.jpg"
+                            Stretch = "Fill">
+                        </ImageBrush>
+                    </Border.Background>
+                </Border>
+               
+                    <Label x:Name = "lblChangeAvatar" Content = "{x:Static p:Resources.LblChangeAvatar}"
+                           Foreground = "Black"
+                           FontWeight = "Bold"
+                           FontSize = "8"
+                           FontFamily = "Monsterrat"
+                           Margin="20,59,0,69"
+                           Grid.Row="0"/>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    
+                </Grid>
+
+                    <Label x:Name = "lblName" Content = "{x:Static p:Resources.LblName}"
+                                   Foreground ="White"
+                                   FontWeight = "Bold"
+                                   FontSize = "15"
+                                   FontFamily = "Monsterrat"
+                                   Margin="15,20,0,39" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                                   Grid.Row="0"
+                                   Grid.Column="1" Grid.RowSpan="2"/>
+
+                            <Border 
+                                    CornerRadius="5" 
+                                    BorderBrush="LightGray" 
+                                    BorderThickness="3" Grid.Row="0" 
+                                    Grid.Column="1"
+                                    Margin="11,24,12,4">
+                    <TextBox x:Name="txtName"
+                                  Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                                 FontSize="13"
+                                 FontWeight="Medium"
+                                 FontFamily="Montserrat"
+                                 Background="LightGray"
+                                 Foreground="Black"
+                                 BorderThickness="0">
+                    </TextBox>
+                </Border>
+
+
+            </Grid>
         </Border>
-        
     </Grid>
 </Page>

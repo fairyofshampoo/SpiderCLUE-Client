@@ -142,6 +142,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change Avatar.
+        /// </summary>
+        public static string LblChangeAvatar {
+            get {
+                return ResourceManager.GetString("LblChangeAvatar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Confirm 
         ///Password.
         /// </summary>
@@ -229,6 +238,15 @@ namespace Spider_Clue.Properties {
         public static string LblPasswordRecoveryTitle {
             get {
                 return ResourceManager.GetString("LblPasswordRecoveryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile Edition.
+        /// </summary>
+        public static string LblProfileEdition {
+            get {
+                return ResourceManager.GetString("LblProfileEdition", resourceCulture);
             }
         }
         
