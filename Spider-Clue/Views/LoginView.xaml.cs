@@ -39,8 +39,8 @@ namespace Spider_Clue.Views
 
         private void LblForgotPassword_Clicked(object sender, MouseButtonEventArgs e)
         {
-            PasswordRecoveryView passwordRecoveryView = new PasswordRecoveryView();
-            this.NavigationService.Navigate(passwordRecoveryView);
+            AccountRecoveryView accountRecoveryView = new AccountRecoveryView();
+            this.NavigationService.Navigate(accountRecoveryView);
         }
     }
 }
