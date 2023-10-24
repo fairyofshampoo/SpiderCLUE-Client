@@ -109,7 +109,8 @@
                                    Margin="0,0,0,0"
                                    OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="1"
-                                   Grid.Column="2"/>
+                                   Grid.Column="2"
+                                       Visibility="Hidden"/>
 
                                 <Label x:Name="lblLastName" Content="{x:Static p:Resources.LblLastName}"
                                    Foreground="White"
@@ -146,7 +147,8 @@
                                    Margin="0,0,0,0"
                                    OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="3"
-                                   Grid.Column="2"/>
+                                   Grid.Column="2"
+                                       Visibility="Hidden"/>
 
                                 <Label x:Name="lblGamerTag" Content="{x:Static p:Resources.LblUsername}"
                                    Foreground="White"
@@ -181,7 +183,8 @@
                                    Margin="0,0,0,0"
                                    OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="5"
-                                   Grid.Column="2"/>
+                                   Grid.Column="2"
+                                       Visibility="Hidden"/>
 
                                 <Label x:Name="lblEmail" Content="{x:Static p:Resources.LblEmail}"
                                    Foreground="White"
@@ -216,7 +219,8 @@
                                    Margin="0,0,0,0"
                                    OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="7"
-                                   Grid.Column="2"/>
+                                   Grid.Column="2"
+                                       Visibility="Hidden"/>
 
                                 <Label x:Name="lblPassword" Content="{x:Static p:Resources.LblPassword}"
                                    Foreground="White"
@@ -252,7 +256,8 @@
                                    Margin="0,0,0,0"
                                    OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="9"
-                                   Grid.Column="2"/>
+                                   Grid.Column="2"
+                                       Visibility="Hidden"/>
 
                                 <Label x:Name="lblConfirmPassword" Content="{x:Static p:Resources.LblConfirmPassword}"
                                    Foreground="White"
@@ -287,7 +292,8 @@
                                    Margin="0,0,0,0"
                                    OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="11"
-                                   Grid.Column="2"/>
+                                   Grid.Column="2"
+                                       Visibility="Hidden"/>
                             </Grid>
                         </StackPanel>
                     </Border>
