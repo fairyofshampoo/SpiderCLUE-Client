@@ -305,7 +305,7 @@
                         FontWeight="Bold"
                         Cursor="Hand"
                         Grid.Column="2"
-                        Margin="0,20,0,0">
+                        Margin="0,20,0,0" Click="BtnRegister_Click">
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="#AB2E2E"/>
