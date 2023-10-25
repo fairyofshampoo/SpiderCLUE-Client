@@ -39,11 +39,6 @@ namespace Spider_Clue.Views
             if (dataValidation)
             {
                 dataValidation = ArePasswordsMatching();
-
-                if (dataValidation)
-                {
-                    dataValidation = IsEmailExisting();
-                }
             }
 
             return dataValidation;
@@ -119,15 +114,18 @@ namespace Spider_Clue.Views
                 passwordsValidation = true;
             } else
             {
-
+                lblPasswordsDontMatch.Visibility = Visibility.Visible;
             }
 
             return passwordsValidation;
         }
 
-        private bool IsEmailExisting()
+        private void BtnRegister_Click(object sender, RoutedEventArgs e)
         {
-            return true;
+            if (AreDataValid())
+            {
+
+            }
         }
     }
 }
