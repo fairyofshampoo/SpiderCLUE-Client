@@ -170,6 +170,9 @@ Password</value>
   <data name="LblForgotPassword" xml:space="preserve">
     <value>Forgot your password?</value>
   </data>
+  <data name="LblIntroducePassword" xml:space="preserve">
+    <value>Please, introduce your password to continue</value>
+  </data>
   <data name="LblLastName" xml:space="preserve">
     <value>Last Name</value>
   </data>
