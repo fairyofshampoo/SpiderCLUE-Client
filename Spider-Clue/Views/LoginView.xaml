@@ -142,7 +142,7 @@
                         FontSize="14"
                         FontFamily="Montserrat"
                         Cursor="Hand"
-                        Margin="0,0,0,0">
+                        Margin="0,0,0,0" Click="btnLogin_Click">
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="Background" Value="#B45959" />

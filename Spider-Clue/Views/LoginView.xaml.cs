@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for LoginView.xaml
-    /// </summary>
+ 
     public partial class LoginView : Page
     {
         public LoginView()
@@ -41,6 +39,11 @@ namespace Spider_Clue.Views
         {
             AccountRecoveryView accountRecoveryView = new AccountRecoveryView();
             this.NavigationService.Navigate(accountRecoveryView);
+        }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Spider_Clue.SpiderClueService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -128,6 +129,21 @@ namespace Spider_Clue.Views
         private bool IsEmailExisting()
         {
             return true;
+        }
+
+        private void BtnRegister_Click(object sender, RoutedEventArgs e)
+        {
+           
+                Gamer gamer = new Gamer()
+                {
+                    FirstName = txtName.Text,
+                    LastName = txtLastName.Text,
+                    Gamertag = txtGamerTag.Text,
+                    Email = txtEmail.Text,
+                    Password = txtPassword.Password,
+                };
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                userManager.AddUserTransaction(gamer);
         }
     }
 }
