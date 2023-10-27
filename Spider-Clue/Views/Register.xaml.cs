@@ -17,6 +17,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Security.Cryptography;
+using Spider_Clue.SpiderClueService;
+using System.Net.Mail;
 
 namespace Spider_Clue.Views
 {
@@ -35,19 +37,21 @@ namespace Spider_Clue.Views
                 {
                     MessageBox.Show("Exito", "EXITO", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
-                else
-                {
-                    MessageBox.Show("Ocurrió algo feito", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+            }
+            else
+            {
+                MessageBox.Show("Ocurrió algo feito", "ERROR", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
         private bool AreDataValid()
         {
-            bool validationAccount = ValidateAccountData();
-            bool validationUser = ValidateUserData();
-            ArePasswordsMatching();
-            bool dataValidation = validationAccount && validationUser;
+            bool dataValidation = false;
+
+            if(ValidateAccountData() && ValidateUserData() && ArePasswordsMatching())
+            {
+                dataValidation = true;
+            }
 
 
             return dataValidation;
@@ -58,8 +62,7 @@ namespace Spider_Clue.Views
             SecureString securePassword = txtPassword.SecurePassword;
             string password = new NetworkCredential(string.Empty, securePassword).Password;
             string email = txtEmail.Text;
-            Regex passwordRegex = new Regex("^(?=.*[!@#$%^&*()_+])[A-Za-z0-9!@#$%^&*()_+]{8,16}$\r\n");
-            Regex emailRegex = new Regex("^(?=.{1,50}$)[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$\r\n");
+            Regex passwordRegex = new Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d\\W]{8,50}$");
             bool dataValidation = true;
 
             if (!passwordRegex.IsMatch(password))
@@ -68,7 +71,7 @@ namespace Spider_Clue.Views
                 lblInvalidPassword.Visibility = Visibility.Visible;
             }
 
-            if (!emailRegex.IsMatch(email))
+            if (!IsValidEmail(email))
             {
                 dataValidation = false;
                 lblInvalidEmail.Visibility = Visibility.Visible;
@@ -77,12 +80,29 @@ namespace Spider_Clue.Views
             return dataValidation;
         }
 
+        private bool IsValidEmail(string email)
+        {
+            if (string.IsNullOrEmpty(email) || email.Length > 50)
+            {
+                return false;
+            }
+            try
+            {
+                var mailAddress = new MailAddress(email);
+                return true;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+        }
+
         private bool ValidateUserData()
         {
             string gamerTag = txtGamerTag.Text;
             string name = txtName.Text;
             string lastName = txtLastName.Text;
-            Regex nameRegex = new Regex("^(?!.*\\s)(?=[a-zA-ZáéíóúüñÁÉÍÓÚÜÑ]+$).{1,50}$");
+            Regex nameRegex = new Regex("^[\\p{L}\\p{M}\\s]{1,50}$");
             Regex gamerTagRegex = new Regex("^(?=.*[A-Za-z0-9])[A-Za-z0-9]{1,15}$");
             bool dataValidation = true;
 
@@ -115,7 +135,7 @@ namespace Spider_Clue.Views
             string passwordToConfirm = new NetworkCredential(string.Empty, securePasswordToConfirm).Password;
             bool passwordsValidation = false;
 
-            if(password == passwordToConfirm)
+            if(password.Equals(passwordToConfirm))
             {
                 passwordsValidation = true;
             } 
@@ -154,7 +174,19 @@ namespace Spider_Clue.Views
         private Boolean RegisterGamerInDatabase()
         {
             bool result = false;
-
+            Gamer gamer = new Gamer()
+            {
+                FirstName = txtName.Text,
+                LastName = txtLastName.Text,
+                Gamertag = txtGamerTag.Text,
+                Email = txtEmail.Text,
+                Password = txtPassword.Password,
+            };
+            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+            if(userManager.AddUserTransaction(gamer) == 1)
+            {
+                result = true;
+            }
             return result;
         }
     }
