@@ -25,7 +25,7 @@
                 Width="50" Height="50"
                 BorderThickness="0"
                 Margin="100,50,40,10"
-                Click="Button_Click"
+                Click="BtnGoBack_Click"
                 Cursor="Hand">
                     <Button.Template>
                         <ControlTemplate>

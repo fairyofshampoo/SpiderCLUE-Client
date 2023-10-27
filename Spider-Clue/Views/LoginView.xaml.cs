@@ -50,7 +50,7 @@ namespace Spider_Clue.Views
         private void SetGuessPlayerData()
         {
             string guessPlayerUsername = GenerateGuessPlayerUsername();
-            UserSingleton.Instance.Initialize(guessPlayerUsername,);
+            ///UserSingleton.Instance.Initialize(guessPlayerUsername,);
         }
 
         private string GenerateGuessPlayerUsername()

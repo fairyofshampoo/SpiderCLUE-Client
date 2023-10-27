@@ -215,6 +215,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please, introduce your password to continue.
+        /// </summary>
+        public static string LblIntroducePassword {
+            get {
+                return ResourceManager.GetString("LblIntroducePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Last Name.
         /// </summary>
         public static string LblLastName {
