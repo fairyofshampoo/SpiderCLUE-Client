@@ -11,30 +11,31 @@
         <BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
     </Page.Resources>
     <DockPanel>
-        <Grid>
-            <Border>
-                <Border.Background>
-                    <ImageBrush ImageSource="/Images/backgroundLOGIN.png"
-                            Stretch="Fill">
-                    </ImageBrush>
-                </Border.Background>
-            </Border>
-            <Border Opacity = "0.75">
-                <Border.Background>
-                    <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                        <GradientStop Color = "DarkRed" Offset="0"/>
-                        <GradientStop Color = "Black" Offset="0.55"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
-
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height = "25" />
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
+                <Border>
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/backgroundLOGIN.png"
+                            Stretch="Fill">
+                        </ImageBrush>
+                    </Border.Background>
+                </Border>
+                <Border Opacity = "0.75">
+                    <Border.Background>
+                        <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
+                            <GradientStop Color = "DarkRed" Offset="0"/>
+                            <GradientStop Color = "Black" Offset="0.55"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+                </Border>
+
                 <Grid>
-                    <Label x:Name="lblTitle" Content = "{x:Static p:Resources.LblLoginTitle}"
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height = "25" />
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Label x:Name="lblTitle" Content = "{x:Static p:Resources.LblLoginTitle}"
                        Foreground = "White"
                        FontSize = "12"
                        FontFamily = "Montserrat"
@@ -42,11 +43,11 @@
                        VerticalAlignment = "Center"
                        HorizontalContentAlignment="Left"
                        Margin = "10,0,0,0"/>
-                </Grid>
-                <StackPanel Width="500" Grid.Row="1" Orientation="Vertical"  Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                    <Image Source="/Images/Logo.png" Width="290" Height="97" />
+                    </Grid>
+                    <StackPanel Width="500" Grid.Row="1" Orientation="Vertical"  Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                        <Image Source="/Images/Logo.png" Width="290" Height="97" />
 
-                    <Label x:Name="lblUsername" Content="{x:Static p:Resources.LblUsername}"
+                        <Label x:Name="lblUsername" Content="{x:Static p:Resources.LblUsername}"
                        Foreground="White"
                        FontWeight="Bold"
                        FontSize="16"
@@ -55,19 +56,19 @@
                        VerticalAlignment="Center"
                        Margin="100,0,0,0"/>
 
-                    <Border CornerRadius="5" BorderBrush="LightGray" BorderThickness="3" 
+                        <Border CornerRadius="5" BorderBrush="LightGray" BorderThickness="3" 
                         Width="250" HorizontalAlignment="Left"
                         Margin="100,0,0,0">
-                        <TextBox x:Name="txtUsername" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                            <TextBox x:Name="txtUsername" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                              FontSize="13"
                              FontWeight="Medium"
                              FontFamily="Montserrat"
                              Background="LightGray"
                              Foreground="Black"
                              BorderThickness="0" />
-                    </Border>
+                        </Border>
 
-                    <Label x:Name="lblUsernameError" Content="{x:Static p:Resources.LblUsernameError}"
+                        <Label x:Name="lblUsernameError" Content="{x:Static p:Resources.LblUsernameError}"
                        Background="Black"
                        Foreground="Red"
                        FontWeight="Bold"
@@ -78,7 +79,7 @@
                        Margin="0,5,0,0"
                        Visibility="Hidden"/>
 
-                    <Label x:Name="lblPassword" Content="{x:Static p:Resources.LblPassword}"
+                        <Label x:Name="lblPassword" Content="{x:Static p:Resources.LblPassword}"
                        Foreground="White"
                        FontWeight="Bold"
                        FontSize="16"
@@ -87,39 +88,39 @@
                        VerticalAlignment="Center"
                        Margin="100,0,0,0" />
 
-                    <Grid>
+                        <Grid>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width = "350"/>
-                            <ColumnDefinition Width = "*"/>
-                        </Grid.ColumnDefinitions>
-                        <Border 
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width = "350"/>
+                                <ColumnDefinition Width = "*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border 
                                     CornerRadius="5" 
                                     BorderBrush="LightGray"
                                     BorderThickness="3"
                                     Grid.Row="4"
                                     Grid.Column="0"
                                     Margin="100,0,0,0">
-                            <PasswordBox x:Name="txtPassword"
+                                <PasswordBox x:Name="txtPassword"
                                  FontSize="13"
                                  FontWeight="Medium"
                                  FontFamily="Montserrat"
                                  Background="LightGray"
                                  Foreground="Black"
                                  BorderThickness="0">
-                            </PasswordBox>
-                        </Border>
-                        <Button x:Name="btnPasswordVisibility" Grid.Column="1"
+                                </PasswordBox>
+                            </Border>
+                            <Button x:Name="btnPasswordVisibility" Grid.Column="1"
                             Cursor="Hand">
-                            <Button.Template>
-                                <ControlTemplate>
-                                    <Image Source="/Images/VisibleIcon.png" Width="20" Height="20" HorizontalAlignment="Left" Margin="10,0,0,0"/>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
-                    </Grid>
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <Image Source="/Images/VisibleIcon.png" Width="20" Height="20" HorizontalAlignment="Left" Margin="10,0,0,0"/>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
 
-                    <Label x:Name="lblPasswordError" Content="{x:Static p:Resources.LblPasswordError}"
+                        <Label x:Name="lblPasswordError" Content="{x:Static p:Resources.LblPasswordError}"
                        Background="Black"
                        Foreground="Red"
                        FontWeight="Bold"
@@ -129,42 +130,43 @@
                        VerticalAlignment="Center"
                        Margin="0,5,0,0" 
                        Visibility="Hidden"/>
-                    <Grid>
+                        <Grid>
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width = "200"/>
-                            <ColumnDefinition Width = "200"/>
-                        </Grid.ColumnDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width = "200"/>
+                                <ColumnDefinition Width = "200"/>
+                            </Grid.ColumnDefinitions>
 
-                        <Button x:Name="btnLogin" Grid.Column="1" Command="{Binding LoginCommand}" BorderThickness="0"
+                            <Button x:Name="btnLogin" Grid.Column="1" Command="{Binding LoginCommand}" BorderThickness="0"
                         Content="{x:Static p:Resources.BtnLogin}"
                         Foreground="White"
                         FontSize="14"
                         FontFamily="Montserrat"
                         Cursor="Hand"
-                        Margin="0,0,0,0" Click="btnLogin_Click">
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Background" Value="#B45959" />
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#000000" />
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Width="100" Height="40" CornerRadius="20"
+                        Margin="0,0,0,0"
+                                    Click="BtnLogin_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#B45959" />
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#000000" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Width="100" Height="40" CornerRadius="20"
                                     Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
+                                            <ContentPresenter VerticalAlignment="Center"
                                                   HorizontalAlignment="Center" />
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
 
-                        <Button x:Name="btnGuestPlayer" Grid.Column="0" Command="{Binding LoginCommand}" BorderThickness="0"
+                            <Button x:Name="btnGuestPlayer" Grid.Column="0" Command="{Binding LoginCommand}" BorderThickness="0"
                         Content="{x:Static p:Resources.BtnGuestPlayer}"
                         Foreground="White"
                         FontSize="14"
@@ -172,29 +174,29 @@
                         Cursor="Hand"
                         Margin="0,0,0,0"
                             HorizontalAlignment="Right" Click="BtnGuestPlayer_Click">
-                            <Button.Style>
-                                <Style TargetType="Button">
-                                    <Setter Property="Background" Value="#48457D" />
-                                    <Style.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" Value="#000000" />
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Button.Style>
-                            <Button.Template>
-                                <ControlTemplate TargetType="Button">
-                                    <Border Width="100" Height="40" CornerRadius="20"
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#48457D" />
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#000000" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Width="100" Height="40" CornerRadius="20"
                                     Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
+                                            <ContentPresenter VerticalAlignment="Center"
                                                   HorizontalAlignment="Center" />
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
-                    </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
 
-                    <Label x:Name="lblForgotPassword" Content="{x:Static p:Resources.LblForgotPassword}"
+                        <Label x:Name="lblForgotPassword" Content="{x:Static p:Resources.LblForgotPassword}"
                        Foreground="White"
                        FontWeight="Medium"
                        FontSize="13"
@@ -205,7 +207,7 @@
                        Cursor="Hand" 
                        MouseLeftButtonDown="LblForgotPassword_Clicked"/>
 
-                    <Label x:Name="lblRegister" Content="{x:Static p:Resources.LblRegister}"
+                        <Label x:Name="lblRegister" Content="{x:Static p:Resources.LblRegister}"
                        Foreground="White"
                        FontWeight="Medium"
                        FontSize="13"
@@ -215,8 +217,9 @@
                        Margin="100,1,0,0"
                        Cursor="Hand"
                        MouseLeftButtonDown="LblRegister_Clicked"/>
-                </StackPanel>
+                    </StackPanel>
+                </Grid>
             </Grid>
-        </Grid>
+        </ScrollViewer>
     </DockPanel>
 </Page>
