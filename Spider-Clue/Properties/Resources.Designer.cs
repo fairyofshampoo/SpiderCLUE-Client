@@ -215,11 +215,49 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Code.
+        /// </summary>
+        public static string LblGameCode {
+            get {
+                return ResourceManager.GetString("LblGameCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please, introduce your password to continue.
         /// </summary>
         public static string LblIntroducePassword {
             get {
                 return ResourceManager.GetString("LblIntroducePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English
+        ///(EUA).
+        /// </summary>
+        public static string LblLanguageEnglish {
+            get {
+                return ResourceManager.GetString("LblLanguageEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Language.
+        /// </summary>
+        public static string LblLanguageSettingTitle {
+            get {
+                return ResourceManager.GetString("LblLanguageSettingTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spanish 
+        ///(Mexico).
+        /// </summary>
+        public static string LblLanguageSpanish {
+            get {
+                return ResourceManager.GetString("LblLanguageSpanish", resourceCulture);
             }
         }
         

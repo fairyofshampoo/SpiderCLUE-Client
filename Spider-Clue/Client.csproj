@@ -95,6 +95,12 @@
     <Compile Include="Views\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SearchGameView.xaml.cs">
+      <DependentUpon>SearchGameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -135,6 +141,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\SearchGameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -158,14 +172,14 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\SpiderClueService\GameService.wsdl" />
-    <None Include="Connected Services\SpiderClueService\item.xsd">
+    <None Include="Connected Services\SpiderClueService\GameService11.wsdl" />
+    <None Include="Connected Services\SpiderClueService\item33.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SpiderClueService\item1.xsd">
+    <None Include="Connected Services\SpiderClueService\item34.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SpiderClueService\item2.xsd">
+    <None Include="Connected Services\SpiderClueService\item35.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\Settings.settings">
@@ -207,9 +221,6 @@
     <WCFMetadataStorage Include="Connected Services\SpiderClueService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SpiderClueService\item.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Connected Services\SpiderClueService\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +231,21 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\SpiderClueService\item11.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GameControllerIcon.png" />
+    <Resource Include="Images\MagnifyingGlassIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\configBackground.png" />
+    <Resource Include="Images\paperIMG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\EUAFlag.png" />
+    <Resource Include="Images\MexicoFlag.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

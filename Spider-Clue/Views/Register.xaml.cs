@@ -18,7 +18,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Security.Cryptography;
-using Spider_Clue.SpiderClueService;
 using System.Net.Mail;
 
 namespace Spider_Clue.Views
@@ -191,7 +190,7 @@ namespace Spider_Clue.Views
             return result;
         }
 
-        private void BtnRegister_Click(object sender, RoutedEventArgs e)
+        private void BtnDontRegister_Click(object sender, RoutedEventArgs e)
         {
            
                 Gamer gamer = new Gamer()
