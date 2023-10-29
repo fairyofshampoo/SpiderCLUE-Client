@@ -170,8 +170,22 @@ Password</value>
   <data name="LblForgotPassword" xml:space="preserve">
     <value>Forgot your password?</value>
   </data>
+  <data name="LblGameCode" xml:space="preserve">
+    <value>Code</value>
+  </data>
   <data name="LblIntroducePassword" xml:space="preserve">
     <value>Please, introduce your password to continue</value>
+  </data>
+  <data name="LblLanguageEnglish" xml:space="preserve">
+    <value>English
+(EUA)</value>
+  </data>
+  <data name="LblLanguageSettingTitle" xml:space="preserve">
+    <value>Select Language</value>
+  </data>
+  <data name="LblLanguageSpanish" xml:space="preserve">
+    <value>Spanish 
+(Mexico)</value>
   </data>
   <data name="LblLastName" xml:space="preserve">
     <value>Last Name</value>

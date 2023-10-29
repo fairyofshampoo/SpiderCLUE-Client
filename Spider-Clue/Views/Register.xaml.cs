@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Spider_Clue.SpiderClueService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Security.Cryptography;
-using Spider_Clue.SpiderClueService;
 using System.Net.Mail;
 
 namespace Spider_Clue.Views
@@ -188,6 +188,21 @@ namespace Spider_Clue.Views
                 result = true;
             }
             return result;
+        }
+
+        private void BtnDontRegister_Click(object sender, RoutedEventArgs e)
+        {
+           
+                Gamer gamer = new Gamer()
+                {
+                    FirstName = txtName.Text,
+                    LastName = txtLastName.Text,
+                    Gamertag = txtGamerTag.Text,
+                    Email = txtEmail.Text,
+                    Password = txtPassword.Password,
+                };
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                userManager.AddUserTransaction(gamer);
         }
     }
 }
