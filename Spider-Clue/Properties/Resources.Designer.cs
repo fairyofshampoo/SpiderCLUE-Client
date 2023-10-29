@@ -133,6 +133,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Recover Account.
+        /// </summary>
+        public static string BtnRecover {
+            get {
+                return ResourceManager.GetString("BtnRecover", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Register.
         /// </summary>
         public static string BtnRegister {
@@ -151,11 +160,56 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Send Code.
+        /// </summary>
+        public static string BtnSendCode {
+            get {
+                return ResourceManager.GetString("BtnSendCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Settings.
         /// </summary>
         public static string BtnSettings {
             get {
                 return ResourceManager.GetString("BtnSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Verify code.
+        /// </summary>
+        public static string BtnVerifyCode {
+            get {
+                return ResourceManager.GetString("BtnVerifyCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred during the registration process. Please try again later..
+        /// </summary>
+        public static string DlgRegisterError {
+            get {
+                return ResourceManager.GetString("DlgRegisterError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your new account registration was successful. Welcome!.
+        /// </summary>
+        public static string DlgRegisterSuccessful {
+            get {
+                return ResourceManager.GetString("DlgRegisterSuccessful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ERROR.
+        /// </summary>
+        public static string ErrorTitle {
+            get {
+                return ResourceManager.GetString("ErrorTitle", resourceCulture);
             }
         }
         
@@ -178,11 +232,29 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Account Verification.
+        /// </summary>
+        public static string LblAccountVerification {
+            get {
+                return ResourceManager.GetString("LblAccountVerification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change Avatar.
         /// </summary>
         public static string LblChangeAvatar {
             get {
                 return ResourceManager.GetString("LblChangeAvatar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code.
+        /// </summary>
+        public static string LblCode {
+            get {
+                return ResourceManager.GetString("LblCode", resourceCulture);
             }
         }
         
@@ -206,6 +278,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter the email address associated with your account..
+        /// </summary>
+        public static string LblEmailForRecovery {
+            get {
+                return ResourceManager.GetString("LblEmailForRecovery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forgot your password?.
         /// </summary>
         public static string LblForgotPassword {
@@ -215,11 +296,66 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This gamertag is already in use..
+        /// </summary>
+        public static string LblGamerTagUsed {
+            get {
+                return ResourceManager.GetString("LblGamerTagUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please, introduce your password to continue.
         /// </summary>
         public static string LblIntroducePassword {
             get {
                 return ResourceManager.GetString("LblIntroducePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid format. (1-50) eg. spiderclue@gmail.com.
+        /// </summary>
+        public static string LblInvalidEMail {
+            get {
+                return ResourceManager.GetString("LblInvalidEMail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gamertag only allows letters and numbers (1-15 characters).
+        /// </summary>
+        public static string LblInvalidGamerTag {
+            get {
+                return ResourceManager.GetString("LblInvalidGamerTag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Last name only allows letters and spaces (1-50 characters).
+        /// </summary>
+        public static string LblInvalidLastName {
+            get {
+                return ResourceManager.GetString("LblInvalidLastName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name only allows letters and spaces (1-50 characters).
+        /// </summary>
+        public static string LblInvalidName {
+            get {
+                return ResourceManager.GetString("LblInvalidName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password must have uppercase and lowercase letters,
+        ///symbols and at least one digit (8-45 characters).
+        /// </summary>
+        public static string LblInvalidPassword {
+            get {
+                return ResourceManager.GetString("LblInvalidPassword", resourceCulture);
             }
         }
         
@@ -269,20 +405,29 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wrong password.
-        /// </summary>
-        public static string LblPasswordError {
-            get {
-                return ResourceManager.GetString("LblPasswordError", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Password Recovery.
         /// </summary>
         public static string LblPasswordRecoveryTitle {
             get {
                 return ResourceManager.GetString("LblPasswordRecoveryTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords do not match.
+        /// </summary>
+        public static string LblPasswordsDontMatch {
+            get {
+                return ResourceManager.GetString("LblPasswordsDontMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong password.
+        /// </summary>
+        public static string LblPasswordWrong {
+            get {
+                return ResourceManager.GetString("LblPasswordWrong", resourceCulture);
             }
         }
         
@@ -337,6 +482,15 @@ namespace Spider_Clue.Properties {
         public static string RegisterTitle {
             get {
                 return ResourceManager.GetString("RegisterTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SUCCESS.
+        /// </summary>
+        public static string SuccessTitle {
+            get {
+                return ResourceManager.GetString("SuccessTitle", resourceCulture);
             }
         }
     }
