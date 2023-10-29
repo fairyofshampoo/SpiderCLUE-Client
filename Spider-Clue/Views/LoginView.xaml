@@ -59,7 +59,7 @@
                         <Border CornerRadius="5" BorderBrush="LightGray" BorderThickness="3" 
                         Width="250" HorizontalAlignment="Left"
                         Margin="100,0,0,0">
-                            <TextBox x:Name="txtUsername" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
+                            <TextBox x:Name="txtUsername"
                              FontSize="13"
                              FontWeight="Medium"
                              FontFamily="Montserrat"
@@ -120,7 +120,7 @@
                             </Button>
                         </Grid>
 
-                        <Label x:Name="lblPasswordError" Content="{x:Static p:Resources.LblPasswordError}"
+                        <Label x:Name="lblPasswordInvalid" Content="{x:Static p:Resources.LblPasswordWrong }"
                        Background="Black"
                        Foreground="Red"
                        FontWeight="Bold"
@@ -137,7 +137,7 @@
                                 <ColumnDefinition Width = "200"/>
                             </Grid.ColumnDefinitions>
 
-                            <Button x:Name="btnLogin" Grid.Column="1" Command="{Binding LoginCommand}" BorderThickness="0"
+                            <Button x:Name="btnLogin" Grid.Column="1" BorderThickness="0"
                         Content="{x:Static p:Resources.BtnLogin}"
                         Foreground="White"
                         FontSize="14"

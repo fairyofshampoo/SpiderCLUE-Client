@@ -97,11 +97,12 @@
                                          FontFamily="Montserrat"
                                          Background="LightGray"
                                          Foreground="Black"
-                                         BorderThickness="0">
+                                         BorderThickness="0"
+                                             TextChanged="TypingName">
                                     </TextBox>
                                 </Border>
 
-                                <Label x:Name="lblInvalidName" Content="{x:Static p:Resources.LblName}"
+                                <Label x:Name="lblInvalidName" Content="{x:Static p:Resources.LblInvalidName}"
                                    Foreground="Black"
                                    FontWeight="Medium"
                                    FontSize="10"
@@ -135,11 +136,12 @@
                                          FontFamily="Montserrat"
                                          Background="LightGray"
                                          Foreground="Black"
-                                         BorderThickness="0">
+                                         BorderThickness="0"
+                                             TextChanged="TypingLastName">
                                     </TextBox>
                                 </Border>
 
-                                <Label x:Name="lblInvalidLastName" Content="{x:Static p:Resources.LblName}"
+                                <Label x:Name="lblInvalidLastName" Content="{x:Static p:Resources.LblInvalidLastName}"
                                    Foreground="Black"
                                    FontWeight="Medium"
                                    FontSize="10"
@@ -172,10 +174,11 @@
                                          FontFamily="Montserrat"
                                          Background="LightGray"
                                          Foreground="Black"
-                                         BorderThickness="0">
+                                         BorderThickness="0"
+                                             TextChanged="TypingGamerTag">
                                     </TextBox>
                                 </Border>
-                                <Label x:Name="lblInvalidUserName" Content="{x:Static p:Resources.LblName}"
+                                <Label x:Name="lblInvalidGamerTag" Content="{x:Static p:Resources.LblInvalidGamerTag}"
                                    Foreground="Black"
                                    FontWeight="Medium"
                                    FontSize="10"
@@ -208,10 +211,11 @@
                                          FontFamily="Montserrat"
                                          Background="LightGray"
                                          Foreground="Black"
-                                         BorderThickness="0">
+                                         BorderThickness="0"
+                                             TextChanged="TypingEMail">
                                     </TextBox>
                                 </Border>
-                                <Label x:Name="lblInvalidEmail" Content="{x:Static p:Resources.LblName}"
+                                <Label x:Name="lblInvalidEmail" Content="{x:Static p:Resources.LblInvalidEMail}"
                                    Foreground="Black"
                                    FontWeight="Medium"
                                    FontSize="10"
@@ -244,11 +248,12 @@
                                  FontFamily="Montserrat"
                                  Background="LightGray"
                                  Foreground="Black"
-                                 BorderThickness="0">
+                                 BorderThickness="0"
+                                                 PasswordChanged="TypingPassword">
                                     </PasswordBox>
                                 </Border>
 
-                                <Label x:Name="lblInvalidPassword" Content="{x:Static p:Resources.LblName}"
+                                <Label x:Name="lblInvalidPassword" Content="{x:Static p:Resources.LblInvalidPassword}"
                                    Foreground="Black"
                                    FontWeight="Medium"
                                    FontSize="10"
@@ -280,11 +285,12 @@
                                  FontFamily="Montserrat"
                                  Background="LightGray"
                                  Foreground="Black"
-                                 BorderThickness="0">
+                                 BorderThickness="0"
+                                                 PasswordChanged="TypingPasswordToConfirm">
                                     </PasswordBox>
                                 </Border>
 
-                                <Label x:Name="lblPasswordsDontMatch" Content="{x:Static p:Resources.LblName}"
+                                <Label x:Name="lblPasswordsDontMatch" Content="{x:Static p:Resources.LblPasswordsDontMatch}"
                                    Foreground="Black"
                                    FontWeight="Medium"
                                    FontSize="10"
