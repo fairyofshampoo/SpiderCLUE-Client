@@ -375,9 +375,13 @@ namespace Spider_Clue.Properties {
         ///   Looks up a localized string similar to Password must have uppercase and lowercase letters,
         ///symbols and at least one digit (8-45 characters).
         /// </summary>
-        public static string LblInvalidPassword {
-            get {
+        public static string LblInvalidPassword
+        {
+            get
+            {
                 return ResourceManager.GetString("LblInvalidPassword", resourceCulture);
+            }
+        }
         ///   Looks up a localized string similar to Spanish 
         ///(Mexico).
         /// </summary>

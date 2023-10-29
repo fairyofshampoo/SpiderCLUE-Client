@@ -221,6 +221,7 @@ Password</value>
   <data name="LblInvalidPassword" xml:space="preserve">
     <value>Password must have uppercase and lowercase letters,
 symbols and at least one digit (8-45 characters)</value>
+</data>
   <data name="LblLanguageEnglish" xml:space="preserve">
     <value>English
 (EUA)</value>
