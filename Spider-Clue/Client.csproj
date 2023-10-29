@@ -80,8 +80,14 @@
     <Compile Include="Views\CodeInputDialog.xaml.cs">
       <DependentUpon>CodeInputDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\AudioSettingsView.xaml.cs">
+      <DependentUpon>AudioSettingsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ConfirmPasswordView.xaml.cs">
       <DependentUpon>ConfirmPasswordView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LanguageSettings.xaml.cs">
+      <DependentUpon>LanguageSettings.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -124,7 +130,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AudioSettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ConfirmPasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LanguageSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -242,6 +256,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\SpiderClueService\item1.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SettingsBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GoBackIconBlack.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

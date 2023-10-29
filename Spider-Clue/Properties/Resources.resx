@@ -177,6 +177,12 @@
   </data>
   <data name="LblAccountVerification" xml:space="preserve">
     <value>Account Verification</value>
+    </data>
+  <data name="LblAudio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="LblAudioSettingsTitle" xml:space="preserve">
+    <value>Audio Settings</value>
   </data>
   <data name="LblChangeAvatar" xml:space="preserve">
     <value>Change Avatar</value>
@@ -222,6 +228,8 @@ Password</value>
     <value>Password must have uppercase and lowercase letters,
 symbols and at least one digit (8-45 characters)</value>
 </data>
+  <data name="LblLanguage" xml:space="preserve">
+  </data>
   <data name="LblLanguageEnglish" xml:space="preserve">
     <value>English
 (EUA)</value>
@@ -241,6 +249,9 @@ symbols and at least one digit (8-45 characters)</value>
   </data>
   <data name="LblLoginTitle" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="LblMusicVolume" xml:space="preserve">
+    <value>Music Volume</value>
   </data>
   <data name="LblName" xml:space="preserve">
     <value>Name</value>
