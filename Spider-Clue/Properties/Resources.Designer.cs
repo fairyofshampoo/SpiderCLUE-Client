@@ -303,6 +303,13 @@ namespace Spider_Clue.Properties {
                 return ResourceManager.GetString("LblGamerTagUsed", resourceCulture);
             }
         }
+        ///   Looks up a localized string similar to Code.
+        /// </summary>
+        public static string LblGameCode {
+            get {
+                return ResourceManager.GetString("LblGameCode", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Please, introduce your password to continue.
@@ -321,6 +328,14 @@ namespace Spider_Clue.Properties {
                 return ResourceManager.GetString("LblInvalidEMail", resourceCulture);
             }
         }
+        ///   Looks up a localized string similar to English
+        ///(EUA).
+        /// </summary>
+        public static string LblLanguageEnglish {
+            get {
+                return ResourceManager.GetString("LblLanguageEnglish", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Gamertag only allows letters and numbers (1-15 characters).
@@ -328,6 +343,13 @@ namespace Spider_Clue.Properties {
         public static string LblInvalidGamerTag {
             get {
                 return ResourceManager.GetString("LblInvalidGamerTag", resourceCulture);
+            }
+        }
+        ///   Looks up a localized string similar to Select Language.
+        /// </summary>
+        public static string LblLanguageSettingTitle {
+            get {
+                return ResourceManager.GetString("LblLanguageSettingTitle", resourceCulture);
             }
         }
         
@@ -356,6 +378,12 @@ namespace Spider_Clue.Properties {
         public static string LblInvalidPassword {
             get {
                 return ResourceManager.GetString("LblInvalidPassword", resourceCulture);
+        ///   Looks up a localized string similar to Spanish 
+        ///(Mexico).
+        /// </summary>
+        public static string LblLanguageSpanish {
+            get {
+                return ResourceManager.GetString("LblLanguageSpanish", resourceCulture);
             }
         }
         
