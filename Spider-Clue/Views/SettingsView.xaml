@@ -4,87 +4,74 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Spider_Clue.Views"
+      d:DesignHeight="450" d:DesignWidth="800"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
       mc:Ignorable="d" 
       Title="SettingsView"
       Background="Transparent">
-
-    <Grid>
-        <Border
-            CornerRadius = "8"
-            Background = "#141210"
-            Width = "200"
-            Height = "150">
+    <DockPanel>
+        <ScrollViewer>
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height = "Auto"/>
-                    <RowDefinition Height = "Auto"/>
-                    <RowDefinition Height = "Auto"/>
-                </Grid.RowDefinitions>
+                <Border
+            Width = "Auto"
+            Height = "Auto">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/SettingsBackground.png"
+                            Stretch="UniformToFill">
+                        </ImageBrush>
+                    </Border.Background>
 
-                <Label x:Name = "lblTitle" Content = "{x:Static p:Resources.LblLanguageSettingTitle}"
-                           Foreground = "White"
-                           FontWeight = "Light"
-                           FontSize = "15"
-                           FontFamily = "Monsterrat"
-                           VerticalContentAlignment = "Top"
-                           HorizontalAlignment = "Center"
-                           Grid.Row="0" Margin = "0,5,0,0"/>
-                <Grid 
-                    Grid.Row = "1">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width = "Auto"/>
-                        <ColumnDefinition Width = "Auto"/>
-                    </Grid.ColumnDefinitions>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
 
-                    <Border
-                        Width = "35"
-                        Height = "30"
-                        Grid.Column = "0"
-                        Margin="35,10,0,0">
-                        <Border.Background>
-                            <ImageBrush ImageSource="/Images/MexicoFlag.png"
-                            Stretch="Fill">
-                            </ImageBrush>
-                        </Border.Background>
-                    </Border>
                     
-                    <Border
-                        Width = "35"
-                        Height = "30"
-                        Grid.Column = "1"
-                        Margin="55,10,0,0">
-                        <Border.Background>
-                            <ImageBrush ImageSource="/Images/EUAFlag.png"
-                            Stretch="Fill">
-                            </ImageBrush>
-                        </Border.Background>
-                    </Border>
-                </Grid>
-                <Grid 
-                    Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width = "Auto"/>
-                        <ColumnDefinition Width = "Auto"/>
-                    </Grid.ColumnDefinitions>
-                    
-                    <Label x:Name = "LblLanguageSpanish" Content = "{x:Static p:Resources.LblLanguageSpanish}"
-                           Foreground = "White"
-                           FontWeight = "Light"
-                           FontSize = "10"
-                           FontFamily = "Monsterrat"
-                           Grid.Column = "0"
-                           Margin="30,0,0,0"/>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
 
-                    <Label x:Name = "LblLanguageEnglish" Content = "{x:Static p:Resources.LblLanguageEnglish}"
-                           Foreground = "White"
-                           FontWeight = "Light"
-                           FontSize = "10"
+                        <Border
+                    Grid.Row = "0"
+                    Width = "50"
+                    Height = "50"
+                    HorizontalAlignment = "Left"
+                    Margin="10,5,0,0">
+
+                            <Border.Background>
+                                <ImageBrush ImageSource="/Images/GoBackIconBlack.png"
+                            Stretch="Fill">
+                                </ImageBrush>
+                            </Border.Background>
+                        </Border>
+
+                        <Label x:Name = "lblLanguage" Content = "{x:Static p:Resources.LblLanguage}"
+                           Foreground = "Black"
+                           FontWeight = "Regular"
+                           FontSize = "60"
                            FontFamily = "Monsterrat"
-                           Margin="30,0,0,0"/>
-                </Grid>
-                
-            </Grid>            
-        </Border>
-    </Grid>
+                           VerticalContentAlignment = "Center"
+                           HorizontalAlignment = "Left"
+                           Grid.Row="1" 
+                           Margin = "40,75,0,0"/>
+
+                        <Label x:Name = "lblAudio" Content = "{x:Static p:Resources.LblAudio}"
+                           Foreground = "Black"
+                           FontWeight = "Regular"
+                           FontSize = "60"
+                           FontFamily = "Monsterrat"
+                           VerticalContentAlignment = "Center"
+                           HorizontalAlignment = "Left"
+                           Grid.Row="2" 
+                           Margin = "40,250,0,0"/>
+                    </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </ScrollViewer>
+    </DockPanel>
 </Page>
