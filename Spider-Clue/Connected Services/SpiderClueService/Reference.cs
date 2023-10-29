@@ -189,18 +189,6 @@ namespace Spider_Clue.SpiderClueService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/RequestGuessPlayer", ReplyAction="http://tempuri.org/IUserManager/RequestGuessPlayerResponse")]
         System.Threading.Tasks.Task<string> RequestGuessPlayerAsync();
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/AuthenticateGamertag", ReplyAction="http://tempuri.org/IUserManager/AuthenticateGamertagResponse")]
-        int AuthenticateGamertag(string gamertag);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/AuthenticateGamertag", ReplyAction="http://tempuri.org/IUserManager/AuthenticateGamertagResponse")]
-        System.Threading.Tasks.Task<int> AuthenticateGamertagAsync(string gamertag);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/AuthenticateEmail", ReplyAction="http://tempuri.org/IUserManager/AuthenticateEmailResponse")]
-        int AuthenticateEmail(string email);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IUserManager/AuthenticateEmail", ReplyAction="http://tempuri.org/IUserManager/AuthenticateEmailResponse")]
-        System.Threading.Tasks.Task<int> AuthenticateEmailAsync(string email);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -260,22 +248,6 @@ namespace Spider_Clue.SpiderClueService {
         
         public System.Threading.Tasks.Task<string> RequestGuessPlayerAsync() {
             return base.Channel.RequestGuessPlayerAsync();
-        }
-        
-        public int AuthenticateGamertag(string gamertag) {
-            return base.Channel.AuthenticateGamertag(gamertag);
-        }
-        
-        public System.Threading.Tasks.Task<int> AuthenticateGamertagAsync(string gamertag) {
-            return base.Channel.AuthenticateGamertagAsync(gamertag);
-        }
-        
-        public int AuthenticateEmail(string email) {
-            return base.Channel.AuthenticateEmail(email);
-        }
-        
-        public System.Threading.Tasks.Task<int> AuthenticateEmailAsync(string email) {
-            return base.Channel.AuthenticateEmailAsync(email);
         }
     }
 }

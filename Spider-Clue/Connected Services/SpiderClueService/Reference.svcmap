@@ -19,14 +19,14 @@
     <ServiceContractMappings />
   </ClientOptions>
   <MetadataSources>
-    <MetadataSource Address="http://192.168.0.111:8082" Protocol="http" SourceId="1" />
+    <MetadataSource Address="http://192.168.100.104:8082" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="GameService.wsdl" MetadataType="Wsdl" ID="097a3219-249e-43fa-9dcf-a94641697321" SourceId="1" SourceUrl="http://192.168.0.111:8082/?wsdl" />
-    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="bf93ae3d-a9d3-4c24-91ec-ac6b451f59bd" SourceId="1" SourceUrl="http://192.168.0.111:8082/?disco" />
-    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="a0a9cf8a-dd89-4c70-8f01-aac85e492b74" SourceId="1" SourceUrl="http://192.168.0.111:8082/?xsd=xsd0" />
-    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="278add1e-b0e4-4e24-95ec-5078d376a460" SourceId="1" SourceUrl="http://192.168.0.111:8082/?xsd=xsd2" />
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="480e1788-465b-4a04-a751-8c39914b373b" SourceId="1" SourceUrl="http://192.168.0.111:8082/?xsd=xsd1" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="a74c0062-f200-4413-b953-978cc9c3ed1f" SourceId="1" SourceUrl="http://192.168.100.104:8082/?xsd=xsd2" />
+    <MetadataFile FileName="GameService1.wsdl" MetadataType="Wsdl" ID="e8e7bf1b-28be-4277-9f6d-be15c284b543" SourceId="1" SourceUrl="http://192.168.100.104:8082/?wsdl" />
+    <MetadataFile FileName="item1.disco" MetadataType="Disco" ID="858e4697-4cb2-47b2-8d5e-70b76faa49dc" SourceId="1" SourceUrl="http://192.168.100.104:8082/?disco" />
+    <MetadataFile FileName="item31.xsd" MetadataType="Schema" ID="d2bce9e3-4c60-426f-8132-b6a6fc152f52" SourceId="1" SourceUrl="http://192.168.100.104:8082/?xsd=xsd0" />
+    <MetadataFile FileName="item32.xsd" MetadataType="Schema" ID="78c8c9e0-1daf-40f9-ac5e-4b555d5a68c2" SourceId="1" SourceUrl="http://192.168.100.104:8082/?xsd=xsd1" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
