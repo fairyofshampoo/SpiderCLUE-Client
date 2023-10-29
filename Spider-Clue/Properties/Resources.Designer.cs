@@ -178,6 +178,24 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Audio.
+        /// </summary>
+        public static string LblAudio {
+            get {
+                return ResourceManager.GetString("LblAudio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Audio Settings.
+        /// </summary>
+        public static string LblAudioSettingsTitle {
+            get {
+                return ResourceManager.GetString("LblAudioSettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change Avatar.
         /// </summary>
         public static string LblChangeAvatar {
@@ -229,6 +247,15 @@ namespace Spider_Clue.Properties {
         public static string LblIntroducePassword {
             get {
                 return ResourceManager.GetString("LblIntroducePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string LblLanguage {
+            get {
+                return ResourceManager.GetString("LblLanguage", resourceCulture);
             }
         }
         
@@ -285,6 +312,15 @@ namespace Spider_Clue.Properties {
         public static string LblLoginTitle {
             get {
                 return ResourceManager.GetString("LblLoginTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Music Volume.
+        /// </summary>
+        public static string LblMusicVolume {
+            get {
+                return ResourceManager.GetString("LblMusicVolume", resourceCulture);
             }
         }
         
