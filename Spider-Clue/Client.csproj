@@ -86,6 +86,9 @@
     <Compile Include="Views\ConfirmPasswordView.xaml.cs">
       <DependentUpon>ConfirmPasswordView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FriendsListView.xaml.cs">
+      <DependentUpon>FriendsListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LanguageSettings.xaml.cs">
       <DependentUpon>LanguageSettings.xaml</DependentUpon>
     </Compile>
@@ -94,6 +97,9 @@
     </Compile>
     <Compile Include="Views\MainMenuView.xaml.cs">
       <DependentUpon>MainMenuView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NotificationsView.xaml.cs">
+      <DependentUpon>NotificationsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PasswordRecoveryView.xaml.cs">
       <DependentUpon>PasswordRecoveryView.xaml</DependentUpon>
@@ -138,6 +144,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\FriendsListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LanguageSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainMenuView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NotificationsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -262,6 +276,21 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\GoBackIconBlack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FriendsIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\FriendsListIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\NotificationIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MagnifyingGlassIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DeleteIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

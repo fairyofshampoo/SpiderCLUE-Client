@@ -230,13 +230,49 @@
             <Border 
                 Grid.Column = "1"
                 Grid.Row = "1"
-                Background = " Black"
+                Background = "Black"
                 Height = "200"
-                Width = "50"
-                HorizontalAlignment = "Right">
-                
+                Width = "55"
+                HorizontalAlignment = "Right"
+                CornerRadius = "10"
+                Margin="0,0,-7,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height = "Auto"/>
+                        <RowDefinition Height = "Auto"/>
+                    </Grid.RowDefinitions>
+                    <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriends}"
+                           Foreground = "White"
+                           FontWeight = "Light"
+                           FontSize = "25"
+                           FontFamily = "Monsterrat"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Top"
+                           Grid.Row="0"
+                           Margin="0,40,0,0" 
+                           Width="83">
+                        <Label.LayoutTransform>
+                            <RotateTransform   Angle="270"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                    <Border
+                        Grid.Row = "1"
+                        Height = "30"
+                        Width = "30"
+                        Background="White"
+                        CornerRadius="15"
+                        Margin="0,20,0,0">
+                        <Border>
+                        <Border.Background>
+                            <ImageBrush ImageSource = "/Images/FriendsIcon.png"
+                            Stretch = "UniformToFill">
+                            </ImageBrush>
+                        </Border.Background>
+                        </Border>
+                    </Border>
+                </Grid>
             </Border>
         </Grid>
-    </Grid> 
+    </Grid>
 </Page>
 
