@@ -60,7 +60,7 @@ namespace Spider_Clue.Views
             {
                 if (IsEmailVerified())
                 {
-                    if (!VerifyEMailOrGamerTagDuplications()) 
+                    if (!VerifyDuplications()) 
                     {
                         registerResult = RegisterGamerInDatabase();
                     }
@@ -73,7 +73,11 @@ namespace Spider_Clue.Views
 
         private bool IsEmailVerified()
         {
-            //aqui va la logica del email valido
+            String toEmail = txtEmail.Text;
+            SpiderClueService.IEmailVerificationManager emailVerificationManager = new SpiderClueService.EmailVerificationManagerClient();
+            emailVerificationManager.GenerateVerificationCode(toEmail);
+            String codeToValidate = OpenDialogForEmailVerification();
+            return emailVerificationManager.VerifyCode(toEmail, codeToValidate);
         }
 
         private string OpenDialogForEmailVerification()
@@ -288,15 +292,36 @@ namespace Spider_Clue.Views
             }
         }
 
-        private bool VerifyEMailOrGamerTagDuplications()
+        private bool VerifyDuplications()
         {
-            bool verification = false;
+            bool emailDuplication = SearchEmailDuplication();
+            bool gamerTagDuplication = SearchGamerTagDuplication();
+
+            return emailDuplication || gamerTagDuplication;
+        }
+
+        private bool SearchEmailDuplication()
+        {
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            if (userManager.IsAccountExisting(txtEmail.Text))
+            bool emailDuplication = userManager.IsEmailExisting(txtEmail.Text);
+            if (emailDuplication)
+            {
+                lblInvalidEmail.Visibility = Visibility.Visible;
+            }
+            return emailDuplication;
+        }
+
+        private bool SearchGamerTagDuplication()
+        {
+            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+            bool gamerTagDuplication = userManager.IsGamertagExisting(txtGamerTag.Text);
+            if (gamerTagDuplication)
             {
                 lblInvalidGamerTag.Visibility = Visibility.Visible;
             }
-            return verification;
+
+            return gamerTagDuplication;
+
         }
 
         private Boolean RegisterGamerInDatabase()
