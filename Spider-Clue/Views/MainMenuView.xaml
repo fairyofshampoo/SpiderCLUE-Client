@@ -227,13 +227,16 @@
                 </Button>
                 <Grid/>
             </Grid>
-            <DataGrid x:Name = "FriendsTable"
-                              AutoGenerateColumns = "True"
-                              Height = "250"
-                              Width = "300" 
-                              Grid.Row = "1"
-                              Grid.Column = "1"/>
+            <Border 
+                Grid.Column = "1"
+                Grid.Row = "1"
+                Background = " Black"
+                Height = "200"
+                Width = "50"
+                HorizontalAlignment = "Right">
+                
+            </Border>
         </Grid>
-    </Grid>
+    </Grid> 
 </Page>
 
