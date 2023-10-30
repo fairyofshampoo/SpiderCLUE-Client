@@ -80,6 +80,11 @@ namespace Spider_Clue.Views
 
         private void HandleLoginRequest()
         {
+            
+        }
+
+        private bool ValidateCredentials()
+        {
             string username = txtUsername.Text;
             SecureString securePassword = txtPassword.SecurePassword;
             string password = new NetworkCredential(string.Empty, securePassword).Password;
