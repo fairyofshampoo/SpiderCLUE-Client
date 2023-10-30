@@ -225,9 +225,9 @@
   </data>
   <data name="LblInvalidPassword" xml:space="preserve">
     <value>Password must have uppercase and lowercase letters, symbols and at least one digit (8-45 characters)</value>
-</data>
+  </data>
   <data name="LblLanguage" xml:space="preserve">
-  <value>Language</value>
+    <value>Language</value>
   </data>
   <data name="LblLanguageEnglish" xml:space="preserve">
     <value>English(EUA)</value>
@@ -274,7 +274,7 @@
   <data name="LblUsername" xml:space="preserve">
     <value>Username</value>
   </data>
-  <data name="LblUsernameError" xml:space="preserve">
+  <data name="LblGamerTagError" xml:space="preserve">
     <value>Username doesn't exist in our system</value>
   </data>
   <data name="LoginTitle" xml:space="preserve">

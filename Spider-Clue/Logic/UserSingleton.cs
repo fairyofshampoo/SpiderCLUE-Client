@@ -14,6 +14,7 @@ namespace Spider_Clue.Logic
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
+        public int Level { get; set; }
 
         private UserSingleton() { }
 
