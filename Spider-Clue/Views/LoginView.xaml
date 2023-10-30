@@ -68,7 +68,7 @@
                              BorderThickness="0" />
                         </Border>
 
-                        <Label x:Name="lblUsernameError" Content="{x:Static p:Resources.LblUsernameError}"
+                        <Label x:Name="lblGamertagInvalid" Content="{x:Static p:Resources.LblGamerTagError}"
                        Background="Black"
                        Foreground="Red"
                        FontWeight="Bold"

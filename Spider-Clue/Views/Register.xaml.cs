@@ -21,6 +21,7 @@ using System.Security.Cryptography;
 using System.Net.Mail;
 using System.Xml.Linq;
 using System.Windows.Controls.Primitives;
+using Spider_Clue.Logic;
 
 namespace Spider_Clue.Views
 {
@@ -274,24 +275,6 @@ namespace Spider_Clue.Views
             this.NavigationService.Navigate(loginView);
         }
 
-        public static string CalculateSHA1Hash(string textToHash)
-        {
-            using (SHA1 sha1 = new SHA1CryptoServiceProvider())
-            {
-                byte[] bytes = Encoding.UTF8.GetBytes(textToHash);
-                byte[] hash = sha1.ComputeHash(bytes);
-
-                StringBuilder textToHashBuilder = new StringBuilder();
-
-                for (int i = 0; i < hash.Length; i++)
-                {
-                    textToHashBuilder.Append(hash[i].ToString("x2"));
-                }
-
-                return textToHashBuilder.ToString();
-            }
-        }
-
         private bool VerifyDuplications()
         {
             bool emailDuplication = SearchEmailDuplication();
@@ -327,13 +310,14 @@ namespace Spider_Clue.Views
         private Boolean RegisterGamerInDatabase()
         {
             bool result = false;
+            string passwordHashed = HashUtility.CalculateSHA1Hash(txtPassword.Password);
             Gamer gamer = new Gamer()
             {
                 FirstName = txtName.Text,
                 LastName = txtLastName.Text,
                 Gamertag = txtGamerTag.Text,
                 Email = txtEmail.Text,
-                Password = CalculateSHA1Hash(txtPassword.Password),
+                Password = passwordHashed,
             };
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
             if (userManager.AddUserTransaction(gamer) == 1)
