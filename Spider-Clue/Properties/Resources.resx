@@ -225,9 +225,9 @@
   </data>
   <data name="LblInvalidPassword" xml:space="preserve">
     <value>Password must have uppercase and lowercase letters, symbols and at least one digit (8-45 characters)</value>
-</data>
+  </data>
   <data name="LblLanguage" xml:space="preserve">
-  <value>Language</value>
+    <value>Language</value>
   </data>
   <data name="LblLanguageEnglish" xml:space="preserve">
     <value>English(EUA)</value>
@@ -285,5 +285,14 @@
   </data>
   <data name="SuccessTitle" xml:space="preserve">
     <value>SUCCESS</value>
+  </data>
+  <data name="LblFriends" xml:space="preserve">
+    <value>Friends</value>
+  </data>
+  <data name="BtnAddFriend" xml:space="preserve">
+    <value>Add Friend</value>
+  </data>
+  <data name="LblFriendsRequest" xml:space="preserve">
+    <value>Friends Request</value>
   </data>
 </root>

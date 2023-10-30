@@ -70,6 +70,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Friend.
+        /// </summary>
+        public static string BtnAddFriend {
+            get {
+                return ResourceManager.GetString("BtnAddFriend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change Password.
         /// </summary>
         public static string BtnChangePassword {
@@ -239,6 +248,8 @@ namespace Spider_Clue.Properties {
                 return ResourceManager.GetString("LblAccountVerification", resourceCulture);
             }
         }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Audio.
         /// </summary>
         public static string LblAudio {
@@ -275,8 +286,7 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Confirm 
-        ///Password.
+        ///   Looks up a localized string similar to Confirm Password.
         /// </summary>
         public static string LblConfirmPassword {
             get {
@@ -312,18 +322,38 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This gamertag is already in use..
+        ///   Looks up a localized string similar to Friends.
         /// </summary>
-        public static string LblGamerTagUsed {
+        public static string LblFriends {
             get {
-                return ResourceManager.GetString("LblGamerTagUsed", resourceCulture);
+                return ResourceManager.GetString("LblFriends", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Friends Request.
+        /// </summary>
+        public static string LblFriendsRequest {
+            get {
+                return ResourceManager.GetString("LblFriendsRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Code.
         /// </summary>
         public static string LblGameCode {
             get {
                 return ResourceManager.GetString("LblGameCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This gamertag is already in use..
+        /// </summary>
+        public static string LblGamerTagUsed {
+            get {
+                return ResourceManager.GetString("LblGamerTagUsed", resourceCulture);
             }
         }
         
@@ -344,23 +374,6 @@ namespace Spider_Clue.Properties {
                 return ResourceManager.GetString("LblInvalidEMail", resourceCulture);
             }
         }
-        ///   Looks up a localized string similar to Language.
-        /// </summary>
-        public static string LblLanguage {
-            get {
-                return ResourceManager.GetString("LblLanguage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to English
-        ///(EUA).
-        /// </summary>
-        public static string LblLanguageEnglish {
-            get {
-                return ResourceManager.GetString("LblLanguageEnglish", resourceCulture);
-            }
-        }
         
         /// <summary>
         ///   Looks up a localized string similar to Gamertag only allows letters and numbers (1-15 characters).
@@ -368,13 +381,6 @@ namespace Spider_Clue.Properties {
         public static string LblInvalidGamerTag {
             get {
                 return ResourceManager.GetString("LblInvalidGamerTag", resourceCulture);
-            }
-        }
-        ///   Looks up a localized string similar to Select Language.
-        /// </summary>
-        public static string LblLanguageSettingTitle {
-            get {
-                return ResourceManager.GetString("LblLanguageSettingTitle", resourceCulture);
             }
         }
         
@@ -397,18 +403,43 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Password must have uppercase and lowercase letters,
-        ///symbols and at least one digit (8-45 characters).
+        ///   Looks up a localized string similar to Password must have uppercase and lowercase letters, symbols and at least one digit (8-45 characters).
         /// </summary>
-        public static string LblInvalidPassword
-        {
-            get
-            {
+        public static string LblInvalidPassword {
+            get {
                 return ResourceManager.GetString("LblInvalidPassword", resourceCulture);
             }
         }
-        ///   Looks up a localized string similar to Spanish 
-        ///(Mexico).
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        public static string LblLanguage {
+            get {
+                return ResourceManager.GetString("LblLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English(EUA).
+        /// </summary>
+        public static string LblLanguageEnglish {
+            get {
+                return ResourceManager.GetString("LblLanguageEnglish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select Language.
+        /// </summary>
+        public static string LblLanguageSettingTitle {
+            get {
+                return ResourceManager.GetString("LblLanguageSettingTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spanish (Mexico).
         /// </summary>
         public static string LblLanguageSpanish {
             get {
