@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spider_Clue.SpiderClueService;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -14,15 +15,17 @@ namespace Spider_Clue.Logic
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
+        public int Level { get; set; }
 
         private UserSingleton() { }
 
-        public void Initialize(string gamerTag, string name, string lastName, string email)
+        public void Initialize(Gamer gamer)
         {
-            GamerTag = gamerTag;
-            Name = name;
-            LastName = lastName;
-            Email = email;
+            GamerTag = gamer.Gamertag;
+            Name = gamer.FirstName;
+            LastName = gamer.LastName;
+            Email = gamer.Email;
+            Level = gamer.Level;
         }
 
         public void Clear()

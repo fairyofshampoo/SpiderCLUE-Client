@@ -349,6 +349,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Username doesn&apos;t exist in our system.
+        /// </summary>
+        public static string LblGamerTagError {
+            get {
+                return ResourceManager.GetString("LblGamerTagError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This gamertag is already in use..
         /// </summary>
         public static string LblGamerTagUsed {
@@ -552,15 +561,6 @@ namespace Spider_Clue.Properties {
         public static string LblUsername {
             get {
                 return ResourceManager.GetString("LblUsername", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Username doesn&apos;t exist in our system.
-        /// </summary>
-        public static string LblUsernameError {
-            get {
-                return ResourceManager.GetString("LblUsernameError", resourceCulture);
             }
         }
         

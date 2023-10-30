@@ -274,7 +274,7 @@
   <data name="LblUsername" xml:space="preserve">
     <value>Username</value>
   </data>
-  <data name="LblUsernameError" xml:space="preserve">
+  <data name="LblGamerTagError" xml:space="preserve">
     <value>Username doesn't exist in our system</value>
   </data>
   <data name="LoginTitle" xml:space="preserve">

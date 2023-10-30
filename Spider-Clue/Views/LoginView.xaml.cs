@@ -1,4 +1,5 @@
 ﻿using Spider_Clue.Logic;
+using Spider_Clue.SpiderClueService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,8 +38,7 @@ namespace Spider_Clue.Views
         private void BtnGuestPlayer_Click(object sender, RoutedEventArgs e)
         {
             SetGuessPlayerData();
-            MainMenuView mainMenuView = new MainMenuView();
-            this.NavigationService.Navigate(mainMenuView);
+            DisplayMainMenuView();
         }
 
         private void LblForgotPassword_Clicked(object sender, MouseButtonEventArgs e)
@@ -55,34 +55,148 @@ namespace Spider_Clue.Views
 
         private string GenerateGuessPlayerUsername()
         {
-            int length = 8;
-            const string validChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            Random random = new Random();
-            StringBuilder username = new StringBuilder();
+            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
 
-            for(int i = 0; i < length;i++)
-            {
-                int index = random.Next(validChars.Length);
-                username.Append(validChars[index]);
-            }
-
-            string randomUsername = username.ToString();
-            string resourceName = Properties.Resources.GuessName;
-            string finalUsername = $"{resourceName}{randomUsername}";
-
-            return finalUsername;
+            return userManager.RequestGuessPlayer();
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            HandleLoginRequest();
+            if (HandleLoginAttempt())
+            {
+                SaveSession();
+                DisplayMainMenuView();
+            }
+            else
+            {
+                ShowErrorMessage();
+            }
+        }
+        private void SaveSession()
+        {
+            SaveSessionInSingleton();
+            SaveSessionInServer();
+
+        }
+        private void SaveSessionInSingleton()
+        {
+            string gamerTag = txtUsername.Text;
+            Gamer gamer = GetGamerData(gamerTag);
+
+            UserSingleton.Instance.Initialize(gamer);
         }
 
-        private void HandleLoginRequest()
+        private Gamer GetGamerData(String gamerTag)
+        {
+            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+            return userManager.GetGamer(gamerTag);
+        }
+        private void ShowErrorMessage()
+        {
+            MessageBox.Show("Verifique el correo y contraseña, sean correctos. No se ha podido iniciar sesión", Properties.Resources.DlgRegisterError, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private bool HandleLoginAttempt()
+        {
+            bool continueLogin = VerifyFields();
+            if (continueLogin)
+            {
+                continueLogin = ValidateCredentials();
+                if (continueLogin)
+                {
+                    continueLogin = !IsBanned();
+                }
+            }
+            return continueLogin;
+        }
+
+        private bool IsBanned()
+        {
+            bool banned = false;
+            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+            if(userManager.GetBannedStatus(txtUsername.Text) == 1)
+            {
+                banned = true;
+                ShowBannedDialog();
+            }
+
+            return banned;
+        }
+
+        private void ShowBannedDialog()
+        {
+            MessageBox.Show("Su cuenta ha sido baneada", "INFO", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private bool VerifyFields()
+        {
+            String gamerTag = txtUsername.Text;
+            SecureString passwordToAccess = txtPassword.SecurePassword;
+            string password = new NetworkCredential(string.Empty, passwordToAccess).Password;
+            bool passwordValidation = VerifyPassword(password);
+            bool gamerTagValidation = VerifyGamertag(gamerTag);
+
+            if (!passwordValidation)
+            {
+                lblPasswordInvalid.Visibility = Visibility.Visible;
+            }
+            if (!gamerTagValidation)
+            {
+                lblGamertagInvalid.Visibility = Visibility.Visible;
+            }
+
+            return passwordValidation && gamerTagValidation;
+        }
+
+        private bool VerifyPassword(string password)
+        {
+            bool isValid = true;
+            if (string.IsNullOrEmpty(password))
+            {
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        private bool VerifyGamertag(string gamerTag)
+        {
+            bool isValid = true;
+            if (string.IsNullOrEmpty(gamerTag))
+            {
+                isValid = false;
+            }
+
+            return isValid;
+        }
+
+        private void DisplayMainMenuView()
+        {
+            MainMenuView mainMenuView = new MainMenuView();
+            this.NavigationService.Navigate(mainMenuView);
+        }
+
+        private void SaveSessionInServer()
+        {
+            //cuando tengamos el callback aquí se manda a llamar
+        }
+
+        private bool ValidateCredentials()
         {
             string username = txtUsername.Text;
-            SecureString securePassword = txtPassword.SecurePassword;
-            string password = new NetworkCredential(string.Empty, securePassword).Password;
+            string passwordHashed = HashUtility.CalculateSHA1Hash(txtPassword.Password);
+            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+            return userManager.AuthenticateAccount(username, passwordHashed);
+        }
+
+        private void TypingGamerTag(object sender, TextChangedEventArgs e)
+        {
+            lblGamertagInvalid.Visibility = Visibility.Hidden;
+        }
+
+        private void TypingPassword(object sender, RoutedEventArgs e)
+        {
+            lblPasswordInvalid.Visibility = Visibility.Hidden;
         }
     }
 }
