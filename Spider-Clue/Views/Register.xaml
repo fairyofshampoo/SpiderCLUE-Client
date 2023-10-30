@@ -51,7 +51,7 @@
                     CornerRadius="10"
                     Height="Auto"
                     Background="#B45959"
-                    Width="300">
+                    Width="Auto">
                         <StackPanel
                         Width="Auto"
                         Height="Auto"
