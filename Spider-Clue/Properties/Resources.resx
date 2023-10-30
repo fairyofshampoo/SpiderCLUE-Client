@@ -177,7 +177,7 @@
   </data>
   <data name="LblAccountVerification" xml:space="preserve">
     <value>Account Verification</value>
-    </data>
+  </data>
   <data name="LblAudio" xml:space="preserve">
     <value>Audio</value>
   </data>
@@ -191,8 +191,7 @@
     <value>Code</value>
   </data>
   <data name="LblConfirmPassword" xml:space="preserve">
-    <value>Confirm 
-Password</value>
+    <value>Confirm Password</value>
   </data>
   <data name="LblEmail" xml:space="preserve">
     <value>Email</value>
@@ -225,21 +224,19 @@ Password</value>
     <value>Name only allows letters and spaces (1-50 characters)</value>
   </data>
   <data name="LblInvalidPassword" xml:space="preserve">
-    <value>Password must have uppercase and lowercase letters,
-symbols and at least one digit (8-45 characters)</value>
+    <value>Password must have uppercase and lowercase letters, symbols and at least one digit (8-45 characters)</value>
 </data>
   <data name="LblLanguage" xml:space="preserve">
+  <value>Language</value>
   </data>
   <data name="LblLanguageEnglish" xml:space="preserve">
-    <value>English
-(EUA)</value>
+    <value>English(EUA)</value>
   </data>
   <data name="LblLanguageSettingTitle" xml:space="preserve">
     <value>Select Language</value>
   </data>
   <data name="LblLanguageSpanish" xml:space="preserve">
-    <value>Spanish 
-(Mexico)</value>
+    <value>Spanish (Mexico)</value>
   </data>
   <data name="LblLastName" xml:space="preserve">
     <value>Last Name</value>

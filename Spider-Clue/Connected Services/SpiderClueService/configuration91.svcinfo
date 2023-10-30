@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="KfgO2ldLkwl3ThsMQtfCRxwBIHak1Ko0wWkRmKfeizg=">
+<SavedWcfConfigurationInformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="9.1" CheckSum="DD8CcvseptZE6AnUl5X7RRAOUA3C2mmPweVyoKCm+6Q=">
   <bindingConfigurations>
     <bindingConfiguration bindingType="netTcpBinding" name="NetTcpBinding_IUserManager">
       <properties>
@@ -121,10 +121,10 @@
     </bindingConfiguration>
   </bindingConfigurations>
   <endpoints>
-    <endpoint name="NetTcpBinding_IUserManager" contract="SpiderClueService.IUserManager" bindingType="netTcpBinding" address="net.tcp://192.168.0.111:8081/GameService" bindingConfiguration="NetTcpBinding_IUserManager">
+    <endpoint name="NetTcpBinding_IUserManager" contract="SpiderClueService.IUserManager" bindingType="netTcpBinding" address="net.tcp://192.168.100.104:8081/GameService" bindingConfiguration="NetTcpBinding_IUserManager">
       <properties>
         <property path="/address" isComplexType="false" isExplicitlyDefined="true" clrType="System.Uri, System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-          <serializedValue>net.tcp://192.168.0.111:8081/GameService</serializedValue>
+          <serializedValue>net.tcp://192.168.100.104:8081/GameService</serializedValue>
         </property>
         <property path="/behaviorConfiguration" isComplexType="false" isExplicitlyDefined="false" clrType="System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
           <serializedValue />
