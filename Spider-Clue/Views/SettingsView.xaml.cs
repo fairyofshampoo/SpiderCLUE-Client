@@ -24,5 +24,21 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
         }
+
+        private void BtnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenuView mainMenuView = new MainMenuView();
+            this.NavigationService.Navigate(mainMenuView);
+        }
+
+        private void LblLanguage_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void LblAudio_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
