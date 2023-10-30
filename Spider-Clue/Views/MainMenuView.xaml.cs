@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spider_Clue.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,12 +25,24 @@ namespace Spider_Clue.Views
         public MainMenuView()
         {
             InitializeComponent();
+            Loaded += PageLoaded;
         }
 
-        public class Persona
+        private void PageLoaded(object sender, RoutedEventArgs e)
         {
-            public string Nombre { get; set; }
-            public int Edad { get; set; }
+            SetGamerData();
+        }
+
+        private void SetGamerData()
+        {
+            lblUserName.Content = UserSingleton.Instance.GamerTag;
+            lblLevel.Content = UserSingleton.Instance.Level;
+        }
+
+        private void BtnSettings_Click(object sender, RoutedEventArgs e)
+        {
+            SettingsView settingsView = new SettingsView();
+            this.NavigationService.Navigate(settingsView);
         }
     }
 
