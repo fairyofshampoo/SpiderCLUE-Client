@@ -70,6 +70,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add Friend.
+        /// </summary>
+        public static string BtnAddFriend {
+            get {
+                return ResourceManager.GetString("BtnAddFriend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change Password.
         /// </summary>
         public static string BtnChangePassword {
@@ -309,6 +318,24 @@ namespace Spider_Clue.Properties {
         public static string LblForgotPassword {
             get {
                 return ResourceManager.GetString("LblForgotPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Friends.
+        /// </summary>
+        public static string LblFriends {
+            get {
+                return ResourceManager.GetString("LblFriends", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Friends Request.
+        /// </summary>
+        public static string LblFriendsRequest {
+            get {
+                return ResourceManager.GetString("LblFriendsRequest", resourceCulture);
             }
         }
         

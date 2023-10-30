@@ -28,7 +28,7 @@
                         </Grid.ColumnDefinitions>
 
                     
-                    <Grid>
+                    <Grid Grid.Column = "0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
@@ -69,6 +69,10 @@
                            Grid.Row="2" 
                            Margin = "40,250,0,0"/>
                     </Grid>
+                        <Grid Grid.Column = "1">
+                            
+                        </Grid>
+                        
                     </Grid>
                 </Border>
             </Grid>

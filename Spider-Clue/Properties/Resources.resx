@@ -286,4 +286,13 @@
   <data name="SuccessTitle" xml:space="preserve">
     <value>SUCCESS</value>
   </data>
+  <data name="LblFriends" xml:space="preserve">
+    <value>Friends</value>
+  </data>
+  <data name="BtnAddFriend" xml:space="preserve">
+    <value>Add Friend</value>
+  </data>
+  <data name="LblFriendsRequest" xml:space="preserve">
+    <value>Friends Request</value>
+  </data>
 </root>

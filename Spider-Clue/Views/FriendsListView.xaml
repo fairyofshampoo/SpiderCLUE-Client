@@ -1,0 +1,208 @@
+﻿<Page x:Class="Spider_Clue.Views.FriendsListView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Spider_Clue.Views"
+      xmlns:p = "clr-namespace:Spider_Clue.Properties"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FriendsListView"
+      Background = "Transparent">
+
+    <Grid>
+        <Border>
+            <Border.Background>
+                <ImageBrush ImageSource = "/Images/backgroundREGISTER.png"
+                            Stretch = "UniformToFill">
+                </ImageBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height = "Auto"/>
+                    <RowDefinition Height = "Auto"/>
+                    <RowDefinition Height = "Auto"/>
+                </Grid.RowDefinitions>
+                <Grid
+                    Grid.Row = "0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <Border 
+                        CornerRadius = "30"
+                        Background = "#AB2E2E"
+                        Width = "50"
+                        Height = "50"
+                        HorizontalAlignment="Left"
+                        Margin = "100,50,0,0"
+                        Grid.Column="0">
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush ImageSource = "/Images/FriendsListIcon.png"
+                            Stretch = "UniformToFill">
+                                </ImageBrush>
+                            </Border.Background>
+                        </Border>
+                    </Border>
+
+                    <Border 
+                        CornerRadius = "30"
+                        Background = "#AB2E2E"
+                        Width = "50"
+                        Height = "50"
+                        HorizontalAlignment="Left"
+                        Margin = "30,50,0,0"
+                        Grid.Column="1">
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush ImageSource = "/Images/NotificationIcon.png"
+                            Stretch = "UniformToFill">
+                                </ImageBrush>
+                            </Border.Background>
+                        </Border>
+                    </Border>
+
+                    <Border
+                                Width="300"
+                                CornerRadius="5"
+                                BorderBrush="LightGray"
+                                BorderThickness="3"
+                                Margin="130,70,15,10"
+                                Grid.Column="2">
+                        <TextBox x:Name="txtEmailForRecovery" 
+                                         Height="30"
+                                         FontSize="13"
+                                         FontWeight="Medium"
+                                         FontFamily="Montserrat"
+                                         Background="LightGray"
+                                         Foreground="Black"
+                                         BorderThickness="0"/>
+                    </Border>
+                    <Border 
+                        Grid.Column = "2" Margin="389,70,24,13">
+                        <Border.Background>
+                            <ImageBrush ImageSource = "/Images/MagnifyingGlassIcon.png"
+                            Stretch = "UniformToFill">
+                            </ImageBrush>
+                        </Border.Background>
+                    </Border>
+                </Grid>
+                <Border
+                    Background = "#B45959"
+                    Grid.Row = "1"
+                    Height = "200"
+                    Margin = "100,20,134,0"
+                    CornerRadius = "10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height = "Auto"/>
+                            <RowDefinition Height = "Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriends}"
+                                   Width="200"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "30"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Left"
+                                   Margin="-350,0,0,0" 
+                                   Grid.Row="0"
+                                   Height = "39"/>
+                        
+                        
+
+                        <DataGrid 
+                            Grid.Row = "1" 
+                            AutoGenerateColumns = "False"
+                            Name = "FriendList"
+                            Width="550"
+                            HorizontalAlignment="Center"
+                            Margin = "0,10,0,0">
+
+                            <DataGrid.Resources>
+                                <Style TargetType = "{x:Type DataGridColumnHeader}">
+                                    <Setter Property = "Background" Value="#655E73"/>
+                                    <Setter Property = "Foreground" Value="White"/>
+                                </Style>
+                            </DataGrid.Resources>
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn x:Name = "Status" Header="Status" Width="50">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border CornerRadius = "10"
+                                                    Background = "Red"
+                                                    Width = "5"
+                                                    Height = "5">
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+
+                                <DataGridTemplateColumn x:Name = "Icon" Header="Icon" Width="50" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <!-- Aquí va el binding image -->
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn 
+                                    x:Name="Gamertag"
+                                    Header="Gamertag"
+                                    Width="200">
+                                </DataGridTextColumn>
+                                <DataGridTextColumn 
+                                    x:Name="Level"
+                                    Header="Level"
+                                    Width="100">
+                                </DataGridTextColumn>
+
+                                <DataGridTemplateColumn x:Name = "Delete" Header="Delete">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button>
+                                                <Image Source="/Images/DeleteIcon.png" 
+                                                       Width="20" 
+                                                       Height="20"/>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                            
+                        </DataGrid> 
+
+                    </Grid>
+                </Border>
+                <Button x:Name="btnAddFriend"
+                        BorderThickness="0"
+                        Content="{x:Static p:Resources.BtnAddFriend}"
+                        Foreground="White"
+                        FontSize="12"
+                        FontWeight="Bold"
+                        Cursor="Hand"
+                        Margin="0,45,130,0" 
+                        Grid.Row="2"
+                        HorizontalAlignment="Right">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#AB2E2E"/>
+                        </Style>
+                    </Button.Style>
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border Width="120" Height="30"
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
