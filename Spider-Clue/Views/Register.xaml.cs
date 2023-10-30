@@ -94,7 +94,6 @@ namespace Spider_Clue.Views
             {
                 codeFromInput = codeInputPopUp.EmailValidation;
             }
-
             return codeFromInput;
         }
 
