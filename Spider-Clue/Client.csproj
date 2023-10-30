@@ -219,6 +219,9 @@
     <None Include="Connected Services\SpiderClueService\item32.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Gamer.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

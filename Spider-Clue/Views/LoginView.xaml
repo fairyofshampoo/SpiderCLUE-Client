@@ -65,7 +65,8 @@
                              FontFamily="Montserrat"
                              Background="LightGray"
                              Foreground="Black"
-                             BorderThickness="0" />
+                             BorderThickness="0" 
+                                     TextChanged="TypingGamerTag"/>
                         </Border>
 
                         <Label x:Name="lblGamertagInvalid" Content="{x:Static p:Resources.LblGamerTagError}"
@@ -107,7 +108,8 @@
                                  FontFamily="Montserrat"
                                  Background="LightGray"
                                  Foreground="Black"
-                                 BorderThickness="0">
+                                 BorderThickness="0"
+                                             PasswordChanged="TypingPassword">
                                 </PasswordBox>
                             </Border>
                             <Button x:Name="btnPasswordVisibility" Grid.Column="1"

@@ -62,7 +62,7 @@ namespace Spider_Clue.Views
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if (HandleLoginRequest())
+            if (HandleLoginAttempt())
             {
                 SaveSession();
                 DisplayMainMenuView();
@@ -81,37 +81,51 @@ namespace Spider_Clue.Views
         private void SaveSessionInSingleton()
         {
             string gamerTag = txtUsername.Text;
-            string name = txtUsername.Text;
-            string lastName = txtUsername.Text;
-            string email = txtUsername.Text;
-            GetGamerData();
-            UserSingleton.Instance.Initialize(gamerTag, name, lastName, email);
+            Gamer gamer = GetGamerData(gamerTag);
+
+            UserSingleton.Instance.Initialize(gamer);
         }
 
-        private void GetGamerData()
+        private Gamer GetGamerData(String gamerTag)
         {
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            // mandar a llamar a metodo de get
+            return userManager.GetGamer(gamerTag);
         }
         private void ShowErrorMessage()
         {
-            MessageBox.Show(Properties.Resources.DlgRegisterSuccessful, Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Verifique el correo y contraseña, sean correctos. No se ha podido iniciar sesión", Properties.Resources.DlgRegisterError, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
-        private bool HandleLoginRequest()
+        private bool HandleLoginAttempt()
         {
-            bool continueLogin = false;
-            if (VerifyFields())
+            bool continueLogin = VerifyFields();
+            if (continueLogin)
             {
-                isBanned();
                 continueLogin = ValidateCredentials();
+                if (continueLogin)
+                {
+                    continueLogin = !IsBanned();
+                }
             }
             return continueLogin;
         }
 
-        private void isBanned()
+        private bool IsBanned()
         {
+            bool banned = false;
+            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+            if(userManager.GetBannedStatus(txtUsername.Text) == 1)
+            {
+                banned = true;
+                ShowBannedDialog();
+            }
 
+            return banned;
+        }
+
+        private void ShowBannedDialog()
+        {
+            MessageBox.Show("Su cuenta ha sido baneada", "INFO", MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private bool VerifyFields()
@@ -126,7 +140,7 @@ namespace Spider_Clue.Views
             {
                 lblPasswordInvalid.Visibility = Visibility.Visible;
             }
-            if (gamerTagValidation)
+            if (!gamerTagValidation)
             {
                 lblGamertagInvalid.Visibility = Visibility.Visible;
             }
@@ -173,6 +187,16 @@ namespace Spider_Clue.Views
             string passwordHashed = HashUtility.CalculateSHA1Hash(txtPassword.Password);
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
             return userManager.AuthenticateAccount(username, passwordHashed);
+        }
+
+        private void TypingGamerTag(object sender, TextChangedEventArgs e)
+        {
+            lblGamertagInvalid.Visibility = Visibility.Hidden;
+        }
+
+        private void TypingPassword(object sender, RoutedEventArgs e)
+        {
+            lblPasswordInvalid.Visibility = Visibility.Hidden;
         }
     }
 }

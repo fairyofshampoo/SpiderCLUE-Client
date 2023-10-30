@@ -90,7 +90,7 @@
                     </Grid>
 
                     <Grid
-                Grid.Row = "1"
+                Grid.Row = "0"
                 Grid.Column = "0"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center">
@@ -104,8 +104,9 @@
 
                         <Border 
                     Grid.Row = "0"
+                            VerticalAlignment="Top"
                     Width="400" Height="120"
-                    Margin="25,130,25,0">
+                    Margin="25,30,25,0">
                             <Border.Background>
                                 <ImageBrush ImageSource = "/Images/Logo.png"
                             Stretch = "Fill">
@@ -209,7 +210,7 @@
                             FontSize = "16"
                             FontWeight="Bold"
                             Cursor = "Hand"
-                            Grid.Row="4" Margin="76,20,40,0">
+                            Grid.Row="4" Margin="76,20,40,30">
                             <Button.Style>
                                 <Style TargetType = "Button">
                                     <Setter Property = "Background" Value = "#8A8884"/>
@@ -230,7 +231,7 @@
                     </Grid>
                     <Border 
                 Grid.Column = "1"
-                Grid.Row = "1"
+                Grid.Row = "0"
                 Background = "Black"
                 Height = "200"
                 Width = "55"
