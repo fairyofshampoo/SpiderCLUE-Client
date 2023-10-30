@@ -69,6 +69,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Logic\HashUtility.cs" />
+    <Compile Include="Logic\LanguageManager.cs" />
     <Compile Include="Logic\UserSingleton.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <DependentUpon>Resources.resx</DependentUpon>
@@ -286,9 +287,6 @@
     <None Include="Connected Services\SpiderClueService\item1.disco" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\SettingsBackground.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\GoBackIconBlack.png" />
   </ItemGroup>
   <ItemGroup>
@@ -308,6 +306,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\SpiderClueService\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\SettingsFinalBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\paperIMG.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
