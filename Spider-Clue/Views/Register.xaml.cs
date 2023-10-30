@@ -33,21 +33,50 @@ namespace Spider_Clue.Views
 
         private void BtnRegister_Click(object sender, RoutedEventArgs e)
         {
-            if (AreDataValid())
+            if (RegisterUser())
             {
-                //mandar a llamar a ventanita emergente para codigo de verificacion
-                if (RegisterGamerInDatabase())
-                {
-                    MessageBox.Show(Properties.Resources.DlgRegisterSuccessful, Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
-                }
+                ShowSuccessMessage();
             }
             else
             {
-                MessageBox.Show(Properties.Resources.DlgRegisterError, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                ShowErrorMessage();
             }
         }
 
-        private string OpenDialog()
+        private void ShowSuccessMessage()
+        {
+            MessageBox.Show(Properties.Resources.DlgRegisterSuccessful, Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void ShowErrorMessage()
+        {
+            MessageBox.Show(Properties.Resources.DlgRegisterError, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+        private bool RegisterUser()
+        {
+            bool registerResult = false;
+
+            if (AreDataValid())
+            {
+                if (IsEmailVerified())
+                {
+                    if (!VerifyEMailOrGamerTagDuplications()) 
+                    {
+                        registerResult = RegisterGamerInDatabase();
+                    }
+                }
+            }
+
+            return registerResult;
+        }
+
+
+        private bool IsEmailVerified()
+        {
+            //aqui va la logica del email valido
+        }
+
+        private string OpenDialogForEmailVerification()
         {
             Window mainWindow = Window.GetWindow(this);
 
@@ -79,70 +108,138 @@ namespace Spider_Clue.Views
             SecureString securePassword = txtPassword.SecurePassword;
             string password = new NetworkCredential(string.Empty, securePassword).Password;
             string email = txtEmail.Text;
-            Regex passwordRegex = new Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d\\W]{8,50}$");
-            bool dataValidation = true;
 
-            if (!passwordRegex.IsMatch(password) || string.IsNullOrEmpty(password))
+            bool passwordValid = IsPasswordValid(password);
+            bool emailValid = IsEmailValid(email);
+
+            if (!passwordValid)
             {
-                dataValidation = false;
                 lblInvalidPassword.Visibility = Visibility.Visible;
             }
 
-            if (!IsValidEmail(email) || string.IsNullOrEmpty(email))
+            if (!emailValid)
             {
-                dataValidation = false;
                 lblInvalidEmail.Visibility = Visibility.Visible;
             }
 
-            return dataValidation;
+            return passwordValid && emailValid;
         }
 
-        private bool IsValidEmail(string email)
+        private bool IsPasswordValid(string password)
         {
+            bool isValid = true;
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                isValid = false;
+            }
+            else
+            {
+                Regex passwordRegex = new Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d\\W]{8,50}$");
+
+                if (!passwordRegex.IsMatch(password))
+                {
+                    isValid = false;
+                }
+            }
+
+            return isValid;
+        }
+
+        private bool IsEmailValid(string email)
+        {
+            bool emailValidation = true;
+
             if (string.IsNullOrEmpty(email) || email.Length > 50)
             {
-                return false;
+                emailValidation = false;
             }
-            try
+            else
             {
-                var mailAddress = new MailAddress(email);
-                return true;
+                try
+                {
+                    var mailAddress = new MailAddress(email);
+                }
+                catch (FormatException)
+                {
+                    emailValidation = false;
+                }
             }
-            catch (FormatException)
-            {
-                return false;
-            }
+
+            return emailValidation;
         }
+
 
         private bool ValidateUserData()
         {
             string gamerTag = txtGamerTag.Text;
             string name = txtName.Text;
             string lastName = txtLastName.Text;
-            Regex nameRegex = new Regex("^[\\p{L}\\p{M}\\s]{1,50}$");
-            Regex gamerTagRegex = new Regex("^(?=.*[A-Za-z0-9])[A-Za-z0-9]{1,15}$");
-            bool dataValidation = true;
+            bool nameValid = IsNameValid(name);
+            bool lastNameValid = IsNameValid(lastName);
+            bool gamerTagValid = IsGamerTagValid(gamerTag);
 
-            if (!nameRegex.IsMatch(name) || string.IsNullOrEmpty(name))
+            if (!nameValid)
             {
-                dataValidation = false;
                 lblInvalidName.Visibility = Visibility.Visible;
             }
 
-            if (!nameRegex.IsMatch(lastName) || string.IsNullOrEmpty(lastName))
+            if (!lastNameValid)
             {
-                dataValidation = false;
                 lblInvalidLastName.Visibility = Visibility.Visible;
             }
 
-            if (!gamerTagRegex.IsMatch(gamerTag) || string.IsNullOrEmpty(gamerTag))
+            if (!gamerTagValid)
             {
-                dataValidation = false;
                 lblInvalidGamerTag.Visibility = Visibility.Visible;
             }
 
-            return dataValidation;
+            return nameValid && lastNameValid && gamerTagValid;
         }
+
+        private bool IsNameValid(string name)
+        {
+            bool isValid = true;
+
+            if (string.IsNullOrWhiteSpace(name))
+            {
+                isValid = false;
+            }
+            else
+            {
+                var nameRegex = new Regex("^[\\p{L}\\p{M}\\s]{1,50}");
+
+                if (!nameRegex.IsMatch(name))
+                {
+                    isValid = false;
+                }
+            }
+
+            return isValid;
+        }
+
+
+        private bool IsGamerTagValid(string gamerTag)
+        {
+            bool isValid = true;
+
+            if (string.IsNullOrWhiteSpace(gamerTag))
+            {
+                isValid = false;
+            }
+            else
+            {
+                var gamerTagRegex = new Regex("^[A-Za-z0-9]{1,15}");
+
+                if (!gamerTagRegex.IsMatch(gamerTag))
+                {
+                    isValid = false;
+                }
+            }
+
+            return isValid;
+        }
+
 
         private bool ArePasswordsMatching()
         {
@@ -197,7 +294,7 @@ namespace Spider_Clue.Views
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
             if (userManager.IsAccountExisting(txtEmail.Text))
             {
-
+                lblInvalidGamerTag.Visibility = Visibility.Visible;
             }
             return verification;
         }
@@ -214,7 +311,7 @@ namespace Spider_Clue.Views
                 Password = CalculateSHA1Hash(txtPassword.Password),
             };
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            if(userManager.AddUserTransaction(gamer) == 1)
+            if (userManager.AddUserTransaction(gamer) == 1)
             {
                 result = true;
             }
