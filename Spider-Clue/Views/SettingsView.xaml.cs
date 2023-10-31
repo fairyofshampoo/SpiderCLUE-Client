@@ -33,12 +33,14 @@ namespace Spider_Clue.Views
 
         private void LblLanguage_Click(object sender, MouseButtonEventArgs e)
         {
-
+            LanguageSettings languageSettings = new LanguageSettings();
+            SettingsFrame.NavigationService.Navigate(languageSettings);
         }
 
         private void LblAudio_Click(object sender, MouseButtonEventArgs e)
         {
-
+            AudioSettingsView audioSettingsView = new AudioSettingsView();  
+            SettingsFrame.NavigationService.Navigate(audioSettingsView);
         }
     }
 }
