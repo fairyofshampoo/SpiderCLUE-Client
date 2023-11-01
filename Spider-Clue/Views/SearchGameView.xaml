@@ -78,13 +78,13 @@
 
                             <Border
                             Grid.Column = "0"
-                            Width = "15"
+                            Width = "25"
                             Height = "15"
                             VerticalAlignment="Top"
                             Margin="5,2,0,0">
                                 <Border.Background>
-                                    <ImageBrush ImageSource = "/Images/GameControllerIcon.png"
-                            Stretch = "Fill">
+                                    <ImageBrush ImageSource = "/Images/papersWithWoman.png"
+                            Stretch = "UniformToFill">
                                     </ImageBrush>
                                 </Border.Background>
                             </Border>
@@ -121,9 +121,9 @@
                         FontSize="5"
                         FontWeight="Bold"
                         Cursor="Hand"
-                        Margin="20,0,0,0" 
+                        Margin="10,0,5,0" 
                         Grid.Column = "2"
-                        HorizontalAlignment="Right">
+                        HorizontalAlignment="Left" Width="37">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="Background" Value="#FAA465"/>
