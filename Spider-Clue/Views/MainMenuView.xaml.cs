@@ -67,8 +67,8 @@ namespace Spider_Clue.Views
         private void GetPath ()
         {
             string PathDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string PathProyectoDirectory = Path.GetFullPath(Path.Combine(PathDirectory, "../../../../"));
-            SoundtrackPath = PathProyectoDirectory + "SpiderCLUE-Client\\Spider-Clue\\Audio\\MainMenuSong.mp3";
+            string PathProyectoDirectory = Path.GetFullPath(Path.Combine(PathDirectory, "../../../"));
+            SoundtrackPath = PathProyectoDirectory + "Spider-Clue\\Audio\\MainMenuSong.mp3";
             DataContext = this;
         }
 
