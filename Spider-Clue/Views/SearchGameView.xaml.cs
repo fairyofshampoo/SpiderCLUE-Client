@@ -18,7 +18,7 @@ namespace Spider_Clue.Views
     /// <summary>
     /// Interaction logic for SearchGameView.xaml
     /// </summary>
-    public partial class SearchGameView : Page
+    public partial class SearchGameView : Window
     {
         public SearchGameView()
         {
