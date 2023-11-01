@@ -9,7 +9,7 @@
       Title = "MainMenuView"
       Background = "Transparent">
     <Grid>
-        <MediaElement Name = "Soundtrack" Source="/Audio/MainMenuSong.mp3" LoadedBehavior = "Manual"/>
+        <MediaElement Name="Soundtrack" Source="{Binding SoundtrackPath}" LoadedBehavior="Manual"/>
         <DockPanel>
             <ScrollViewer>
                 <Grid>
