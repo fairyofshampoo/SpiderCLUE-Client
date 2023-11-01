@@ -1,5 +1,6 @@
 ﻿using Spider_Clue.Logic;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Media;
@@ -22,12 +23,15 @@ namespace Spider_Clue.Views
     /// Interaction logic for MainMenuView.xaml
     /// </summary>
     public partial class MainMenuView : Page
-    {
+    { 
+        public String SoundtrackPath { get; set; }
+    
         public MainMenuView()
         {
             InitializeComponent();
             Loaded += PageLoaded;
             Soundtrack.Play();
+            GetPath();
         }
 
         private void PageLoaded(object sender, RoutedEventArgs e)
@@ -46,6 +50,15 @@ namespace Spider_Clue.Views
             SettingsView settingsView = new SettingsView();
             this.NavigationService.Navigate(settingsView);
         }
+
+        private void GetPath ()
+        {
+            string PathDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string PathProyectoDirectory = Path.GetFullPath(Path.Combine(PathDirectory, "../../../../"));
+            SoundtrackPath = PathProyectoDirectory + "SpiderCLUE-Client\\Spider-Clue\\Audio\\MainMenuSong.mp3";
+            DataContext = this;
+        }
+
     }
 
 }
