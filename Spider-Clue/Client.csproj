@@ -211,7 +211,17 @@
       <LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Connected Services\SpiderClueService\GameService.wsdl" />
+    <None Include="Connected Services\SpiderClueService\GameService1.wsdl" />
     <None Include="Connected Services\SpiderClueService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SpiderClueService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SpiderClueService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SpiderClueService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SpiderClueService\item1.xsd">
@@ -333,6 +343,9 @@
     <Resource Include="Images\DeleteIcon.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\SpiderClueService\item.disco" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Images\SettingsFinalBackground.png" />
   </ItemGroup>
   <ItemGroup>
@@ -343,6 +356,16 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\MilesMoralesBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MexicoFlag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\EUAFlag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Audio\MainMenuSong.mp3" />
+    <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

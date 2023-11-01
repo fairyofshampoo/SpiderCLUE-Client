@@ -8,39 +8,41 @@
       mc:Ignorable = "d"
       Title = "MainMenuView"
       Background = "Transparent">
-    <DockPanel>
-        <ScrollViewer>
-            <Grid>
-                <Border>
-                    <Border.Background>
-                        <ImageBrush ImageSource = "/Images/backgroundREGISTER.png"
-                            Stretch = "Fill">
-                        </ImageBrush>
-                    </Border.Background>
-                </Border>
+    <Grid>
+        <MediaElement Name = "Soundtrack" Source="/Audio/MainMenuSong.mp3" LoadedBehavior = "Manual"/>
+        <DockPanel>
+            <ScrollViewer>
                 <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width = "*"/>
-                        <ColumnDefinition Width = "*"/>
-                    </Grid.ColumnDefinitions>
-
-
-                    <Grid 
-                HorizontalAlignment="Right"
-                VerticalAlignment="Top"
-                Margin="0,10,10,0"
-                Grid.Row = "0"     
-                Grid.Column = "1">
+                    <Border>
+                        <Border.Background>
+                            <ImageBrush ImageSource = "/Images/backgroundREGISTER.png"
+                            Stretch = "Fill">
+                            </ImageBrush>
+                        </Border.Background>
+                    </Border>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width = "*"/>
                             <ColumnDefinition Width = "*"/>
                         </Grid.ColumnDefinitions>
 
-                        <Border CornerRadius="10"
+
+                        <Grid 
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0,10,10,0"
+                Grid.Row = "0"     
+                Grid.Column = "1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width = "*"/>
+                                <ColumnDefinition Width = "*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border CornerRadius="10"
                         Height="80"
                         Width="80"
                         HorizontalAlignment="Left"
@@ -48,14 +50,14 @@
                         Margin="0,0,0,0"
                         Grid.Row="0"
                         Grid.Column="0">
-                            <Border.Background>
-                                <ImageBrush ImageSource = "/Images/MilesMoralesICON.jpg"
+                                <Border.Background>
+                                    <ImageBrush ImageSource = "/Images/MilesMoralesICON.jpg"
                             Stretch = "Fill">
-                                </ImageBrush>
-                            </Border.Background>
-                        </Border>
+                                    </ImageBrush>
+                                </Border.Background>
+                            </Border>
 
-                        <Border CornerRadius="10"
+                            <Border CornerRadius="10"
                         Height="80"
                         Width="250"
                         HorizontalAlignment="Right"
@@ -64,12 +66,12 @@
                         Grid.Column="1"
                         Grid.Row="0"
                         Background="#2F3859">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height = "Auto"/>
-                                    <RowDefinition Height = "Auto"/>
-                                </Grid.RowDefinitions>
-                                <Label x:Name = "lblUserName" Content = "{x:Static p:Resources.LblUsername}"
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height = "Auto"/>
+                                        <RowDefinition Height = "Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label x:Name = "lblUserName" Content = "{x:Static p:Resources.LblUsername}"
                            Foreground = "White"
                            FontWeight = "Light"
                            FontSize = "12"
@@ -78,43 +80,43 @@
                            Margin="0,10,0,0"
                            Grid.Row="0"/>
 
-                                <Label x:Name = "lblLevel" Content = "{x:Static p:Resources.LblLevel}"
+                                    <Label x:Name = "lblLevel" Content = "{x:Static p:Resources.LblLevel}"
                            Foreground = "White"
                            FontWeight = "Light"
                            FontSize = "12"
                            FontFamily = "Monsterrat"
                            HorizontalAlignment="Center"
                            Grid.Row="1"/>
-                            </Grid>
-                        </Border>
-                    </Grid>
+                                </Grid>
+                            </Border>
+                        </Grid>
 
-                    <Grid
+                        <Grid
                 Grid.Row = "0"
                 Grid.Column = "0"
                 VerticalAlignment="Top"
                 HorizontalAlignment="Center">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height = "Auto"/>
-                            <RowDefinition Height = "Auto"/>
-                            <RowDefinition Height = "Auto"/>
-                            <RowDefinition Height = "Auto"/>
-                            <RowDefinition Height = "Auto"/>
-                        </Grid.RowDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height = "Auto"/>
+                                <RowDefinition Height = "Auto"/>
+                                <RowDefinition Height = "Auto"/>
+                                <RowDefinition Height = "Auto"/>
+                                <RowDefinition Height = "Auto"/>
+                            </Grid.RowDefinitions>
 
-                        <Border 
+                            <Border 
                     Grid.Row = "0"
                             VerticalAlignment="Top"
                     Width="400" Height="120"
                     Margin="25,30,25,0">
-                            <Border.Background>
-                                <ImageBrush ImageSource = "/Images/Logo.png"
+                                <Border.Background>
+                                    <ImageBrush ImageSource = "/Images/Logo.png"
                             Stretch = "Fill">
-                                </ImageBrush>
-                            </Border.Background>
-                        </Border>
+                                    </ImageBrush>
+                                </Border.Background>
+                            </Border>
 
-                        <Button x:Name = "btnPlay"
+                            <Button x:Name = "btnPlay"
                         BorderThickness = "0"
                         Width="300"
                         Height="50"
@@ -125,25 +127,25 @@
                         Cursor = "Hand"
                         Grid.Row="1"
                         Margin="-40,15,40,0">
-                            <Button.Style>
-                                <Style TargetType = "Button">
-                                    <Setter Property = "Background" Value = "#8A8884"/>
-                                </Style>
-                            </Button.Style>
+                                <Button.Style>
+                                    <Style TargetType = "Button">
+                                        <Setter Property = "Background" Value = "#8A8884"/>
+                                    </Style>
+                                </Button.Style>
 
-                            <Button.Template>
-                                <ControlTemplate TargetType = "Button">
-                                    <Border Width = "180" Height = "40"
+                                <Button.Template>
+                                    <ControlTemplate TargetType = "Button">
+                                        <Border Width = "180" Height = "40"
                                         CornerRadius = "10"
                                         Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
+                                            <ContentPresenter VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
 
-                        <Button x:Name = "btnJoinToParty"
+                            <Button x:Name = "btnJoinToParty"
                         BorderThickness = "0"
                         Width="300"
                         Height="50"
@@ -161,19 +163,19 @@
                                 </Style>
                             </Button.Style>
 
-                            <Button.Template>
-                                <ControlTemplate TargetType = "Button">
-                                    <Border Width = "180" Height = "40"
+                                <Button.Template>
+                                    <ControlTemplate TargetType = "Button">
+                                        <Border Width = "180" Height = "40"
                                         CornerRadius = "10"
                                         Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
+                                            <ContentPresenter VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
 
-                        <Button x:Name = "btnSettings"
+                            <Button x:Name = "btnSettings"
                         BorderThickness = "0"
                         Width="300"
                         Height="50"
@@ -185,25 +187,25 @@
                             Grid.Row="3"    
                             Margin="45,20,40,0"
                                 Click="BtnSettings_Click">
-                            <Button.Style>
-                                <Style TargetType = "Button">
-                                    <Setter Property = "Background" Value = "#8A8884"/>
-                                </Style>
-                            </Button.Style>
+                                <Button.Style>
+                                    <Style TargetType = "Button">
+                                        <Setter Property = "Background" Value = "#8A8884"/>
+                                    </Style>
+                                </Button.Style>
 
-                            <Button.Template>
-                                <ControlTemplate TargetType = "Button">
-                                    <Border Width = "180" Height = "40"
+                                <Button.Template>
+                                    <ControlTemplate TargetType = "Button">
+                                        <Border Width = "180" Height = "40"
                                         CornerRadius = "10"
                                         Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
+                                            <ContentPresenter VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
 
-                        <Button x:Name = "btnExit"
+                            <Button x:Name = "btnExit"
                         BorderThickness = "0"
                         Width="300"
                         Height="50"
@@ -213,25 +215,25 @@
                             FontWeight="Bold"
                             Cursor = "Hand"
                             Grid.Row="4" Margin="76,20,40,30">
-                            <Button.Style>
-                                <Style TargetType = "Button">
-                                    <Setter Property = "Background" Value = "#8A8884"/>
-                                </Style>
-                            </Button.Style>
-                            <Button.Template>
-                                <ControlTemplate TargetType = "Button">
-                                    <Border Width = "180" Height = "40"
+                                <Button.Style>
+                                    <Style TargetType = "Button">
+                                        <Setter Property = "Background" Value = "#8A8884"/>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType = "Button">
+                                        <Border Width = "180" Height = "40"
                                         CornerRadius = "10"
                                         Background="{TemplateBinding Background}">
-                                        <ContentPresenter VerticalAlignment="Center"
+                                            <ContentPresenter VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"/>
-                                    </Border>
-                                </ControlTemplate>
-                            </Button.Template>
-                        </Button>
-                        <Grid/>
-                    </Grid>
-                    <Border 
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                            <Grid/>
+                        </Grid>
+                        <Border 
                 Grid.Column = "1"
                 Grid.Row = "0"
                 Background = "Black"
@@ -241,12 +243,12 @@
                 CornerRadius = "10"
                 Margin="0,0,-7,0"
                         Cursor ="Hand">
-                        <Grid>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height = "Auto"/>
-                                <RowDefinition Height = "Auto"/>
-                            </Grid.RowDefinitions>
-                            <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriends}"
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height = "Auto"/>
+                                    <RowDefinition Height = "Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriends}"
                            Foreground = "White"
                            FontWeight = "Light"
                            FontSize = "25"
@@ -256,30 +258,31 @@
                            Grid.Row="0"
                            Margin="0,40,0,0" 
                            Width="83">
-                                <Label.LayoutTransform>
-                                    <RotateTransform   Angle="270"/>
-                                </Label.LayoutTransform>
-                            </Label>
-                            <Border
+                                    <Label.LayoutTransform>
+                                        <RotateTransform   Angle="270"/>
+                                    </Label.LayoutTransform>
+                                </Label>
+                                <Border
                         Grid.Row = "1"
                         Height = "30"
                         Width = "30"
                         Background="White"
                         CornerRadius="15"
                         Margin="0,20,0,0">
-                                <Border>
-                                    <Border.Background>
-                                        <ImageBrush ImageSource = "/Images/FriendsIcon.png"
+                                    <Border>
+                                        <Border.Background>
+                                            <ImageBrush ImageSource = "/Images/FriendsIcon.png"
                             Stretch = "UniformToFill">
-                                        </ImageBrush>
-                                    </Border.Background>
+                                            </ImageBrush>
+                                        </Border.Background>
+                                    </Border>
                                 </Border>
-                            </Border>
-                        </Grid>
-                    </Border>
+                            </Grid>
+                        </Border>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </ScrollViewer>
-    </DockPanel>
+            </ScrollViewer>
+        </DockPanel>
+    </Grid>
 </Page>
 
