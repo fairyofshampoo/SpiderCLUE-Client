@@ -319,5 +319,9 @@
   <ItemGroup>
     <Resource Include="Images\EUAFlag.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Audio\MainMenuSong.mp3" />
+    <Content Include="Video\LoadingScreen.mp4" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
