@@ -46,6 +46,20 @@ namespace Spider_Clue.Views
             SettingsView settingsView = new SettingsView();
             this.NavigationService.Navigate(settingsView);
         }
+
+        private void BtnJoinToParty_Click(object sender, RoutedEventArgs e)
+        {
+            OpenDialogForSearchGame();
+        }
+        private void OpenDialogForSearchGame()
+        {
+            Window mainWindow = Window.GetWindow(this);
+
+            SearchGameView searchGamePopUp = new SearchGameView();
+            searchGamePopUp.Owner = mainWindow;
+            searchGamePopUp.ShowDialog();
+        }
+
     }
 
 }

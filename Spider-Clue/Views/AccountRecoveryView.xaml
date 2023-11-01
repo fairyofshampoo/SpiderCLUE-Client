@@ -5,188 +5,122 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
+      d:DesignHeight = "720" d:DesignWidth = "1280"
       mc:Ignorable="d" 
       Title="AccountRecoveryView">
     <DockPanel>
-        <Grid>
-            <Border>
-                <Border.Background>
-                    <ImageBrush ImageSource="/Images/backgroundREGISTER.png"
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+            <Grid>
+                <Border>
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/backgroundREGISTER.png"
                             Stretch="Fill">
-                    </ImageBrush>
-                </Border.Background>
-            </Border>
+                        </ImageBrush>
+                    </Border.Background>
+                </Border>
 
-            <StackPanel Width="500"
+                <StackPanel Width="Auto"
+                        Height="Auto"
                     Orientation="Vertical"
+                        VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                         Margin="0,30,0,0">
 
-                <Label x:Name = "lblAccountRecovery" Content = "{x:Static p:Resources.LblAccountRecoveryTitle}"
+                    <Label x:Name = "lblAccountRecovery" Content = "{x:Static p:Resources.LblAccountRecoveryTitle}"
                    Foreground = "White"
-                   FontWeight = "Light"
-                   FontSize = "35"
+                   FontWeight = "SemiBold"
+                   FontSize = "55"
                    FontFamily = "Monsterrat"
                    HorizontalContentAlignment="Center"
                    Margin="0,50,0,10"/>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height = "Auto" />
-                        <RowDefinition Height = "Auto" />
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height = "Auto" />
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
 
-                    <Border
+                        <Border
                     CornerRadius="10"
-                    Height="Auto"
-                    Width="400"
+                    Width="Auto"
                     Background="#B45959"
                     Grid.Row="0">
-                        <StackPanel>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
+                            <StackPanel>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
 
-                                <Label x:Name = "lblEmailForRecovery" Content = "{x:Static p:Resources.LblEmailForRecovery}"
-                                   Width="360"
+                                    <Label x:Name = "lblEmailForRecovery" Content = "{x:Static p:Resources.LblEmailForRecovery}"
+                                   Width="Auto"
                                    Foreground ="White"
                                    FontWeight = "Medium"
-                                   FontSize = "14"
+                                   FontSize = "22"
                                    FontFamily = "Monsterrat"
                                    HorizontalContentAlignment="Center"
-                                   Margin="0,5,0,0" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                                   Margin="5,5,5,5" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="0"/>
-                                <Border
-                                Width="270"
+                                    <Border
+                                Width="Auto"
                                 CornerRadius="5"
                                 BorderBrush="LightGray"
                                 BorderThickness="3"
                                 Grid.Row="1"
                                 Margin="15,10,15,10">
-                                    <TextBox x:Name="txtEmailForRecovery" 
-                                         Height="20"
+                                        <TextBox x:Name="txtEmailForRecovery" 
+                                         Height="35"
                                          FontSize="13"
                                          FontWeight="Medium"
                                          FontFamily="Montserrat"
                                          Background="LightGray"
                                          Foreground="Black"
                                          BorderThickness="0"/>
-                                </Border>
-                            </Grid>
+                                    </Border>
+                                </Grid>
 
-                            <Button x:Name = "btnSendCode"
+                                <Button x:Name = "btnSendCode"
                             BorderThickness = "0"
                             Content = "{x:Static p:Resources.BtnSendCode}"
                             Foreground = "White"
-                            FontSize = "12"
+                            FontSize = "18"
                             FontWeight="Bold"
                             Cursor = "Hand"
                             Margin = "0,5,0,10">
 
-                                <Button.Style>
-                                    <Style TargetType = "Button">
-                                        <Setter Property = "Background" Value = "Black"/>
-                                    </Style>
-                                </Button.Style>
+                                    <Button.Style>
+                                        <Style TargetType = "Button">
+                                            <Setter Property = "Background" Value = "Black"/>
+                                        </Style>
+                                    </Button.Style>
 
-                                <Button.Template>
-                                    <ControlTemplate TargetType = "Button">
-                                        <Border Width = "150" Height = "30"
+                                    <Button.Template>
+                                        <ControlTemplate TargetType = "Button">
+                                            <Border Width = "200" Height = "40"
                                         CornerRadius = "10"
                                         Background="{TemplateBinding Background}">
-                                            <ContentPresenter VerticalAlignment="Center"
+                                                <ContentPresenter VerticalAlignment="Center"
                                                           HorizontalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-                        </StackPanel>
-                    </Border>
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                            </StackPanel>
+                        </Border>
 
-                    <Border
+                        <Border
                     CornerRadius="10"
                     Height="Auto"
                     Width="400"
                     Background="#655E73"
                     Grid.Row="1"
                     Margin="0,50,0,0">
-                        <StackPanel>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
+                        </Border>
+                    </Grid>
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
+                </StackPanel>
 
-                                <Label x:Name = "lblCode" Content = "{x:Static p:Resources.LblCode}"
-                                   Foreground ="White"
-                                   FontWeight = "Medium"
-                                   FontSize = "15"
-                                   FontFamily = "Monsterrat"
-                                   HorizontalContentAlignment="Left"
-                                   Margin="15,15,0,0" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
-                                   Grid.Row="0"
-                                   Grid.Column="0"/>
-                                <Border
-                                CornerRadius="5"
-                                BorderBrush="LightGray"
-                                BorderThickness="3"
-                                Grid.Row="0"
-                                Grid.Column="1"
-                                Width="250"
-                                Margin="15,15,15,10">
-                                    <TextBox x:Name="txtCode" 
-                                         Height="20"
-                                         FontSize="13"
-                                         FontWeight="Medium"
-                                         FontFamily="Montserrat"
-                                         Background="LightGray"
-                                         Foreground="Black"
-                                         BorderThickness="0"/>
-                                </Border>
-                            </Grid>
-
-                            <Button x:Name = "btnRecover"
-                                BorderThickness = "0"
-                                Content = "{x:Static p:Resources.BtnRecover}"
-                                Foreground = "White"
-                                FontSize = "12"
-                                FontWeight="Bold"
-                                Cursor = "Hand"
-                                Grid.Row="1"
-                                Grid.Column = "1"
-                                Margin = "0,5,0,10">
-
-                                <Button.Style>
-                                    <Style TargetType = "Button">
-                                        <Setter Property = "Background" Value = "Black"/>
-                                    </Style>
-                                </Button.Style>
-
-                                <Button.Template>
-                                    <ControlTemplate TargetType = "Button">
-                                        <Border Width = "150" Height = "30"
-                                        CornerRadius = "10"
-                                        Background="{TemplateBinding Background}">
-                                            <ContentPresenter VerticalAlignment="Center"
-                                                          HorizontalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-                        </StackPanel>
-                    </Border>
-                </Grid>
-
-            </StackPanel>
-
-        </Grid>
+            </Grid>
+        </ScrollViewer>
     </DockPanel>
 </Page>

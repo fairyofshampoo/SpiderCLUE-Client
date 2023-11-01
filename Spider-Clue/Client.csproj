@@ -224,15 +224,56 @@
     <None Include="Connected Services\SpiderClueService\item3.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SpiderClueService\item31.xsd">
+    <None Include="Connected Services\SpiderClueService\item1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\SpiderClueService\item32.xsd">
+    <None Include="Connected Services\SpiderClueService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Gamer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-Bold.ttf" />
+    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-BoldItalic.ttf" />
+    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-ExtraLight.ttf" />
+    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-ExtraLightItalic.ttf" />
+    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-Italic.ttf" />
+    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-Light.ttf" />
+    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-LightItalic.ttf" />
+    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-Medium.ttf" />
+    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-MediumItalic.ttf" />
+    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-Regular.ttf" />
+    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-SemiBold.ttf" />
+    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-SemiBoldItalic.ttf" />
+    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-Thin.ttf" />
+    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-ThinItalic.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica-Black.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica-Bold.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica-ExtraBold.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica-ExtraLight.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica-Light.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica-Medium.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica-Regular.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica-SemiBold.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica-Thin.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-Black.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-Bold.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-ExtraBold.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-ExtraLight.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-Light.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-Medium.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-Regular.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-SemiBold.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-Thin.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Black.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Bold.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-ExtraBold.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-ExtraLight.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Light.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Medium.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Regular.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-SemiBold.ttf" />
+    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Thin.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -242,7 +283,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Fonts\" />
+    <None Include="Connected Services\SpiderClueService\item.disco" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\backgroundLOGIN.png" />
@@ -284,9 +325,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SpiderClueService\item1.disco" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\GoBackIconBlack.png" />
   </ItemGroup>
   <ItemGroup>
@@ -312,6 +350,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\paperIMG.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\papersWithWoman.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MilesMoralesBackground.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\MexicoFlag.png" />

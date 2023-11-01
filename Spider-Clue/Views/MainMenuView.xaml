@@ -155,12 +155,13 @@
                         FontWeight="Bold"
                         Cursor = "Hand"
                         Grid.Row="2"
-                        Margin="0,20,40,0">
-                                <Button.Style>
-                                    <Style TargetType = "Button">
-                                        <Setter Property = "Background" Value = "#8A8884"/>
-                                    </Style>
-                                </Button.Style>
+                        Margin="0,20,40,0"
+                                Click="BtnJoinToParty_Click">
+                            <Button.Style>
+                                <Style TargetType = "Button">
+                                    <Setter Property = "Background" Value = "#8A8884"/>
+                                </Style>
+                            </Button.Style>
 
                                 <Button.Template>
                                     <ControlTemplate TargetType = "Button">
