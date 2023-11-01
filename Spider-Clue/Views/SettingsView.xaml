@@ -4,7 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Spider_Clue.Views"
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight = "720" d:DesignWidth = "1280"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
       mc:Ignorable="d" 
       Title="SettingsView"
@@ -19,25 +19,26 @@
                             Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
-                    <Border HorizontalAlignment="Left" Margin="-15,0,0,0"
+                </Border>
+                <Border HorizontalAlignment="Left" Margin="-15,0,0,0"
                             Width="500">
-                        <Border.Background>
-                            <ImageBrush ImageSource="/Images/paperIMG.png"
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/paperIMG.png"
                             Stretch = "Fill">
-                            </ImageBrush>
-                        </Border.Background>
-                        <Grid VerticalAlignment="Stretch">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
+                        </ImageBrush>
+                    </Border.Background>
+                    <Grid VerticalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto"/>
-                                <RowDefinition Height="Auto"/>
-                            </Grid.RowDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
 
-                            <Button
+                        <Button
                                 VerticalAlignment="Top"
                             Grid.Column="0"
                                 Grid.Row = "0"
@@ -47,28 +48,28 @@
                                 Margin="20,5,0,0"
                                 Click="BtnGoBack_Click"
                                 Cursor="Hand">
-                                <Button.Template>
-                                    <ControlTemplate>
-                                        <Image Source="/Images/GoBackIconBlack.png" 
+                            <Button.Template>
+                                <ControlTemplate>
+                                    <Image Source="/Images/GoBackIconBlack.png" 
                                     Stretch="Uniform">
-                                        </Image>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-                            <Grid Grid.Column = "0"
+                                    </Image>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                        <Grid Grid.Column = "0"
                               Grid.Row="1"
                               VerticalAlignment="Center">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
 
-                                <StackPanel
+                            <StackPanel
                                 VerticalAlignment = "Center"
                                 Height="450"
                                 Grid.Row="1"
                                     Margin="0,50,0,0">
-                                    <Label x:Name = "lblLanguage" Content = "{x:Static p:Resources.LblLanguage}"
+                                <Label x:Name = "lblLanguage" Content = "{x:Static p:Resources.LblLanguage}"
                            Foreground = "Black"
                            FontWeight = "Regular"
                            FontSize = "60"
@@ -80,7 +81,7 @@
                                        Cursor="Hand"
                        MouseLeftButtonDown="LblLanguage_Click"/>
 
-                                    <Label x:Name = "lblAudio" Content = "{x:Static p:Resources.LblAudio}"
+                                <Label x:Name = "lblAudio" Content = "{x:Static p:Resources.LblAudio}"
                            Foreground = "Black"
                            FontWeight = "Regular"
                            FontSize = "60"
@@ -92,10 +93,19 @@
                                        Cursor="Hand"
                        MouseLeftButtonDown="LblAudio_Click"/>
 
-                                </StackPanel>
-                            </Grid>
+                            </StackPanel>
                         </Grid>
-                    </Border>
+                    </Grid>
+                </Border>
+                <Border CornerRadius = "10">
+                    <StackPanel x:Name="StackPanelSettings"
+                    Grid.Column = "1"
+                    Height = "400"
+                    Width = "600"
+                    Margin = "500,0,150,0"
+                    Background = "Transparent">
+                        <Frame Name="SettingsFrame"/>
+                    </StackPanel>
                 </Border>
             </Grid>
         </ScrollViewer>

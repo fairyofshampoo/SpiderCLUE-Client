@@ -5,16 +5,17 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
+      d:DesignHeight = "400" d:DesignWidth = "600"
       mc:Ignorable="d" 
       Title="SettingsView"
       Background="Transparent">
 
     <Grid>
         <Border
-            CornerRadius = "8"
+            CornerRadius = "10"
             Background = "#141210"
-            Width = "200"
-            Height = "150">
+            Width = "600"
+            Height = "400">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height = "Auto"/>
@@ -25,41 +26,48 @@
                 <Label x:Name = "lblTitle" Content = "{x:Static p:Resources.LblLanguageSettingTitle}"
                            Foreground = "White"
                            FontWeight = "Light"
-                           FontSize = "15"
+                           FontSize = "75"
                            FontFamily = "Monsterrat"
                            VerticalContentAlignment = "Top"
                            HorizontalAlignment = "Center"
                            Grid.Row="0" Margin = "0,5,0,0"/>
                 <Grid 
-                    Grid.Row = "1">
+                    Grid.Row = "1"
+                    Margin = "0,30,0,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width = "Auto"/>
                         <ColumnDefinition Width = "Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Border
-                        Width = "40"
-                        Height = "30"
+                    <Button
                         Grid.Column = "0"
-                        Margin="35,10,0,0">
-                        <Border.Background>
-                            <ImageBrush ImageSource="/Images/MexicoFlag.png"
-                            Stretch="UniformToFill">
-                            </ImageBrush>
-                        </Border.Background>
-                    </Border>
-
-                    <Border
-                        Width = "40"
-                        Height = "30"
+                        Margin="150,10,0,0"
+                        HorizontalAlignment = "Center"
+                        Background = "Transparent"
+                        BorderBrush = "Transparent"
+                        Width = "100"
+                        Height = "90"
+                        Cursor = "Hand">
+                        <Image 
+                            Source = "/Images/MexicoFlag.png"
+                            Stretch="Fill">
+                        </Image>
+                    </Button>
+                    <Button
                         Grid.Column = "1"
-                        Margin="55,10,0,0">
-                        <Border.Background>
-                            <ImageBrush ImageSource="/Images/EUAFlag.png"
-                            Stretch="UniformToFill">
-                            </ImageBrush>
-                        </Border.Background>
-                    </Border>
+                        Margin="102,10,0,0"
+                        HorizontalAlignment = "Center"
+                        Background = "Transparent"
+                        BorderBrush = "Transparent"
+                        Width = "100"
+                        Height = "90"
+                        Cursor = "Hand">
+                        <Image 
+                            Source = "/Images/EUAFlag.png"
+                            Stretch="Fill">
+                        </Image>
+                    </Button>
+
                 </Grid>
                 <Grid 
                     Grid.Row="2">
@@ -71,18 +79,18 @@
                     <Label x:Name = "LblLanguageSpanish" Content = "{x:Static p:Resources.LblLanguageSpanish}"
                            Foreground = "White"
                            FontWeight = "Light"
-                           FontSize = "10"
+                           FontSize = "20"
                            FontFamily = "Monsterrat"
                            Grid.Column = "0"
-                           Margin="33,0,0,0"/>
+                           Margin="120,0,0,0"/>
 
                     <Label x:Name = "LblLanguageEnglish" Content = "{x:Static p:Resources.LblLanguageEnglish}"
                            Foreground = "White"
                            FontWeight = "Light"
-                           FontSize = "10"
+                           FontSize = "20"
                            FontFamily = "Monsterrat"
                            Grid.Column = "1"
-                           Margin="50,0,0,0"/>
+                           Margin="75,0,0,0"/>
                 </Grid>
 
             </Grid>
