@@ -208,7 +208,7 @@ namespace Spider_Clue.Views
             if (string.IsNullOrWhiteSpace(name))
             {
                 isValid = false;
-            }
+            }   
             else
             {
                 var nameRegex = new Regex("^[\\p{L}\\p{M}\\s]{1,50}");
