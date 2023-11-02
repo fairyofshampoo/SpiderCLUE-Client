@@ -210,8 +210,12 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.en-US.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Connected Services\SpiderClueService\GameService.wsdl" />
     <None Include="Connected Services\SpiderClueService\GameService1.wsdl" />
     <None Include="Connected Services\SpiderClueService\GameService11.wsdl" />
+    <None Include="Connected Services\SpiderClueService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\SpiderClueService\item3.xsd">
       <SubType>Designer</SubType>
     </None>

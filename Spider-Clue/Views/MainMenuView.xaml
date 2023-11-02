@@ -50,6 +50,7 @@
                         Margin="0,0,0,0"
                         Grid.Row="0"
                         Grid.Column="0">
+
                                 <Border.Background>
                                     <ImageBrush ImageSource = "/Images/MilesMoralesICON.jpg"
                             Stretch = "Fill">
@@ -57,21 +58,28 @@
                                 </Border.Background>
                             </Border>
 
-                            <Border CornerRadius="10"
-                        Height="80"
-                        Width="250"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Top"
-                        Margin="15,0,0,0"
-                        Grid.Column="1"
-                        Grid.Row="0"
-                        Background="#2F3859">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height = "Auto"/>
-                                        <RowDefinition Height = "Auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Label x:Name = "lblUserName" Content = "{x:Static p:Resources.LblUsername}"
+                            <Button 
+                                Name="btnProfile"
+                                Grid.Column="1"
+                                Grid.Row = "0"
+                                Height = "80"
+                                Width = "250"
+                                Margin="15,0,15,0"
+                                Background= "Transparent"
+                                BorderBrush= "Transparent"
+                                >
+                                <Border CornerRadius="5"
+                                         Height="80"
+                                         Width="246"
+                                         HorizontalAlignment="Center"
+                                         VerticalAlignment="Top"
+                                         Background="#2F3859">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height = "Auto"/>
+                                            <RowDefinition Height = "Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Label x:Name = "lblUserName" Content = "{x:Static p:Resources.LblUsername}"
                            Foreground = "White"
                            FontWeight = "Light"
                            FontSize = "12"
@@ -80,15 +88,16 @@
                            Margin="0,10,0,0"
                            Grid.Row="0"/>
 
-                                    <Label x:Name = "lblLevel" Content = "{x:Static p:Resources.LblLevel}"
+                                        <Label x:Name = "lblLevel" Content = "{x:Static p:Resources.LblLevel}"
                            Foreground = "White"
                            FontWeight = "Light"
                            FontSize = "12"
                            FontFamily = "Monsterrat"
                            HorizontalAlignment="Center"
                            Grid.Row="1"/>
-                                </Grid>
-                            </Border>
+                                    </Grid>
+                                </Border>
+                            </Button>
                         </Grid>
 
                         <Grid
@@ -157,11 +166,11 @@
                         Grid.Row="2"
                         Margin="0,20,40,0"
                                 Click="BtnJoinToParty_Click">
-                            <Button.Style>
-                                <Style TargetType = "Button">
-                                    <Setter Property = "Background" Value = "#8A8884"/>
-                                </Style>
-                            </Button.Style>
+                                <Button.Style>
+                                    <Style TargetType = "Button">
+                                        <Setter Property = "Background" Value = "#8A8884"/>
+                                    </Style>
+                                </Button.Style>
 
                                 <Button.Template>
                                     <ControlTemplate TargetType = "Button">
