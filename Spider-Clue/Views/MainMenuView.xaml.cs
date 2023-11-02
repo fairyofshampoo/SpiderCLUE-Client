@@ -72,6 +72,11 @@ namespace Spider_Clue.Views
             DataContext = this;
         }
 
+        private void BtnEditProfile_Click(object sender, RoutedEventArgs e)
+        {
+            PersonalInformationView personInformation = new PersonalInformationView();
+            this.NavigationService.Navigate(personInformation);
+        }
     }
 
 }

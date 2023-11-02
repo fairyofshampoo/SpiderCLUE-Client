@@ -67,7 +67,7 @@
                                 Margin="15,0,15,0"
                                 Background= "Transparent"
                                 BorderBrush= "Transparent"
-                                >
+                                Click = "BtnEditProfile_Click">
                                 <Border CornerRadius="5"
                                          Height="80"
                                          Width="246"

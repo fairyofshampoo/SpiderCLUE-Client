@@ -106,6 +106,9 @@
     <Compile Include="Views\PasswordRecoveryView.xaml.cs">
       <DependentUpon>PasswordRecoveryView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PersonalInformationView.xaml.cs">
+      <DependentUpon>PersonalInformationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProfileEditionView.xaml.cs">
       <DependentUpon>ProfileEditionView.xaml</DependentUpon>
     </Compile>
@@ -167,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PasswordRecoveryView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PersonalInformationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

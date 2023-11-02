@@ -97,6 +97,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Information.
+        /// </summary>
+        public static string BtnEditInformation {
+            get {
+                return ResourceManager.GetString("BtnEditInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exit to desktop.
         /// </summary>
         public static string BtnExitToDesktop {
@@ -534,6 +543,15 @@ namespace Spider_Clue.Properties {
         public static string LblPasswordWrong {
             get {
                 return ResourceManager.GetString("LblPasswordWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Personal Information.
+        /// </summary>
+        public static string LblPersonalInformation {
+            get {
+                return ResourceManager.GetString("LblPersonalInformation", resourceCulture);
             }
         }
         
