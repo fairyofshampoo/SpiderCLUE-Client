@@ -295,4 +295,10 @@
   <data name="LblFriendsRequest" xml:space="preserve">
     <value>Friends Request</value>
   </data>
+  <data name="BtnEditInformation" xml:space="preserve">
+    <value>Edit Information</value>
+  </data>
+  <data name="LblPersonalInformation" xml:space="preserve">
+    <value>Personal Information</value>
+  </data>
 </root>
