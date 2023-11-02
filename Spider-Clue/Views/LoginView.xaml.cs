@@ -2,6 +2,7 @@
 using Spider_Clue.SpiderClueService;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Security;
@@ -22,8 +23,9 @@ namespace Spider_Clue.Views
     /// <summary>
     /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class LoginView : Window
+    public partial class LoginView : Page
     {
+
         public LoginView()
         {
             InitializeComponent();
@@ -32,7 +34,7 @@ namespace Spider_Clue.Views
         private void LblRegister_Clicked(object sender, MouseButtonEventArgs mouseEvent)
         {
             Register registerView = new Register();
-            registerView.ShowDialog();
+            this.NavigationService.Navigate(registerView);
         }
 
         private void BtnGuestPlayer_Click(object sender, RoutedEventArgs e)
@@ -72,12 +74,13 @@ namespace Spider_Clue.Views
                 ShowErrorMessage();
             }
         }
+
         private void SaveSession()
         {
             SaveSessionInSingleton();
             SaveSessionInServer();
-
         }
+
         private void SaveSessionInSingleton()
         {
             string gamerTag = txtUsername.Text;
@@ -91,6 +94,7 @@ namespace Spider_Clue.Views
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
             return userManager.GetGamer(gamerTag);
         }
+
         private void ShowErrorMessage()
         {
             MessageBox.Show("Verifique el correo y contraseña, sean correctos. No se ha podido iniciar sesión", Properties.Resources.DlgRegisterError, MessageBoxButton.OK, MessageBoxImage.Error);
@@ -114,7 +118,7 @@ namespace Spider_Clue.Views
         {
             bool banned = false;
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            if(userManager.GetBannedStatus(txtUsername.Text) == 1)
+            if (userManager.GetBannedStatus(txtUsername.Text) == 1)
             {
                 banned = true;
                 ShowBannedDialog();
@@ -198,5 +202,49 @@ namespace Spider_Clue.Views
         {
             lblPasswordInvalid.Visibility = Visibility.Hidden;
         }
+
+        private void BtnPasswordVisibility_Checked(object sender, RoutedEventArgs e)
+        {
+            TogglePasswordVisibility(true);
+        }
+
+        private void BtnPasswordVisibility_Unchecked(object sender, RoutedEventArgs e)
+        {
+            TogglePasswordVisibility(false);
+        }
+
+        private void TogglePasswordVisibility(bool isVisible)
+        {
+            if (isVisible)
+            {
+                bdrPassword.Visibility = Visibility.Collapsed;
+                bdrPasswordDisplay.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                bdrPassword.Visibility = Visibility.Visible;
+                bdrPasswordDisplay.Visibility = Visibility.Collapsed;
+            }
+
+            if (isVisible)
+            {
+                txtPasswordDisplay.Text = txtPassword.Password;
+                SetPasswordIcon("InvisibleIcon.png");
+            }
+            else
+            {
+                txtPassword.Password = txtPasswordDisplay.Text;
+                SetPasswordIcon("VisibleIcon.png");
+            }
+        }
+
+        private void SetPasswordIcon(string iconFileName)
+        {
+            Uri newImageUri = new Uri($"/Images/{iconFileName}", UriKind.Relative);
+            BitmapImage newImageSource = new BitmapImage(newImageUri);
+            Image imgPasswordIcon = btnPasswordVisibility.Template.FindName("imgPasswordIcon", btnPasswordVisibility) as Image;
+            imgPasswordIcon.Source = newImageSource;
+        }
+
     }
 }

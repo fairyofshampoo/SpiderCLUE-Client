@@ -38,6 +38,9 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>packages\PresentationFramework.4.6.0\lib\PresentationFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -56,7 +59,6 @@
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -278,6 +280,7 @@
     <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Regular.ttf" />
     <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-SemiBold.ttf" />
     <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Thin.ttf" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -294,9 +297,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\VisibleIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\VisibleIconBlack.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\backgroundREGISTER.png" />
@@ -367,6 +367,7 @@
   <ItemGroup>
     <Content Include="Audio\MainMenuSong.mp3" />
     <None Include="Connected Services\SpiderClueService\item1.disco" />
+    <Resource Include="Images\InvisibleIcon.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

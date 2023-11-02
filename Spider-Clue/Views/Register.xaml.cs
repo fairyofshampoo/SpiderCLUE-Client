@@ -25,7 +25,7 @@ using Spider_Clue.Logic;
 
 namespace Spider_Clue.Views
 {
-    public partial class Register : Window
+    public partial class Register : Page
     {
         public Register()
         {
