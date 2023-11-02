@@ -22,7 +22,7 @@ namespace Spider_Clue.Views
     /// <summary>
     /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class LoginView : Page
+    public partial class LoginView : Window
     {
         public LoginView()
         {
@@ -32,7 +32,7 @@ namespace Spider_Clue.Views
         private void LblRegister_Clicked(object sender, MouseButtonEventArgs mouseEvent)
         {
             Register registerView = new Register();
-            this.NavigationService.Navigate(registerView);
+            registerView.ShowDialog();
         }
 
         private void BtnGuestPlayer_Click(object sender, RoutedEventArgs e)

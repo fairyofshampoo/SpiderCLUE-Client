@@ -1,4 +1,4 @@
-﻿<Page x:Class="Spider_Clue.Views.Register"
+﻿<Window x:Class="Spider_Clue.Views.Register"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -332,4 +332,4 @@
             </Grid>
         </ScrollViewer>
     </DockPanel>
-</Page>
+</Window>
