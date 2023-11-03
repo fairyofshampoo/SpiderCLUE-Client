@@ -601,6 +601,24 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream MainThemeSong {
+            get {
+                return ResourceManager.GetStream("MainThemeSong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
+        /// </summary>
+        public static System.IO.UnmanagedMemoryStream MinecraftButtonSound {
+            get {
+                return ResourceManager.GetStream("MinecraftButtonSound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Join the game.
         /// </summary>
         public static string RegisterTitle {

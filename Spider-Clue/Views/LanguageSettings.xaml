@@ -5,25 +5,24 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
-      d:DesignHeight = "400" d:DesignWidth = "600"
       mc:Ignorable="d" 
       Title="SettingsView"
       Background="Transparent">
-
-    <Grid>
-        <Border
+    <DockPanel>
+        <Grid>
+            <Border
             CornerRadius = "10"
             Background = "#141210"
-            Width = "600"
-            Height = "400">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height = "Auto"/>
-                    <RowDefinition Height = "Auto"/>
-                    <RowDefinition Height = "Auto"/>
-                </Grid.RowDefinitions>
+            Width = "Auto"
+            Height = "Auto">
+                <Grid Margin="10,0,10,40">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height = "Auto"/>
+                        <RowDefinition Height = "Auto"/>
+                        <RowDefinition Height = "Auto"/>
+                    </Grid.RowDefinitions>
 
-                <Label x:Name = "lblTitle" Content = "{x:Static p:Resources.LblLanguageSettingTitle}"
+                    <Label x:Name = "lblTitle" Content = "{x:Static p:Resources.LblLanguageSettingTitle}"
                            Foreground = "White"
                            FontWeight = "Light"
                            FontSize = "75"
@@ -31,15 +30,15 @@
                            VerticalContentAlignment = "Top"
                            HorizontalAlignment = "Center"
                            Grid.Row="0" Margin = "0,5,0,0"/>
-                <Grid 
+                    <Grid 
                     Grid.Row = "1"
                     Margin = "0,30,0,0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width = "Auto"/>
-                        <ColumnDefinition Width = "Auto"/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width = "Auto"/>
+                            <ColumnDefinition Width = "Auto"/>
+                        </Grid.ColumnDefinitions>
 
-                    <Button
+                        <Button
                         Grid.Column = "0"
                         Margin="150,10,0,0"
                         HorizontalAlignment = "Center"
@@ -47,13 +46,14 @@
                         BorderBrush = "Transparent"
                         Width = "100"
                         Height = "90"
-                        Cursor = "Hand">
-                        <Image 
+                        Cursor = "Hand"
+                        Click="BtnMXFlag_Click">
+                            <Image 
                             Source = "/Images/MexicoFlag.png"
                             Stretch="Fill">
-                        </Image>
-                    </Button>
-                    <Button
+                            </Image>
+                        </Button>
+                        <Button
                         Grid.Column = "1"
                         Margin="102,10,0,0"
                         HorizontalAlignment = "Center"
@@ -61,22 +61,23 @@
                         BorderBrush = "Transparent"
                         Width = "100"
                         Height = "90"
-                        Cursor = "Hand">
-                        <Image 
+                        Cursor = "Hand"
+                        Click="BtnUSFlag_Click">
+                            <Image 
                             Source = "/Images/EUAFlag.png"
                             Stretch="Fill">
-                        </Image>
-                    </Button>
+                            </Image>
+                        </Button>
 
-                </Grid>
-                <Grid 
+                    </Grid>
+                    <Grid 
                     Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width = "Auto"/>
-                        <ColumnDefinition Width = "Auto"/>
-                    </Grid.ColumnDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width = "Auto"/>
+                            <ColumnDefinition Width = "Auto"/>
+                        </Grid.ColumnDefinitions>
 
-                    <Label x:Name = "LblLanguageSpanish" Content = "{x:Static p:Resources.LblLanguageSpanish}"
+                        <Label x:Name = "LblLanguageSpanish" Content = "{x:Static p:Resources.LblLanguageSpanish}"
                            Foreground = "White"
                            FontWeight = "Light"
                            FontSize = "20"
@@ -84,16 +85,17 @@
                            Grid.Column = "0"
                            Margin="120,0,0,0"/>
 
-                    <Label x:Name = "LblLanguageEnglish" Content = "{x:Static p:Resources.LblLanguageEnglish}"
+                        <Label x:Name = "LblLanguageEnglish" Content = "{x:Static p:Resources.LblLanguageEnglish}"
                            Foreground = "White"
                            FontWeight = "Light"
                            FontSize = "20"
                            FontFamily = "Monsterrat"
                            Grid.Column = "1"
                            Margin="75,0,0,0"/>
-                </Grid>
+                    </Grid>
 
-            </Grid>
-        </Border>
-    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </DockPanel>
 </Page>

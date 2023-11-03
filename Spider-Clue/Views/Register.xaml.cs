@@ -270,8 +270,8 @@ namespace Spider_Clue.Views
 
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
-            LoginView loginView = new LoginView();
-            this.NavigationService.Navigate(loginView);
+            Utilities.PlayButtonClickSound();
+            this.NavigationService.GoBack();
         }
 
         private bool VerifyDuplications()
@@ -309,7 +309,7 @@ namespace Spider_Clue.Views
         private Boolean RegisterGamerInDatabase()
         {
             bool result = false;
-            string passwordHashed = HashUtility.CalculateSHA1Hash(txtPassword.Password);
+            string passwordHashed = Utilities.CalculateSHA1Hash(txtPassword.Password);
             Gamer gamer = new Gamer()
             {
                 FirstName = txtName.Text,

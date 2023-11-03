@@ -33,18 +33,21 @@ namespace Spider_Clue.Views
 
         private void LblRegister_Clicked(object sender, MouseButtonEventArgs mouseEvent)
         {
+            Utilities.PlayButtonClickSound();
             Register registerView = new Register();
             this.NavigationService.Navigate(registerView);
         }
 
         private void BtnGuestPlayer_Click(object sender, RoutedEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
             SetGuessPlayerData();
             DisplayMainMenuView();
         }
 
         private void LblForgotPassword_Clicked(object sender, MouseButtonEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
             AccountRecoveryView accountRecoveryView = new AccountRecoveryView();
             this.NavigationService.Navigate(accountRecoveryView);
         }
@@ -63,6 +66,8 @@ namespace Spider_Clue.Views
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
+            Utilities.PlayButtonClickSound();
             if (HandleLoginAttempt())
             {
                 SaveSession();
@@ -187,7 +192,7 @@ namespace Spider_Clue.Views
         private bool ValidateCredentials()
         {
             string username = txtUsername.Text;
-            string passwordHashed = HashUtility.CalculateSHA1Hash(txtPassword.Password);
+            string passwordHashed = Utilities.CalculateSHA1Hash(txtPassword.Password);
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
             return userManager.AuthenticateAccount(username, passwordHashed);
         }
