@@ -38,9 +38,6 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationFramework, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>packages\PresentationFramework.4.6.0\lib\PresentationFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -59,6 +56,7 @@
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -119,6 +117,9 @@
     </Compile>
     <Compile Include="Views\SearchGameView.xaml.cs">
       <DependentUpon>SearchGameView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SelectAvatarView.xaml.cs">
+      <DependentUpon>SelectAvatarView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
@@ -188,6 +189,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SearchGameView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SelectAvatarView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -287,7 +292,6 @@
     <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Regular.ttf" />
     <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-SemiBold.ttf" />
     <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Thin.ttf" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -304,6 +308,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\VisibleIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\VisibleIconBlack.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\backgroundREGISTER.png" />
@@ -374,7 +381,14 @@
   <ItemGroup>
     <Content Include="Audio\MainMenuSong.mp3" />
     <None Include="Connected Services\SpiderClueService\item1.disco" />
-    <Resource Include="Images\InvisibleIcon.png" />
+    <Resource Include="Images\DetectiveIcon.jpg" />
+    <Resource Include="Images\BlackSpiderIcon.jpg" />
+    <Resource Include="Images\GwenIcon.jpg" />
+    <Resource Include="Images\NewJeanIcon.jpg" />
+    <Resource Include="Images\PeterParkerIcon.jpg" />
+    <Resource Include="Images\SilkIcon.jpg" />
+    <Resource Include="Images\SpiderPunkIcon.jpg" />
+    <Resource Include="Images\SpiderWomanIcon.jpg" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

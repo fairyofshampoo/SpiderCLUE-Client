@@ -82,16 +82,16 @@
                        MouseLeftButtonDown="LblLanguage_Click"/>
 
                                 <Label x:Name = "lblAudio" Content = "{x:Static p:Resources.LblAudio}"
-                           Foreground = "Black"
-                           FontWeight = "Regular"
-                           FontSize = "60"
-                           FontFamily = "Monsterrat"
-                           VerticalContentAlignment = "Center"
-                           HorizontalAlignment = "Left"
-                           Grid.Row="2" 
-                           Margin = "40,50,0,0"
-                                       Cursor="Hand"
-                       MouseLeftButtonDown="LblAudio_Click"/>
+                                   Foreground = "Black"
+                                   FontWeight = "Regular"
+                                   FontSize = "60"
+                                   FontFamily = "Monsterrat"
+                                   VerticalContentAlignment = "Center"
+                                   HorizontalAlignment = "Left"
+                                   Grid.Row="2" 
+                                   Margin = "40,50,0,0"
+                                   Cursor="Hand"
+                                   MouseLeftButtonDown="LblAudio_Click"/>
 
                             </StackPanel>
                         </Grid>

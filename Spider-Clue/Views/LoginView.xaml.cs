@@ -58,7 +58,6 @@ namespace Spider_Clue.Views
         private string GenerateGuessPlayerUsername()
         {
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-
             return userManager.RequestGuessPlayer();
         }
 
@@ -88,7 +87,7 @@ namespace Spider_Clue.Views
 
             UserSingleton.Instance.Initialize(gamer);
         }
-
+            
         private Gamer GetGamerData(String gamerTag)
         {
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();

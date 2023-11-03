@@ -31,5 +31,11 @@ namespace Spider_Clue.Views
             ProfileEditionView profileEditionView = new ProfileEditionView();
             this.NavigationService.Navigate(profileEditionView);
         }
+
+        private void BtnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenuView mainMenuView = new MainMenuView();
+            this.NavigationService.Navigate(mainMenuView);
+        }
     }
 }
