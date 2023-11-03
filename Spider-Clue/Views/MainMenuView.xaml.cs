@@ -25,6 +25,7 @@ namespace Spider_Clue.Views
     public partial class MainMenuView : Page
     { 
         public String SoundtrackPath { get; set; }
+        public String ImagePath { get; set; }
     
         public MainMenuView()
         {
@@ -43,6 +44,7 @@ namespace Spider_Clue.Views
         {
             lblUserName.Content = UserSingleton.Instance.GamerTag;
             lblLevel.Content = UserSingleton.Instance.Level;
+            ChangeImage();
         }
 
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
@@ -76,6 +78,14 @@ namespace Spider_Clue.Views
         {
             PersonalInformationView personInformation = new PersonalInformationView();
             this.NavigationService.Navigate(personInformation);
+        }
+
+        private void ChangeImage()
+        {
+            string PathDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string PathProyectoDirectory = Path.GetFullPath(Path.Combine(PathDirectory, "../../../"));
+            ImagePath = PathProyectoDirectory + "Spider-Clue\\Images\\" + UserSingleton.Instance.ImageCode;
+            DataContext = this;
         }
     }
 

@@ -574,6 +574,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Select an Icon.
+        /// </summary>
+        public static string LblSelectIcon {
+            get {
+                return ResourceManager.GetString("LblSelectIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string LblUsername {

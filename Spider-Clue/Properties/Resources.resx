@@ -301,4 +301,7 @@
   <data name="LblPersonalInformation" xml:space="preserve">
     <value>Personal Information</value>
   </data>
+  <data name="LblSelectIcon" xml:space="preserve">
+    <value>Select an Icon</value>
+  </data>
 </root>
