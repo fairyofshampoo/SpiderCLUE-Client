@@ -21,6 +21,8 @@
                     <RowDefinition Height = "Auto"/>
                     <RowDefinition Height = "Auto"/>
                     <RowDefinition Height = "Auto"/>
+                    <RowDefinition Height = "Auto"/>
+                    <RowDefinition Height = "Auto"/>
                 </Grid.RowDefinitions>
                 <Label x:Name = "lblTitle" Content = "{x:Static p:Resources.LblAudioSettingsTitle}"
                            Foreground = "White"
@@ -35,11 +37,11 @@
                 <Label x:Name = "lblMusicVolume" Content = "{x:Static p:Resources.LblMusicVolume}"
                            Foreground = "White"
                            FontWeight = "Light"
-                           FontSize = "50"
+                           FontSize = "40"
                            FontFamily = "Monsterrat"
                            HorizontalAlignment = "Center"
                            Grid.Row="1" 
-                           Margin = "0,60,0,0"/>
+                           Margin = "0,30,0,0"/>
 
                 <Slider 
                     Minimum="0" 
@@ -47,7 +49,26 @@
                     Value="100" 
                     Grid.Row="2" 
                     Margin="186,0,179,-39"
-                    Cursor = "Hand"/>
+                    Cursor = "Hand"
+                    SmallChange="10"/>
+
+                <Label x:Name = "lblSoundVolume" Content = "{x:Static p:Resources.LblMusicVolume}"
+                           Foreground = "White"
+                           FontWeight = "Light"
+                           FontSize = "40"
+                           FontFamily = "Monsterrat"
+                           HorizontalAlignment = "Center"
+                           Grid.Row="3" 
+                           Margin = "0,60,0,0"/>
+
+                <Slider 
+                    Minimum="0" 
+                    Maximum="100" 
+                    Value="100" 
+                    Grid.Row="4" 
+                    Margin="186,0,179,-39"
+                    Cursor = "Hand"
+                    SmallChange="10"/>
             </Grid>
         </Border>
     </Grid>

@@ -9,7 +9,9 @@
       Title = "MainMenuView"
       Background = "Transparent">
     <Grid>
-        <MediaElement Name="Soundtrack" Source = "{Binding SoundtrackPath}" LoadedBehavior="Manual"/>
+        <MediaElement x:Name="mainThemePlayer" LoadedBehavior="Manual">
+        </MediaElement>
+
         <DockPanel>
             <ScrollViewer>
                 <Grid>
@@ -222,7 +224,8 @@
                             FontSize = "16"
                             FontWeight="Bold"
                             Cursor = "Hand"
-                            Grid.Row="4" Margin="76,20,40,30">
+                            Grid.Row="4" Margin="76,20,40,30"
+                                    Click="BtnExit_Click">
                                 <Button.Style>
                                     <Style TargetType = "Button">
                                         <Setter Property = "Background" Value = "#8A8884"/>

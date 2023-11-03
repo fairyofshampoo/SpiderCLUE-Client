@@ -5,13 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using Spider_Clue.Logic;
+using System.Configuration;
+using System.Reflection;
 
 namespace Spider_Clue.Views
 {
@@ -20,9 +16,31 @@ namespace Spider_Clue.Views
     /// </summary>
     public partial class LanguageSettings : Page
     {
+        private readonly Configuration gameConfiguration;
+
         public LanguageSettings()
         {
+            gameConfiguration = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
             InitializeComponent();
+        }
+
+        private void ChangeLanguage(string language)
+        {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(language);
+            gameConfiguration.Save();
+            ConfigurationManager.RefreshSection("appSettings");
+        }
+
+        private void BtnMXFlag_Click(object sender, RoutedEventArgs e)
+        {
+            Utilities.PlayButtonClickSound();
+            ChangeLanguage("es-MX");
+        }
+
+        private void BtnUSFlag_Click(object sender, RoutedEventArgs e)
+        {
+            Utilities.PlayButtonClickSound();
+            ChangeLanguage("en-US");
         }
     }
 }
