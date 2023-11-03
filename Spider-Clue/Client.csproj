@@ -310,9 +310,6 @@
     <Resource Include="Images\VisibleIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\VisibleIconBlack.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\backgroundREGISTER.png" />
   </ItemGroup>
   <ItemGroup>
@@ -389,6 +386,7 @@
     <Resource Include="Images\SilkIcon.jpg" />
     <Resource Include="Images\SpiderPunkIcon.jpg" />
     <Resource Include="Images\SpiderWomanIcon.jpg" />
+    <Resource Include="Images\InvisibleIcon.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
