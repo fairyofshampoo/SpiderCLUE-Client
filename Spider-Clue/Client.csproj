@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
@@ -68,9 +69,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="Logic\HashUtility.cs" />
+    <Compile Include="Logic\Utilities.cs" />
     <Compile Include="Logic\LanguageManager.cs" />
     <Compile Include="Logic\UserSingleton.cs" />
+    <Compile Include="Properties\Resources.es-MX.Designer.cs">
+      <DependentUpon>Resources.es-MX.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <DependentUpon>Resources.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -215,6 +221,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Properties\Resources.es-MX.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.es-MX.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -396,6 +407,9 @@
     <Resource Include="Images\SilkIcon.jpg" />
     <Resource Include="Images\SpiderPunkIcon.jpg" />
     <Resource Include="Images\SpiderWomanIcon.jpg" />
+    <Resource Include="Images\InvisibleIcon.png" />
+    <None Include="Audio\MinecraftButtonSound.wav" />
+    <None Include="Audio\MainMenuSong.wav" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

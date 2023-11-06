@@ -1,0 +1,311 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccountRecoveryTitle" xml:space="preserve">
+    <value>Recuperación de Cuenta</value>
+  </data>
+  <data name="BtnChangePassword" xml:space="preserve">
+    <value>Cambiar contraseña</value>
+  </data>
+  <data name="BtnConfirm" xml:space="preserve">
+    <value>Confirmar</value>
+  </data>
+  <data name="BtnExitToDesktop" xml:space="preserve">
+    <value>Salir al escritorio</value>
+  </data>
+  <data name="BtnGuestPlayer" xml:space="preserve">
+    <value>Jugador Invitado</value>
+  </data>
+  <data name="BtnJoinToParty" xml:space="preserve">
+    <value>Unirse a Partida</value>
+  </data>
+  <data name="BtnLogin" xml:space="preserve">
+    <value>Iniciar sesión</value>
+    <comment>Text for the button that logs in </comment>
+  </data>
+  <data name="BtnPlay" xml:space="preserve">
+    <value>Jugar</value>
+  </data>
+  <data name="BtnRecover" xml:space="preserve">
+    <value>Recuperar Cuenta</value>
+  </data>
+  <data name="BtnRegister" xml:space="preserve">
+    <value>Registrarse</value>
+  </data>
+  <data name="BtnSave" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="BtnSendCode" xml:space="preserve">
+    <value>Enviar código</value>
+  </data>
+  <data name="BtnSettings" xml:space="preserve">
+    <value>Configuración</value>
+  </data>
+  <data name="BtnVerifyCode" xml:space="preserve">
+    <value>Verificar código</value>
+  </data>
+  <data name="DlgRegisterError" xml:space="preserve">
+    <value>An error occurred during the registration process. Please try again later.</value>
+  </data>
+  <data name="DlgRegisterSuccessful" xml:space="preserve">
+    <value>Your new account registration was successful. Welcome!</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>ERROR</value>
+  </data>
+  <data name="GuessName" xml:space="preserve">
+    <value>Invitado</value>
+  </data>
+  <data name="LblAccountRecoveryTitle" xml:space="preserve">
+    <value>Account Recovery</value>
+  </data>
+  <data name="LblAccountVerification" xml:space="preserve">
+    <value>Account Verification</value>
+  </data>
+  <data name="LblAudio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="LblAudioSettingsTitle" xml:space="preserve">
+    <value>Audio Settings</value>
+  </data>
+  <data name="LblChangeAvatar" xml:space="preserve">
+    <value>Change Avatar</value>
+  </data>
+  <data name="LblCode" xml:space="preserve">
+    <value>Código</value>
+  </data>
+  <data name="LblConfirmPassword" xml:space="preserve">
+    <value>Confirmar contraseña</value>
+  </data>
+  <data name="LblEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="LblEmailForRecovery" xml:space="preserve">
+    <value>Enter the email address associated with your account.</value>
+  </data>
+  <data name="LblForgotPassword" xml:space="preserve">
+    <value>Forgot your password?</value>
+  </data>
+  <data name="LblGamerTagUsed" xml:space="preserve">
+    <value>This gamertag is already in use.</value>
+  </data>
+  <data name="LblGameCode" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="LblIntroducePassword" xml:space="preserve">
+    <value>Please, introduce your password to continue</value>
+  </data>
+  <data name="LblInvalidEMail" xml:space="preserve">
+    <value>Invalid format. (1-50) eg. spiderclue@gmail.com</value>
+  </data>
+  <data name="LblInvalidGamerTag" xml:space="preserve">
+    <value>Gamertag only allows letters and numbers (1-15 characters)</value>
+  </data>
+  <data name="LblInvalidLastName" xml:space="preserve">
+    <value>Last name only allows letters and spaces (1-50 characters)</value>
+  </data>
+  <data name="LblInvalidName" xml:space="preserve">
+    <value>Name only allows letters and spaces (1-50 characters)</value>
+  </data>
+  <data name="LblInvalidPassword" xml:space="preserve">
+    <value>Password must have uppercase and lowercase letters, symbols and at least one digit (8-45 characters)</value>
+  </data>
+  <data name="LblLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LblLanguageEnglish" xml:space="preserve">
+    <value>English(EUA)</value>
+  </data>
+  <data name="LblLanguageSettingTitle" xml:space="preserve">
+    <value>Select Language</value>
+  </data>
+  <data name="LblLanguageSpanish" xml:space="preserve">
+    <value>Spanish (Mexico)</value>
+  </data>
+  <data name="LblLastName" xml:space="preserve">
+    <value>Last Name</value>
+  </data>
+  <data name="LblLevel" xml:space="preserve">
+    <value>Level</value>
+  </data>
+  <data name="LblLoginTitle" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="LblMusicVolume" xml:space="preserve">
+    <value>Music Volume</value>
+  </data>
+  <data name="LblName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="LblPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LblPasswordRecoveryTitle" xml:space="preserve">
+    <value>Password Recovery</value>
+  </data>
+  <data name="LblPasswordsDontMatch" xml:space="preserve">
+    <value>Passwords do not match</value>
+  </data>
+  <data name="LblPasswordWrong" xml:space="preserve">
+    <value>Contraseña incorrecta</value>
+  </data>
+  <data name="LblProfileEdition" xml:space="preserve">
+    <value>Profile Edition</value>
+  </data>
+  <data name="LblRegister" xml:space="preserve">
+    <value>Registrarse</value>
+  </data>
+  <data name="LblUsername" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="LblGamerTagError" xml:space="preserve">
+    <value>Username doesn't exist in our system</value>
+  </data>
+  <data name="LoginTitle" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="RegisterTitle" xml:space="preserve">
+    <value>Join the game</value>
+  </data>
+  <data name="SuccessTitle" xml:space="preserve">
+    <value>ÉXITO</value>
+  </data>
+  <data name="LblFriends" xml:space="preserve">
+    <value>Amigos</value>
+  </data>
+  <data name="BtnAddFriend" xml:space="preserve">
+    <value>Añadir amigo</value>
+  </data>
+  <data name="LblFriendsRequest" xml:space="preserve">
+    <value>Friends Request</value>
+  </data>
+  <data name="BtnEditInformation" xml:space="preserve">
+    <value>Editar Información</value>
+  </data>
+  <data name="LblPersonalInformation" xml:space="preserve">
+    <value>Información Personal</value>
+  </data>
+  <data name="LblSelectIcon" xml:space="preserve">
+    <value>Selecciona un ícono</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MinecraftButtonSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Audio\MinecraftButtonSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+</root>

@@ -304,4 +304,11 @@
   <data name="LblSelectIcon" xml:space="preserve">
     <value>Select an Icon</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MinecraftButtonSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Audio\MinecraftButtonSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MainThemeSong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Audio\MainMenuSong.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

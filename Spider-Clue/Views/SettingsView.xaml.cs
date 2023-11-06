@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spider_Clue.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,18 +28,21 @@ namespace Spider_Clue.Views
 
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
             MainMenuView mainMenuView = new MainMenuView();
             this.NavigationService.Navigate(mainMenuView);
         }
 
         private void LblLanguage_Click(object sender, MouseButtonEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
             LanguageSettings languageSettings = new LanguageSettings();
             SettingsFrame.NavigationService.Navigate(languageSettings);
         }
 
         private void LblAudio_Click(object sender, MouseButtonEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
             AudioSettingsView audioSettingsView = new AudioSettingsView();  
             SettingsFrame.NavigationService.Navigate(audioSettingsView);
         }
