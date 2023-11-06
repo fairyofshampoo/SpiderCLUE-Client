@@ -311,4 +311,7 @@
   <data name="MainThemeSong" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Audio\MainMenuSong.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="CheckInformationEntered" xml:space="preserve">
+    <value>Please check the information entered and try again.</value>
+  </data>
 </root>

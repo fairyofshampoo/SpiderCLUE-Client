@@ -205,6 +205,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Please check the information entered and try again..
+        /// </summary>
+        public static string CheckInformationEntered {
+            get {
+                return ResourceManager.GetString("CheckInformationEntered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An error occurred during the registration process. Please try again later..
         /// </summary>
         public static string DlgRegisterError {

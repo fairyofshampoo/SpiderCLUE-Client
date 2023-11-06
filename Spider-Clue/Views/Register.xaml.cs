@@ -37,6 +37,7 @@ namespace Spider_Clue.Views
             if (RegisterUser())
             {
                 ShowSuccessMessage();
+                this.NavigationService.GoBack();
             }
             else
             {
@@ -75,28 +76,9 @@ namespace Spider_Clue.Views
         private bool IsEmailVerified()
         {
             String toEmail = txtEmail.Text;
-            SpiderClueService.IEmailVerificationManager emailVerificationManager = new SpiderClueService.EmailVerificationManagerClient();
-            emailVerificationManager.GenerateVerificationCode(toEmail);
-            String codeToValidate = OpenDialogForEmailVerification();
-            return emailVerificationManager.VerifyCode(toEmail, codeToValidate);
+            return Utilities.SendEmailWithCode(toEmail, Window.GetWindow(this));
+            
         }
-
-        private string OpenDialogForEmailVerification()
-        {
-            Window mainWindow = Window.GetWindow(this);
-
-            CodeInputDialog codeInputPopUp = new CodeInputDialog();
-            codeInputPopUp.Owner = mainWindow;
-
-            string codeFromInput = null;
-
-            if (codeInputPopUp.ShowDialog() == true)
-            {
-                codeFromInput = codeInputPopUp.EmailValidation;
-            }
-            return codeFromInput;
-        }
-
 
         private bool AreDataValid()
         {
@@ -113,8 +95,8 @@ namespace Spider_Clue.Views
             string password = new NetworkCredential(string.Empty, securePassword).Password;
             string email = txtEmail.Text;
 
-            bool passwordValid = IsPasswordValid(password);
-            bool emailValid = IsEmailValid(email);
+            bool passwordValid = Validations.IsPasswordValid(password);
+            bool emailValid = Validations.IsEmailValid(email);
 
             if (!passwordValid)
             {
@@ -128,60 +110,14 @@ namespace Spider_Clue.Views
 
             return passwordValid && emailValid;
         }
-
-        private bool IsPasswordValid(string password)
-        {
-            bool isValid = true;
-
-            if (string.IsNullOrWhiteSpace(password))
-            {
-                isValid = false;
-            }
-            else
-            {
-                Regex passwordRegex = new Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d\\W]{8,50}$");
-
-                if (!passwordRegex.IsMatch(password))
-                {
-                    isValid = false;
-                }
-            }
-
-            return isValid;
-        }
-
-        private bool IsEmailValid(string email)
-        {
-            bool emailValidation = true;
-
-            if (string.IsNullOrEmpty(email) || email.Length > 50)
-            {
-                emailValidation = false;
-            }
-            else
-            {
-                try
-                {
-                    var mailAddress = new MailAddress(email);
-                }
-                catch (FormatException)
-                {
-                    emailValidation = false;
-                }
-            }
-
-            return emailValidation;
-        }
-
-
         private bool ValidateUserData()
         {
             string gamerTag = txtGamerTag.Text;
             string name = txtName.Text;
             string lastName = txtLastName.Text;
-            bool nameValid = IsNameValid(name);
-            bool lastNameValid = IsNameValid(lastName);
-            bool gamerTagValid = IsGamerTagValid(gamerTag);
+            bool nameValid = Validations.IsNameValid(name);
+            bool lastNameValid = Validations.IsNameValid(lastName);
+            bool gamerTagValid = Validations.IsGamerTagValid(gamerTag);
 
             if (!nameValid)
             {
@@ -200,55 +136,10 @@ namespace Spider_Clue.Views
 
             return nameValid && lastNameValid && gamerTagValid;
         }
-
-        private bool IsNameValid(string name)
-        {
-            bool isValid = true;
-
-            if (string.IsNullOrWhiteSpace(name))
-            {
-                isValid = false;
-            }   
-            else
-            {
-                var nameRegex = new Regex("^[\\p{L}\\p{M}\\s]{1,50}");
-
-                if (!nameRegex.IsMatch(name))
-                {
-                    isValid = false;
-                }
-            }
-
-            return isValid;
-        }
-
-
-        private bool IsGamerTagValid(string gamerTag)
-        {
-            bool isValid = true;
-
-            if (string.IsNullOrWhiteSpace(gamerTag))
-            {
-                isValid = false;
-            }
-            else
-            {
-                var gamerTagRegex = new Regex("^[A-Za-z0-9]{1,15}");
-
-                if (!gamerTagRegex.IsMatch(gamerTag))
-                {
-                    isValid = false;
-                }
-            }
-
-            return isValid;
-        }
-
-
         private bool ArePasswordsMatching()
         {
             SecureString securePassword = txtPassword.SecurePassword;
-            SecureString securePasswordToConfirm = txtConfirmPasssword.SecurePassword;
+            SecureString securePasswordToConfirm = txtConfirmPassword.SecurePassword;
             string password = new NetworkCredential(string.Empty, securePassword).Password;
             string passwordToConfirm = new NetworkCredential(string.Empty, securePasswordToConfirm).Password;
             bool passwordsValidation = false;

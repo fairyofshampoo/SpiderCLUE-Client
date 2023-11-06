@@ -57,7 +57,7 @@
                             CornerRadius = "10"
                             BorderBrush = "Black"
 >
-                        <Image x:Name = "NewJeanIcon" 
+                        <Image x:Name = "Icon1" 
                                Source = "/Images/NewJeanIcon.JPG"
                                Height = "100"
                                Margin = "45,30,0,0"
@@ -68,7 +68,7 @@
 
                     <Border Grid.Row = "0"
                             Grid.Column = "1">
-                        <Image x:Name = "GwenIcon" 
+                        <Image x:Name = "Icon2" 
                                Source = "/Images/GwenIcon.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
@@ -78,7 +78,7 @@
 
                     <Border Grid.Row = "0"
                             Grid.Column = "2">
-                        <Image x:Name = "SpiderWomanIcon" 
+                        <Image x:Name = "Icon3" 
                                Source = "/Images/SpiderWomanIcon.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
@@ -88,7 +88,7 @@
 
                     <Border Grid.Row = "0"
                             Grid.Column = "3">
-                        <Image x:Name = "SilkIcon" 
+                        <Image x:Name = "Icon4" 
                                Source = "/Images/SilkIcon.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
@@ -98,7 +98,7 @@
 
                     <Border Grid.Row = "1"
                             Grid.Column = "0">
-                        <Image x:Name = "PeterParkerIcon" 
+                        <Image x:Name = "Icon5" 
                                Source = "/Images/PeterParkerIcon.JPG"
                                Height = "100"
                                Margin = "45,30,0,0"
@@ -108,7 +108,7 @@
 
                     <Border Grid.Row = "1"
                             Grid.Column = "1">
-                        <Image x:Name = "MilesMoralesIcon" 
+                        <Image x:Name = "Icon6" 
                                Source = "/Images/MilesMoralesIcon.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
@@ -118,7 +118,7 @@
 
                     <Border Grid.Row = "1"
                             Grid.Column = "2">
-                        <Image x:Name = "BlackSpiderIcon" 
+                        <Image x:Name = "Icon7" 
                                Source = "/Images/BlackSpiderIcon.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
@@ -128,7 +128,7 @@
 
                     <Border Grid.Row = "1"
                             Grid.Column = "3">
-                        <Image x:Name = "SpiderPunkIcon" 
+                        <Image x:Name = "Icon8" 
                                Source = "/Images/SpiderPunkIcon.JPG"
                                Height = "100"
                                Margin="35,30,0,0"

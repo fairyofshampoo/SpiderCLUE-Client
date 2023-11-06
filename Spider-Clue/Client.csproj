@@ -72,6 +72,7 @@
     <Compile Include="Logic\Utilities.cs" />
     <Compile Include="Logic\LanguageManager.cs" />
     <Compile Include="Logic\UserSingleton.cs" />
+    <Compile Include="Logic\Validations.cs" />
     <Compile Include="Properties\Resources.es-MX.Designer.cs">
       <DependentUpon>Resources.es-MX.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -238,6 +239,7 @@
     <None Include="Connected Services\SpiderClueService\GameService.wsdl" />
     <None Include="Connected Services\SpiderClueService\GameService1.wsdl" />
     <None Include="Connected Services\SpiderClueService\GameService11.wsdl" />
+    <None Include="Connected Services\SpiderClueService\GameService2.wsdl" />
     <None Include="Connected Services\SpiderClueService\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -257,6 +259,15 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SpiderClueService\item33.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SpiderClueService\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SpiderClueService\item5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SpiderClueService\item6.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Gamer.datasource">

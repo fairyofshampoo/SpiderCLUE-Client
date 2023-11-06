@@ -1,4 +1,5 @@
 ﻿using Spider_Clue.Logic;
+using Spider_Clue.SpiderClueService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,15 +30,84 @@ namespace Spider_Clue.Views
             InitializeComponent();
         }
 
-        private void btnSave_Click(object sender, RoutedEventArgs e)
+        private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            if (ValidateData())
+            {
+                if (UpdateData() == 1)
+                {
+                    ShowSuccessMessage();
+                }
+                else
+                {
+                    ShowErrorMessage();
+                }
+            }
             
+        }
+
+        private void ShowSuccessMessage()
+        {
+            MessageBox.Show("Cambio realizado", Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void ShowErrorMessage()
+        {
+            MessageBox.Show("Error en el cambio", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private bool ValidateData()
+        {
+            String newName = txtName.Text;
+            String newLastName = txtLastName.Text;
+            bool nameValid = Validations.IsNameValid(newName);
+            bool lastNameValid = Validations.IsNameValid(newLastName);
+
+            if (!nameValid)
+            {
+                //lblInvalidName.Visibility = Visibility.Visible;
+            }
+
+            if (!lastNameValid)
+            {
+                //lblInvalidLastName.Visibility = Visibility.Visible;
+            }
+
+            return nameValid && lastNameValid;
+        }
+
+        private int UpdateData()
+        {
             String newName = txtName.Text;
             String newLastName = txtLastName.Text;
             String gamertag = UserSingleton.Instance.GamerTag;
-
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            int modifyAccount = userManager.ModifyAccount (gamertag, newName, newLastName);
+            return userManager.ModifyAccount(gamertag, newName, newLastName);
+        }
+
+        private void BtnChangePassword_Click(object sender, RoutedEventArgs e)
+        {
+            GoToChangePasswordView();
+        }
+
+        private void GoToChangePasswordView()
+        {
+            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+            Gamer gamer = userManager.GetGamerByEmail(UserSingleton.Instance.Email);
+            PasswordRecoveryView changePasswordView = new PasswordRecoveryView();
+            changePasswordView.SetGamerInWindow(gamer);
+            this.NavigationService.Navigate(changePasswordView);
+        }
+
+        private void BtnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
+        }
+
+        private void LblChangeAvatar_Clicked(object sender, MouseButtonEventArgs e)
+        {
+            SelectAvatarView selectAvatarView = new SelectAvatarView();
+            this.NavigationService.Navigate(selectAvatarView);
         }
     }
 }
