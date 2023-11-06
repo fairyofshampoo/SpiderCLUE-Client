@@ -21,6 +21,7 @@ namespace Spider_Clue.Views
     public partial class SelectAvatarView : Page
     {
         private Image SelectedImage = null;
+        private String ImageTitle;
         public SelectAvatarView()
         {
             InitializeComponent();
@@ -34,11 +35,16 @@ namespace Spider_Clue.Views
             }
             SelectedImage = (Image)sender;
             SelectedImage.Opacity = 1;
+            ImageTitle = SelectedImage.Name + ".JPG";
+
         }
 
         private void BtnSaveChanges_Click(object sender, RoutedEventArgs e)
         {
+            if(SelectedImage != null)
+            {
 
+            }
         }
     }
 }

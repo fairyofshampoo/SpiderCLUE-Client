@@ -66,6 +66,7 @@ namespace Spider_Clue.Views
             if (HandleLoginAttempt())
             {
                 SaveSession();
+                
                 DisplayMainMenuView();
             }
             else
@@ -181,6 +182,9 @@ namespace Spider_Clue.Views
 
         private void SaveSessionInServer()
         {
+            SpiderClueService.IUserManager player = new SpiderClueService.UserManagerClient();
+            String gamertag = txtUsername.Text;
+            player.Connect(gamertag);
             //cuando tengamos el callback aquí se manda a llamar
         }
 

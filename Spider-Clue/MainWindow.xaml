@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Spider_Clue"
         mc:Ignorable="d"
+        Closing = "WindowClosing"
         Title="Spider-Clue" WindowState="Normal"  Source ="Views/LoginView.xaml"
                   ShowsNavigationUI="False">
 </NavigationWindow>
