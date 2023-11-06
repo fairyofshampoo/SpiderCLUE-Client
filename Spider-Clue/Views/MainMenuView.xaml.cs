@@ -53,13 +53,21 @@ namespace Spider_Clue.Views
         }
         private void ChangeImage()
         {
-            
+            string PathDirectory = AppDomain.CurrentDomain.BaseDirectory;
+            string PathProyectoDirectory = Path.GetFullPath(Path.Combine(PathDirectory, "../../../"));
+            ImagePath = PathProyectoDirectory + "Spider-Clue\\Images\\" + UserSingleton.Instance.ImageCode;
+            DataContext = this;
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
             //meter un logout
             App.Current.Shutdown();
+        }
+
+        private void BtnFriends_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
