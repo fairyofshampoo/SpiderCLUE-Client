@@ -40,6 +40,8 @@ namespace Spider_Clue.Views
             SelectedImage = (Image)sender;
             newIconName = SelectedImage.Name;
             SelectedImage.Opacity = 1;
+            ImageTitle = SelectedImage.Name + ".JPG";
+
         }
 
         private void ChangeIcon()

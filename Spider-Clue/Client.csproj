@@ -284,6 +284,9 @@
     <None Include="Connected Services\SpiderClueService\item6.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SpiderClueService\item7.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Gamer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>

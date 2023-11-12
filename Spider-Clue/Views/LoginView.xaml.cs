@@ -25,7 +25,6 @@ namespace Spider_Clue.Views
     /// </summary>
     public partial class LoginView : Page
     {
-
         public LoginView()
         {
             InitializeComponent();
@@ -82,17 +81,15 @@ namespace Spider_Clue.Views
         private void SaveSession()
         {
             SaveSessionInSingleton();
-            SaveSessionInServer();
         }
 
         private void SaveSessionInSingleton()
         {
             string gamerTag = txtUsername.Text;
             Gamer gamer = GetGamerData(gamerTag);
-
             UserSingleton.Instance.Initialize(gamer);
         }
-            
+
         private Gamer GetGamerData(String gamerTag)
         {
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
@@ -182,11 +179,6 @@ namespace Spider_Clue.Views
         {
             MainMenuView mainMenuView = new MainMenuView();
             this.NavigationService.Navigate(mainMenuView);
-        }
-
-        private void SaveSessionInServer()
-        {
-            //cuando tengamos el callback aquí se manda a llamar
         }
 
         private bool ValidateCredentials()

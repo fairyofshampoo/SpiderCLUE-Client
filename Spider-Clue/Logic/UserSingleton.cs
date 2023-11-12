@@ -11,7 +11,8 @@ namespace Spider_Clue.Logic
     internal class UserSingleton
     {
         private static readonly UserSingleton _instance = new UserSingleton();
-        public string GamerTag { get; set; }
+
+        public String GamerTag { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
