@@ -120,7 +120,7 @@
                             Name = "FriendList"
                             Width="550"
                             HorizontalAlignment="Center"
-                            Margin = "0,10,0,0">
+                            Margin = "0,10,0,0" SelectionChanged="FriendList_SelectionChanged">
 
                             <DataGrid.Resources>
                                 <Style TargetType = "{x:Type DataGridColumnHeader}">

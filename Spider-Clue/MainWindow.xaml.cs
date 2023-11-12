@@ -38,8 +38,8 @@ namespace Spider_Clue
             {
                 if (UserSingleton.Instance.GamerTag != null)
                 {
-                    SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-                    userManager.Disconnect(UserSingleton.Instance.GamerTag);
+                  //  SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                    //userManager.Disconnect(UserSingleton.Instance.GamerTag);
                 }
             }
         }

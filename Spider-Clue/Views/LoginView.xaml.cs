@@ -81,7 +81,6 @@ namespace Spider_Clue.Views
         private void SaveSession()
         {
             SaveSessionInSingleton();
-            SaveSessionInServer();
         }
 
         private void SaveSessionInSingleton()
@@ -180,21 +179,6 @@ namespace Spider_Clue.Views
         {
             MainMenuView mainMenuView = new MainMenuView();
             this.NavigationService.Navigate(mainMenuView);
-        }
-
-        private void SaveSessionInServer()
-        {
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            Gamer gamer = new Gamer
-            {
-                FirstName = UserSingleton.Instance.Name,
-                LastName = UserSingleton.Instance.LastName,
-                Gamertag = UserSingleton.Instance.GamerTag,
-                Level = UserSingleton.Instance.Level,
-                ImageCode = UserSingleton.Instance.ImageCode,
-                Email = UserSingleton.Instance.Email,
-            };
-            userManager.Connect(gamer);
         }
 
         private bool ValidateCredentials()
