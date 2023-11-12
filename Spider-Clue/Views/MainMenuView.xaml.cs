@@ -5,10 +5,13 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using Spider_Clue.Logic;
 using System.Windows.Forms;
+using System.Collections.Generic;
+using System.Security.AccessControl;
+using Spider_Clue.SpiderClueService;
 
 namespace Spider_Clue.Views
 {
-    public partial class MainMenuView : Page
+    public partial class MainMenuView : Page, IFriendListManagerCallback
     {
         public String ImagePath { get; set; }
         public MainMenuView()
@@ -67,7 +70,18 @@ namespace Spider_Clue.Views
 
         private void BtnFriends_Click(object sender, RoutedEventArgs e)
         {
+            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+            string gamertag = UserSingleton.Instance.GamerTag;
+            var friends = userManager.GetFriendList(gamertag);
+            var usersconnectd = userManager.GetConnectedUsers();
+            SpiderClueService.FriendListManagerClient friend = new FriendListManagerClient(new System.ServiceModel.InstanceContext(this));
+            friend.SendFriendList(friends, usersconnectd);
+        }
 
+        public void FriendListNotify(string friendConnected)
+        {
+            Console.WriteLine("Usuarios conectados");
+            Console.WriteLine(friendConnected);
         }
     }
 }
