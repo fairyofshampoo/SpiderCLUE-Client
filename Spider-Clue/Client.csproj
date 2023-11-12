@@ -73,13 +73,13 @@
     <Compile Include="Logic\LanguageManager.cs" />
     <Compile Include="Logic\UserSingleton.cs" />
     <Compile Include="Logic\Validations.cs" />
-    <Compile Include="Properties\Resources.es-MX.Designer.cs">
-      <DependentUpon>Resources.es-MX.resx</DependentUpon>
+    <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.es-MX.Designer.cs">
+      <DependentUpon>Resources.es-MX.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
@@ -229,8 +229,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.en-US.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -335,7 +335,7 @@
     <Resource Include="Images\backgroundREGISTER.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MilesMoralesICON.jpg" />
+    <Resource Include="Images\Icon6.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\GoBackIcon.png" />
@@ -371,9 +371,6 @@
     <Resource Include="Images\NotificationIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MagnifyingGlassIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\DeleteIcon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -400,17 +397,19 @@
   <ItemGroup>
     <Content Include="Audio\MainMenuSong.mp3" />
     <None Include="Connected Services\SpiderClueService\item1.disco" />
-    <Resource Include="Images\DetectiveIcon.jpg" />
-    <Resource Include="Images\BlackSpiderIcon.jpg" />
-    <Resource Include="Images\GwenIcon.jpg" />
-    <Resource Include="Images\NewJeanIcon.jpg" />
-    <Resource Include="Images\PeterParkerIcon.jpg" />
-    <Resource Include="Images\SilkIcon.jpg" />
-    <Resource Include="Images\SpiderPunkIcon.jpg" />
-    <Resource Include="Images\SpiderWomanIcon.jpg" />
+    <Resource Include="Images\Icon7.jpg" />
+    <Resource Include="Images\Icon2.jpg" />
+    <Resource Include="Images\Icon1.jpg" />
+    <Resource Include="Images\Icon5.jpg" />
+    <Resource Include="Images\Icon4.jpg" />
+    <Resource Include="Images\Icon8.jpg" />
+    <Resource Include="Images\Icon3.jpg" />
     <Resource Include="Images\InvisibleIcon.png" />
     <None Include="Audio\MinecraftButtonSound.wav" />
     <None Include="Audio\MainMenuSong.wav" />
+    <None Include="Resources\Icon1.bmp" />
+    <Resource Include="Images\Icon0.jpg" />
+    <Resource Include="Images\searchIcon.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

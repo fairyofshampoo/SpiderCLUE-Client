@@ -24,5 +24,37 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
         }
+
+        private void Search_Click(object sender, MouseButtonEventArgs e)
+        {
+            SearchMatch();
+            ShowMatchFounded();
+            ShowSearchNotFoundAlert();
+        }
+
+        private void SearchMatch()
+        {
+
+        }
+
+        private void ShowMatchFounded()
+        {
+
+        }
+
+        private void ShowSearchNotFoundAlert()
+        {
+
+        }
+
+        private void BtnJoinMatch_Click(object sender, RoutedEventArgs e)
+        {
+            JoinMatch();
+        }
+
+        private void JoinMatch()
+        {
+
+        }
     }
 }

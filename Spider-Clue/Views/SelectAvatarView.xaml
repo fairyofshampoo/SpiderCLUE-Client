@@ -18,6 +18,23 @@
             </Border.Background>
         </Border>
 
+        <Button
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="50" Height="50"
+                BorderThickness="0"
+                Margin="100,50,40,10"
+                Click="BtnGoBack_Click"
+                Cursor="Hand">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="/Images/GoBackIcon.png" 
+                                    Stretch="Uniform">
+                    </Image>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height = "Auto"/>
@@ -58,7 +75,7 @@
                             BorderBrush = "Black"
 >
                         <Image x:Name = "Icon1" 
-                               Source = "/Images/NewJeanIcon.JPG"
+                               Source = "/Images/Icon1.JPG"
                                Height = "100"
                                Margin = "45,30,0,0"
                                Stretch = "UniformToFill"
@@ -69,7 +86,7 @@
                     <Border Grid.Row = "0"
                             Grid.Column = "1">
                         <Image x:Name = "Icon2" 
-                               Source = "/Images/GwenIcon.JPG"
+                               Source = "/Images/Icon2.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
                                MouseDown = "Image_Click"
@@ -79,7 +96,7 @@
                     <Border Grid.Row = "0"
                             Grid.Column = "2">
                         <Image x:Name = "Icon3" 
-                               Source = "/Images/SpiderWomanIcon.JPG"
+                               Source = "/Images/Icon3.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
                                MouseDown = "Image_Click"
@@ -89,7 +106,7 @@
                     <Border Grid.Row = "0"
                             Grid.Column = "3">
                         <Image x:Name = "Icon4" 
-                               Source = "/Images/SilkIcon.JPG"
+                               Source = "/Images/Icon4.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
                                MouseDown = "Image_Click"
@@ -99,7 +116,7 @@
                     <Border Grid.Row = "1"
                             Grid.Column = "0">
                         <Image x:Name = "Icon5" 
-                               Source = "/Images/PeterParkerIcon.JPG"
+                               Source = "/Images/Icon5.JPG"
                                Height = "100"
                                Margin = "45,30,0,0"
                                MouseDown = "Image_Click"
@@ -109,7 +126,7 @@
                     <Border Grid.Row = "1"
                             Grid.Column = "1">
                         <Image x:Name = "Icon6" 
-                               Source = "/Images/MilesMoralesIcon.JPG"
+                               Source = "/Images/Icon6.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
                                MouseDown = "Image_Click"
@@ -119,7 +136,7 @@
                     <Border Grid.Row = "1"
                             Grid.Column = "2">
                         <Image x:Name = "Icon7" 
-                               Source = "/Images/BlackSpiderIcon.JPG"
+                               Source = "/Images/Icon7.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
                                MouseDown = "Image_Click"
@@ -129,7 +146,7 @@
                     <Border Grid.Row = "1"
                             Grid.Column = "3">
                         <Image x:Name = "Icon8" 
-                               Source = "/Images/SpiderPunkIcon.JPG"
+                               Source = "/Images/Icon8.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
                                MouseDown = "Image_Click"
@@ -155,7 +172,7 @@
                 </Button.Style>
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
-                        <Border Width="200" Height="50"
+                        <Border Width="170" Height="50"
                                     CornerRadius="10"
                                     Background="{TemplateBinding Background}">
                             <ContentPresenter VerticalAlignment="Center"

@@ -26,7 +26,7 @@ namespace Spider_Clue.Views
         {
             lblUserName.Content = UserSingleton.Instance.GamerTag;
             lblLevel.Content = UserSingleton.Instance.Level;
-            ChangeImage();
+            Utilities.SetUserIcon(GamerIcon);
         }
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
         {
@@ -52,18 +52,27 @@ namespace Spider_Clue.Views
             PersonalInformationView personInformation = new PersonalInformationView();
             NavigationService.Navigate(personInformation);
         }
-        private void ChangeImage()
-        {
-            string PathDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string PathProyectoDirectory = Path.GetFullPath(Path.Combine(PathDirectory, "../../../"));
-            ImagePath = PathProyectoDirectory + "Spider-Clue\\Images\\" + UserSingleton.Instance.ImageCode;
-            DataContext = this;
-        }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
             //meter un logout
             App.Current.Shutdown();
+        }
+
+        private void BtnPlay_Click(object sender, RoutedEventArgs e)
+        {
+            CreateMatch();
+            GoToLobbyView();
+        }
+
+        private void CreateMatch()
+        {
+            
+        }
+
+        private void GoToLobbyView()
+        {
+
         }
     }
 }

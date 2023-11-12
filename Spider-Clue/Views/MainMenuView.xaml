@@ -53,8 +53,7 @@
                                 Grid.Column="0"
                                 CornerRadius="10">
                                 <Image 
-                                    x:Name = "GamerIcon" 
-                                    Source = "{Binding ImagePath}"
+                                    x:Name = "GamerIcon"
                                     Stretch = "UniformToFill">
                                 </Image>
                             </Border>
@@ -136,7 +135,8 @@
                         FontWeight="Bold"
                         Cursor = "Hand"
                         Grid.Row="1"
-                        Margin="-40,15,40,0">
+                        Margin="-40,15,40,0"
+                                    Click="BtnPlay_Click">
                                 <Button.Style>
                                     <Style TargetType = "Button">
                                         <Setter Property = "Background" Value = "#8A8884"/>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spider_Clue.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,7 +22,9 @@ namespace Spider_Clue.Views
     public partial class SelectAvatarView : Page
     {
         private Image SelectedImage = null;
-        private string newIconName = 
+        private string newIconName = "Icon0";
+
+
         public SelectAvatarView()
         {
             InitializeComponent();
@@ -41,12 +44,19 @@ namespace Spider_Clue.Views
 
         private void ChangeIcon()
         {
-
+            UserSingleton.Instance.ImageCode = SelectedImage.Name;
+            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+            userManager.ChangeIcon(UserSingleton.Instance.GamerTag, newIconName);
         }
 
         private void BtnSaveChanges_Click(object sender, RoutedEventArgs e)
         {
+            ChangeIcon();
+        }
 
+        private void BtnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.GoBack();
         }
     }
 }

@@ -3,9 +3,9 @@ using System;
 using System.Configuration;
 using System.IO;
 using System.Media;
+using System.Windows.Media.Imaging;
 using System.Security.Cryptography;
 using System.Text;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -54,6 +54,12 @@ namespace Spider_Clue.Logic
                 };
                 mediaElement.Play();
             }
+        }
+
+        public static void SetUserIcon(Image imageIcon)
+        {
+            string iconName = UserSingleton.Instance.ImageCode;
+            imageIcon.Source = new BitmapImage(new Uri(@"Images/"+ iconName + ".jpg", UriKind.Relative));
         }
 
         private static string GetMainThemeSongPath()
