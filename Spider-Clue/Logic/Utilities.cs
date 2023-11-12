@@ -56,10 +56,12 @@ namespace Spider_Clue.Logic
             }
         }
 
-        public static void SetUserIcon(Image imageIcon)
+        public static Image SetUserIcon(Image imageIcon)
         {
             string iconName = UserSingleton.Instance.ImageCode;
             imageIcon.Source = new BitmapImage(new Uri(@"Images/"+ iconName + ".jpg", UriKind.Relative));
+
+            return imageIcon;
         }
 
         private static string GetMainThemeSongPath()

@@ -64,7 +64,7 @@
                 Grid.Column="0"
                 VerticalAlignment="Top">
                         <Border.Background>
-                            <ImageBrush ImageSource = "/Images/MilesMoralesICON.jpg"
+                            <ImageBrush ImageSource = "/Images/Icon0.jpg"
                             Stretch = "Fill">
                             </ImageBrush>
                         </Border.Background>

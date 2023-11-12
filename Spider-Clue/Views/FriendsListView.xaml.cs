@@ -25,5 +25,10 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
         }
+
+        private void FriendList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

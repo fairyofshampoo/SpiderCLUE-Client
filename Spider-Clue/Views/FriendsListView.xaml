@@ -84,7 +84,7 @@
                     <Border 
                         Grid.Column = "2" Margin="389,70,24,13">
                         <Border.Background>
-                            <ImageBrush ImageSource = "/Images/MagnifyingGlassIcon.png"
+                            <ImageBrush ImageSource = "/Images/SearchIcon.png"
                             Stretch = "UniformToFill">
                             </ImageBrush>
                         </Border.Background>

@@ -14,10 +14,10 @@ namespace Spider_Clue.Views
     public partial class MainMenuView : Page, IFriendsManagerCallback
     {
         private readonly FriendsManagerClient friendsManagerClient;
-        public String ImagePath { get; set; }
         public MainMenuView()
         {
             InitializeComponent();
+            Utilities.SetUserIcon(GamerIcon);
             Loaded += PageLoaded;
             Utilities.PlayMainThemeSong(mainThemePlayer);
             friendsManagerClient = new FriendsManagerClient(new InstanceContext(this));
@@ -32,7 +32,7 @@ namespace Spider_Clue.Views
         {
             lblUserName.Content = UserSingleton.Instance.GamerTag;
             lblLevel.Content = UserSingleton.Instance.Level;
-            Utilities.SetUserIcon(GamerIcon);
+            GamerIcon = Utilities.SetUserIcon(GamerIcon);
         }
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
         {
@@ -59,14 +59,6 @@ namespace Spider_Clue.Views
             Utilities.PlayButtonClickSound();
             PersonalInformationView personInformation = new PersonalInformationView();
             NavigationService.Navigate(personInformation);
-        }
-
-        private void ChangeImage()
-        {
-            string PathDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string PathProyectoDirectory = Path.GetFullPath(Path.Combine(PathDirectory, "../../../"));
-            ImagePath = PathProyectoDirectory + "Spider-Clue\\Images\\" + UserSingleton.Instance.ImageCode;
-            DataContext = this;
         }
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
