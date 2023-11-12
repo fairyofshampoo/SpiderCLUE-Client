@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
+      d:DesignHeight = "720" d:DesignWidth = "1280"
       mc:Ignorable="d" 
       Title="ProfileEditionView"
       Background="Transparent">
@@ -17,125 +18,125 @@
                 </ImageBrush>
             </Border.Background>
         </Border>
+        <Button
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="50" Height="50"
+                BorderThickness="0"
+                Margin="100,50,40,10"
+                Click="BtnGoBack_Click"
+                Cursor="Hand">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="/Images/GoBackIcon.png" 
+                                    Stretch="Uniform">
+                    </Image>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
 
         <Label x:Name = "lblProfileEditionViewTitle" Content = "{x:Static p:Resources.LblProfileEdition}"
                Foreground = "White"
-               FontWeight = "Light"
+               FontWeight = "SemiBold"
                FontSize = "40"
                FontFamily = "Monsterrat"
                HorizontalAlignment="Center"
-               Margin="0,65,0,329"
+               Margin="0,65,0,0"
                Grid.Row="0"/>
-
-        <Border 
+        <DockPanel Height="Auto" Width="Auto">
+            <Border 
             CornerRadius="10"
             Background="#B45959"
-            Height="150"
-            Width="340"
-            Margin="20,0,20,0">
-
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                </Grid.ColumnDefinitions>
-
-                <Border 
-                CornerRadius="10"
-                Margin="20,20,0,0"
-                Width="40"
-                Height="40"
-                Grid.Column="0"
-                VerticalAlignment="Top">
-                    <Border.Background>
-                        <ImageBrush ImageSource = "/Images/MilesMoralesICON.jpg"
-                            Stretch = "Fill">
-                        </ImageBrush>
-                    </Border.Background>
-                </Border>
-
-                <Label x:Name = "lblChangeAvatar" Content = "{x:Static p:Resources.LblChangeAvatar}"
-                           Foreground = "Black"
-                           FontWeight = "Bold"
-                           FontSize = "8"
-                           FontFamily = "Monsterrat"
-                           Margin="20,59,0,69"
-                           Grid.Row="0"/>
-
-                <Grid Grid.Column="1" Margin="15,0,0,0">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
+            Margin="0,0,0,0"
+                Height="200"
+                Width="470">
+                <Grid>
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
 
-                    <Label x:Name = "lblName" Content = "{x:Static p:Resources.LblName}"
+                    <Border 
+                CornerRadius="10"
+                Margin="20,20,0,0"
+                Width="70"
+                Height="70"
+                Grid.Column="0"
+                VerticalAlignment="Top">
+                        <Border.Background>
+                            <ImageBrush ImageSource = "/Images/MilesMoralesICON.jpg"
+                            Stretch = "Fill">
+                            </ImageBrush>
+                        </Border.Background>
+                    </Border>
+
+                    <Label x:Name = "lblChangeAvatar" Content = "{x:Static p:Resources.LblChangeAvatar}"
+                           Foreground = "Black"
+                           FontWeight = "Bold"
+                           FontSize = "14"
+                           FontFamily = "Monsterrat"
+                           Margin="20,90,0,79"
+                           Grid.Row="0"
+                           Cursor="Hand"
+                           MouseLeftButtonDown="LblChangeAvatar_Clicked"/>
+
+                    <Grid Grid.Column="1" Margin="15,0,0,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Label x:Name = "lblName" Content = "{x:Static p:Resources.LblName}"
                                    Foreground ="White"
-                                   FontWeight = "Bold"
+                                   FontWeight = "SemiBold"
                                    FontSize = "15"
                                    FontFamily = "Monsterrat"
-                                   Margin="15,15,0,0" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                                   Margin="0,15,0,0" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="0"
                                    Grid.Column="0" Grid.RowSpan="2"/>
 
-                    <Border 
+                        <Border 
                                     CornerRadius="5" 
                                     BorderBrush="LightGray" 
                                     BorderThickness="3" 
-                                    Grid.Row="0" 
-                                    Grid.Column="1"
+                                    Grid.Row="0"
                                     Height="20"
-                                    Width="120"
-                                    Margin="0,15,0,0">
-                        <Border.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform Angle="-0.466"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Border.RenderTransform>
-                        <TextBox x:Name="txtName"
+                                    Width="200"
+                                    Margin="102,15,18,0" Grid.ColumnSpan="2">
+                            <TextBox x:Name="txtName"
                                   Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
-                                 FontSize="13"
+                                 FontSize="15"
                                  FontWeight="Medium"
                                  FontFamily="Montserrat"
                                  Background="LightGray"
                                  Foreground="Black"
                                  BorderThickness="0">
-                        </TextBox>
-                    </Border>
+                            </TextBox>
+                        </Border>
 
-                    <Label x:Name = "lblLastName" Content = "{x:Static p:Resources.LblLastName}"
+                        <Label x:Name = "lblLastName" Content = "{x:Static p:Resources.LblLastName}"
                                    Foreground ="White"
-                                   FontWeight = "Bold"
+                                   FontWeight = "SemiBold"
                                    FontSize = "15"
                                    FontFamily = "Monsterrat"
                                    Margin="0,25,0,0" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="1"
                                    Grid.Column="0" Grid.RowSpan="2"/>
 
-                    <Border 
+                        <Border 
                                     CornerRadius="5" 
                                     BorderBrush="LightGray" 
                                     BorderThickness="3" 
                                     Grid.Row="1"
-                                    Width="120"
+                                    Width="200"
                                     Height="20"
                                     Margin="84,25,0,0" Grid.ColumnSpan="2">
-                        <Border.RenderTransform>
-                            <TransformGroup>
-                                <ScaleTransform/>
-                                <SkewTransform/>
-                                <RotateTransform Angle="0.296"/>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Border.RenderTransform>
-                        <TextBox x:Name="txtLastName"
+                            <TextBox x:Name="txtLastName"
                                   Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="13"
                                  FontWeight="Medium"
@@ -143,70 +144,72 @@
                                  Background="LightGray"
                                  Foreground="Black"
                                  BorderThickness="0">
-                        </TextBox>
-                    </Border>
+                            </TextBox>
+                        </Border>
 
-                    <Button x:Name = "btnChangePassword"
+                        <Button x:Name = "btnChangePassword"
                             Content = "{x:Static p:Resources.BtnChangePassword}"
                             Foreground = "White"
-                            FontSize = "8"
+                            FontSize = "12"
                             FontWeight="Bold"
-                            Width="90"
-                            Height="30"
+                            Width="120"
+                            Height="40"
                             Cursor = "Hand"
                             Grid.Row="2"
                             Grid.Column = "0"
-                            Margin = "0,20,0,0">
+                            Margin = "0,40,0,0"
+                            Click="BtnChangePassword_Click">
 
-                        <Button.Style>
-                            <Style TargetType = "Button">
-                                <Setter Property = "Background" Value = "#655E73"/>
-                            </Style>
-                        </Button.Style>
+                            <Button.Style>
+                                <Style TargetType = "Button">
+                                    <Setter Property = "Background" Value = "#655E73"/>
+                                </Style>
+                            </Button.Style>
 
-                        <Button.Template>
-                            <ControlTemplate TargetType = "Button">
-                                <Border Width = "80" Height = "20"
+                            <Button.Template>
+                                <ControlTemplate TargetType = "Button">
+                                    <Border Width = "120" Height = "30"
                                         CornerRadius = "10"
                                         Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
+                                        <ContentPresenter VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
 
-                    <Button x:Name = "btnSave"
+                        <Button x:Name = "btnSave"
                             Content = "{x:Static p:Resources.BtnSave}"
                             Foreground = "White"
-                            FontSize = "8"
+                            FontSize = "12"
                             FontWeight="Bold"
-                            Width="90"
+                            Width="120"
                             Height="30"
                             Cursor = "Hand"
                             Grid.Row="2"
                             Grid.Column = "1"
-                            Margin = "0,20,0,0" Click="btnSave_Click">
+                            Margin = "0,40,0,0" Click="BtnSave_Click">
 
-                        <Button.Style>
-                            <Style TargetType = "Button">
-                                <Setter Property = "Background" Value = "#FAA465"/>
-                            </Style>
-                        </Button.Style>
+                            <Button.Style>
+                                <Style TargetType = "Button">
+                                    <Setter Property = "Background" Value = "#FAA465"/>
+                                </Style>
+                            </Button.Style>
 
-                        <Button.Template>
-                            <ControlTemplate TargetType = "Button">
-                                <Border Width = "80" Height = "20"
+                            <Button.Template>
+                                <ControlTemplate TargetType = "Button">
+                                    <Border Width = "120" Height = "30"
                                         CornerRadius = "10"
                                         Background="{TemplateBinding Background}">
-                                    <ContentPresenter VerticalAlignment="Center"
+                                        <ContentPresenter VerticalAlignment="Center"
                                                       HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Button.Template>
-                    </Button>
+                                    </Border>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                    </Grid>
                 </Grid>
-            </Grid>
-        </Border>
+            </Border>
+        </DockPanel>
     </Grid>
 </Page>

@@ -1,9 +1,12 @@
-﻿using System;
+﻿using Spider_Clue.Views;
+using System;
 using System.Configuration;
 using System.IO;
 using System.Media;
+using System.Windows.Media.Imaging;
 using System.Security.Cryptography;
 using System.Text;
+using System.Windows;
 using System.Windows.Controls;
 
 
@@ -53,11 +56,39 @@ namespace Spider_Clue.Logic
             }
         }
 
+        public static void SetUserIcon(Image imageIcon)
+        {
+            string iconName = UserSingleton.Instance.ImageCode;
+            imageIcon.Source = new BitmapImage(new Uri(@"Images/"+ iconName + ".jpg", UriKind.Relative));
+        }
+
         private static string GetMainThemeSongPath()
         {
             string PathDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string PathProyectoDirectory = Path.GetFullPath(Path.Combine(PathDirectory, "../../../"));
             return PathProyectoDirectory + "Spider-Clue\\Audio\\MainMenuSong.wav";
+        }
+
+        public static bool SendEmailWithCode(string toEmail, Window mainWindow)
+        {
+            SpiderClueService.IEmailVerificationManager emailVerificationManager = new SpiderClueService.EmailVerificationManagerClient();
+            emailVerificationManager.GenerateVerificationCode(toEmail);
+            String codeToValidate = OpenDialogForEmailVerification(mainWindow);
+            return emailVerificationManager.VerifyCode(toEmail, codeToValidate);
+        }
+
+        private static string OpenDialogForEmailVerification(Window mainWindow)
+        {
+            CodeInputDialog codeInputPopUp = new CodeInputDialog();
+            codeInputPopUp.Owner = mainWindow;
+
+            string codeFromInput = null;
+
+            if (codeInputPopUp.ShowDialog() == true)
+            {
+                codeFromInput = codeInputPopUp.EmailValidation;
+            }
+            return codeFromInput;
         }
     }
 }

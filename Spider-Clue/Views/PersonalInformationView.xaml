@@ -97,7 +97,8 @@
                                          FontFamily="Montserrat"
                                          Background="LightGray"
                                          Foreground="Black"
-                                         BorderThickness="0">
+                                         BorderThickness="0"
+                                             IsReadOnly="True">
                                     </TextBox>
                                 </Border>
                                 <Label x:Name="lblLastName" Content="{x:Static p:Resources.LblLastName}"
@@ -122,7 +123,8 @@
                                          FontFamily="Montserrat"
                                          Background="LightGray"
                                          Foreground="Black"
-                                         BorderThickness="0">
+                                         BorderThickness="0"
+                                             IsReadOnly="True">
                                     </TextBox>
                                 </Border>
 
@@ -147,7 +149,8 @@
                                          FontFamily="Montserrat"
                                          Background="LightGray"
                                          Foreground="Black"
-                                         BorderThickness="0">
+                                         BorderThickness="0"
+                                             IsReadOnly="True">
                                     </TextBox>
                                 </Border>
 
@@ -172,7 +175,8 @@
                                          FontFamily="Montserrat"
                                          Background="LightGray"
                                          Foreground="Black"
-                                         BorderThickness="0">
+                                         BorderThickness="0"
+                                             IsReadOnly="True">
                                     </TextBox>
                                 </Border>
                             </Grid>
@@ -186,9 +190,10 @@
                         FontWeight="Bold"
                         Cursor="Hand"
                         Grid.Column="2"
-                        Height = "64"
-                        Width="250" 
-                        Margin="0,20,0,0" Click="btnChangeInformation_Click">
+                        Height = "70"
+                            Margin="0,20,0,0"
+                        Width="300"
+                            Click="BtnChangeInformation_Click">
                         <Button.Style>
                             <Style TargetType="Button">
                                 <Setter Property="Background" Value="#AB2E2E"/>
@@ -196,7 +201,7 @@
                         </Button.Style>
                         <Button.Template>
                             <ControlTemplate TargetType="Button">
-                                <Border Width="250" Height="50"
+                                <Border Width="Auto" Height="70"
                                     CornerRadius="10"
                                     Background="{TemplateBinding Background}">
                                     <ContentPresenter VerticalAlignment="Center"

@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Spider_Clue.Logic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +25,10 @@ namespace Spider_Clue.Views
         public PersonalInformationView()
         {
             InitializeComponent();
+            ShowGamerData();
         }
 
-        private void btnChangeInformation_Click(object sender, RoutedEventArgs e)
+        private void BtnChangeInformation_Click(object sender, RoutedEventArgs e)
         {
             ProfileEditionView profileEditionView = new ProfileEditionView();
             this.NavigationService.Navigate(profileEditionView);
@@ -34,8 +36,16 @@ namespace Spider_Clue.Views
 
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
-            MainMenuView mainMenuView = new MainMenuView();
-            this.NavigationService.Navigate(mainMenuView);
+            Utilities.PlayButtonClickSound();
+            this.NavigationService.GoBack();
+        }
+
+        private void ShowGamerData()
+        {
+            txtEmail.Text = UserSingleton.Instance.Email;
+            txtGamerTag.Text = UserSingleton.Instance.GamerTag;
+            txtLastName.Text = UserSingleton.Instance.LastName;
+            txtName.Text = UserSingleton.Instance.Name;
         }
     }
 }

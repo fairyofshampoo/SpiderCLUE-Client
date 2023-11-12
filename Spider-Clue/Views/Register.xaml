@@ -279,7 +279,7 @@
                                     Grid.Row="10"
                                     Grid.Column="1"
                                     Margin="11,30,12,4">
-                                    <PasswordBox x:Name="txtConfirmPasssword"
+                                    <PasswordBox x:Name="txtConfirmPassword"
                                  FontSize="13"
                                  FontWeight="Medium"
                                  FontFamily="Montserrat"

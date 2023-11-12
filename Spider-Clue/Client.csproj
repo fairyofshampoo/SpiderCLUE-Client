@@ -72,18 +72,22 @@
     <Compile Include="Logic\Utilities.cs" />
     <Compile Include="Logic\LanguageManager.cs" />
     <Compile Include="Logic\UserSingleton.cs" />
+    <Compile Include="Logic\Validations.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.es-MX.Designer.cs">
       <DependentUpon>Resources.es-MX.resx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <DependentUpon>Resources.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Views\AccountRecoveryView.xaml.cs">
       <DependentUpon>AccountRecoveryView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChatView.xaml.cs">
+      <DependentUpon>ChatView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CodeInputDialog.xaml.cs">
       <DependentUpon>CodeInputDialog.xaml</DependentUpon>
@@ -99,6 +103,9 @@
     </Compile>
     <Compile Include="Views\LanguageSettings.xaml.cs">
       <DependentUpon>LanguageSettings.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LobbyView.xaml.cs">
+      <DependentUpon>LobbyView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
@@ -146,6 +153,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ChatView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CodeInputDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -163,6 +174,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LanguageSettings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LobbyView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -228,8 +243,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.en-US.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -238,6 +253,7 @@
     <None Include="Connected Services\SpiderClueService\GameService.wsdl" />
     <None Include="Connected Services\SpiderClueService\GameService1.wsdl" />
     <None Include="Connected Services\SpiderClueService\GameService11.wsdl" />
+    <None Include="Connected Services\SpiderClueService\GameService2.wsdl" />
     <None Include="Connected Services\SpiderClueService\item.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -259,50 +275,18 @@
     <None Include="Connected Services\SpiderClueService\item33.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SpiderClueService\item4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SpiderClueService\item5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SpiderClueService\item6.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Gamer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-Bold.ttf" />
-    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-BoldItalic.ttf" />
-    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-ExtraLight.ttf" />
-    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-ExtraLightItalic.ttf" />
-    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-Italic.ttf" />
-    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-Light.ttf" />
-    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-LightItalic.ttf" />
-    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-Medium.ttf" />
-    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-MediumItalic.ttf" />
-    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-Regular.ttf" />
-    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-SemiBold.ttf" />
-    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-SemiBoldItalic.ttf" />
-    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-Thin.ttf" />
-    <Resource Include="Fonts\RobotoMotoFont\RobotoMono-ThinItalic.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica-Black.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica-Bold.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica-ExtraBold.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica-ExtraLight.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica-Light.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica-Medium.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica-Regular.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica-SemiBold.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica-Thin.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-Black.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-Bold.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-ExtraBold.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-ExtraLight.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-Light.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-Medium.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-Regular.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-SemiBold.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Auto-Thin.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Black.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Bold.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-ExtraBold.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-ExtraLight.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Light.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Medium.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Regular.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-SemiBold.ttf" />
-    <Resource Include="Fonts\GeologicaFont\Geologica_Cursive-Thin.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -324,7 +308,7 @@
     <Resource Include="Images\backgroundREGISTER.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MilesMoralesICON.jpg" />
+    <Resource Include="Images\Icon6.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\GoBackIcon.png" />
@@ -360,9 +344,6 @@
     <Resource Include="Images\NotificationIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MagnifyingGlassIcon.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\DeleteIcon.png" />
   </ItemGroup>
   <ItemGroup>
@@ -389,18 +370,30 @@
   <ItemGroup>
     <Content Include="Audio\MainMenuSong.mp3" />
     <None Include="Connected Services\SpiderClueService\item1.disco" />
-    <Resource Include="Images\DetectiveIcon.jpg" />
-    <Resource Include="Images\BlackSpiderIcon.jpg" />
-    <Resource Include="Images\GwenIcon.jpg" />
-    <Resource Include="Images\NewJeanIcon.jpg" />
-    <Resource Include="Images\PeterParkerIcon.jpg" />
-    <Resource Include="Images\SilkIcon.jpg" />
-    <Resource Include="Images\SpiderPunkIcon.jpg" />
-    <Resource Include="Images\SpiderWomanIcon.jpg" />
+    <Resource Include="Images\Icon7.jpg" />
+    <Resource Include="Images\Icon2.jpg" />
+    <Resource Include="Images\Icon1.jpg" />
+    <Resource Include="Images\Icon5.jpg" />
+    <Resource Include="Images\Icon4.jpg" />
+    <Resource Include="Images\Icon8.jpg" />
+    <Resource Include="Images\Icon3.jpg" />
     <Resource Include="Images\InvisibleIcon.png" />
     <None Include="Audio\MinecraftButtonSound.wav" />
     <None Include="Audio\MainMenuSong.wav" />
+    <Resource Include="Images\Icon0.jpg" />
+    <Resource Include="Images\searchIcon.png" />
+    <Resource Include="Images\LobbyBackground.jpg" />
+    <Resource Include="Images\Characters\PurpleCharacter.png" />
+    <Resource Include="Images\Characters\WhiteCharacter.png" />
+    <Resource Include="Images\Characters\RedCharacter.png" />
+    <Resource Include="Images\Characters\GreenCharacter.png" />
+    <Resource Include="Images\Characters\YellowCharacter.png" />
+    <Resource Include="Images\Characters\BlueCharacter.png" />
+    <Resource Include="Images\PaperForCode.png" />
     <Content Include="Video\LoadingScreen.mp4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
