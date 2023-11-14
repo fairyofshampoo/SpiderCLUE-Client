@@ -54,7 +54,7 @@
                                 CornerRadius="10">
                                 <Image 
                                     x:Name = "GamerIcon"
-                                    Source = "/Images/Icon0.jpg"
+                                    Source="{Binding Path=ImagePath}"
                                     Stretch = "UniformToFill">
                                 </Image>
                             </Border>

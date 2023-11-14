@@ -101,7 +101,9 @@ namespace Spider_Clue.Views
 
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.GoBack();
+            Utilities.PlayButtonClickSound();
+            MainMenuView mainMenuView = new MainMenuView();
+            this.NavigationService.Navigate(mainMenuView);
         }
 
         private void LblChangeAvatar_Clicked(object sender, MouseButtonEventArgs e)

@@ -2,7 +2,7 @@
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
+using System.Windows.Media.Imaging;
 using Spider_Clue.Logic;
 using System.Windows.Forms;
 using System.Collections.Generic;
@@ -17,7 +17,6 @@ namespace Spider_Clue.Views
         public MainMenuView()
         {
             InitializeComponent();
-            Utilities.SetUserIcon(GamerIcon);
             Loaded += PageLoaded;
             Utilities.PlayMainThemeSong(mainThemePlayer);
             friendsManagerClient = new FriendsManagerClient(new InstanceContext(this));
@@ -32,7 +31,8 @@ namespace Spider_Clue.Views
         {
             lblUserName.Content = UserSingleton.Instance.GamerTag;
             lblLevel.Content = UserSingleton.Instance.Level;
-            GamerIcon = Utilities.SetUserIcon(GamerIcon);
+            string iconPath = Utilities.GetImagePath();
+            this.DataContext = new { ImagePath = iconPath };
         }
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
         {

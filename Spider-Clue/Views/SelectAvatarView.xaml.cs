@@ -22,7 +22,7 @@ namespace Spider_Clue.Views
     public partial class SelectAvatarView : Page
     {
         private Image SelectedImage = null;
-        private string newIconName = "Icon0";
+        private string newIconName = "Icon0.jpg";
 
 
         public SelectAvatarView()
@@ -38,13 +38,13 @@ namespace Spider_Clue.Views
             }
 
             SelectedImage = (Image)sender;
-            newIconName = SelectedImage.Name;
+            newIconName = SelectedImage.Name +".jpg";
             SelectedImage.Opacity = 1;
         }
 
         private void ChangeIcon()
         {
-            UserSingleton.Instance.ImageCode = SelectedImage.Name;
+            UserSingleton.Instance.ImageCode = newIconName;
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
             userManager.ChangeIcon(UserSingleton.Instance.GamerTag, newIconName);
         }
