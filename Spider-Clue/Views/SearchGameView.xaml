@@ -128,9 +128,9 @@
                         FontSize="5"
                         FontWeight="Bold"
                         Cursor="Hand"
-                        Margin="24,0,0,0" 
+                        Margin="15,0,0,0" 
                         Grid.Column = "2"
-                        HorizontalAlignment="Left" Width="37"
+                        HorizontalAlignment="Left" Width="46"
                                     Click="BtnJoinMatch_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">

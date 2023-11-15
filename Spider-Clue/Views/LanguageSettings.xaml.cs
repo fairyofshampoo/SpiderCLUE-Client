@@ -17,6 +17,7 @@ namespace Spider_Clue.Views
     public partial class LanguageSettings : Page
     {
         private readonly Configuration gameConfiguration;
+        public static SettingsView settingsView { get; set; }
 
         public LanguageSettings()
         {
@@ -35,12 +36,20 @@ namespace Spider_Clue.Views
         {
             Utilities.PlayButtonClickSound();
             ChangeLanguage("es-MX");
+            ReloadSettingsPage();
+        }
+        private void ReloadSettingsPage()
+        {
+            SettingsView newSettingsView = new SettingsView();
+            settingsView.NavigationService.Navigate(newSettingsView);
+
         }
 
         private void BtnUSFlag_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             ChangeLanguage("en-US");
+            ReloadSettingsPage();
         }
     }
 }
