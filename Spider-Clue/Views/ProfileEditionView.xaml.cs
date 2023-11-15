@@ -28,6 +28,13 @@ namespace Spider_Clue.Views
         public ProfileEditionView()
         {
             InitializeComponent();
+            SetGamerIconInPage();
+        }
+
+        private void SetGamerIconInPage()
+        {
+            string iconPath = Utilities.GetImagePath();
+            this.DataContext = new { ImagePath = iconPath };
         }
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
@@ -106,7 +113,7 @@ namespace Spider_Clue.Views
             this.NavigationService.Navigate(mainMenuView);
         }
 
-        private void LblChangeAvatar_Clicked(object sender, MouseButtonEventArgs e)
+        private void LblChangeAvatar_Click(object sender, MouseButtonEventArgs e)
         {
             SelectAvatarView selectAvatarView = new SelectAvatarView();
             this.NavigationService.Navigate(selectAvatarView);

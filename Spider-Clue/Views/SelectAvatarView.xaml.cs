@@ -56,7 +56,9 @@ namespace Spider_Clue.Views
 
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.GoBack();
+            Utilities.PlayButtonClickSound();
+            ProfileEditionView profileEditionView = new ProfileEditionView();
+            this.NavigationService.Navigate(profileEditionView);
         }
     }
 }
