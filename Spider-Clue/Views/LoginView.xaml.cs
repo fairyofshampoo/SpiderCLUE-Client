@@ -137,8 +137,7 @@ namespace Spider_Clue.Views
         private bool VerifyFields()
         {
             String gamerTag = txtUsername.Text;
-            SecureString passwordToAccess = txtPassword.SecurePassword;
-            string password = new NetworkCredential(string.Empty, passwordToAccess).Password;
+            string password = GetPassword();
             bool passwordValidation = VerifyPassword(password);
             bool gamerTagValidation = VerifyGamertag(gamerTag);
 
@@ -152,6 +151,20 @@ namespace Spider_Clue.Views
             }
 
             return passwordValidation && gamerTagValidation;
+        }
+
+        private String GetPassword()
+        {
+            bool isChecked = btnPasswordVisibility.IsChecked ?? false;
+            String password = txtPasswordDisplay.Text;
+
+            if (!isChecked)
+            {
+                SecureString passwordToAccess = txtPassword.SecurePassword;
+                password = new NetworkCredential(string.Empty, passwordToAccess).Password;
+            }
+
+            return password;
         }
 
         private bool VerifyPassword(string password)
@@ -185,7 +198,8 @@ namespace Spider_Clue.Views
         private bool ValidateCredentials()
         {
             string username = txtUsername.Text;
-            string passwordHashed = Utilities.CalculateSHA1Hash(txtPassword.Password);
+            string password = GetPassword();
+            string passwordHashed = Utilities.CalculateSHA1Hash(password);
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
             return userManager.AuthenticateAccount(username, passwordHashed);
         }

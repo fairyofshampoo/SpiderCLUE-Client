@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AccountRecoveryTitle" xml:space="preserve">
-    <value>Recuperación de Cuenta</value>
+    <value>Recuperación de cuenta</value>
   </data>
   <data name="BtnChangePassword" xml:space="preserve">
     <value>Cambiar contraseña</value>
@@ -130,20 +130,20 @@
     <value>Salir al escritorio</value>
   </data>
   <data name="BtnGuestPlayer" xml:space="preserve">
-    <value>Jugador Invitado</value>
+    <value>Jugador invitado</value>
   </data>
   <data name="BtnJoinToParty" xml:space="preserve">
-    <value>Unirse a Partida</value>
+    <value>Unirse a la fiesta</value>
   </data>
   <data name="BtnLogin" xml:space="preserve">
     <value>Iniciar sesión</value>
-    <comment>Text for the button that logs in </comment>
+    <comment>Texto para el botón que inicia sesión</comment>
   </data>
   <data name="BtnPlay" xml:space="preserve">
     <value>Jugar</value>
   </data>
   <data name="BtnRecover" xml:space="preserve">
-    <value>Recuperar Cuenta</value>
+    <value>Recuperar cuenta</value>
   </data>
   <data name="BtnRegister" xml:space="preserve">
     <value>Registrarse</value>
@@ -161,31 +161,31 @@
     <value>Verificar código</value>
   </data>
   <data name="DlgRegisterError" xml:space="preserve">
-    <value>An error occurred during the registration process. Please try again later.</value>
+    <value>Ocurrió un error durante el proceso de registro. Por favor, intenta de nuevo más tarde.</value>
   </data>
   <data name="DlgRegisterSuccessful" xml:space="preserve">
-    <value>Your new account registration was successful. Welcome!</value>
+    <value>Tu registro de nueva cuenta fue exitoso. ¡Bienvenido!</value>
   </data>
   <data name="ErrorTitle" xml:space="preserve">
     <value>ERROR</value>
   </data>
   <data name="GuessName" xml:space="preserve">
-    <value>Invitado</value>
+    <value>Adivina </value>
   </data>
   <data name="LblAccountRecoveryTitle" xml:space="preserve">
-    <value>Account Recovery</value>
+    <value>Recuperación de cuenta</value>
   </data>
   <data name="LblAccountVerification" xml:space="preserve">
-    <value>Account Verification</value>
+    <value>Verificación de cuenta</value>
   </data>
   <data name="LblAudio" xml:space="preserve">
     <value>Audio</value>
   </data>
   <data name="LblAudioSettingsTitle" xml:space="preserve">
-    <value>Audio Settings</value>
+    <value>Configuración de audio</value>
   </data>
   <data name="LblChangeAvatar" xml:space="preserve">
-    <value>Change Avatar</value>
+    <value>Cambiar avatar</value>
   </data>
   <data name="LblCode" xml:space="preserve">
     <value>Código</value>
@@ -194,94 +194,94 @@
     <value>Confirmar contraseña</value>
   </data>
   <data name="LblEmail" xml:space="preserve">
-    <value>Email</value>
+    <value>Correo electrónico</value>
   </data>
   <data name="LblEmailForRecovery" xml:space="preserve">
-    <value>Enter the email address associated with your account.</value>
+    <value>Ingresa la dirección de correo electrónico asociada con tu cuenta.</value>
   </data>
   <data name="LblForgotPassword" xml:space="preserve">
-    <value>Forgot your password?</value>
+    <value>¿Olvidaste tu contraseña?</value>
   </data>
   <data name="LblGamerTagUsed" xml:space="preserve">
-    <value>This gamertag is already in use.</value>
+    <value>Este gamertag ya está en uso.</value>
   </data>
   <data name="LblGameCode" xml:space="preserve">
-    <value>Code</value>
+    <value>Código</value>
   </data>
   <data name="LblIntroducePassword" xml:space="preserve">
-    <value>Please, introduce your password to continue</value>
+    <value>Por favor, introduce tu contraseña para continuar</value>
   </data>
   <data name="LblInvalidEMail" xml:space="preserve">
-    <value>Invalid format. (1-50) eg. spiderclue@gmail.com</value>
+    <value>Formato inválido. (1-50) ej. spiderclue@gmail.com</value>
   </data>
   <data name="LblInvalidGamerTag" xml:space="preserve">
-    <value>Gamertag only allows letters and numbers (1-15 characters)</value>
+    <value>El gamertag solo permite letras y números (1-15 caracteres)</value>
   </data>
   <data name="LblInvalidLastName" xml:space="preserve">
-    <value>Last name only allows letters and spaces (1-50 characters)</value>
+    <value>El apellido solo permite letras y espacios (1-50 caracteres)</value>
   </data>
   <data name="LblInvalidName" xml:space="preserve">
-    <value>Name only allows letters and spaces (1-50 characters)</value>
+    <value>El nombre solo permite letras y espacios (1-50 caracteres)</value>
   </data>
   <data name="LblInvalidPassword" xml:space="preserve">
-    <value>Password must have uppercase and lowercase letters, symbols and at least one digit (8-45 characters)</value>
+    <value>La contraseña debe tener letras mayúsculas y minúsculas, símbolos y al menos un dígito (8-45 caracteres)</value>
   </data>
   <data name="LblLanguage" xml:space="preserve">
-    <value>Language</value>
+    <value>Idioma</value>
   </data>
   <data name="LblLanguageEnglish" xml:space="preserve">
-    <value>English(EUA)</value>
+    <value>Ingles (EUA)</value>
   </data>
   <data name="LblLanguageSettingTitle" xml:space="preserve">
-    <value>Select Language</value>
+    <value>Seleccionar Idioma</value>
   </data>
   <data name="LblLanguageSpanish" xml:space="preserve">
-    <value>Spanish (Mexico)</value>
+    <value>Español (Mexico)</value>
   </data>
   <data name="LblLastName" xml:space="preserve">
-    <value>Last Name</value>
+    <value>Apellido</value>
   </data>
   <data name="LblLevel" xml:space="preserve">
-    <value>Level</value>
+    <value>Nivel</value>
   </data>
   <data name="LblLoginTitle" xml:space="preserve">
-    <value>Login</value>
+    <value>Iniciar sesión</value>
   </data>
   <data name="LblMusicVolume" xml:space="preserve">
-    <value>Music Volume</value>
+    <value>Volumen de musica</value>
   </data>
   <data name="LblName" xml:space="preserve">
-    <value>Name</value>
+    <value>Nombre</value>
   </data>
   <data name="LblPassword" xml:space="preserve">
-    <value>Password</value>
+    <value>Contraseña</value>
   </data>
   <data name="LblPasswordRecoveryTitle" xml:space="preserve">
-    <value>Password Recovery</value>
+    <value>Recuperación de contraseña</value>
   </data>
   <data name="LblPasswordsDontMatch" xml:space="preserve">
-    <value>Passwords do not match</value>
+    <value>Las contraseñas no coinciden</value>
   </data>
   <data name="LblPasswordWrong" xml:space="preserve">
     <value>Contraseña incorrecta</value>
   </data>
   <data name="LblProfileEdition" xml:space="preserve">
-    <value>Profile Edition</value>
+    <value>Edición de perfil</value>
   </data>
   <data name="LblRegister" xml:space="preserve">
     <value>Registrarse</value>
   </data>
   <data name="LblUsername" xml:space="preserve">
-    <value>Username</value>
+    <value>Nombre de usuario</value>
   </data>
   <data name="LblGamerTagError" xml:space="preserve">
-    <value>Username doesn't exist in our system</value>
+    <value>El nombre de usuario no existe en nuestro sistema</value>
   </data>
   <data name="LoginTitle" xml:space="preserve">
-    <value>Login</value>
+    <value>Iniciar sesión</value>
   </data>
   <data name="RegisterTitle" xml:space="preserve">
-    <value>Join the game</value>
+    <value>Únete al juego</value>
   </data>
   <data name="SuccessTitle" xml:space="preserve">
     <value>ÉXITO</value>
@@ -290,22 +290,28 @@
     <value>Amigos</value>
   </data>
   <data name="BtnAddFriend" xml:space="preserve">
-    <value>Añadir amigo</value>
+    <value>Agregar amigo</value>
   </data>
   <data name="LblFriendsRequest" xml:space="preserve">
-    <value>Friends Request</value>
+    <value>Solicitud de amigos</value>
   </data>
   <data name="BtnEditInformation" xml:space="preserve">
-    <value>Editar Información</value>
+    <value>Editar informacion</value>
   </data>
   <data name="LblPersonalInformation" xml:space="preserve">
-    <value>Información Personal</value>
+    <value>Información personal</value>
   </data>
   <data name="LblSelectIcon" xml:space="preserve">
-    <value>Selecciona un ícono</value>
+    <value>Seleccionar un icono</value>
   </data>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="MinecraftButtonSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Audio\MinecraftButtonSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MainThemeSong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Audio\MainMenuSong.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CheckInformationEntered" xml:space="preserve">
+    <value>Por favor, verifica la informacion ingresada e intenta nuevamente.</value>
   </data>
 </root>

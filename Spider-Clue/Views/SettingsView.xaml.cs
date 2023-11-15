@@ -38,6 +38,7 @@ namespace Spider_Clue.Views
             Utilities.PlayButtonClickSound();
             LanguageSettings languageSettings = new LanguageSettings();
             SettingsFrame.NavigationService.Navigate(languageSettings);
+            LanguageSettings.settingsView = this;
         }
 
         private void LblAudio_Click(object sender, MouseButtonEventArgs e)
