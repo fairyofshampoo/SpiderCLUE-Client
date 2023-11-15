@@ -87,6 +87,7 @@ namespace Spider_Clue.Views
         {
             string gamerTag = txtUsername.Text;
             Gamer gamer = GetGamerData(gamerTag);
+            Console.WriteLine("aqui se saca el codigo para meterlo al singleton" + gamer.ImageCode);
             UserSingleton.Instance.Initialize(gamer);
         }
 

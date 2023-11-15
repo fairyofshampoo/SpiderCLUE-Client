@@ -28,6 +28,7 @@ namespace Spider_Clue.Logic
             LastName = gamer.LastName;
             Email = gamer.Email;
             Level = gamer.Level;
+            ImageCode = gamer.ImageCode;
         }
 
         public void Clear()
@@ -36,6 +37,7 @@ namespace Spider_Clue.Logic
             Name = null;
             LastName = null;
             Email = null;
+            ImageCode = "Icon0";
         }
 
 

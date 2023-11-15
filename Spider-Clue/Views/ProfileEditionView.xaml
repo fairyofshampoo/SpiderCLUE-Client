@@ -62,9 +62,10 @@
                 Width="70"
                 Height="70"
                 Grid.Column="0"
-                VerticalAlignment="Top">
+                VerticalAlignment="Top"
+                        MouseDown="LblChangeAvatar_Click">
                         <Border.Background>
-                            <ImageBrush ImageSource = "/Images/Icon0.jpg"
+                            <ImageBrush ImageSource ="{Binding Path=ImagePath}"
                             Stretch = "Fill">
                             </ImageBrush>
                         </Border.Background>
@@ -78,7 +79,7 @@
                            Margin="20,90,0,79"
                            Grid.Row="0"
                            Cursor="Hand"
-                           MouseLeftButtonDown="LblChangeAvatar_Clicked"/>
+                           MouseLeftButtonDown="LblChangeAvatar_Click"/>
 
                     <Grid Grid.Column="1" Margin="15,0,0,0">
                         <Grid.RowDefinitions>
