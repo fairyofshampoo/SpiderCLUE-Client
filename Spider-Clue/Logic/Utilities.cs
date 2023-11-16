@@ -71,11 +71,16 @@ namespace Spider_Clue.Logic
             return PathProyectoDirectory + "Spider-Clue\\Audio\\MainMenuSong.wav";
         }
 
-        public static string GetImagePath()
+        public static string GetImagePathForIcon()
+        {
+            return GetImagePathForImages() + UserSingleton.Instance.ImageCode;
+        }
+
+        public static string GetImagePathForImages()
         {
             string PathDirectory = AppDomain.CurrentDomain.BaseDirectory;
             string PathProyectoDirectory = Path.GetFullPath(Path.Combine(PathDirectory, "../../../"));
-            return PathProyectoDirectory + "Spider-Clue\\Images\\" + UserSingleton.Instance.ImageCode;
+            return PathProyectoDirectory + "Spider-Clue\\Images\\";
         }
 
         public static bool SendEmailWithCode(string toEmail, Window mainWindow)
