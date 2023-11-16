@@ -1,6 +1,7 @@
 ﻿using Spider_Clue.SpiderClueService;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,19 +17,36 @@ using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for FriendsListView.xaml
-    /// </summary>
+
     public partial class FriendsListView : Page
     {
-        public FriendsListView()
+        public string[] FriendsConnected { get; set; }
+
+        public FriendsListView(String[] friendsConnected)
         {
             InitializeComponent();
+            FriendsConnected = friendsConnected;
+            showFriendList();
         }
 
-        private void FriendList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void showFriendList()
         {
-
+            for(int index = 0; index< FriendsConnected.Length; index++)
+            {
+                Player player = new Player
+                {
+                    gamertag = FriendsConnected[index],
+                    status = "Green"
+                };
+                FriendsConnectedGrid.Items.Add(player);
+            }
         }
+
+        public class Player
+        {
+            public string gamertag { get; set; }
+            public string status { get; set; }
+        }
+        
     }
 }
