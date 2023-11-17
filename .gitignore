@@ -1,0 +1,6 @@
+# Ignorar carpetas
+Spider-Clue/obj/
+Spider-Clue/bin/
+Spider-Clue/.vs/
+Spider-Clue/Connected Services/
+Spider-Clue/App.config

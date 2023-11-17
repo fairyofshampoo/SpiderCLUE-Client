@@ -117,15 +117,78 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AccountRecoveryTitle" xml:space="preserve">
+    <value>Account Recovery</value>
+  </data>
+  <data name="BtnChangePassword" xml:space="preserve">
+    <value>Change Password</value>
+  </data>
+  <data name="BtnConfirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="BtnExitToDesktop" xml:space="preserve">
+    <value>Exit to desktop</value>
+  </data>
   <data name="BtnGuestPlayer" xml:space="preserve">
     <value>Guest Player</value>
+  </data>
+  <data name="BtnJoinToParty" xml:space="preserve">
+    <value>Join to Party</value>
   </data>
   <data name="BtnLogin" xml:space="preserve">
     <value>Log in</value>
     <comment>Text for the button that logs in </comment>
   </data>
+  <data name="BtnPlay" xml:space="preserve">
+    <value>Play</value>
+  </data>
+  <data name="BtnRecover" xml:space="preserve">
+    <value>Recover Account</value>
+  </data>
   <data name="BtnRegister" xml:space="preserve">
     <value>Register</value>
+  </data>
+  <data name="BtnSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="BtnSendCode" xml:space="preserve">
+    <value>Send Code</value>
+  </data>
+  <data name="BtnSettings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="BtnVerifyCode" xml:space="preserve">
+    <value>Verify code</value>
+  </data>
+  <data name="DlgRegisterError" xml:space="preserve">
+    <value>An error occurred during the registration process. Please try again later.</value>
+  </data>
+  <data name="DlgRegisterSuccessful" xml:space="preserve">
+    <value>Your new account registration was successful. Welcome!</value>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>ERROR</value>
+  </data>
+  <data name="GuessName" xml:space="preserve">
+    <value>Guess </value>
+  </data>
+  <data name="LblAccountRecoveryTitle" xml:space="preserve">
+    <value>Account Recovery</value>
+  </data>
+  <data name="LblAccountVerification" xml:space="preserve">
+    <value>Account Verification</value>
+  </data>
+  <data name="LblAudio" xml:space="preserve">
+    <value>Audio</value>
+  </data>
+  <data name="LblAudioSettingsTitle" xml:space="preserve">
+    <value>Audio Settings</value>
+  </data>
+  <data name="LblChangeAvatar" xml:space="preserve">
+    <value>Change Avatar</value>
+  </data>
+  <data name="LblCode" xml:space="preserve">
+    <value>Code</value>
   </data>
   <data name="LblConfirmPassword" xml:space="preserve">
     <value>Confirm Password</value>
@@ -133,14 +196,59 @@
   <data name="LblEmail" xml:space="preserve">
     <value>Email</value>
   </data>
+  <data name="LblEmailForRecovery" xml:space="preserve">
+    <value>Enter the email address associated with your account.</value>
+  </data>
   <data name="LblForgotPassword" xml:space="preserve">
     <value>Forgot your password?</value>
+  </data>
+  <data name="LblGamerTagUsed" xml:space="preserve">
+    <value>This gamertag is already in use.</value>
+  </data>
+  <data name="LblGameCode" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="LblIntroducePassword" xml:space="preserve">
+    <value>Please, introduce your password to continue</value>
+  </data>
+  <data name="LblInvalidEMail" xml:space="preserve">
+    <value>Invalid format. (1-50) eg. spiderclue@gmail.com</value>
+  </data>
+  <data name="LblInvalidGamerTag" xml:space="preserve">
+    <value>Gamertag only allows letters and numbers (1-15 characters)</value>
+  </data>
+  <data name="LblInvalidLastName" xml:space="preserve">
+    <value>Last name only allows letters and spaces (1-50 characters)</value>
+  </data>
+  <data name="LblInvalidName" xml:space="preserve">
+    <value>Name only allows letters and spaces (1-50 characters)</value>
+  </data>
+  <data name="LblInvalidPassword" xml:space="preserve">
+    <value>Password must have uppercase and lowercase letters, symbols and at least one digit (8-45 characters)</value>
+  </data>
+  <data name="LblLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LblLanguageEnglish" xml:space="preserve">
+    <value>English(EUA)</value>
+  </data>
+  <data name="LblLanguageSettingTitle" xml:space="preserve">
+    <value>Select Language</value>
+  </data>
+  <data name="LblLanguageSpanish" xml:space="preserve">
+    <value>Spanish (Mexico)</value>
   </data>
   <data name="LblLastName" xml:space="preserve">
     <value>Last Name</value>
   </data>
+  <data name="LblLevel" xml:space="preserve">
+    <value>Level</value>
+  </data>
   <data name="LblLoginTitle" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="LblMusicVolume" xml:space="preserve">
+    <value>Music Volume</value>
   </data>
   <data name="LblName" xml:space="preserve">
     <value>Name</value>
@@ -148,8 +256,17 @@
   <data name="LblPassword" xml:space="preserve">
     <value>Password</value>
   </data>
-  <data name="LblPasswordError" xml:space="preserve">
+  <data name="LblPasswordRecoveryTitle" xml:space="preserve">
+    <value>Password Recovery</value>
+  </data>
+  <data name="LblPasswordsDontMatch" xml:space="preserve">
+    <value>Passwords do not match</value>
+  </data>
+  <data name="LblPasswordWrong" xml:space="preserve">
     <value>Wrong password</value>
+  </data>
+  <data name="LblProfileEdition" xml:space="preserve">
+    <value>Profile Edition</value>
   </data>
   <data name="LblRegister" xml:space="preserve">
     <value>Sign up</value>
@@ -157,7 +274,7 @@
   <data name="LblUsername" xml:space="preserve">
     <value>Username</value>
   </data>
-  <data name="LblUsernameError" xml:space="preserve">
+  <data name="LblGamerTagError" xml:space="preserve">
     <value>Username doesn't exist in our system</value>
   </data>
   <data name="LoginTitle" xml:space="preserve">
@@ -165,5 +282,48 @@
   </data>
   <data name="RegisterTitle" xml:space="preserve">
     <value>Join the game</value>
+  </data>
+  <data name="SuccessTitle" xml:space="preserve">
+    <value>SUCCESS</value>
+  </data>
+  <data name="LblFriends" xml:space="preserve">
+    <value>Friends</value>
+  </data>
+  <data name="BtnAddFriend" xml:space="preserve">
+    <value>Add Friend</value>
+  </data>
+  <data name="LblFriendsRequest" xml:space="preserve">
+    <value>Friends Request</value>
+  </data>
+  <data name="BtnEditInformation" xml:space="preserve">
+    <value>Edit Information</value>
+  </data>
+  <data name="LblPersonalInformation" xml:space="preserve">
+    <value>Personal Information</value>
+  </data>
+  <data name="LblSelectIcon" xml:space="preserve">
+    <value>Select an Icon</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="MinecraftButtonSound" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Audio\MinecraftButtonSound.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MainThemeSong" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Audio\MainMenuSong.wav;System.IO.MemoryStream, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CheckInformationEntered" xml:space="preserve">
+    <value>Please check the information entered and try again.</value>
+  </data>
+  <data name="DlgInvalidData" xml:space="preserve">
+    <value>Try again, invalid information</value>
+  </data>
+  <data name="DlgWrongDataForLogin" xml:space="preserve">
+    <value>Check that the email and password are correct. Unable to log in.</value>
+  </data>
+  <data name="DlgAccountBanned" xml:space="preserve">
+    <value>Your account has been banned</value>
+  </data>
+  <data name="InformationTitle" xml:space="preserve">
+    <value>INFORMATION</value>
   </data>
 </root>
