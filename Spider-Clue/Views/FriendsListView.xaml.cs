@@ -1,8 +1,10 @@
-﻿using Spider_Clue.SpiderClueService;
+﻿using Spider_Clue.Logic;
+using Spider_Clue.SpiderClueService;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,20 +28,37 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
             FriendsConnected = friendsConnected;
-            showFriendList();
+            ShowFriendList();
         }
 
-        private void showFriendList()
+        private void ShowFriendList()
         {
-            for(int index = 0; index< FriendsConnected.Length; index++)
+            string[] friendList = GetFriends();
+            string statusColor = "Red";
+            for(int firstIndex = 0; firstIndex < friendList.Length; firstIndex++)
             {
+                for (int secondIndex = 0; secondIndex < FriendsConnected.Length; secondIndex++)
+                {
+                    if (friendList[firstIndex] == FriendsConnected[secondIndex])
+                    {
+                        statusColor = "Green";
+                    }
+                }
                 Player player = new Player
                 {
-                    gamertag = FriendsConnected[index],
-                    status = "Green"
+                    gamertag = friendList[firstIndex],
+                    status = statusColor
                 };
                 FriendsConnectedGrid.Items.Add(player);
-            }
+                statusColor = "Red";
+            }           
+        }
+
+        private string [] GetFriends()
+        {
+            SpiderClueService.IFriendRequestManager friendRequest = new SpiderClueService.FriendRequestManagerClient();
+            string [] friendList = friendRequest.GetFriendList(UserSingleton.Instance.GamerTag);
+            return friendList;
         }
 
         public class Player
