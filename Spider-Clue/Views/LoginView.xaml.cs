@@ -44,7 +44,7 @@ namespace Spider_Clue.Views
         private void SetGuessPlayerData()
         {
             string guessPlayerUsername = GenerateGuessPlayerUsername();
-            ///UserSingleton.Instance.Initialize(guessPlayerUsername,);
+            //UserSingleton.Instance.Initialize();
         }
 
         private string GenerateGuessPlayerUsername()
@@ -77,7 +77,6 @@ namespace Spider_Clue.Views
         {
             string gamerTag = txtUsername.Text;
             Gamer gamer = GetGamerData(gamerTag);
-            Console.WriteLine("aqui se saca el codigo para meterlo al singleton" + gamer.ImageCode);
             UserSingleton.Instance.Initialize(gamer);
         }
 
@@ -89,7 +88,7 @@ namespace Spider_Clue.Views
 
         private void ShowErrorMessage()
         {
-            MessageBox.Show("Verifique el correo y contraseña, sean correctos. No se ha podido iniciar sesión", Properties.Resources.DlgRegisterError, MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(Properties.Resources.DlgWrongDataForLogin, Properties.Resources.DlgRegisterError, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private bool HandleLoginAttempt()
@@ -121,7 +120,7 @@ namespace Spider_Clue.Views
 
         private void ShowBannedDialog()
         {
-            MessageBox.Show("Su cuenta ha sido baneada", "INFO", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(Properties.Resources.DlgWrongDataForLogin,Properties.Resources.InformationTitle, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private bool VerifyFields()

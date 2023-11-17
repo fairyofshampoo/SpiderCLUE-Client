@@ -28,12 +28,7 @@ namespace Spider_Clue.Views
 
         private void txtMessage_KeyDown(object sender, KeyEventArgs e)
         {
-            /*if (e.Key == Key.Enter)
-            {
-                if (client != null)
-                    client.SendMessage(txtMessage.Text, UserSingleton.Instance.GamerTag);
-                txtMessage.Text = string.Empty;
-            }*/
+
         }
     }
 }

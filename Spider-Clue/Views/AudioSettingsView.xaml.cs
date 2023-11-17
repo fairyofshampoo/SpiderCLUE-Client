@@ -17,13 +17,17 @@ namespace Spider_Clue.Views
         private readonly Configuration gameConfiguration;
         private readonly KeyValueConfigurationElement musicStatus;
         private readonly KeyValueConfigurationElement soundStatus;
-        public static SettingsView settingsView { get; set; }
+
+        public static SettingsView SettingsView { get; set; }
+
+        private const string MusicKey = "MUSIC_ON";
+        private const string SoundKey = "SOUNDS_ON";
+
         public AudioSettingsView()
         {
-            
             gameConfiguration = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
-            musicStatus = gameConfiguration.AppSettings.Settings["MUSIC_ON"];
-            soundStatus = gameConfiguration.AppSettings.Settings["SOUNDS_ON"];
+            musicStatus = gameConfiguration.AppSettings.Settings[MusicKey];
+            soundStatus = gameConfiguration.AppSettings.Settings[SoundKey];
             InitializeComponent();
             SetMusicAndSoundSettings();
         }
@@ -76,7 +80,7 @@ namespace Spider_Clue.Views
         private void GoToMainMenuView()
         {
             MainMenuView mainMenuView = new MainMenuView();
-            settingsView.NavigationService.Navigate(mainMenuView);
+            SettingsView.NavigationService.Navigate(mainMenuView);
         }
 
         private void BtnSaveChanges_Click(object sender, RoutedEventArgs e)

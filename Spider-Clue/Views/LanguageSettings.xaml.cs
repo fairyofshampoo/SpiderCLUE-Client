@@ -17,7 +17,7 @@ namespace Spider_Clue.Views
     public partial class LanguageSettings : Page
     {
         private readonly Configuration gameConfiguration;
-        public static SettingsView settingsView { get; set; }
+        public static SettingsView SettingsView { get; set; }
 
         public LanguageSettings()
         {
@@ -41,7 +41,7 @@ namespace Spider_Clue.Views
         private void ReloadSettingsPage()
         {
             SettingsView newSettingsView = new SettingsView();
-            settingsView.NavigationService.Navigate(newSettingsView);
+            SettingsView.NavigationService.Navigate(newSettingsView);
 
         }
 

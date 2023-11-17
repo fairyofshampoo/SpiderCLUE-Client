@@ -214,6 +214,24 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your account has been banned.
+        /// </summary>
+        public static string DlgAccountBanned {
+            get {
+                return ResourceManager.GetString("DlgAccountBanned", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Try again, invalid information.
+        /// </summary>
+        public static string DlgInvalidData {
+            get {
+                return ResourceManager.GetString("DlgInvalidData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An error occurred during the registration process. Please try again later..
         /// </summary>
         public static string DlgRegisterError {
@@ -232,6 +250,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check that the email and password are correct. Unable to log in..
+        /// </summary>
+        public static string DlgWrongDataForLogin {
+            get {
+                return ResourceManager.GetString("DlgWrongDataForLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ERROR.
         /// </summary>
         public static string ErrorTitle {
@@ -246,6 +273,15 @@ namespace Spider_Clue.Properties {
         public static string GuessName {
             get {
                 return ResourceManager.GetString("GuessName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to INFORMATION.
+        /// </summary>
+        public static string InformationTitle {
+            get {
+                return ResourceManager.GetString("InformationTitle", resourceCulture);
             }
         }
         

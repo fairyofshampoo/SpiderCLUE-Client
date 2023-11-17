@@ -63,7 +63,6 @@ namespace Spider_Clue.Views
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
-            //meter un logout
             App.Current.Shutdown();
         }
 

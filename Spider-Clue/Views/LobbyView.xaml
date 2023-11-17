@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p="clr-namespace:Spider_Clue.Properties"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="LobbyView">
+      d:DesignHeight="450" d:DesignWidth="800">
 
     <DockPanel>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
@@ -163,7 +162,7 @@
                                 <ImageBrush ImageSource="/Images/PaperForCode.png" Stretch="UniformToFill" />
                             </Border.Background>
                             <StackPanel Orientation="Vertical">
-                                <Label Margin="30,30,30,0" Content="Codigo:" FontWeight="Bold" HorizontalContentAlignment="Center">
+                            <Label Margin="30,30,30,0" Content="{x:Static p:Resources.LblCode}" FontWeight="Bold" HorizontalContentAlignment="Center">
                                     
                                 </Label>
                                 <TextBox HorizontalContentAlignment="Center"

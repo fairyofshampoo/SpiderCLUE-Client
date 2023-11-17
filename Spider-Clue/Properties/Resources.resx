@@ -314,4 +314,16 @@
   <data name="CheckInformationEntered" xml:space="preserve">
     <value>Please check the information entered and try again.</value>
   </data>
+  <data name="DlgInvalidData" xml:space="preserve">
+    <value>Try again, invalid information</value>
+  </data>
+  <data name="DlgWrongDataForLogin" xml:space="preserve">
+    <value>Check that the email and password are correct. Unable to log in.</value>
+  </data>
+  <data name="DlgAccountBanned" xml:space="preserve">
+    <value>Your account has been banned</value>
+  </data>
+  <data name="InformationTitle" xml:space="preserve">
+    <value>INFORMATION</value>
+  </data>
 </root>
