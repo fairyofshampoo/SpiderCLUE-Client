@@ -51,9 +51,9 @@
                     CornerRadius="10"
                     Height="400"
                     Background="#B45959"
-                    Width="550">
+                    Width="794">
                         <StackPanel
-                        Width="500"
+                        Width="Auto"
                         Height="Auto"
                         Margin="0,0,0,10">
                             <Grid>
@@ -73,7 +73,7 @@
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="200" />
+                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <Label x:Name="lblName" Content="{x:Static p:Resources.LblName}"
                                    Foreground="White"
@@ -88,9 +88,9 @@
                                 CornerRadius = "5"
                                 BorderBrush = "LightGray"
                                 BorderThickness = "3"
-                                Grid.Row = "0" 
+                                Grid.Row = "1" 
                                 Grid.Column = "1"
-                                Margin = "15,53,-121,4">
+                                Margin = "15,5,10,0">
                                     <TextBox x:Name="txtName"
                                          FontSize="13"
                                          FontWeight="Medium"
@@ -116,7 +116,7 @@
                                 BorderThickness="3" 
                                 Grid.Row="2"
                                 Grid.Column="1"
-                                Margin="15,35,-121,10">
+                                Margin="15,35,10,10">
                                     <TextBox x:Name="txtLastName"
                                          FontSize="13"
                                          FontWeight="Medium"
@@ -142,7 +142,7 @@
                                 BorderThickness="3"
                                 Grid.Row="4"
                                 Grid.Column="1"
-                                Margin="15,35,-121,10">
+                                Margin="15,35,10,10">
                                     <TextBox x:Name="txtGamerTag"
                                          FontSize="13"
                                          FontWeight="Medium"
@@ -168,7 +168,7 @@
                                 BorderThickness="3"
                                 Grid.Row="6"
                                 Grid.Column="1"
-                                Margin="15,34,-121,10">
+                                Margin="15,34,10,10">
                                     <TextBox x:Name="txtEmail"
                                          FontSize="13"
                                          FontWeight="Medium"

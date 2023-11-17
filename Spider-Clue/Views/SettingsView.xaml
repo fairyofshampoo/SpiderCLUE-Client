@@ -12,6 +12,7 @@
     <DockPanel>
         <ScrollViewer>
             <Grid>
+                <MediaElement x:Name = "mainThemePlayer" LoadedBehavior = "Manual"/>
                 <Border
                     Width = "Auto" Height = "Auto">
                     <Border.Background>

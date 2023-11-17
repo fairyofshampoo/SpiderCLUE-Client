@@ -397,6 +397,10 @@
     <Resource Include="Images\Characters\YellowCharacter.png" />
     <Resource Include="Images\Characters\BlueCharacter.png" />
     <Resource Include="Images\PaperForCode.png" />
+    <Resource Include="Images\sound-on.png" />
+    <Resource Include="Images\sound-off.png" />
+    <Resource Include="Images\music-off.png" />
+    <Resource Include="Images\music-on.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup>

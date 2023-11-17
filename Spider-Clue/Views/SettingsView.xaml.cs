@@ -24,6 +24,7 @@ namespace Spider_Clue.Views
         public SettingsView()
         {
             InitializeComponent();
+            Utilities.PlayMainThemeSong(mainThemePlayer);
         }
 
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
@@ -38,7 +39,7 @@ namespace Spider_Clue.Views
             Utilities.PlayButtonClickSound();
             LanguageSettings languageSettings = new LanguageSettings();
             SettingsFrame.NavigationService.Navigate(languageSettings);
-            LanguageSettings.settingsView = this;
+            LanguageSettings.SettingsView = this;
         }
 
         private void LblAudio_Click(object sender, MouseButtonEventArgs e)
@@ -46,6 +47,7 @@ namespace Spider_Clue.Views
             Utilities.PlayButtonClickSound();
             AudioSettingsView audioSettingsView = new AudioSettingsView();  
             SettingsFrame.NavigationService.Navigate(audioSettingsView);
+            AudioSettingsView.SettingsView = this;
         }
     }
 }

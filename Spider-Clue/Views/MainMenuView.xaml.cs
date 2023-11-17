@@ -31,7 +31,7 @@ namespace Spider_Clue.Views
         {
             lblUserName.Content = UserSingleton.Instance.GamerTag;
             lblLevel.Content = UserSingleton.Instance.Level;
-            string iconPath = Utilities.GetImagePath();
+            string iconPath = Utilities.GetImagePathForIcon();
             this.DataContext = new { ImagePath = iconPath };
         }
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
@@ -63,7 +63,6 @@ namespace Spider_Clue.Views
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
-            //meter un logout
             App.Current.Shutdown();
         }
 

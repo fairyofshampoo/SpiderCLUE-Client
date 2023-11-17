@@ -6,26 +6,26 @@ using Spider_Clue.SpiderClueService;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for AccountRecoveryView.xaml
-    /// </summary>
     public partial class AccountRecoveryView : Page
     {
+        private readonly IUserManager userManager;
+
         public AccountRecoveryView()
         {
             InitializeComponent();
+            userManager = new UserManagerClient();
         }
 
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            this.NavigationService.GoBack();
+            NavigationService.GoBack();
         }
 
         private void BtnSendCode_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            String toEmail = txtEmailForRecovery.Text;
+            string toEmail = txtEmailForRecovery.Text;
 
             if (CheckPlayerExistence(toEmail))
             {
@@ -36,7 +36,7 @@ namespace Spider_Clue.Views
             }
             else
             {
-                MessageBox.Show("Intente nuevamente, información inválida", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                ShowErrorMessageBox(Properties.Resources.DlgInvalidData);
             }
         }
 
@@ -47,17 +47,20 @@ namespace Spider_Clue.Views
 
         private void GoToChangePasswordView(string email)
         {
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
             Gamer gamer = userManager.GetGamerByEmail(email);
             PasswordRecoveryView changePasswordView = new PasswordRecoveryView();
             changePasswordView.SetGamerInWindow(gamer);
-            this.NavigationService.Navigate(changePasswordView);
+            NavigationService.Navigate(changePasswordView);
         }
 
         private bool CheckPlayerExistence(string email)
         {
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
             return userManager.IsAccountExisting(email);
+        }
+
+        private void ShowErrorMessageBox(string errorMessage)
+        {
+            MessageBox.Show(errorMessage, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }

@@ -1,22 +1,12 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using System.Net;
 using System.Security;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
@@ -54,7 +44,7 @@ namespace Spider_Clue.Views
         private void SetGuessPlayerData()
         {
             string guessPlayerUsername = GenerateGuessPlayerUsername();
-            ///UserSingleton.Instance.Initialize(guessPlayerUsername,);
+            //UserSingleton.Instance.Initialize();
         }
 
         private string GenerateGuessPlayerUsername()
@@ -87,7 +77,6 @@ namespace Spider_Clue.Views
         {
             string gamerTag = txtUsername.Text;
             Gamer gamer = GetGamerData(gamerTag);
-            Console.WriteLine("aqui se saca el codigo para meterlo al singleton" + gamer.ImageCode);
             UserSingleton.Instance.Initialize(gamer);
         }
 
@@ -99,7 +88,7 @@ namespace Spider_Clue.Views
 
         private void ShowErrorMessage()
         {
-            MessageBox.Show("Verifique el correo y contraseña, sean correctos. No se ha podido iniciar sesión", Properties.Resources.DlgRegisterError, MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(Properties.Resources.DlgWrongDataForLogin, Properties.Resources.DlgRegisterError, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private bool HandleLoginAttempt()
@@ -131,7 +120,7 @@ namespace Spider_Clue.Views
 
         private void ShowBannedDialog()
         {
-            MessageBox.Show("Su cuenta ha sido baneada", "INFO", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(Properties.Resources.DlgWrongDataForLogin,Properties.Resources.InformationTitle, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private bool VerifyFields()
