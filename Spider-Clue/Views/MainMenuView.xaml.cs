@@ -18,7 +18,7 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
             Loaded += PageLoaded;
-            Utilities.PlayMainThemeSong(mainThemePlayer);
+          //  Utilities.PlayMainThemeSong(mainThemePlayer);
             friendsManagerClient = new FriendsManagerClient(new InstanceContext(this));
             ConnectToService();
         }
@@ -94,7 +94,8 @@ namespace Spider_Clue.Views
 
         public void ReceiveConnectedFriends(string[] connectedFriends)
         {
-            //Debe mostrra los amigos conectados
+            FriendsListView friendListView = new FriendsListView(connectedFriends); 
+            NavigationService.Navigate(friendListView);
         }
 
         private void ConnectToService()
