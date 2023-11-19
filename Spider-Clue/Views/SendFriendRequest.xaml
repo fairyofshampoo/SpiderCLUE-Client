@@ -62,13 +62,15 @@
                     </Border>
                 </Grid>
                 <Border 
-                    CornerRadius="13"
-                    Grid.Row="1"
+                    x:Name="searchData"
+                    CornerRadius = "13"
+                    Grid.Row = "1"
                     Background = "#655E73"
-                    Width="290"
-                    Height="100"
-                    Margin="10"
-                    HorizontalAlignment="Center">
+                    Width = "290"
+                    Height = "100"
+                    Margin = "10"
+                    HorizontalAlignment="Center"
+                    Visibility = "Collapsed">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
@@ -85,7 +87,7 @@
                                 Margin="25,0,0,0">
                             <Border.Background>
                                 <ImageBrush ImageSource ="{Binding Path = ImagePath}"
-                                Stretch = "Fill">
+                                Stretch = "UniformToFill">
                                 </ImageBrush>
                             </Border.Background>
                         </Border>
@@ -107,6 +109,7 @@
                                     Margin="15,10,0,0"/>
 
                             <Button x:Name="btnSendFriendRequest"
+                                    Visibility = "Collapsed"
                                     Content="{x:Static p:Resources.BtnFriendRequest}"
                                     Foreground="White"
                                     FontSize="8"

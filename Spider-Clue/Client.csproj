@@ -408,6 +408,7 @@
     <Resource Include="Images\sound-off.png" />
     <Resource Include="Images\music-off.png" />
     <Resource Include="Images\music-on.png" />
+    <Resource Include="Images\NotFoundIcon.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup>

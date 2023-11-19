@@ -28,12 +28,17 @@ namespace Spider_Clue.Views
 
         private void Search_Click(object sender, MouseButtonEventArgs e)
         {
+            searchData.Visibility = Visibility.Visible;
             string gamertag = txtSearchGamer.Text;
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
             if (userManager.IsGamertagExisting(gamertag))
             {
                 string icon = userManager.GetIcon(gamertag);
                 setGamerData(gamertag, icon);
+                btnSendFriendRequest.Visibility = Visibility.Visible;
+            } else
+            {
+                setGamerData("No Results found", "NotFoundIcon.png");
             }
         }
 
@@ -42,6 +47,7 @@ namespace Spider_Clue.Views
             lblGamertag.Content = gamertag;
             string iconPath = Utilities.GetFriendImagePath(icon);
             this.DataContext = new { ImagePath = iconPath };
+            
         }
 
         private void btnSendFriendRequest_Click(object sender, RoutedEventArgs e)
