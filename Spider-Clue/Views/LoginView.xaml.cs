@@ -31,7 +31,7 @@ namespace Spider_Clue.Views
         {
             Utilities.PlayButtonClickSound();
             SetGuessPlayerData();
-            DisplayMainMenuView();
+            DisplayMainMenuGuestView();
         }
 
         private void LblForgotPassword_Clicked(object sender, MouseButtonEventArgs e)
@@ -43,14 +43,19 @@ namespace Spider_Clue.Views
 
         private void SetGuessPlayerData()
         {
-            string guessPlayerUsername = GenerateGuessPlayerUsername();
-            //UserSingleton.Instance.Initialize();
+            int minimumLevel = 0;
+            string guestPlayerUsername = GenerateGuestPlayerUsername();
+            UserSingleton.Instance.GamerTag = guestPlayerUsername;
+            UserSingleton.Instance.Level = minimumLevel;
+            UserSingleton.Instance.Name = "Guest";
+            UserSingleton.Instance.LastName = "Player";
+            UserSingleton.Instance.IsGuestPlayer = true;
         }
 
-        private string GenerateGuessPlayerUsername()
+        private string GenerateGuestPlayerUsername()
         {
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            return userManager.RequestGuessPlayer();
+            return userManager.RequestGuestPlayer();
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
@@ -182,6 +187,12 @@ namespace Spider_Clue.Views
         {
             MainMenuView mainMenuView = new MainMenuView();
             this.NavigationService.Navigate(mainMenuView);
+        }
+
+        private void DisplayMainMenuGuestView()
+        {
+            MainMenuForGuestView mainMenuGuestView = new MainMenuForGuestView();
+            this.NavigationService.Navigate(mainMenuGuestView);
         }
 
         private bool ValidateCredentials()
