@@ -326,4 +326,7 @@
   <data name="InformationTitle" xml:space="preserve">
     <value>INFORMATION</value>
   </data>
+  <data name="BtnFriendRequest" xml:space="preserve">
+    <value>Send Friend Request</value>
+  </data>
 </root>

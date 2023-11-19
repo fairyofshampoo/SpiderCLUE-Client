@@ -115,6 +115,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Send Friend Request.
+        /// </summary>
+        public static string BtnFriendRequest {
+            get {
+                return ResourceManager.GetString("BtnFriendRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Guest Player.
         /// </summary>
         public static string BtnGuestPlayer {
