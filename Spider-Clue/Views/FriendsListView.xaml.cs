@@ -56,7 +56,7 @@ namespace Spider_Clue.Views
 
         private string [] GetFriends()
         {
-            SpiderClueService.IFriendRequestManager friendRequest = new SpiderClueService.FriendRequestManagerClient();
+            SpiderClueService.IFriendshipManager friendRequest = new SpiderClueService.FriendshipManagerClient();
             string [] friendList = friendRequest.GetFriendList(UserSingleton.Instance.GamerTag);
             return friendList;
         }
@@ -66,6 +66,19 @@ namespace Spider_Clue.Views
             public string gamertag { get; set; }
             public string status { get; set; }
         }
-        
+
+        private void BtnAddFriend_Click(object sender, RoutedEventArgs e)
+        {
+            Utilities.PlayButtonClickSound();
+            OpenDialogForSearchGamer();
+        }
+
+        private void OpenDialogForSearchGamer()
+        {
+            Window mainWindow = Window.GetWindow(this);
+            SendFriendRequest sendFriendRequest = new SendFriendRequest();
+            sendFriendRequest.Owner = mainWindow;
+            sendFriendRequest.ShowDialog();
+        }
     }
 }

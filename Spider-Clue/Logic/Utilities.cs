@@ -76,6 +76,11 @@ namespace Spider_Clue.Logic
             return GetImagePathForImages() + UserSingleton.Instance.ImageCode;
         }
 
+        public static string GetFriendImagePath(string icon)
+        {
+            return GetImagePathForImages() + icon;
+        }
+
         public static string GetImagePathForImages()
         {
             string PathDirectory = AppDomain.CurrentDomain.BaseDirectory;
