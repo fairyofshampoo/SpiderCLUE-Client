@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+       d:DesignHeight="720" d:DesignWidth="1280"
       Title="FriendsListView"
       Background = "Transparent">
 
@@ -29,15 +29,14 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
                     <Border 
                         CornerRadius = "30"
                         Background = "#AB2E2E"
-                        Width = "50"
-                        Height = "50"
+                        Width = "100"
+                        Height = "100"
                         HorizontalAlignment="Left"
-                        Margin = "100,50,0,0"
+                        Margin = "120,50,0,0"
                         Grid.Column="0">
                         <Border>
                             <Border.Background>
@@ -51,10 +50,10 @@
                     <Border 
                         CornerRadius = "30"
                         Background = "#AB2E2E"
-                        Width = "50"
-                        Height = "50"
+                        Width = "100"
+                        Height = "100"
                         HorizontalAlignment="Left"
-                        Margin = "30,50,0,0"
+                        Margin = "60,50,0,0"
                         Grid.Column="1">
                         <Border>
                             <Border.Background>
@@ -65,36 +64,12 @@
                         </Border>
                     </Border>
 
-                    <Border
-                                Width="300"
-                                CornerRadius="5"
-                                BorderBrush="LightGray"
-                                BorderThickness="3"
-                                Margin="130,70,15,10"
-                                Grid.Column="2">
-                        <TextBox x:Name="txtEmailForRecovery" 
-                                         Height="30"
-                                         FontSize="13"
-                                         FontWeight="Medium"
-                                         FontFamily="Montserrat"
-                                         Background="LightGray"
-                                         Foreground="Black"
-                                         BorderThickness="0"/>
-                    </Border>
-                    <Border 
-                        Grid.Column = "2" Margin="389,70,24,13">
-                        <Border.Background>
-                            <ImageBrush ImageSource = "/Images/SearchIcon.png"
-                            Stretch = "UniformToFill">
-                            </ImageBrush>
-                        </Border.Background>
-                    </Border>
                 </Grid>
                 <Border
                     Background = "#B45959"
                     Grid.Row = "1"
-                    Width="540"
-                    Height = "200"
+                    Width="1080"
+                    Height = "400"
                     Margin = "100,20,134,0"
                     CornerRadius = "10">
                     <Grid>
@@ -103,45 +78,44 @@
                             <RowDefinition Height = "Auto"/>
                         </Grid.RowDefinitions>
                         <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriends}"
-                                   Width="200"
+                                   Width="220"
                                    Foreground ="White"
                                    FontWeight = "Medium"
-                                   FontSize = "30"
+                                   FontSize = "60"
                                    FontFamily = "Monsterrat"
                                    HorizontalContentAlignment="Left"
-                                   Margin="-250,0,0,0" 
+                                   Margin="-650,0,0,0" 
                                    Grid.Row="0"
-                                   Height = "39"/>
+                                   Height = "70"/>
 
 
 
-                        <DataGrid Grid.Row="1" AutoGenerateColumns = "False" Name = "FriendsConnectedGrid" Margin = "0,10,65,0" HorizontalAlignment="Right" Width="450">
-                            <DataGrid.Resources>
-                                <Style TargetType = "{x:Type DataGridColumnHeader}">
+                        <DataGrid Grid.Row="1" AutoGenerateColumns = "False" Name = "FriendsConnectedGrid" Margin = "0,10,65,0" HorizontalAlignment="Right" Width="900">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="FontSize" Value="28"/>
                                     <Setter Property = "Background" Value="#655E73"/>
                                     <Setter Property = "Foreground" Value="White"/>
                                 </Style>
-                            </DataGrid.Resources>
+                            </DataGrid.ColumnHeaderStyle>
                             <DataGrid.Columns>
-
                                 <DataGridTemplateColumn Header="Status" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Grid>
-                                                <Ellipse Width="16" Height="16" Fill="{Binding status}" Stroke="Black" StrokeThickness="1"/>
+                                                <Ellipse Width="32" Height="32" Fill="{Binding status}" Stroke="Black" StrokeThickness="1"/>
                                             </Grid>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-
-                                <DataGridTextColumn  Header="Gamertag" Width="300" Binding="{Binding gamertag}"/>
+                                <DataGridTextColumn  Header="Gamertag" Width="300" FontSize="28" Binding="{Binding gamertag}"/>
                                 <DataGridTemplateColumn x:Name = "Delete" Header="Delete" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button Background="Transparent" BorderBrush="Transparent">
                                                 <Image Source="/Images/DeleteIcon.png" 
-                                                       Width="20" 
-                                                       Height="20"/>
+                                                       Width="60" 
+                                                       Height="50"/>
                                             </Button>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
@@ -154,12 +128,12 @@
                         BorderThickness="0"
                         Content="{x:Static p:Resources.BtnAddFriend}"
                         Foreground="White"
-                        FontSize="12"
+                        FontSize="24"
                         FontWeight="Bold"
                         Cursor="Hand"
                         Margin="0,45,130,0" 
                         Grid.Row="2"
-                        HorizontalAlignment="Right">
+                        HorizontalAlignment="Right" Click="BtnAddFriend_Click">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="#AB2E2E"/>
@@ -167,7 +141,7 @@
                     </Button.Style>
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
-                            <Border Width="120" Height="30"
+                            <Border Width="240" Height="60"
                                     CornerRadius="10"
                                     Background="{TemplateBinding Background}">
                                 <ContentPresenter VerticalAlignment="Center"

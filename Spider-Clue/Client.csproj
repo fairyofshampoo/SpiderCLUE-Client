@@ -142,6 +142,9 @@
     <Compile Include="Views\SelectAvatarView.xaml.cs">
       <DependentUpon>SelectAvatarView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\SendFriendRequest.xaml.cs">
+      <DependentUpon>SendFriendRequest.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
@@ -226,6 +229,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SelectAvatarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SendFriendRequest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -408,6 +415,7 @@
     <Resource Include="Images\sound-off.png" />
     <Resource Include="Images\music-off.png" />
     <Resource Include="Images\music-on.png" />
+    <Resource Include="Images\NotFoundIcon.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup>
