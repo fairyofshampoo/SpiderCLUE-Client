@@ -40,7 +40,7 @@ namespace Spider_Clue.Logic
             Name = null;
             LastName = null;
             Email = null;
-            ImageCode = "Icon0";
+            ImageCode = "Icon0.png";
         }
 
 

@@ -18,7 +18,7 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
             Loaded += PageLoaded;
-          //  Utilities.PlayMainThemeSong(mainThemePlayer);
+            Utilities.PlayMainThemeSong(mainThemePlayer);
             friendsManagerClient = new FriendsManagerClient(new InstanceContext(this));
             ConnectToService();
         }

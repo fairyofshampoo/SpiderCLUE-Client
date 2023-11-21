@@ -199,6 +199,7 @@ namespace Spider_Clue.Views
 
         private Boolean RegisterGamerInDatabase()
         {
+            string defaultIcon = "Icon0.jpg";
             bool result = false;
             string passwordHashed = Utilities.CalculateSHA1Hash(txtPassword.Password);
             Gamer gamer = new Gamer()
@@ -208,6 +209,7 @@ namespace Spider_Clue.Views
                 Gamertag = txtGamerTag.Text,
                 Email = txtEmail.Text,
                 Password = passwordHashed,
+                ImageCode = defaultIcon,
             };
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
             if (userManager.AddUserTransaction(gamer) == 1)
