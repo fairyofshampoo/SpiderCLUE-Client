@@ -36,7 +36,8 @@ namespace Spider_Clue.Views
                 string icon = userManager.GetIcon(gamertag);
                 SetGamerData(gamertag, icon);
                 btnSendFriendRequest.Visibility = Visibility.Visible;
-            } else
+            }
+            else
             {
                 SetGamerData("No Results found", "NotFoundIcon.png");
             }
@@ -47,7 +48,7 @@ namespace Spider_Clue.Views
             lblGamertag.Content = gamertag;
             string iconPath = Utilities.GetFriendImagePath(icon);
             this.DataContext = new { ImagePath = iconPath };
-            
+
         }
 
         private void BtnSendFriendRequest_Click(object sender, RoutedEventArgs e)
