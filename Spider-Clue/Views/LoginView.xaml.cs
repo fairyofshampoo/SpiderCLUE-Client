@@ -47,6 +47,7 @@ namespace Spider_Clue.Views
             string guestPlayerUsername = GenerateGuestPlayerUsername();
             UserSingleton.Instance.GamerTag = guestPlayerUsername;
             UserSingleton.Instance.Level = minimumLevel;
+            UserSingleton.Instance.ImageCode = "Icon0.jpg";
             UserSingleton.Instance.Name = "Guest";
             UserSingleton.Instance.LastName = "Player";
             UserSingleton.Instance.IsGuestPlayer = true;

@@ -83,10 +83,23 @@ namespace Spider_Clue.Views
             SettingsView.NavigationService.Navigate(mainMenuView);
         }
 
+        private void GoToMainMenuGuestView()
+        {
+            MainMenuForGuestView mainMenuGuestView = new MainMenuForGuestView();
+            SettingsView.NavigationService.Navigate(mainMenuGuestView);
+        }
+
         private void BtnSaveChanges_Click(object sender, RoutedEventArgs e)
         {
             SaveConfiguration();
-            GoToMainMenuView();
+            if (UserSingleton.Instance.IsGuestPlayer)
+            {
+                GoToMainMenuGuestView();
+            }
+            else
+            {
+                GoToMainMenuView();
+            }
         }
 
 

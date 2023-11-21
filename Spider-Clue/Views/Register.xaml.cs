@@ -1,26 +1,9 @@
-﻿using Microsoft.Win32;
-using Spider_Clue.SpiderClueService;
+﻿using Spider_Clue.SpiderClueService;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
 using System.Security;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Security.Cryptography;
-using System.Net.Mail;
-using System.Xml.Linq;
-using System.Windows.Controls.Primitives;
 using Spider_Clue.Logic;
 
 namespace Spider_Clue.Views
@@ -199,6 +182,7 @@ namespace Spider_Clue.Views
 
         private Boolean RegisterGamerInDatabase()
         {
+            string defaultIcon = "Icon0.jpg";
             bool result = false;
             string passwordHashed = Utilities.CalculateSHA1Hash(txtPassword.Password);
             Gamer gamer = new Gamer()
@@ -208,6 +192,7 @@ namespace Spider_Clue.Views
                 Gamertag = txtGamerTag.Text,
                 Email = txtEmail.Text,
                 Password = passwordHashed,
+                ImageCode = defaultIcon,
             };
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
             if (userManager.AddUserTransaction(gamer) == 1)

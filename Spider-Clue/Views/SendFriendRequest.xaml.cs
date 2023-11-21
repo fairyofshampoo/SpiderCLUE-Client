@@ -34,15 +34,15 @@ namespace Spider_Clue.Views
             if (userManager.IsGamertagExisting(gamertag))
             {
                 string icon = userManager.GetIcon(gamertag);
-                setGamerData(gamertag, icon);
+                SetGamerData(gamertag, icon);
                 btnSendFriendRequest.Visibility = Visibility.Visible;
             } else
             {
-                setGamerData("No Results found", "NotFoundIcon.png");
+                SetGamerData("No Results found", "NotFoundIcon.png");
             }
         }
 
-        private void setGamerData(string gamertag, string icon)
+        private void SetGamerData(string gamertag, string icon)
         {
             lblGamertag.Content = gamertag;
             string iconPath = Utilities.GetFriendImagePath(icon);
@@ -50,7 +50,7 @@ namespace Spider_Clue.Views
             
         }
 
-        private void btnSendFriendRequest_Click(object sender, RoutedEventArgs e)
+        private void BtnSendFriendRequest_Click(object sender, RoutedEventArgs e)
         {
             SpiderClueService.IFriendRequestManager friend = new SpiderClueService.FriendRequestManagerClient();
             friend.CreateFriendRequest(UserSingleton.Instance.GamerTag, lblGamertag.Content.ToString());

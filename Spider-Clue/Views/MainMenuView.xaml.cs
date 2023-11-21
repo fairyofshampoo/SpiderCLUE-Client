@@ -18,7 +18,7 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
             Loaded += PageLoaded;
-          //  Utilities.PlayMainThemeSong(mainThemePlayer);
+            Utilities.PlayMainThemeSong(mainThemePlayer);
             friendsManagerClient = new FriendsManagerClient(new InstanceContext(this));
             ConnectToService();
         }
@@ -51,6 +51,7 @@ namespace Spider_Clue.Views
             Window mainWindow = Window.GetWindow(this);
             SearchGameView searchGamePopUp = new SearchGameView();
             searchGamePopUp.Owner = mainWindow;
+            searchGamePopUp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             searchGamePopUp.ShowDialog();
         }
 

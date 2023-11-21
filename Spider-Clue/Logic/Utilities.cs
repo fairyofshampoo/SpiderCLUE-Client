@@ -100,6 +100,7 @@ namespace Spider_Clue.Logic
         {
             CodeInputDialog codeInputPopUp = new CodeInputDialog();
             codeInputPopUp.Owner = mainWindow;
+            codeInputPopUp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
             string codeFromInput = null;
 
