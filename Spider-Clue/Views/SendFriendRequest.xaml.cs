@@ -52,7 +52,8 @@ namespace Spider_Clue.Views
 
         private void btnSendFriendRequest_Click(object sender, RoutedEventArgs e)
         {
-
+            SpiderClueService.IFriendRequestManager friend = new SpiderClueService.FriendRequestManagerClient();
+            friend.CreateFriendRequest(UserSingleton.Instance.GamerTag, lblGamertag.Content.ToString());
         }
 
     }
