@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Spider_Clue.Logic;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -34,7 +35,7 @@ namespace Spider_Clue.Views
 
         private void SearchMatch()
         {
-
+            
         }
 
         private void ShowMatchFounded()

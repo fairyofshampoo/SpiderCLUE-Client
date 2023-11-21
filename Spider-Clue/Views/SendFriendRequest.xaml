@@ -118,7 +118,7 @@
                                     Margin="15,10,0,0"
                                     HorizontalAlignment="Center" 
                                     Width="82"
-                                    Grid.Row="1" Click="btnSendFriendRequest_Click">
+                                    Grid.Row="1" Click="BtnSendFriendRequest_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
                                         <Setter Property="Background" Value="#FAA465"/>
