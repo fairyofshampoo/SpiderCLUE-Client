@@ -145,6 +145,7 @@
                         Cursor="Hand"
                         Margin="0,45,130,0" 
                         Grid.Row="2"
+                        Click="BtnAddFriend_Click"
                         HorizontalAlignment="Right">
                     <Button.Style>
                         <Style TargetType="Button">
