@@ -385,6 +385,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Friends Request.
+        /// </summary>
+        public static string LblFriendRequest {
+            get {
+                return ResourceManager.GetString("LblFriendRequest", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Friends.
         /// </summary>
         public static string LblFriends {

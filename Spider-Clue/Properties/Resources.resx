@@ -329,4 +329,7 @@
   <data name="BtnFriendRequest" xml:space="preserve">
     <value>Send Friend Request</value>
   </data>
+  <data name="LblFriendRequest" xml:space="preserve">
+    <value>Friends Request</value>
+  </data>
 </root>

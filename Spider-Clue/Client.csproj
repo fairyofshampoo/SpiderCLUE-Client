@@ -106,6 +106,9 @@
     <Compile Include="Views\FriendsListView.xaml.cs">
       <DependentUpon>FriendsListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FriendsRequetsView.xaml.cs">
+      <DependentUpon>FriendsRequetsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LanguageSettings.xaml.cs">
       <DependentUpon>LanguageSettings.xaml</DependentUpon>
     </Compile>
@@ -178,6 +181,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\FriendsListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FriendsRequetsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -409,6 +416,8 @@
     <Resource Include="Images\music-off.png" />
     <Resource Include="Images\music-on.png" />
     <Resource Include="Images\NotFoundIcon.png" />
+    <Resource Include="Images\AcceptIcon.png" />
+    <Resource Include="Images\RejectIcon.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup>
