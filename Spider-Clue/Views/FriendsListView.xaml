@@ -28,7 +28,26 @@
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
+                    <Button
+                                VerticalAlignment="Top"
+                                Grid.Column="0"
+                                Grid.Row = "0"
+                                Width = "70"
+                                Height = "70"
+                                Margin="20,5,0,0"
+                                Click="BtnGoBack_Click"
+                                Cursor="Hand">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <Image Source="/Images/GoBackIcon.png" 
+                                    Stretch="Uniform">
+                                </Image>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+
                     <Border 
                         CornerRadius = "30"
                         Background = "#655E73"
@@ -36,10 +55,10 @@
                         Height = "100"
                         HorizontalAlignment="Left"
                         Margin = "120,50,0,0"
-                        Grid.Column="0">
-                        <Button Background="Transparent" BorderBrush="Transparent">
-                            <Image Source="/Images/FriendsListIcon.png"
-                                   Stretch="UniformToFill"/>
+                        Grid.Column="1">
+                        <Button Background = "Transparent" BorderBrush = "Transparent">
+                            <Image Source = "/Images/FriendsListIcon.png"
+                                   Stretch = "UniformToFill"/>
                         </Button>
                     </Border>
 
@@ -50,7 +69,7 @@
                         Height = "100"
                         HorizontalAlignment="Left"
                         Margin = "60,50,0,0"
-                        Grid.Column="1">
+                        Grid.Column="2">
                         <Button Background="Transparent" BorderBrush="Transparent" Click="btnChangeFriendRequest">
                             <Image Source="/Images/NotificationIcon.png"
                                    Stretch="UniformToFill"/>

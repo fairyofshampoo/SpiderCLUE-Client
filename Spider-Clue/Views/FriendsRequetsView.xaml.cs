@@ -110,5 +110,10 @@ namespace Spider_Clue.Views
             public string gamertag { get; set; }
             public string icon { get; set; }
         }
+
+        private void btnChangeFriendRequest(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

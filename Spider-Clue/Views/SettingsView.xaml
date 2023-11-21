@@ -57,6 +57,7 @@
                                 </ControlTemplate>
                             </Button.Template>
                         </Button>
+                        
                         <Grid Grid.Column = "0"
                               Grid.Row="1"
                               VerticalAlignment="Center">
