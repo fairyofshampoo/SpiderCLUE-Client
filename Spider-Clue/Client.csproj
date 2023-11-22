@@ -70,7 +70,6 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Logic\Utilities.cs" />
-    <Compile Include="Logic\LanguageManager.cs" />
     <Compile Include="Logic\UserSingleton.cs" />
     <Compile Include="Logic\Validations.cs" />
     <Compile Include="Properties\Resources.en-US.Designer.cs">
