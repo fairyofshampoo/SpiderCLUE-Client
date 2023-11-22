@@ -10,7 +10,7 @@ namespace Spider_Clue.Logic
 {
     internal class Validations
     {
-        public Validations() { }
+        protected Validations() { }
 
         public static bool IsPasswordValid(string password)
         {
