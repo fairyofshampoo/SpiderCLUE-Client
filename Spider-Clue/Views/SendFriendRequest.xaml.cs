@@ -39,7 +39,7 @@ namespace Spider_Clue.Views
             }
             else
             {
-                SetGamerData("No Results found", "NotFoundIcon.png");
+                SetGamerData(Properties.Resources.ResultsNotFoundMessage, "NotFoundIcon.png");
             }
         }
 
