@@ -70,14 +70,15 @@ namespace Spider_Clue.Views
         private void BtnAddFriend_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            OpenDialogForSearchGamer();
+            OpenDialogSendFriendRequest();
         }
 
-        private void OpenDialogForSearchGamer()
+        private void OpenDialogSendFriendRequest()
         {
             Window mainWindow = Window.GetWindow(this);
             SendFriendRequest sendFriendRequest = new SendFriendRequest();
             sendFriendRequest.Owner = mainWindow;
+            sendFriendRequest.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             sendFriendRequest.ShowDialog();
         }
 
@@ -86,6 +87,13 @@ namespace Spider_Clue.Views
             Utilities.PlayButtonClickSound();
             FriendsRequetsView friendRequestView = new FriendsRequetsView();
             NavigationService.Navigate(friendRequestView);
+        }
+
+        private void BtnGoBack_Click(object sender, RoutedEventArgs e)
+        {
+            Utilities.PlayButtonClickSound();
+            MainMenuView mainMenuView = new MainMenuView();
+            this.NavigationService.Navigate(mainMenuView);
         }
     }
 }

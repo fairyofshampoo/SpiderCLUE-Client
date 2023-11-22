@@ -77,7 +77,7 @@ namespace Spider_Clue.Views
             if (button != null && button.DataContext is FriendRequest dataObject)
             {   
                 string gamertag = dataObject.gamertag;
-                DeleteDataFromGrid(gamertag, sender);
+                DeleteDataFromGrid(sender);
                 modifyFriendRequestStatus(gamertag, response);
             }
         }
@@ -92,7 +92,7 @@ namespace Spider_Clue.Views
             }
         }
 
-        private void DeleteDataFromGrid(string gamertag, object sender)
+        private void DeleteDataFromGrid(object sender)
         {
             System.Windows.Controls.Button btn = (System.Windows.Controls.Button)sender;
             FriendRequest request = (FriendRequest)btn.DataContext;
@@ -109,6 +109,11 @@ namespace Spider_Clue.Views
         {
             public string gamertag { get; set; }
             public string icon { get; set; }
+        }
+
+        private void btnChangeFriendRequest(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

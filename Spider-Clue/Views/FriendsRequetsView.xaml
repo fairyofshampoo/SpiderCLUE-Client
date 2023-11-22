@@ -29,6 +29,7 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
+                    
                     <Border 
                         CornerRadius = "30"
                         Background = "#AB2E2E"
@@ -37,13 +38,10 @@
                         HorizontalAlignment="Left"
                         Margin = "120,50,0,0"
                         Grid.Column="0">
-                        <Border>
-                            <Border.Background>
-                                <ImageBrush ImageSource = "/Images/FriendsListIcon.png"
-                            Stretch = "UniformToFill">
-                                </ImageBrush>
-                            </Border.Background>
-                        </Border>
+                        <Button Background = "Transparent" BorderBrush = "Transparent" Click = "btnChangeFriendRequest">
+                            <Image Source = "/Images/FriendsListIcon.png"
+                                   Stretch = "UniformToFill"/>
+                        </Button>
                     </Border>
 
                     <Border 
