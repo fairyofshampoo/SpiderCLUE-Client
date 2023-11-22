@@ -15,29 +15,35 @@ namespace Spider_Clue.Logic
         public static bool IsPasswordValid(string password)
         {
             bool isValid = true;
-
+            int limitTime = 500;
             if (string.IsNullOrWhiteSpace(password))
+        {
+            isValid = false;
+        }
+        else
+        {
+            try
+            {
+                Regex passwordRegex = new Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d\\W]{8,50}$", 
+                    RegexOptions.None, TimeSpan.FromMilliseconds(limitTime));
+
+                isValid = passwordRegex.IsMatch(password);
+            }
+            catch (RegexMatchTimeoutException)
             {
                 isValid = false;
             }
-            else
-            {
-                Regex passwordRegex = new Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d\\W]{8,50}$");
-
-                if (!passwordRegex.IsMatch(password))
-                {
-                    isValid = false;
-                }
-            }
-
-            return isValid;
         }
+
+        return isValid;
+    }
 
         public static bool IsEmailValid(string email)
         {
             bool emailValidation = true;
+            int maximumEmailLength = 50;
 
-            if (string.IsNullOrEmpty(email) || email.Length > 50)
+            if (string.IsNullOrEmpty(email) || email.Length > maximumEmailLength)
             {
                 emailValidation = false;
             }

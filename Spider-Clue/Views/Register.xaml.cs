@@ -43,12 +43,9 @@ namespace Spider_Clue.Views
 
             if (AreDataValid())
             {
-                if (IsEmailVerified())
+                if (!VerifyDuplications())
                 {
-                    if (!VerifyDuplications()) 
-                    {
-                        registerResult = RegisterGamerInDatabase();
-                    }
+                    registerResult = RegisterGamerInDatabase();
                 }
             }
 
@@ -68,8 +65,9 @@ namespace Spider_Clue.Views
             bool accountDataValid = ValidateAccountData();
             bool userDataValid = ValidateUserData();
             bool passwordsMatch = ArePasswordsMatching();
+            bool emailVerified = IsEmailVerified();
 
-            return accountDataValid && userDataValid && passwordsMatch;
+            return accountDataValid && userDataValid && passwordsMatch && emailVerified;
         }
 
         private bool ValidateAccountData()
