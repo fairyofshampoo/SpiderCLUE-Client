@@ -691,6 +691,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Results not found.
+        /// </summary>
+        public static string ResultsNotFoundMessage {
+            get {
+                return ResourceManager.GetString("ResultsNotFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SUCCESS.
         /// </summary>
         public static string SuccessTitle {

@@ -12,31 +12,39 @@ namespace Spider_Clue.Logic
     {
         protected Validations() { }
 
-        public static bool IsPasswordValid(string password)
+        private static bool ValidateWithTimeout(string input, Regex regex)
         {
-            bool isValid = true;
-            int limitTime = 500;
-            if (string.IsNullOrWhiteSpace(password))
-        {
-            isValid = false;
-        }
-        else
-        {
+            
+
+            bool isValid;
+
             try
             {
-                Regex passwordRegex = new Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d\\W]{8,50}$", 
-                    RegexOptions.None, TimeSpan.FromMilliseconds(limitTime));
-
-                isValid = passwordRegex.IsMatch(password);
+                isValid = regex.IsMatch(input);
             }
             catch (RegexMatchTimeoutException)
             {
                 isValid = false;
             }
+
+            return isValid;
         }
 
-        return isValid;
-    }
+        public static bool IsPasswordValid(string password)
+        {
+            int limitTime = 500;
+            bool isValid = true;
+
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                isValid = false;
+            }
+
+            var passwordRegex = new Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d\\W]{8,50}$",
+                                         RegexOptions.None, TimeSpan.FromMilliseconds(limitTime));
+
+            return isValid && ValidateWithTimeout(password, passwordRegex);
+        }
 
         public static bool IsEmailValid(string email)
         {
@@ -64,44 +72,33 @@ namespace Spider_Clue.Logic
 
         public static bool IsNameValid(string name)
         {
+            int limitTime = 500;
             bool isValid = true;
 
             if (string.IsNullOrWhiteSpace(name))
             {
                 isValid = false;
             }
-            else
-            {
-                var nameRegex = new Regex("^[\\p{L}\\p{M}\\s]{1,50}");
 
-                if (!nameRegex.IsMatch(name))
-                {
-                    isValid = false;
-                }
-            }
+            var nameRegex = new Regex("^[\\p{L}\\p{M}\\s]{1,50}",
+                RegexOptions.None, TimeSpan.FromMilliseconds(limitTime));
 
-            return isValid;
+            return isValid && ValidateWithTimeout(name, nameRegex);
         }
 
         public static bool IsGamerTagValid(string gamerTag)
         {
+            int limitTime = 500;
             bool isValid = true;
 
             if (string.IsNullOrWhiteSpace(gamerTag))
             {
                 isValid = false;
             }
-            else
-            {
-                var gamerTagRegex = new Regex("^[A-Za-z0-9]{1,15}");
+            var gamerTagRegex = new Regex("^[A-Za-z0-9]{1,15}",
+                RegexOptions.None, TimeSpan.FromMilliseconds(limitTime));
 
-                if (!gamerTagRegex.IsMatch(gamerTag))
-                {
-                    isValid = false;
-                }
-            }
-
-            return isValid;
+            return isValid && ValidateWithTimeout(gamerTag, gamerTagRegex);
         }
     }
 }

@@ -21,12 +21,12 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
                     Margin="5,5,5,0">
-                        <Label x:Name = "lblPasswordRecoveryTitle" Content = "{x:Static p:Resources.LblPasswordRecoveryTitle}"
-                   Foreground = "White" FontWeight = "Light"
-                   FontSize = "20" FontFamily = "Monsterrat" Margin="30,50,0,35"/>
+                    <Label x:Name = "lblPasswordRecoveryTitle" Content = "{x:Static p:Resources.LblPasswordRecoveryTitle}"
+                               Foreground = "White" FontWeight = "Light"
+                               FontSize = "20" FontFamily = "Monsterrat" Margin="30,50,0,35"/>
                     <Border CornerRadius="10"
-                    Height="200" Width="350"
-                    Background="#B45959">
+                            Height="200" Width="350"
+                            Background="#B45959">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height = "Auto"/>
@@ -40,87 +40,75 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Label x:Name = "lblGameCode" Content = "{x:Static p:Resources.LblGameCode}"
-                           Foreground = "White"
-                           FontWeight = "Light"
-                           FontSize = "14"
-                           FontFamily = "Monsterrat"
-                           HorizontalAlignment = "Left"
-                           Margin = "20,10,0,0"
-                           Grid.Row = "0"/>
-                                <Border CornerRadius="5" 
-                                BorderBrush="LightGray"
-                                BorderThickness="3" Grid.Column="1" 
-                                Height="30" Width="200" Margin="10,10,12,0">
+                                       Foreground = "White" FontWeight = "Light"
+                                       FontSize = "14" FontFamily = "Monsterrat"
+                                       HorizontalAlignment = "Left" Margin = "20,10,0,0"
+                                       Grid.Row = "0"/>
+                                <Border CornerRadius="5"
+                                        BorderBrush="LightGray" BorderThickness="3" 
+                                        Grid.Column="1" Height="30" 
+                                        Width="200" Margin="10,10,12,0">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>
                                             <ColumnDefinition Width="*"/>
                                         </Grid.ColumnDefinitions>
-                                        <TextBox x:Name="txtName" 
-                                         Grid.Column="0" 
-                                         FontSize="13" 
-                                         FontWeight="Medium" 
-                                         FontFamily="Montserrat" 
-                                         Background="LightGray" 
-                                         Foreground="Black" 
-                                         BorderThickness="0"
-                                         Width="170"/>
-                                        <Border
-                                    Background="LightGray"
-                                    Grid.Column="1">
-                                            <Image x:Name="SearchIcon"  
-                                           Stretch="UniformToFill" 
-                                           Width="15" Height="15"
-                                           Source="/Images/SearchIcon.png"
-                                           MouseDown="Search_Click"/>
+                                        <TextBox x:Name="txtMatchToSearch"
+                                                 Grid.Column="0" FontSize="13"
+                                                 FontWeight="Medium"
+                                                 FontFamily="Montserrat"
+                                                 Background="LightGray"
+                                                 Foreground="Black"
+                                                 BorderThickness="0" Width="170"/>
+                                        <Border Background="LightGray" Grid.Column="1" MouseDown="Search_Click">
+                                            <Image x:Name="SearchIcon" Stretch="UniformToFill"
+                                                   Width="15" Height="15"
+                                                   Source="/Images/SearchIcon.png"/>
                                         </Border>
                                     </Grid>
                                 </Border>
                             </Grid>
 
                             <Border x:Name="bdrNotFound" Grid.Row="1"
-                            Background="#655E73"
-                            CornerRadius="5"
-                            Margin="5,10,5,10"
-                            HorizontalAlignment="Center"
-                            Visibility = "Collapsed">
+                                    Background="#655E73"
+                                    CornerRadius="5"
+                                    Margin="5,10,5,10"
+                                    HorizontalAlignment="Center"
+                                    Visibility = "Collapsed">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Border 
-                                Height="40"
-                                Width="40"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                Grid.Column="0"
-                                CornerRadius="10"
-                                Margin="15,5,15,5">
+                                    <Border
+                                        Height="40"
+                                        Width="40"
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Center"
+                                        Grid.Column="0"
+                                        CornerRadius="10"
+                                        Margin="15,5,15,5">
                                         <Border.Background>
                                             <ImageBrush ImageSource ="/Images/NotFoundIcon.png"
                                                  Stretch = "UniformToFill">
                                             </ImageBrush>
                                         </Border.Background>
                                     </Border>
-                                    <Label x:Name = "lblGamertag" Content = "{x:Static p:Resources.LblUsername}"
-                                    Foreground = "White"
-                                    FontWeight = "Light"
-                                    FontSize = "14"
-                                    FontFamily = "Monsterrat"
-                                    VerticalContentAlignment = "Top"
-                                    HorizontalAlignment = "Center"
-                                   Grid.Column="1"
-                                    Margin="15,10,5,5"/>
+                                    <Label x:Name = "lblNotFoundMessage" Content = "{x:Static p:Resources.ResultsNotFoundMessage}"
+                                           Foreground = "White" FontWeight = "Light" 
+                                           FontSize = "14" FontFamily = "Monsterrat"
+                                           VerticalContentAlignment = "Top"
+                                           HorizontalAlignment = "Center"
+                                           Grid.Column="1" Margin="15,10,5,5"/>
                                 </Grid>
                             </Border>
 
                             <Border x:Name ="bdrMatchFound" Grid.Row="1"
-                            Background="#655E73"
-                            CornerRadius="5"
-                            Margin="50,10,57,-11"
-                            Visibility = "Collapsed">
+                                    Background="#655E73"
+                                    CornerRadius="5"
+                                    Margin="50,10,57,-11"
+                                    Visibility = "Collapsed">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
@@ -129,7 +117,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <Border Grid.Column = "0"
-                                    Width = "35" Height = "25"
+                                            Width = "35" Height = "25"
                                     VerticalAlignment="Center"
                                     Margin="5,0,0,0">
                                         <Border.Background>

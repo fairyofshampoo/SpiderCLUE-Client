@@ -332,4 +332,7 @@
   <data name="LblFriendRequest" xml:space="preserve">
     <value>Friends Request</value>
   </data>
+  <data name="ResultsNotFoundMessage" xml:space="preserve">
+    <value>Results not found</value>
+  </data>
 </root>

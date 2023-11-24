@@ -133,7 +133,7 @@
     <value>Jugador invitado</value>
   </data>
   <data name="BtnJoinToParty" xml:space="preserve">
-    <value>Unirse a la fiesta</value>
+    <value>Unirse a la partida</value>
   </data>
   <data name="BtnLogin" xml:space="preserve">
     <value>Iniciar sesión</value>
