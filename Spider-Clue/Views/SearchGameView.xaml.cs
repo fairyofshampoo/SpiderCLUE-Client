@@ -26,8 +26,6 @@ namespace Spider_Clue.Views
         private void Search_Click(object sender, MouseButtonEventArgs e)
         {
             SearchMatch();
-            ShowMatchFounded();
-            ShowSearchNotFoundAlert();
         }
 
         private void SearchMatch()
@@ -46,16 +44,6 @@ namespace Spider_Clue.Views
                 bdrMatchFound.Visibility = Visibility.Collapsed;
                 bdrNotFound.Visibility = Visibility.Visible;
             }
-        }
-
-        private void ShowMatchFounded()
-        {
-
-        }
-
-        private void ShowSearchNotFoundAlert()
-        {
-
         }
 
         private void BtnJoinMatch_Click(object sender, RoutedEventArgs e)
