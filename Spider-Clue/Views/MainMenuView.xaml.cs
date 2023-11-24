@@ -70,12 +70,13 @@ namespace Spider_Clue.Views
         private void BtnPlay_Click(object sender, RoutedEventArgs e)
         {
             CreateMatch();
-            GoToLobbyView();
+       //     GoToLobbyView();
         }
 
         private void CreateMatch()
         {
-            
+            SpiderClueService.IMatchManager matchManager = new SpiderClueService.MatchManagerClient();
+            matchManager.CreateMatch(UserSingleton.Instance.GamerTag);
         }
 
         private void GoToLobbyView()

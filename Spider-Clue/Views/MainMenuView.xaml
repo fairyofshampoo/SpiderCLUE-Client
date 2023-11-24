@@ -124,16 +124,16 @@
                             </Border>
 
                             <Button x:Name = "btnPlay"
-                        BorderThickness = "0"
-                        Width="300"
-                        Height="50"
-                        Content = "{x:Static p:Resources.BtnPlay}"
-                        Foreground = "White"
-                        FontSize = "16"
-                        FontWeight="Bold"
-                        Cursor = "Hand"
-                        Grid.Row="1"
-                        Margin="-40,15,40,0"
+                                    BorderThickness = "0"
+                                    Width="300"
+                                    Height="50"
+                                    Content = "{x:Static p:Resources.BtnPlay}"
+                                    Foreground = "White"
+                                    FontSize = "16"
+                                    FontWeight="Bold"
+                                    Cursor = "Hand"
+                                    Grid.Row="1"
+                                    Margin="-40,15,40,0"
                                     Click="BtnPlay_Click">
                                 <Button.Style>
                                     <Style TargetType = "Button">
