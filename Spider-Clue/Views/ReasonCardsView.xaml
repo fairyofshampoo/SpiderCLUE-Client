@@ -1,0 +1,98 @@
+﻿<Page x:Class="Spider_Clue.Views.ReasonCardsView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Spider_Clue.Views"
+      mc:Ignorable="d" 
+      xmlns:p = "clr-namespace:Spider_Clue.Properties"
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="ReasonCardsView">
+
+    <Grid>
+        <Border>
+            <Border.Background>
+                <ImageBrush ImageSource = "/Images/backgroundREGISTER.png"
+                            Stretch = "UniformToFill">
+                </ImageBrush>
+            </Border.Background>
+        </Border>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriendRequest}"
+                                   Width="440"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "60"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center"
+                                   Margin="0,40,0,0" 
+                                   Grid.Row="0"
+                                   Height = "70"/>
+
+            <StackPanel Grid.Row="1"
+                        Height="400"
+                        Width="650"
+                        Margin="0,60,0,0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <Button Background="Transparent" 
+                                BorderBrush="Transparent"
+                                Width="150"
+                                Grid.Column="0">
+                            <Image Source="/Images/GameCards/motive1.png"
+                                   Stretch="UniformToFill"/>
+                        </Button>
+
+                        <Border Background="Black"
+                                Grid.Column="0"
+                                Grid.Row="1"
+                                Width="50"
+                                Height="20"
+                                CornerRadius="10">
+                            
+                        </Border>
+
+                        <Button Background="Transparent" 
+                                BorderBrush="Transparent"
+                                Width="150"
+                                Grid.Column="1"
+                                Margin="100,0,100,0">
+                            <Image Source="/Images/GameCards/motive2.png"
+                                   Stretch="UniformToFill"/>
+                        </Button>
+
+                        <Button Background="Transparent" 
+                                BorderBrush="Transparent"
+                                Width="150"
+                                Grid.Column="2">
+                            <Image Source="/Images/GameCards/motive3.png"
+                                   Stretch="UniformToFill"/>
+                        </Button>
+                    </Grid>
+                </Grid>
+                
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>
