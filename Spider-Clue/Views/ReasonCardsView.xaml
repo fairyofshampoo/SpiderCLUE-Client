@@ -22,6 +22,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriendRequest}"
@@ -31,14 +32,14 @@
                                    FontSize = "60"
                                    FontFamily = "Monsterrat"
                                    HorizontalContentAlignment="Center"
-                                   Margin="0,40,0,0" 
+                                   Margin="0,20,0,0" 
                                    Grid.Row="0"
                                    Height = "70"/>
 
             <StackPanel Grid.Row="1"
-                        Height="400"
+                        Height="480"
                         Width="650"
-                        Margin="0,60,0,0">
+                        Margin="0,20,0,0">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto"/>
@@ -55,7 +56,7 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        
+
                         <Button Background="Transparent" 
                                 BorderBrush="Transparent"
                                 Width="150"
@@ -67,10 +68,17 @@
                         <Border Background="Black"
                                 Grid.Column="0"
                                 Grid.Row="1"
-                                Width="50"
+                                Width="150"
                                 Height="20"
                                 CornerRadius="10">
-                            
+                            <Label Content = "{x:Static p:Resources.LblFriendRequest}"
+                                   Width="60"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "50"/>
                         </Border>
 
                         <Button Background="Transparent" 
@@ -82,6 +90,22 @@
                                    Stretch="UniformToFill"/>
                         </Button>
 
+                        <Border Background="Black"
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                Width="150"
+                                Height="20"
+                                CornerRadius="10">
+                            <Label Content = "{x:Static p:Resources.LblFriendRequest}"
+                                   Width="60"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "50"/>
+                        </Border>
+
                         <Button Background="Transparent" 
                                 BorderBrush="Transparent"
                                 Width="150"
@@ -89,10 +113,133 @@
                             <Image Source="/Images/GameCards/motive3.png"
                                    Stretch="UniformToFill"/>
                         </Button>
+                        <Border Background="Black"
+                                Grid.Column="2"
+                                Grid.Row="1"
+                                Width="150"
+                                Height="20"
+                                CornerRadius="10">
+                            <Label Content = "{x:Static p:Resources.LblFriendRequest}"
+                                   Width="60"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "50"/>
+                        </Border>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <Button Background="Transparent" 
+                                BorderBrush="Transparent"
+                                Width="150"
+                                Grid.Column="0">
+                            <Image Source="/Images/GameCards/motive4.png"
+                                   Stretch="UniformToFill"/>
+                        </Button>
+
+                        <Border Background="Black"
+                                Grid.Column="0"
+                                Grid.Row="1"
+                                Width="150"
+                                Height="20"
+                                CornerRadius="10">
+                            <Label Content = "{x:Static p:Resources.LblFriendRequest}"
+                                   Width="60"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "50"/>
+                        </Border>
+
+                        <Button Background="Transparent" 
+                                BorderBrush="Transparent"
+                                Width="150"
+                                Grid.Column="1"
+                                Margin="100,0,100,0">
+                            <Image Source="/Images/GameCards/motive5.png"
+                                   Stretch="UniformToFill"/>
+                        </Button>
+
+                        <Border Background="Black"
+                                Grid.Column="1"
+                                Grid.Row="1"
+                                Width="150"
+                                Height="20"
+                                CornerRadius="10">
+                            <Label Content = "{x:Static p:Resources.LblFriendRequest}"
+                                   Width="60"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "50"/>
+                        </Border>
+
+                        <Button Background="Transparent" 
+                                BorderBrush="Transparent"
+                                Width="150"
+                                Grid.Column="2">
+                            <Image Source="/Images/GameCards/motive6.png"
+                                   Stretch="UniformToFill"/>
+                        </Button>
+                        <Border Background="Black"
+                                Grid.Column="2"
+                                Grid.Row="1"
+                                Width="150"
+                                Height="20"
+                                CornerRadius="10">
+                            <Label Content = "{x:Static p:Resources.LblFriendRequest}"
+                                   Width="60"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "50"/>
+                        </Border>
                     </Grid>
                 </Grid>
-                
             </StackPanel>
+            <Button x:Name="btnRegister"
+                        Content="{x:Static p:Resources.BtnRegister}"
+                        Foreground="White"
+                        FontSize="19"
+                        FontWeight="Bold"
+                        Cursor="Hand"
+                        Margin="0,20,0,0"
+                        Grid.Row="2">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#655E73"/>
+                    </Style>
+                </Button.Style>
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="150" Height="50"
+                                    CornerRadius="10"
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter VerticalAlignment="Center"
+                                                  HorizontalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
         </Grid>
     </Grid>
 </Page>
