@@ -1,4 +1,4 @@
-﻿<Page x:Class="Spider_Clue.Views.FriendsRequetsView"
+﻿<Page x:Class="Spider_Clue.Views.FriendsRequestView"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -38,7 +38,7 @@
                         HorizontalAlignment="Left"
                         Margin = "120,50,0,0"
                         Grid.Column="0">
-                        <Button Background = "Transparent" BorderBrush = "Transparent" Click = "btnChangeFriendRequest">
+                        <Button Background = "Transparent" BorderBrush = "Transparent" Click = "BtnChangeFriendRequest">
                             <Image Source = "/Images/FriendsListIcon.png"
                                    Stretch = "UniformToFill"/>
                         </Button>

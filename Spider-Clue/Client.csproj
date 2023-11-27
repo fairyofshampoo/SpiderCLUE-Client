@@ -105,8 +105,8 @@
     <Compile Include="Views\FriendsListView.xaml.cs">
       <DependentUpon>FriendsListView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\FriendsRequetsView.xaml.cs">
-      <DependentUpon>FriendsRequetsView.xaml</DependentUpon>
+    <Compile Include="Views\FriendsRequestView.xaml.cs">
+      <DependentUpon>FriendsRequestView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LanguageSettings.xaml.cs">
       <DependentUpon>LanguageSettings.xaml</DependentUpon>
@@ -186,7 +186,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\FriendsRequetsView.xaml">
+    <Page Include="Views\FriendsRequestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
