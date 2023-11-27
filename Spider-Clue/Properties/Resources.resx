@@ -335,4 +335,10 @@
   <data name="ResultsNotFoundMessage" xml:space="preserve">
     <value>Results not found</value>
   </data>
+  <data name="GameHasEndedMessage" xml:space="preserve">
+    <value>The game has ended. Try joining another one.</value>
+  </data>
+  <data name="GameIsFullMessage" xml:space="preserve">
+    <value>The games is full. Please try joining another one</value>
+  </data>
 </root>

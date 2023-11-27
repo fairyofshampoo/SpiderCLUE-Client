@@ -321,9 +321,24 @@
     <value>Check that the email and password are correct. Unable to log in.</value>
   </data>
   <data name="DlgAccountBanned" xml:space="preserve">
-    <value>Su cuenta ha sido baneada</value>
+    <value>Your account has been banned</value>
   </data>
   <data name="InformationTitle" xml:space="preserve">
     <value>INFORMATION</value>
+  </data>
+  <data name="BtnFriendRequest" xml:space="preserve">
+    <value>Send Friend Request</value>
+  </data>
+  <data name="LblFriendRequest" xml:space="preserve">
+    <value>Friends Request</value>
+  </data>
+  <data name="ResultsNotFoundMessage" xml:space="preserve">
+    <value>Results not found</value>
+  </data>
+  <data name="GameHasEndedMessage" xml:space="preserve">
+    <value>The game has ended. Try joining another one.</value>
+  </data>
+  <data name="GameIsFullMessage" xml:space="preserve">
+    <value>The games is full. Please try joining another one</value>
   </data>
 </root>

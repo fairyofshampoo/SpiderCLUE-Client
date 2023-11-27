@@ -277,6 +277,24 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The game has ended. Try joining another one..
+        /// </summary>
+        public static string GameHasEndedMessage {
+            get {
+                return ResourceManager.GetString("GameHasEndedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The games is full. Please try joining another one.
+        /// </summary>
+        public static string GameIsFullMessage {
+            get {
+                return ResourceManager.GetString("GameIsFullMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Guess .
         /// </summary>
         public static string GuessName {

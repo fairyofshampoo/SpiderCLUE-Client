@@ -326,4 +326,7 @@
   <data name="InformationTitle" xml:space="preserve">
     <value>INFORMACIÓN</value>
   </data>
+  <data name="ResultsNotFoundMessage" xml:space="preserve">
+    <value>Resultados no encontrados</value>
+  </data>
 </root>
