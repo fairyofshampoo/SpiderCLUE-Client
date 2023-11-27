@@ -29,7 +29,7 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <Border 
                         CornerRadius = "30"
                         Background = "#AB2E2E"
@@ -74,14 +74,13 @@
                             <RowDefinition Height = "Auto"/>
                             <RowDefinition Height = "Auto"/>
                         </Grid.RowDefinitions>
-                        <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriendRequest}"
-                                   Width="440"
+                        <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriendsRequest}"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "60"
                                    FontFamily = "Monsterrat"
                                    HorizontalContentAlignment="Left"
-                                   Margin="-440,0,0,0" 
+                                   Margin="100,0,242,0" 
                                    Grid.Row="0"
                                    Height = "70"/>
 
