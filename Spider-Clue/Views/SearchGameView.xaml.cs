@@ -85,13 +85,14 @@ namespace Spider_Clue.Views
                 }
                 else
                 {
-                    //mensaje de partida llena xd
+                    MessageBox.Show("La partida está llena. Por favor, intenta unirte a otra.", Properties.Resources.InformationTitle, MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             else
             {
-                // mensaje de partida terminada jejeje
+                MessageBox.Show("La partida ha terminado. Intenta unirte a otra.", Properties.Resources.InformationTitle, MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
+ 
     }
 }

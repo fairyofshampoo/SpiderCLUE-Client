@@ -82,10 +82,10 @@ namespace Spider_Clue.Views
             sendFriendRequest.ShowDialog();
         }
 
-        private void btnChangeFriendRequest(object sender, RoutedEventArgs e)
+        private void BtnChangeFriendRequest(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            FriendsRequetsView friendRequestView = new FriendsRequetsView();
+            FriendsRequestView friendRequestView = new FriendsRequestView();
             NavigationService.Navigate(friendRequestView);
         }
 

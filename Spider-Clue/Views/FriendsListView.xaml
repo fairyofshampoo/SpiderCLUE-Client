@@ -70,7 +70,7 @@
                         HorizontalAlignment="Left"
                         Margin = "60,50,0,0"
                         Grid.Column="2">
-                        <Button Background="Transparent" BorderBrush="Transparent" Click="btnChangeFriendRequest">
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnChangeFriendRequest">
                             <Image Source="/Images/NotificationIcon.png"
                                    Stretch="UniformToFill"/>
                         </Button>
