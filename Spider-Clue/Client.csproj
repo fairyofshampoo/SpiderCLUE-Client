@@ -108,6 +108,9 @@
     <Compile Include="Views\FriendsRequestView.xaml.cs">
       <DependentUpon>FriendsRequestView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GameBoardView.xaml.cs">
+      <DependentUpon>GameBoardView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LanguageSettings.xaml.cs">
       <DependentUpon>LanguageSettings.xaml</DependentUpon>
     </Compile>
@@ -132,8 +135,14 @@
     <Compile Include="Views\PersonalInformationView.xaml.cs">
       <DependentUpon>PersonalInformationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PlacesCardsView.xaml.cs">
+      <DependentUpon>PlacesCardsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProfileEditionView.xaml.cs">
       <DependentUpon>ProfileEditionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReasonCardsView.xaml.cs">
+      <DependentUpon>ReasonCardsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
@@ -190,6 +199,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\GameBoardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LanguageSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -222,9 +235,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PlacesCardsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProfileEditionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReasonCardsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Register.xaml">
       <SubType>Designer</SubType>
@@ -427,6 +448,26 @@
     <Resource Include="Images\NotFoundIcon.png" />
     <Resource Include="Images\AcceptIcon.png" />
     <Resource Include="Images\RejectIcon.png" />
+    <Resource Include="Images\GameCards\motive1.png" />
+    <Resource Include="Images\GameCards\motive2.png" />
+    <Resource Include="Images\GameCards\motive3.png" />
+    <Resource Include="Images\GameCards\motive4.png" />
+    <Resource Include="Images\GameCards\motive5.png" />
+    <Resource Include="Images\GameCards\motive6.png" />
+    <Resource Include="Images\GameCards\place1.png" />
+    <Resource Include="Images\GameCards\place2.png" />
+    <Resource Include="Images\GameCards\place3.png" />
+    <Resource Include="Images\GameCards\place4.png" />
+    <Resource Include="Images\GameCards\place5.png" />
+    <Resource Include="Images\GameCards\place6.png" />
+    <Resource Include="Images\GameCards\place7.png" />
+    <Resource Include="Images\GameCards\place8.png" />
+    <Resource Include="Images\GameCards\place9.png" />
+    <Resource Include="Images\CardsIcon.png" />
+    <Resource Include="Images\ClueBoard.png" />
+    <Resource Include="Images\DiceIcon.png" />
+    <Resource Include="Images\LeaveIcon.png" />
+    <Resource Include="Images\AccusationIcon.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup>

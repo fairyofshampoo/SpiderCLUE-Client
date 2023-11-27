@@ -1,0 +1,118 @@
+﻿<Page x:Class="Spider_Clue.Views.GameBoardView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Spider_Clue.Views"
+      mc:Ignorable="d" 
+      xmlns:p = "clr-namespace:Spider_Clue.Properties"
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="GameBoardView"
+      Background="#242C47">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Border Grid.Column="0"
+                Background="Black"
+                Width="800"
+                CornerRadius="10"
+                Margin="30">
+            <Border Width="750"
+                    Height="600">
+                <Border.Background>
+                    <ImageBrush ImageSource = "/Images/ClueBoard.png">
+                        
+                    </ImageBrush>
+                </Border.Background>
+            </Border>
+        </Border>
+        <Grid Grid.Column="1"
+              Margin="0,30,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border 
+                        CornerRadius = "30"
+                        Background = "#AB2E2E"
+                        Width = "100"
+                        Height = "100"
+                        Margin = "0,50,0,0"
+                        Grid.Row="0">
+                <Border Margin="10,21,10,10">
+                    <Border.Background>
+                        <ImageBrush ImageSource = "/Images/LeaveIcon.png"
+                            Stretch = "UniformToFill">
+                        </ImageBrush>
+                    </Border.Background>
+                </Border>
+            </Border>
+
+            <Border 
+                        CornerRadius = "30"
+                        Background = "#D6D6DB"
+                        Width = "100"
+                        Height = "100"
+                        Margin = "0,50,0,0"
+                        Grid.Row="1">
+                <Border Margin="10,10,10,10">
+                    <Border.Background>
+                        <ImageBrush ImageSource = "/Images/CardsIcon.png"
+                            Stretch = "UniformToFill">
+                        </ImageBrush>
+                    </Border.Background>
+                </Border>
+            </Border>
+
+            <Border 
+                        CornerRadius = "30"
+                        Background = "#D6D6DB"
+                        Width = "100"
+                        Height = "100"
+                        Margin = "0,50,0,0"
+                        Grid.Row="2">
+                <Border>
+                    <Border.Background>
+                        <ImageBrush ImageSource = "/Images/DiceIcon.png"
+                            Stretch = "UniformToFill">
+                        </ImageBrush>
+                    </Border.Background>
+                </Border>
+            </Border>
+
+            <Border 
+                        CornerRadius = "30"
+                        Background = "#D6D6DB"
+                        Width = "100"
+                        Height = "100"
+                        Margin = "0,50,0,0"
+                        Grid.Row = "3">
+                <Border Margin = "10,10,10,10">
+                    <Border.Background>
+                        <ImageBrush ImageSource = "/Images/AccusationIcon.png"
+                            Stretch = "UniformToFill">
+                        </ImageBrush>
+                    </Border.Background>
+                </Border>
+            </Border>
+        </Grid>
+
+        <Border Background = "Black"
+                CornerRadius="10"
+                Grid.Column="2"
+                Width="270"
+                Height="670"
+                HorizontalAlignment = "Center"
+                >
+            
+        </Border>
+    </Grid>
+</Page>
