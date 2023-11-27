@@ -85,12 +85,12 @@ namespace Spider_Clue.Views
                 }
                 else
                 {
-                    MessageBox.Show("La partida está llena. Por favor, intenta unirte a otra.", Properties.Resources.InformationTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show(Properties.Resources.GameIsFullMessage, Properties.Resources.InformationTitle, MessageBoxButton.OK, MessageBoxImage.Information);
                 }
             }
             else
             {
-                MessageBox.Show("La partida ha terminado. Intenta unirte a otra.", Properties.Resources.InformationTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(Properties.Resources.GameHasEndedMessage, Properties.Resources.InformationTitle, MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
  

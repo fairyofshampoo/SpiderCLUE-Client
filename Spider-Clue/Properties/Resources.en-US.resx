@@ -169,9 +169,6 @@
   <data name="ErrorTitle" xml:space="preserve">
     <value>ERROR</value>
   </data>
-  <data name="GuessName" xml:space="preserve">
-    <value>Guess </value>
-  </data>
   <data name="LblAccountRecoveryTitle" xml:space="preserve">
     <value>Account Recovery</value>
   </data>
@@ -328,9 +325,6 @@
   </data>
   <data name="BtnFriendRequest" xml:space="preserve">
     <value>Send Friend Request</value>
-  </data>
-  <data name="LblFriendRequest" xml:space="preserve">
-    <value>Friends Request</value>
   </data>
   <data name="ResultsNotFoundMessage" xml:space="preserve">
     <value>Results not found</value>

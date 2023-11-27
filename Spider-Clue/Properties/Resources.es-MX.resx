@@ -329,4 +329,13 @@
   <data name="ResultsNotFoundMessage" xml:space="preserve">
     <value>Resultados no encontrados</value>
   </data>
+  <data name="BtnFriendRequest" xml:space="preserve">
+    <value>Enviar solicitud de amistad</value>
+  </data>
+  <data name="GameHasEndedMessage" xml:space="preserve">
+    <value>La partida ha terminado. Intenta unirte a otra.</value>
+  </data>
+  <data name="GameIsFullMessage" xml:space="preserve">
+    <value>La partida está completa. Por favor, intenta unirte a otra.</value>
+  </data>
 </root>
