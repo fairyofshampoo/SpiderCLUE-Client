@@ -1,35 +1,19 @@
 ﻿using Spider_Clue.Logic;
-using Spider_Clue.SpiderClueService;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Security.Cryptography.Xml;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Forms;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static Spider_Clue.Views.FriendsRequetsView;
 
 namespace Spider_Clue.Views
 {
     /// <summary>
-    /// Interaction logic for FriendsRequetsView.xaml
+    /// Interaction logic for FriendsRequestView.xaml
     /// </summary>
-    public partial class FriendsRequetsView : Page
+    public partial class FriendsRequestView : Page
     {
 
         public ObservableCollection<FriendRequest> FriendRequests { get; set; }
 
-        public FriendsRequetsView()
+        public FriendsRequestView()
         {
             InitializeComponent();
             FriendRequests = new ObservableCollection<FriendRequest>();
@@ -47,8 +31,8 @@ namespace Spider_Clue.Views
                 string iconPath = Utilities.GetFriendImagePath(gamerIcon);
                 FriendRequest friend = new FriendRequest
                 {
-                    gamertag = friendRequestList[i],
-                    icon = iconPath,
+                    Gamertag = friendRequestList[i],
+                    Icon = iconPath,
                 };
                 FriendRequests.Add(friend);
             }
@@ -76,7 +60,7 @@ namespace Spider_Clue.Views
             var button = sender as System.Windows.Controls.Button;
             if (button != null && button.DataContext is FriendRequest dataObject)
             {   
-                string gamertag = dataObject.gamertag;
+                string gamertag = dataObject.Gamertag;
                 DeleteDataFromGrid(sender);
                 modifyFriendRequestStatus(gamertag, response);
             }
@@ -107,11 +91,11 @@ namespace Spider_Clue.Views
 
         public class FriendRequest
         {
-            public string gamertag { get; set; }
-            public string icon { get; set; }
+            public string Gamertag { get; set; }
+            public string Icon { get; set; }
         }
 
-        private void btnChangeFriendRequest(object sender, RoutedEventArgs e)
+        private void BtnChangeFriendRequest(object sender, RoutedEventArgs e)
         {
 
         }

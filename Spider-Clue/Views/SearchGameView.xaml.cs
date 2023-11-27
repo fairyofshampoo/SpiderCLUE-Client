@@ -10,21 +10,27 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using Spider_Clue.SpiderClueService;
+using System.ServiceModel;
+using System.Windows.Navigation;
 
 namespace Spider_Clue.Views
 {
     /// <summary>
     /// Interaction logic for SearchGameView.xaml
     /// </summary>
-    public partial class SearchGameView : Window
+    public partial class SearchGameView : Window, IMatchManagerCallback
     {
+        private readonly MatchManagerClient matchManagerClient;
+        public static MainMenuForGuestView MenuGuestView { get; set; }
         public SearchGameView()
         {
             InitializeComponent();
+            matchManagerClient = new MatchManagerClient(new InstanceContext(this));
         }
 
         private void Search_Click(object sender, MouseButtonEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
             SearchMatch();
         }
 
@@ -32,8 +38,7 @@ namespace Spider_Clue.Views
         {
             bdrMatchFound.Visibility = Visibility.Visible;
             string matchCodeToSearch = txtMatchToSearch.Text;
-            SpiderClueService.IMatchManager matchManager = new SpiderClueService.MatchManagerClient();
-            Match matchFound = matchManager.GetMatchInformation(matchCodeToSearch);
+            Match matchFound = matchManagerClient.GetMatchInformation(matchCodeToSearch);
             if (matchFound != null)
             {
                 lblCreator.Content = matchFound.CreatedBy;
@@ -48,12 +53,45 @@ namespace Spider_Clue.Views
 
         private void BtnJoinMatch_Click(object sender, RoutedEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
             JoinMatch();
         }
 
         private void JoinMatch()
         {
+            String matchCode = txtMatchToSearch.Text;
+            String gamertag = UserSingleton.Instance.GamerTag;
+            matchManagerClient.GetGamersInMatch(gamertag, matchCode);
+        }
 
+        public void ReceiveGamersInMatch(string[] gamertags)
+        {
+            int numberOfGamersInMatch = gamertags.Length;
+            GoToLobby(numberOfGamersInMatch);
+        }
+
+        public void GoToLobby(int numberOfGamers)
+        {
+            int maximumOfPlayers = 6;
+            int numberOfPlayersEmptyMatch = 0;
+
+            if(numberOfGamers > numberOfPlayersEmptyMatch)
+            {
+                if (numberOfGamers < maximumOfPlayers)
+                {
+                    LobbyView lobbyView = new LobbyView();
+                    MenuGuestView.NavigationService.Navigate(lobbyView);
+                    DialogResult = true;
+                }
+                else
+                {
+                    //mensaje de partida llena xd
+                }
+            }
+            else
+            {
+                // mensaje de partida terminada jejeje
+            }
         }
     }
 }
