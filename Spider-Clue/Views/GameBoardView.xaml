@@ -91,7 +91,7 @@
                                 Width="120"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
+                                <Label Content = "Salón F-103"
                                    Width="120"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -107,7 +107,7 @@
                                 Width="150"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
+                                <Label Content = "Salón Cristal"
                                    Width="150"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -123,7 +123,7 @@
                                 Width="120"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
+                                <Label Content = "Laboratorio"
                                    Width="120"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -139,7 +139,7 @@
                                 Width="120"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
+                                <Label Content = "Cubículos"
                                    Width="120"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -155,7 +155,7 @@
                                 Width="150"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
+                                <Label Content = "Anfiteatro"
                                    Width="150"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -172,7 +172,7 @@
                                 Width="150"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
+                                <Label Content = "Cancha"
                                    Width="150"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -189,7 +189,7 @@
                                 Width="180"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
+                                <Label Content = "Estacionamiento"
                                    Width="180"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -205,7 +205,7 @@
                                 Width="190"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
+                                <Label Content = "Centro de cómputo"
                                    Width="190"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -222,7 +222,7 @@
                                 Width="120"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
+                                <Label Content = "Salón de maestros"
                                    Width="120"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -318,11 +318,20 @@
                         <ImageBrush ImageSource="/Images/ClipBoard.png" 
                                     Stretch="Fill"/>
                     </Border.Background>
-                    <Grid Width="242"
+                    <Grid Width="237"
                           HorizontalAlignment="Left"
                            Margin="10,127,0,21">
+
+                        <Grid.Resources>
+                           
+                            <Style TargetType="Border">
+                                <Setter Property="BorderBrush" Value="Black"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                            </Style>
+                        </Grid.Resources>
+                        
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="34"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
                             <RowDefinition Height="*"/>
@@ -355,8 +364,405 @@
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
-
                         </Grid.ColumnDefinitions>
+
+                        
+                            <Label Content = "Notas"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "20"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" Margin="94,0,0,0"/>
+
+                        <Border Grid.Row="1"
+                                Grid.ColumnSpan="5"
+                                Background="Gray">
+                            <Label Content = "SOSPECHOSO"
+                                   Grid.Row="0"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="2">
+                            <Label Content = "Doc Och"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="3">
+                            <Label Content = "MysteRevo"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="4">
+                            <Label Content = "RhinoSidro"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="5">
+                            <Label Content = "Electro-Juan"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="6">
+                            <Label Content = "Xand-Man"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="7">
+                            <Label Content = "Vernom"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="8"
+                                Grid.ColumnSpan="5"
+                                Background="Gray">
+                            <Label Content = "MOTIVO"
+                                   Grid.Row="0"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="9">
+                            <Label Content = "No entregó tareas"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="21"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="10">
+                            <Label Content = "No presentó examen"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="11">
+                            <Label Content = "No presentó proyecto"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="12">
+                            <Label Content = "Sin asistencias"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="13">
+                            <Label Content = "No pasó el título"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="14">
+                            <Label Content = "Eligió ser feliz"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="15"
+                                Grid.ColumnSpan="5"
+                                Background="Gray">
+                            <Label Content = "LUGAR"
+                                   Grid.Row="0"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="16">
+                            <Label Content = "Salón cristal"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="17">
+                            <Label Content = "Centro de cómputo"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="18">
+                            <Label Content = "Salón de maestros"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="18">
+                            <Label Content = "Salón de maestros"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="19">
+                            <Label Content = "Salón F-103"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="20">
+                            <Label Content = "Cancha"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="21">
+                            <Label Content = "Estacionamiento"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="22">
+                            <Label Content = "Cubículos"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="23">
+                            <Label Content = "Laboratorio"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="24">
+                            <Label Content = "Anfiteatro"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="2" Grid.Column="1"/>
+                        <Border Grid.Row="2" Grid.Column="2"/>
+                        <Border Grid.Row="2" Grid.Column="3"/>
+                        <Border Grid.Row="2" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="3" Grid.Column="1"/>
+                        <Border Grid.Row="3" Grid.Column="2"/>
+                        <Border Grid.Row="3" Grid.Column="3"/>
+                        <Border Grid.Row="3" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="4" Grid.Column="1"/>
+                        <Border Grid.Row="4" Grid.Column="2"/>
+                        <Border Grid.Row="4" Grid.Column="3"/>
+                        <Border Grid.Row="4" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="5" Grid.Column="1"/>
+                        <Border Grid.Row="5" Grid.Column="2"/>
+                        <Border Grid.Row="5" Grid.Column="3"/>
+                        <Border Grid.Row="5" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="6" Grid.Column="1"/>
+                        <Border Grid.Row="6" Grid.Column="2"/>
+                        <Border Grid.Row="6" Grid.Column="3"/>
+                        <Border Grid.Row="6" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="7" Grid.Column="1"/>
+                        <Border Grid.Row="7" Grid.Column="2"/>
+                        <Border Grid.Row="7" Grid.Column="3"/>
+                        <Border Grid.Row="7" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="9" Grid.Column="1"/>
+                        <Border Grid.Row="9" Grid.Column="2"/>
+                        <Border Grid.Row="9" Grid.Column="3"/>
+                        <Border Grid.Row="9" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="10" Grid.Column="1"/>
+                        <Border Grid.Row="10" Grid.Column="2"/>
+                        <Border Grid.Row="10" Grid.Column="3"/>
+                        <Border Grid.Row="10" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="11" Grid.Column="1"/>
+                        <Border Grid.Row="11" Grid.Column="2"/>
+                        <Border Grid.Row="11" Grid.Column="3"/>
+                        <Border Grid.Row="11" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="12" Grid.Column="1"/>
+                        <Border Grid.Row="12" Grid.Column="2"/>
+                        <Border Grid.Row="12" Grid.Column="3"/>
+                        <Border Grid.Row="12" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="13" Grid.Column="1"/>
+                        <Border Grid.Row="13" Grid.Column="2"/>
+                        <Border Grid.Row="13" Grid.Column="3"/>
+                        <Border Grid.Row="13" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="14" Grid.Column="1"/>
+                        <Border Grid.Row="14" Grid.Column="2"/>
+                        <Border Grid.Row="14" Grid.Column="3"/>
+                        <Border Grid.Row="14" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="16" Grid.Column="1"/>
+                        <Border Grid.Row="16" Grid.Column="2"/>
+                        <Border Grid.Row="16" Grid.Column="3"/>
+                        <Border Grid.Row="16" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="17" Grid.Column="1"/>
+                        <Border Grid.Row="17" Grid.Column="2"/>
+                        <Border Grid.Row="17" Grid.Column="3"/>
+                        <Border Grid.Row="17" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="18" Grid.Column="1"/>
+                        <Border Grid.Row="18" Grid.Column="2"/>
+                        <Border Grid.Row="18" Grid.Column="3"/>
+                        <Border Grid.Row="18" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="19" Grid.Column="1"/>
+                        <Border Grid.Row="19" Grid.Column="2"/>
+                        <Border Grid.Row="19" Grid.Column="3"/>
+                        <Border Grid.Row="19" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="20" Grid.Column="1"/>
+                        <Border Grid.Row="20" Grid.Column="2"/>
+                        <Border Grid.Row="20" Grid.Column="3"/>
+                        <Border Grid.Row="20" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="21" Grid.Column="1"/>
+                        <Border Grid.Row="21" Grid.Column="2"/>
+                        <Border Grid.Row="21" Grid.Column="3"/>
+                        <Border Grid.Row="21" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="22" Grid.Column="1"/>
+                        <Border Grid.Row="22" Grid.Column="2"/>
+                        <Border Grid.Row="22" Grid.Column="3"/>
+                        <Border Grid.Row="22" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="23" Grid.Column="1"/>
+                        <Border Grid.Row="23" Grid.Column="2"/>
+                        <Border Grid.Row="23" Grid.Column="3"/>
+                        <Border Grid.Row="23" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="24" Grid.Column="1"/>
+                        <Border Grid.Row="24" Grid.Column="2"/>
+                        <Border Grid.Row="24" Grid.Column="3"/>
+                        <Border Grid.Row="24" Grid.Column="4"/>
+                        
+                        
+
                     </Grid>
                 </Border>
             </Grid>
