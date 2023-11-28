@@ -22,6 +22,7 @@ namespace Spider_Clue.Views
     {
         private readonly MatchManagerClient matchManagerClient;
         public static MainMenuForGuestView MenuGuestView { get; set; }
+        public static MainMenuView MenuView { get; set; }
         public SearchGameView()
         {
             InitializeComponent();
@@ -70,7 +71,7 @@ namespace Spider_Clue.Views
             GoToLobby(numberOfGamersInMatch);
         }
 
-        public void GoToLobby(int numberOfGamers)
+        private void GoToLobby(int numberOfGamers)
         {
             int maximumOfPlayers = 6;
             int numberOfPlayersEmptyMatch = 0;
@@ -79,8 +80,7 @@ namespace Spider_Clue.Views
             {
                 if (numberOfGamers < maximumOfPlayers)
                 {
-                    LobbyView lobbyView = new LobbyView();
-                    MenuGuestView.NavigationService.Navigate(lobbyView);
+                    ChangeToLobbyView();
                     DialogResult = true;
                 }
                 else
@@ -91,6 +91,20 @@ namespace Spider_Clue.Views
             else
             {
                 MessageBox.Show(Properties.Resources.GameHasEndedMessage, Properties.Resources.InformationTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
+
+        public void ChangeToLobbyView()
+        {
+            LobbyView lobbyView = new LobbyView();
+
+            if(UserSingleton.Instance.IsGuestPlayer)
+            {
+                MenuGuestView.NavigationService.Navigate(lobbyView);
+            }
+            else
+            {
+                MenuView.NavigationService.Navigate(lobbyView);
             }
         }
  
