@@ -52,6 +52,7 @@ namespace Spider_Clue.Views
             SearchGameView searchGamePopUp = new SearchGameView();
             searchGamePopUp.Owner = mainWindow;
             searchGamePopUp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            SearchGameView.MenuView = this;
             searchGamePopUp.ShowDialog();
         }
 

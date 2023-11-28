@@ -92,7 +92,7 @@
                                 Height="20"
                                 CornerRadius="10"
                                 Margin="50,0,50,0">
-                    <Label Content = "{x:Static p:Resources.LblGameCode}"
+                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
                                    Width="60"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -118,7 +118,7 @@
                                 Height="20"
                                 CornerRadius="10"
                                 Margin="50,0,50,0">
-                    <Label Content = "{x:Static p:Resources.LblGameCode}"
+                    <Label Content = "{x:Static p:Resources.LblAccountVerification}"
                                    Width="60"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -144,7 +144,7 @@
                                 Height="20"
                                 CornerRadius="10"
                                 Margin="50,0,50,0">
-                    <Label Content = "{x:Static p:Resources.LblGameCode}"
+                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
                                    Width="60"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -170,7 +170,7 @@
                                 Height="20"
                                 CornerRadius="10"
                                 Margin="50,0,50,0">
-                    <Label Content = "{x:Static p:Resources.LblGameCode}"
+                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
                                    Width="60"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -209,7 +209,7 @@
                                 Height="20"
                                 CornerRadius="10"
                                 Margin="50,0,50,0">
-                    <Label Content = "{x:Static p:Resources.LblGameCode}"
+                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
                                    Width="60"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -235,7 +235,7 @@
                                 Height="20"
                                 CornerRadius="10"
                                 Margin="50,0,50,0">
-                    <Label Content = "{x:Static p:Resources.LblGameCode}"
+                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
                                    Width="60"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -261,7 +261,7 @@
                                 Height="20"
                                 CornerRadius="10"
                                 Margin="50,0,50,0">
-                    <Label Content = "{x:Static p:Resources.LblGameCode}"
+                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
                                    Width="60"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -287,7 +287,7 @@
                                 Height="20"
                                 CornerRadius="10"
                                 Margin="50,0,50,0">
-                    <Label Content = "{x:Static p:Resources.LblGameCode}"
+                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
                                    Width="60"
                                    Foreground ="White"
                                    FontWeight = "Medium"
