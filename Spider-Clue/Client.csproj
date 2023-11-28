@@ -468,6 +468,8 @@
     <Resource Include="Images\DiceIcon.png" />
     <Resource Include="Images\LeaveIcon.png" />
     <Resource Include="Images\AccusationIcon.png" />
+    <Resource Include="Images\WoodBackground.jpg" />
+    <Resource Include="Images\ClipBoard.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup>
