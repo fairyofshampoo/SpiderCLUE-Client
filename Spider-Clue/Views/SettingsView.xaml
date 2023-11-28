@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:Spider_Clue.Views"
       d:DesignHeight = "720" d:DesignWidth = "1280"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
-      mc:Ignorable="d" 
-      Title="SettingsView"
+      mc:Ignorable="d"
       Background="Transparent">
     <DockPanel>
         <ScrollViewer>
@@ -16,7 +15,7 @@
                 <Border
                     Width = "Auto" Height = "Auto">
                     <Border.Background>
-                        <ImageBrush ImageSource="/Images/SettingsFinalBackground.png"
+                        <ImageBrush ImageSource="/Images/Background/SettingsFinalBackground.png"
                             Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
@@ -24,7 +23,7 @@
                 <Border HorizontalAlignment="Left" Margin="-15,0,0,0"
                             Width="500">
                     <Border.Background>
-                        <ImageBrush ImageSource="/Images/paperIMG.png"
+                        <ImageBrush ImageSource="/Images/Elements/paperIMG.png"
                             Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
@@ -51,7 +50,7 @@
                                 Cursor="Hand">
                             <Button.Template>
                                 <ControlTemplate>
-                                    <Image Source="/Images/GoBackIconBlack.png" 
+                                    <Image Source="/Images/Icons/GoBackIconBlack.png" 
                                     Stretch="Uniform">
                                     </Image>
                                 </ControlTemplate>

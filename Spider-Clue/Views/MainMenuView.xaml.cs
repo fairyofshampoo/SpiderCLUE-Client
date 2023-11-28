@@ -31,7 +31,7 @@ namespace Spider_Clue.Views
         {
             lblUserName.Content = UserSingleton.Instance.GamerTag;
             lblLevel.Content = UserSingleton.Instance.Level;
-            string iconPath = Utilities.GetImagePathForIcon();
+            string iconPath = Utilities.GetImagePathForIcon(UserSingleton.Instance.ImageCode);
             this.DataContext = new { ImagePath = iconPath };
         }
         private void BtnSettings_Click(object sender, RoutedEventArgs e)

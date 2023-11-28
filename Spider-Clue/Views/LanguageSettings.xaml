@@ -49,7 +49,7 @@
                         Cursor = "Hand"
                         Click="BtnMXFlag_Click">
                             <Image 
-                            Source = "/Images/MexicoFlag.png"
+                            Source = "/Images/Icons/MexicoFlag.png"
                             Stretch="Fill">
                             </Image>
                         </Button>
@@ -64,7 +64,7 @@
                         Cursor = "Hand"
                         Click="BtnUSFlag_Click">
                             <Image 
-                            Source = "/Images/EUAFlag.png"
+                            Source = "/Images/Icons/EUAFlag.png"
                             Stretch="Fill">
                             </Image>
                         </Button>

@@ -13,7 +13,7 @@
             <Grid>
                 <Border>
                     <Border.Background>
-                        <ImageBrush ImageSource="/Images/LobbyBackground.jpg" Stretch="UniformToFill" />
+                        <ImageBrush ImageSource="/Images/Background/LobbyBackground.jpg" Stretch="UniformToFill" />
                     </Border.Background>
                 </Border>
                 <Grid>
@@ -23,20 +23,18 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="0">
-                        <ListView Margin="10,10,10,0" 
-                                  Name="GamersInMatchList"
-                                  HorizontalAlignment="Left"
-                                  VerticalAlignment="Top"
-                                  Width="Auto"
-                                  Height="200"
-                                  Background="Transparent">
-                            <ListViewItem Name="GamerInMatchItem" Margin="0,0,0,5">
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="/Images/Icon0.jpg" Height="30" />
-                                    <TextBlock Text="User1" Foreground="Black" Background="White" Opacity="0.8" />
-                                </StackPanel>
-                            </ListViewItem>
-                        </ListView>
+                        <ListBox x:Name="GamersInMatchListBox" Margin="10,10,10,0" 
+                                 HorizontalAlignment="Left" VerticalAlignment="Top"
+                                 Height="200" Width="Auto" Background="Transparent">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{Binding ImageIconGamer}" Height="30" />
+                                        <TextBlock Text="{Binding GamerName}" Foreground="Black" Background="White" Opacity="0.8" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
 
                         <Grid Margin="40,10,0,0">
                             <Grid.ColumnDefinitions>
@@ -96,7 +94,8 @@
                         </Viewbox>
                         <StackPanel Orientation="Horizontal"
                                     Grid.Column="1">
-                            <Button x:Name="btnCancel" Grid.Column="0" BorderThickness="0"
+                            <StackPanel Orientation="Vertical">
+                                <Button x:Name="btnCancel" Grid.Column="0" BorderThickness="0"
                                     Content="{x:Static p:Resources.BtnGuestPlayer}"
                                     Foreground="White"
                                     FontSize="15"
@@ -104,27 +103,27 @@
                                     Cursor="Hand"
                                     Margin="0,0,10,50"
                                     HorizontalAlignment="Right">
-                                <Button.Style>
-                                    <Style TargetType="Button">
-                                        <Setter Property="Background" Value="Gray" />
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="#000000" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Button.Style>
-                                <Button.Template>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Width="130" Height="40" CornerRadius="20" Background="{TemplateBinding Background}">
-                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
-                                        </Border>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-                            <Button VerticalAlignment="Center">
-
-                            </Button>
+                                    <Button.Style>
+                                        <Style TargetType="Button">
+                                            <Setter Property="Background" Value="Gray" />
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#000000" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Button.Style>
+                                    <Button.Template>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Width="130" Height="40" CornerRadius="20" Background="{TemplateBinding Background}">
+                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                            </Border>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                                <Button VerticalAlignment="Center">
+                                </Button>
+                            </StackPanel>
 
                             <Button x:Name="btnReady" Grid.Column="0" BorderThickness="0"
                                     Content="{x:Static p:Resources.BtnGuestPlayer}"
@@ -159,14 +158,14 @@
                         <Border Grid.Column="2"
                                 Margin="20,20,20,40">
                             <Border.Background>
-                                <ImageBrush ImageSource="/Images/PaperForCode.png" Stretch="UniformToFill" />
+                                <ImageBrush ImageSource="/Images/Elements/PaperForCode.png" Stretch="UniformToFill" />
                             </Border.Background>
                             <StackPanel Orientation="Vertical">
                             <Label Margin="30,30,30,0" Content="{x:Static p:Resources.LblCode}" FontWeight="Bold" HorizontalContentAlignment="Center">
                                     
                                 </Label>
-                                <TextBox HorizontalContentAlignment="Center"
-                                         FontSize="40" FontWeight="ExtraBold"
+                                <TextBox x:Name="txtMatchCode" HorizontalContentAlignment="Center"
+                                         FontSize="30" FontWeight="ExtraBold"
                                     Background="Transparent" Text="300" IsReadOnly="True">
                                     
                                 </TextBox>

@@ -1,18 +1,8 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
@@ -30,7 +20,7 @@ namespace Spider_Clue.Views
         {
             searchData.Visibility = Visibility.Visible;
             string gamertag = txtSearchGamer.Text;
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+            IUserManager userManager = new SpiderClueService.UserManagerClient();
             if (userManager.IsGamertagExisting(gamertag))
             {
                 string icon = userManager.GetIcon(gamertag);
@@ -39,21 +29,28 @@ namespace Spider_Clue.Views
             }
             else
             {
-                SetGamerData(Properties.Resources.ResultsNotFoundMessage, "NotFoundIcon.png");
+                ShowNotFoundMessage();
             }
+        }
+
+        private void ShowNotFoundMessage()
+        {
+            btnSendFriendRequest.Visibility = Visibility.Collapsed;
+            lblGamertag.Content = Properties.Resources.ResultsNotFoundMessage;
+            string iconPath = Utilities.GetImagePathForImages() + "Icons\\NotFoundIcon.png";
+            this.DataContext = new { ImagePath = iconPath };
         }
 
         private void SetGamerData(string gamertag, string icon)
         {
             lblGamertag.Content = gamertag;
-            string iconPath = Utilities.GetFriendImagePath(icon);
+            string iconPath = Utilities.GetImagePathForImages() + "Avatars\\" + icon;
             this.DataContext = new { ImagePath = iconPath };
-
         }
 
         private void BtnSendFriendRequest_Click(object sender, RoutedEventArgs e)
         {
-            SpiderClueService.IFriendRequestManager friend = new SpiderClueService.FriendRequestManagerClient();
+            IFriendRequestManager friend = new SpiderClueService.FriendRequestManagerClient();
             friend.CreateFriendRequest(UserSingleton.Instance.GamerTag, lblGamertag.Content.ToString());
         }
 

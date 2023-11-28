@@ -15,7 +15,7 @@
                 <Grid>
                     <Border>
                         <Border.Background>
-                            <ImageBrush ImageSource = "/Images/backgroundREGISTER.png"
+                            <ImageBrush ImageSource = "/Images/Background/backgroundREGISTER.png"
                                         Stretch = "UniformToFill">
                             </ImageBrush>
                         </Border.Background>
@@ -109,7 +109,7 @@
                     Width="400" Height="120"
                     Margin="25,30,25,0">
                                 <Border.Background>
-                                    <ImageBrush ImageSource = "/Images/Logo.png"
+                                    <ImageBrush ImageSource = "/Images/Elements/Logo.png"
                             Stretch = "Fill">
                                     </ImageBrush>
                                 </Border.Background>

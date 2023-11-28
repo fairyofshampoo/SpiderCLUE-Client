@@ -28,7 +28,7 @@ namespace Spider_Clue.Views
             for (int i = 0; i < friendRequestList.Length; i++)
             {
                 string gamerIcon = userManager.GetIcon(friendRequestList[i]);
-                string iconPath = Utilities.GetFriendImagePath(gamerIcon);
+                string iconPath = Utilities.GetImagePathForIcon(gamerIcon);
                 FriendRequest friend = new FriendRequest
                 {
                     Gamertag = friendRequestList[i],
