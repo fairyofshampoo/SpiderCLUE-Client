@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Spider_Clue.SpiderClueService;
+using System.ServiceModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,17 +14,83 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Spider_Clue.Logic;
 
 namespace Spider_Clue.Views
 {
     /// <summary>
     /// Interaction logic for LobbyView.xaml
     /// </summary>
-    public partial class LobbyView : Page
+    public partial class LobbyView : Page, IMatchManagerCallback, ILobbyManagerCallback
     {
+        private string matchCode;
+        public readonly MatchManagerClient MatchManager;
+        public readonly IUserManager UserManager = new SpiderClueService.UserManagerClient();
         public LobbyView()
         {
             InitializeComponent();
+        }
+
+        public void SetMatchDataInPage(string matchCode)
+        {
+            this.matchCode = matchCode;
+            txtMatchCode.Text = matchCode;
+            string gamertag = UserSingleton.Instance.GamerTag;
+
+            MatchManager.ConnectToMatch(gamertag, matchCode);
+            MatchManager.GetGamersInMatch(gamertag, matchCode);
+        }
+
+        private void SetGamersList(string[] gamertags)
+        {
+            List<GamerForListBox> gamersList = gamertags
+                .Select(gamertag => new GamerForListBox
+                {
+                    ImageIconGamer = new BitmapImage(new Uri(GetIconImagePathForGamer(gamertag))),
+                    GamerTag = gamertag
+                })
+                .ToList();
+
+            GamersInMatchListBox.ItemsSource = gamersList;
+        }
+
+        private string GetIconImagePathForGamer(string gamertag)
+        {
+            string iconName = UserManager.GetIcon(gamertag);
+            return Utilities.GetImagePathForIcon(iconName);
+        }
+
+
+        public void ReceiveGamersInMatch(string[] gamertags)
+        {
+            SetGamersList(gamertags);
+        }
+
+        public void KickPlayerFromMatch(string gamertag)
+        {
+            if (gamertag.Equals(UserSingleton.Instance.GamerTag))
+            {
+                GoToMainMenu();
+            }
+        }
+
+        public void StartMatch()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void GoToMainMenu()
+        {
+            if (UserSingleton.Instance.IsGuestPlayer)
+            {
+                MainMenuForGuestView mainMenuForGuestView = new MainMenuForGuestView();
+                this.NavigationService.Navigate(mainMenuForGuestView);
+            }
+            else
+            {
+                MainMenuView mainMenuView = new MainMenuView();
+                this.NavigationService.Navigate(mainMenuView);
+            }
         }
     }
 }

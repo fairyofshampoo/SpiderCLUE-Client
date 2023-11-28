@@ -96,7 +96,9 @@ namespace Spider_Clue.Views
 
         public void ChangeToLobbyView()
         {
+            string matchCode = txtMatchToSearch.Text;
             LobbyView lobbyView = new LobbyView();
+            lobbyView.SetMatchDataInPage(matchCode);
 
             if(UserSingleton.Instance.IsGuestPlayer)
             {

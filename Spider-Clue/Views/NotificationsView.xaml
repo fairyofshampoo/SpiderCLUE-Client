@@ -12,9 +12,7 @@
     <Grid>
         <Border>
             <Border.Background>
-                <ImageBrush ImageSource = "/Images/backgroundREGISTER.png"
-                            Stretch = "UniformToFill">
-                </ImageBrush>
+                <ImageBrush ImageSource = "/Images/Background/backgroundREGISTER.png" Stretch = "UniformToFill"> </ImageBrush>
             </Border.Background>
 
             <Grid>
@@ -39,8 +37,7 @@
                         Grid.Column="0">
                         <Border>
                             <Border.Background>
-                                <ImageBrush ImageSource = "/Images/FriendsListIcon.png"
-                            Stretch = "UniformToFill">
+                                <ImageBrush ImageSource = "/Images/Icons/FriendsListIcon.png" Stretch = "UniformToFill">
                                 </ImageBrush>
                             </Border.Background>
                         </Border>
@@ -56,8 +53,7 @@
                         Grid.Column="1">
                         <Border>
                             <Border.Background>
-                                <ImageBrush ImageSource = "/Images/NotificationIcon.png"
-                            Stretch = "UniformToFill">
+                                <ImageBrush ImageSource = "/Images/Icons/NotificationIcon.png" Stretch = "UniformToFill">
                                 </ImageBrush>
                             </Border.Background>
                         </Border>
@@ -65,7 +61,7 @@
                     <Border 
                         Grid.Column = "2" Margin="389,70,24,13">
                         <Border.Background>
-                            <ImageBrush ImageSource = "/Images/MagnifyingGlassIcon.png"
+                            <ImageBrush ImageSource = "/Images/Icons/searchIcon.png"
                             Stretch = "UniformToFill">
                             </ImageBrush>
                         </Border.Background>

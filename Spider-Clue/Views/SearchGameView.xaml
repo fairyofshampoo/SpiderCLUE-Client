@@ -10,7 +10,7 @@
         <Grid>
             <Border>
                 <Border.Background>
-                    <ImageBrush ImageSource="/Images/MilesMoralesBackground.jpg"
+                    <ImageBrush ImageSource="/Images/Background/MilesMoralesBackground.jpg"
                             Stretch="UniformToFill">
                     </ImageBrush>
                 </Border.Background>
@@ -63,7 +63,7 @@
                                         <Border Background="LightGray" Grid.Column="1" MouseDown="Search_Click">
                                             <Image x:Name="SearchIcon" Stretch="UniformToFill"
                                                    Width="15" Height="15"
-                                                   Source="/Images/SearchIcon.png"/>
+                                                   Source="/Images/Icons/SearchIcon.png"/>
                                         </Border>
                                     </Grid>
                                 </Border>
@@ -90,7 +90,7 @@
                                         CornerRadius="10"
                                         Margin="15,5,15,5">
                                         <Border.Background>
-                                            <ImageBrush ImageSource ="/Images/NotFoundIcon.png"
+                                            <ImageBrush ImageSource ="/Images/Icons/NotFoundIcon.png"
                                                  Stretch = "UniformToFill">
                                             </ImageBrush>
                                         </Border.Background>
@@ -121,7 +121,7 @@
                                     VerticalAlignment="Center"
                                     Margin="5,0,0,0">
                                         <Border.Background>
-                                            <ImageBrush ImageSource = "/Images/papersWithWoman.png"
+                                            <ImageBrush ImageSource = "/Images/Icons/papersWithWoman.png"
                                                 Stretch = "UniformToFill">
                                             </ImageBrush>
                                         </Border.Background>
@@ -148,7 +148,7 @@
                                        Grid.Row="1" Margin="0,-5,0,0"/>
                                     </Grid>
                                     <Button x:Name="btnJoinMatch" BorderThickness="0"
-                                Content="{x:Static p:Resources.BtnSave}"
+                                Content="{x:Static p:Resources.BtnJoinToParty}"
                                     Foreground="White" FontSize="10"
                                     FontWeight="Bold" Cursor="Hand"
                                     Margin="15,0,0,0" Grid.Column = "2"

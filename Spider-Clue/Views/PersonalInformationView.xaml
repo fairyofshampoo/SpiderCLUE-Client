@@ -6,15 +6,14 @@
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
       mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Title="PersonalInformationView">
+      d:DesignHeight="720" d:DesignWidth="1280">
     <DockPanel>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <Grid>
                 <Border>
                     <Border.Background>
                         <ImageBrush 
-                        ImageSource="/Images/backgroundREGISTER.png"
+                        ImageSource="/Images/Background/backgroundREGISTER.png"
                         Stretch="Fill">
                         </ImageBrush>
                     </Border.Background>
@@ -29,7 +28,7 @@
                 Click = "BtnGoBack_Click">
                     <Button.Template>
                         <ControlTemplate>
-                            <Image Source="/Images/GoBackIcon.png" 
+                            <Image Source="/Images/Icons/GoBackIcon.png" 
                                     Stretch="Uniform">
                             </Image>
                         </ControlTemplate>

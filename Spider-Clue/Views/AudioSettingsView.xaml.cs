@@ -128,13 +128,13 @@ namespace Spider_Clue.Views
         }
         private void SetMusicIcon(string iconFileName)
         {
-            string iconPath = Utilities.GetImagePathForImages() + iconFileName;
+            string iconPath = Utilities.GetImagePathForImages() + "Icons\\" + iconFileName;
             imgMusicIcon.Source = new BitmapImage(new Uri(iconPath, UriKind.RelativeOrAbsolute));
         }
 
         private void SetSoundIcon(string iconFileName)
         {
-            string iconPath = Utilities.GetImagePathForImages() + iconFileName;
+            string iconPath = Utilities.GetImagePathForImages() + "Icons\\" + iconFileName;
             imgSoundIcon.Source = new BitmapImage(new Uri(iconPath, UriKind.RelativeOrAbsolute));
         }
 

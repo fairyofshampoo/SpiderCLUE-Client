@@ -6,14 +6,13 @@
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
       d:DesignHeight = "720" d:DesignWidth = "1280"
-      mc:Ignorable="d" 
-      Title="ProfileEditionView"
+      mc:Ignorable="d"
       Background="Transparent">
 
     <Grid>
         <Border>
             <Border.Background>
-                <ImageBrush ImageSource = "/Images/backgroundREGISTER.png"
+                <ImageBrush ImageSource = "/Images/Background/backgroundREGISTER.png"
                             Stretch = "Fill">
                 </ImageBrush>
             </Border.Background>
@@ -28,7 +27,7 @@
                 Cursor="Hand">
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source="/Images/GoBackIcon.png" 
+                    <Image Source="/Images/Icons/GoBackIcon.png" 
                                     Stretch="Uniform">
                     </Image>
                 </ControlTemplate>

@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Spider_Clue.Views"
         xmlns:p = "clr-namespace:Spider_Clue.Properties"
-        mc:Ignorable="d"
-        Title="SendFriendRequest" Height="200" Width="500">
+        mc:Ignorable="d" Height="200" Width="500">
 
     <Grid>
         <Border CornerRadius="10" 
@@ -54,7 +53,7 @@
                                 <Image x:Name="SearchIcon"  
                                            Stretch="UniformToFill" 
                                            Width="20" Height="20"
-                                           Source="/Images/SearchIcon.png"
+                                           Source="/Images/Icons/SearchIcon.png"
                                            MouseDown="Search_Click"
                                            HorizontalAlignment="Right"/>
                             </Border>

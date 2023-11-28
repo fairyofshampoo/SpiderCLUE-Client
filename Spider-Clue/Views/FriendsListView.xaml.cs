@@ -46,8 +46,8 @@ namespace Spider_Clue.Views
                 }
                 Player player = new Player
                 {
-                    gamertag = friendList[firstIndex],
-                    status = statusColor
+                    Gamertag = friendList[firstIndex],
+                    Status = statusColor
                 };
                 FriendsConnectedGrid.Items.Add(player);
                 statusColor = "Red";
@@ -63,8 +63,8 @@ namespace Spider_Clue.Views
 
         public class Player
         {
-            public string gamertag { get; set; }
-            public string status { get; set; }
+            public string Gamertag { get; set; }
+            public string Status { get; set; }
         }
 
         private void BtnAddFriend_Click(object sender, RoutedEventArgs e)
