@@ -74,7 +74,7 @@
                             <RowDefinition Height = "Auto"/>
                             <RowDefinition Height = "Auto"/>
                         </Grid.RowDefinitions>
-                        <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriendRequest}"
+                        <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriendsRequest}"
                                    Width="440"
                                    Foreground ="White"
                                    FontWeight = "Medium"
