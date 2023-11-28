@@ -36,6 +36,23 @@
                             </ListBox.ItemTemplate>
                         </ListBox>
 
+                        <Border 
+                        CornerRadius = "40"
+                        Background = "#94857B"
+                        Width = "50"
+                        Height = "50"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Right"
+                        Margin = "10,20,0,0" Grid.Column="2">
+                            <Border Margin = "10,10,10,10">
+                                <Border.Background>
+                                    <ImageBrush ImageSource = "/Images/Icons/kickGamerIcon.png"
+                                                Stretch = "UniformToFill">
+                                    </ImageBrush>
+                                </Border.Background>
+                            </Border>
+                        </Border>
+
                         <Grid Margin="40,10,0,0">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100" />
@@ -94,8 +111,8 @@
                         </Viewbox>
                         <StackPanel Orientation="Horizontal"
                                     Grid.Column="1">
-                            <StackPanel Orientation="Vertical">
-                                <Button x:Name="btnCancel" Grid.Column="0" BorderThickness="0"
+                            
+                            <Button x:Name="btnCancel" Grid.Column="0" BorderThickness="0"
                                     Content="{x:Static p:Resources.BtnGuestPlayer}"
                                     Foreground="White"
                                     FontSize="15"
@@ -103,27 +120,26 @@
                                     Cursor="Hand"
                                     Margin="0,0,10,50"
                                     HorizontalAlignment="Right">
-                                    <Button.Style>
-                                        <Style TargetType="Button">
-                                            <Setter Property="Background" Value="Gray" />
-                                            <Style.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter Property="Background" Value="#000000" />
-                                                </Trigger>
-                                            </Style.Triggers>
-                                        </Style>
-                                    </Button.Style>
-                                    <Button.Template>
-                                        <ControlTemplate TargetType="Button">
-                                            <Border Width="130" Height="40" CornerRadius="20" Background="{TemplateBinding Background}">
-                                                <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
-                                            </Border>
-                                        </ControlTemplate>
-                                    </Button.Template>
-                                </Button>
-                                <Button VerticalAlignment="Center">
-                                </Button>
-                            </StackPanel>
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="Gray" />
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#000000" />
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Width="130" Height="40" CornerRadius="20" Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                            <Button VerticalAlignment="Center">
+                            </Button>
 
                             <Button x:Name="btnReady" Grid.Column="0" BorderThickness="0"
                                     Content="{x:Static p:Resources.BtnGuestPlayer}"
@@ -161,15 +177,29 @@
                                 <ImageBrush ImageSource="/Images/Elements/PaperForCode.png" Stretch="UniformToFill" />
                             </Border.Background>
                             <StackPanel Orientation="Vertical">
-                            <Label Margin="30,30,30,0" Content="{x:Static p:Resources.LblCode}" FontWeight="Bold" HorizontalContentAlignment="Center">
-                                    
+                                <Label Margin="30,30,30,0" Content="{x:Static p:Resources.LblCode}" FontWeight="Bold" HorizontalContentAlignment="Center">
+
                                 </Label>
                                 <TextBox x:Name="txtMatchCode" HorizontalContentAlignment="Center"
                                          FontSize="30" FontWeight="ExtraBold"
                                     Background="Transparent" Text="300" IsReadOnly="True">
-                                    
+
                                 </TextBox>
                             </StackPanel>
+                        </Border>
+                        <Border 
+                        CornerRadius = "40"
+                        Background = "#B4A859"
+                        Width = "50"
+                        Height = "50"
+                        Margin = "192,118,14,32" Grid.Column="2">
+                            <Border Margin = "10,10,10,10">
+                                <Border.Background>
+                                    <ImageBrush ImageSource = "/Images/Icons/sendCodeIcon.png"
+                                                Stretch = "UniformToFill">
+                                    </ImageBrush>
+                                </Border.Background>
+                            </Border>
                         </Border>
 
                     </Grid>

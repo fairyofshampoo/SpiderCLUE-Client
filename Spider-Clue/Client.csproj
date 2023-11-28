@@ -463,13 +463,15 @@
     <Resource Include="Images\GameCards\place7.png" />
     <Resource Include="Images\GameCards\place8.png" />
     <Resource Include="Images\GameCards\place9.png" />
-    <Resource Include="Images\CardsIcon.png" />
-    <Resource Include="Images\ClueBoard.png" />
-    <Resource Include="Images\DiceIcon.png" />
-    <Resource Include="Images\LeaveIcon.png" />
-    <Resource Include="Images\AccusationIcon.png" />
+    <Resource Include="Images\Icons\CardsIcon.png" />
+    <Resource Include="Images\Elements\ClueBoard.png" />
+    <Resource Include="Images\Icons\DiceIcon.png" />
+    <Resource Include="Images\Icons\LeaveIcon.png" />
+    <Resource Include="Images\Icons\AccusationIcon.png" />
     <Resource Include="Images\Icons\kickGamerIcon.png" />
     <Resource Include="Images\Icons\sendCodeIcon.png" />
+    <Resource Include="Images\Background\WoodBackground.jpg" />
+    <Resource Include="Images\Elements\ClipBoard.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />
