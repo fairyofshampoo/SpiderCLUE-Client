@@ -1,5 +1,6 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
+using System;
 using System.Drawing;
 using System.Windows;
 using System.Windows.Input;
@@ -23,14 +24,38 @@ namespace Spider_Clue.Views
             IUserManager userManager = new SpiderClueService.UserManagerClient();
             if (userManager.IsGamertagExisting(gamertag))
             {
-                string icon = userManager.GetIcon(gamertag);
-                SetGamerData(gamertag, icon);
-                btnSendFriendRequest.Visibility = Visibility.Visible;
+                if (IsSearchValid(gamertag))
+                {
+                    string icon = userManager.GetIcon(gamertag);
+                    SetGamerData(gamertag, icon);
+                    btnSendFriendRequest.Visibility = Visibility.Visible;
+                } 
             }
             else
             {
                 ShowNotFoundMessage();
             }
+        }
+
+        private Boolean IsSearchValid(string friendGamertag)
+        {
+            return AreFriends(friendGamertag) && IsASelfFriendRequest(friendGamertag);
+        }
+
+        private Boolean AreFriends(string friendGamertag)
+        {
+            SpiderClueService.IFriendshipManager friendshipManager = new SpiderClueService.FriendshipManagerClient();
+            return friendshipManager.AreFriends(UserSingleton.Instance.GamerTag, friendGamertag);
+        }
+
+        private Boolean IsASelfFriendRequest(string friendGamertag)
+        {
+            Boolean result = false;
+            if (friendGamertag != UserSingleton.Instance.GamerTag)
+            {
+                result = true;
+            }
+            return result;
         }
 
         private void ShowNotFoundMessage()
