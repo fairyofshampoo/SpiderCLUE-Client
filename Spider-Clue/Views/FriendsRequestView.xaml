@@ -104,7 +104,7 @@
                                                 HorizontalAlignment="Center"
                                                 CornerRadius="10">
                                                 <Border.Background>
-                                                    <ImageBrush ImageSource = "{Binding icon}"
+                                                    <ImageBrush ImageSource = "{Binding Icon}"
                                                     Stretch = "Fill">
                                                     </ImageBrush>
                                                 </Border.Background>
@@ -112,7 +112,7 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTextColumn  Header="Gamertag" Width="300" FontSize="28" Binding="{Binding gamertag}"/>
+                                <DataGridTextColumn  Header="Gamertag" Width="300" FontSize="28" Binding="{Binding Gamertag}"/>
                                 <DataGridTemplateColumn x:Name = "Accept" Header="Accept" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>

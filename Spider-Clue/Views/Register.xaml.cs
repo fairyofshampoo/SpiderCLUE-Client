@@ -20,7 +20,7 @@ namespace Spider_Clue.Views
             if (RegisterUser())
             {
                 ShowSuccessMessage();
-                this.NavigationService.GoBack();
+                GoToLoginView();
             }
             else
             {
@@ -139,7 +139,13 @@ namespace Spider_Clue.Views
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            this.NavigationService.GoBack();
+            GoToLoginView();
+        }
+
+        private void GoToLoginView()
+        {
+            LoginView loginView = new LoginView();
+            this.NavigationService.Navigate(loginView);
         }
 
         private bool VerifyDuplications()
