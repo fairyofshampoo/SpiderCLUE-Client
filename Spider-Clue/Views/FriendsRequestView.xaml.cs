@@ -62,11 +62,11 @@ namespace Spider_Clue.Views
             {   
                 string gamertag = dataObject.Gamertag;
                 DeleteDataFromGrid(sender);
-                modifyFriendRequestStatus(gamertag, response);
+                ModifyFriendRequestStatus(gamertag, response);
             }
         }
 
-        private void modifyFriendRequestStatus(string gamertag, string response)
+        private void ModifyFriendRequestStatus(string gamertag, string response)
         {
             SpiderClueService.IFriendRequestManager friendRequestManager = new SpiderClueService.FriendRequestManagerClient();
             friendRequestManager.ResponseFriendRequest( UserSingleton.Instance.GamerTag,gamertag, response);

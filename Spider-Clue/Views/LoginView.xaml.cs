@@ -254,7 +254,8 @@ namespace Spider_Clue.Views
         {
             Uri newImageUri = new Uri($"/Images/Icons/{iconPassword}", UriKind.Relative);
             BitmapImage newImageSource = new BitmapImage(newImageUri);
-            Image imgPasswordIcon = btnPasswordVisibility.Template.FindName("imgPasswordIcon", btnPasswordVisibility) as Image;
+            Image imgPasswordIcon = new Image();
+            imgPasswordIcon = btnPasswordVisibility.Template.FindName("imgPasswordIcon", btnPasswordVisibility) as Image;
             imgPasswordIcon.Source = newImageSource;
         }
 

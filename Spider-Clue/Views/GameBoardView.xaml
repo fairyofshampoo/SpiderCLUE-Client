@@ -91,7 +91,7 @@
                                 Width="120"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "Salón F-103"
+                                <Label Content = "{x:Static p:Resources.F103ClassroomCard}"
                                    Width="120"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -107,7 +107,7 @@
                                 Width="150"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "Salón Cristal"
+                                <Label Content = "{x:Static p:Resources.GlassRoomCard}"
                                    Width="150"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -123,7 +123,7 @@
                                 Width="120"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "Laboratorio"
+                                <Label Content = "{x:Static p:Resources.LaboratoryCard}"
                                    Width="120"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -139,7 +139,7 @@
                                 Width="120"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "Cubículos"
+                                <Label Content = "{x:Static p:Resources.CubiclesCard}"
                                    Width="120"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -155,7 +155,7 @@
                                 Width="150"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "Anfiteatro"
+                                <Label Content = "{x:Static p:Resources.AmphitheaterCard}"
                                    Width="150"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -172,7 +172,7 @@
                                 Width="150"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "Cancha"
+                                <Label Content = "{x:Static p:Resources.CourtCard}"
                                    Width="150"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -189,7 +189,7 @@
                                 Width="180"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "Estacionamiento"
+                                <Label Content = "{x:Static p:Resources.ParkingLotCard}"
                                    Width="180"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -205,7 +205,7 @@
                                 Width="190"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "Centro de cómputo"
+                                <Label Content = "{x:Static p:Resources.ComputerCenterCard}"
                                    Width="190"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -222,7 +222,7 @@
                                 Width="120"
                                 Height="20"
                                 CornerRadius="10">
-                                <Label Content = "Salón de maestros"
+                                <Label Content = "{x:Static p:Resources.TeachersLoungecard}"
                                    Width="120"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -366,8 +366,8 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        
-                            <Label Content = "Notas"
+
+                        <Label Content = "{x:Static p:Resources.LblNotes}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -468,7 +468,7 @@
                         </Border>
 
                         <Border Grid.Row="9">
-                            <Label Content = "No entregó tareas"
+                            <Label Content = "{x:Static p:Resources.NotSubmitHomeworkCard}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -479,7 +479,7 @@
                         </Border>
                         
                         <Border Grid.Row="10">
-                            <Label Content = "No presentó examen"
+                            <Label Content = "{x:Static p:Resources.NotTakeExamCard}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -490,7 +490,7 @@
                         </Border>
                         
                         <Border Grid.Row="11">
-                            <Label Content = "No presentó proyecto"
+                            <Label Content = "{x:Static p:Resources.NotSubmitProject}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -501,7 +501,7 @@
                         </Border>
                         
                         <Border Grid.Row="12">
-                            <Label Content = "Sin asistencias"
+                            <Label Content = "{x:Static p:Resources.NoAttendanceCard}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -512,7 +512,7 @@
                         </Border>
                         
                         <Border Grid.Row="13">
-                            <Label Content = "No pasó el título"
+                            <Label Content = "{x:Static p:Resources.FailedProficiencyExamCard}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -523,7 +523,7 @@
                         </Border>
                         
                         <Border Grid.Row="14">
-                            <Label Content = "Eligió ser feliz"
+                            <Label Content = "{x:Static p:Resources.ChoseToBeHappyCard}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -547,7 +547,7 @@
                         </Border>
 
                         <Border Grid.Row="16">
-                            <Label Content = "Salón cristal"
+                            <Label Content = "{x:Static p:Resources.GlassRoomCard}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -558,7 +558,7 @@
                         </Border>
                         
                         <Border Grid.Row="17">
-                            <Label Content = "Centro de cómputo"
+                            <Label Content = "{x:Static p:Resources.ComputerCenterCard}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -567,9 +567,9 @@
                                    Height="20"
                                    HorizontalContentAlignment="Left"/>
                         </Border>
-                        
+
                         <Border Grid.Row="18">
-                            <Label Content = "Salón de maestros"
+                            <Label Content = "{x:Static p:Resources.TeachersLoungecard}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -578,20 +578,9 @@
                                    Height="20"
                                    HorizontalContentAlignment="Left"/>
                         </Border>
-                        
-                        <Border Grid.Row="18">
-                            <Label Content = "Salón de maestros"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
+
                         <Border Grid.Row="19">
-                            <Label Content = "Salón F-103"
+                            <Label Content = "{x:Static p:Resources.F103ClassroomCard}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -602,7 +591,7 @@
                         </Border>
                         
                         <Border Grid.Row="20">
-                            <Label Content = "Cancha"
+                            <Label Content = "{x:Static p:Resources.CourtCard}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -613,7 +602,7 @@
                         </Border>
                         
                         <Border Grid.Row="21">
-                            <Label Content = "Estacionamiento"
+                            <Label Content = "{x:Static p:Resources.ParkingLotCard}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -624,7 +613,7 @@
                         </Border>
                         
                         <Border Grid.Row="22">
-                            <Label Content = "Cubículos"
+                            <Label Content = "{x:Static p:Resources.CubiclesCard}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -635,7 +624,7 @@
                         </Border>
                         
                         <Border Grid.Row="23">
-                            <Label Content = "Laboratorio"
+                            <Label Content = "{x:Static p:Resources.LaboratoryCard}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
@@ -646,7 +635,7 @@
                         </Border>
                         
                         <Border Grid.Row="24">
-                            <Label Content = "Anfiteatro"
+                            <Label Content = "{x:Static p:Resources.AmphitheaterCard}"
                                    Grid.Row="0"
                                    Foreground ="Black"
                                    FontWeight = "Medium"
