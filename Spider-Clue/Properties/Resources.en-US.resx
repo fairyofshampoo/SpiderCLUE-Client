@@ -383,4 +383,7 @@
   <data name="TeachersLoungecard" xml:space="preserve">
     <value>Teachers' Lounge</value>
   </data>
+  <data name="LblNotes" xml:space="preserve">
+    <value>Notas</value>
+  </data>
 </root>
