@@ -76,13 +76,13 @@
                                             <RowDefinition Height = "Auto"/>
                                         </Grid.RowDefinitions>
                                         <Label x:Name = "lblUserName" Content = "{x:Static p:Resources.LblUsername}"
-                           Foreground = "White"
-                           FontWeight = "Light"
-                           FontSize = "12"
-                           FontFamily = "Monsterrat"
-                           HorizontalAlignment="Center"
-                           Margin="0,10,0,0"
-                           Grid.Row="0"/>
+                                               Foreground = "White"
+                                               FontWeight = "Light"
+                                               FontSize = "12"
+                                               FontFamily = "Monsterrat"
+                                               HorizontalAlignment="Center"
+                                               Margin="0,10,0,0"
+                                               Grid.Row="0"/>
 
                                         <Label x:Name = "lblLevel" Content = "{x:Static p:Resources.LblLevel}"
                            Foreground = "White"
@@ -263,17 +263,17 @@
                                     <RowDefinition Height = "Auto"/>
                                     <RowDefinition Height = "Auto"/>
                                 </Grid.RowDefinitions>
-                                <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriends}"
-                           Foreground = "White"
-                           FontWeight = "Light"
-                           FontSize = "25"
-                           FontFamily = "Monsterrat"
-                           HorizontalAlignment="Center"
-                           VerticalAlignment="Top"
-                           Grid.Row="0"
-                           Margin="0,40,0,0" 
-                           Width="100">
-                                    <Label.LayoutTransform>
+                                    <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriends}"
+                                       Foreground = "White"
+                                       FontWeight = "Light"
+                                       FontSize = "25"
+                                       FontFamily = "Monsterrat"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Grid.Row="0"
+                                       Margin="0,40,0,0" 
+                                       Width="100">
+                                        <Label.LayoutTransform>
                                         <RotateTransform   Angle="270"/>
                                     </Label.LayoutTransform>
                                 </Label>
