@@ -1,5 +1,6 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
+using System;
 using System.Drawing;
 using System.Windows;
 using System.Windows.Input;
@@ -23,14 +24,48 @@ namespace Spider_Clue.Views
             IUserManager userManager = new SpiderClueService.UserManagerClient();
             if (userManager.IsGamertagExisting(gamertag))
             {
-                string icon = userManager.GetIcon(gamertag);
-                SetGamerData(gamertag, icon);
-                btnSendFriendRequest.Visibility = Visibility.Visible;
+                if (IsSearchValid(gamertag))
+                {
+                    string icon = userManager.GetIcon(gamertag);
+                    SetGamerData(gamertag, icon);
+                    btnSendFriendRequest.Visibility = Visibility.Visible;
+                }else
+                {
+                    string icon = userManager.GetIcon(gamertag);
+                    SetGamerData(gamertag, icon);
+                }
             }
             else
             {
                 ShowNotFoundMessage();
             }
+        }
+
+        private Boolean IsSearchValid(string friendGamertag)
+        {
+            return AreNotFriends(friendGamertag) && IsNotASelfFriendRequest(friendGamertag) && ThereIsNoFriendRequest(friendGamertag);
+        }
+
+        private Boolean AreNotFriends(string friendGamertag)
+        {
+            SpiderClueService.IFriendshipManager friendshipManager = new SpiderClueService.FriendshipManagerClient();
+            return friendshipManager.AreNotFriends(UserSingleton.Instance.GamerTag, friendGamertag);
+        }
+
+        private Boolean ThereIsNoFriendRequest(string friendGamertag)
+        {
+            SpiderClueService.IFriendshipManager friendshipManager = new SpiderClueService.FriendshipManagerClient();
+            return friendshipManager.ThereIsNoFriendRequest(UserSingleton.Instance.GamerTag, friendGamertag);
+        }
+
+        private Boolean IsNotASelfFriendRequest(string friendGamertag)
+        {
+            Boolean result = false;
+            if (friendGamertag != UserSingleton.Instance.GamerTag)
+            {
+                result = true;
+            }
+            return result;
         }
 
         private void ShowNotFoundMessage()
@@ -52,6 +87,7 @@ namespace Spider_Clue.Views
         {
             IFriendRequestManager friend = new SpiderClueService.FriendRequestManagerClient();
             friend.CreateFriendRequest(UserSingleton.Instance.GamerTag, lblGamertag.Content.ToString());
+            this.Close();
         }
 
     }
