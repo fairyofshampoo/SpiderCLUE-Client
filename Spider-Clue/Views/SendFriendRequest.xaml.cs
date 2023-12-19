@@ -29,7 +29,11 @@ namespace Spider_Clue.Views
                     string icon = userManager.GetIcon(gamertag);
                     SetGamerData(gamertag, icon);
                     btnSendFriendRequest.Visibility = Visibility.Visible;
-                } 
+                }else
+                {
+                    string icon = userManager.GetIcon(gamertag);
+                    SetGamerData(gamertag, icon);
+                }
             }
             else
             {
@@ -39,16 +43,22 @@ namespace Spider_Clue.Views
 
         private Boolean IsSearchValid(string friendGamertag)
         {
-            return AreFriends(friendGamertag) && IsASelfFriendRequest(friendGamertag);
+            return AreNotFriends(friendGamertag) && IsNotASelfFriendRequest(friendGamertag) && ThereIsNoFriendRequest(friendGamertag);
         }
 
-        private Boolean AreFriends(string friendGamertag)
+        private Boolean AreNotFriends(string friendGamertag)
         {
             SpiderClueService.IFriendshipManager friendshipManager = new SpiderClueService.FriendshipManagerClient();
-            return friendshipManager.AreFriends(UserSingleton.Instance.GamerTag, friendGamertag);
+            return friendshipManager.AreNotFriends(UserSingleton.Instance.GamerTag, friendGamertag);
         }
 
-        private Boolean IsASelfFriendRequest(string friendGamertag)
+        private Boolean ThereIsNoFriendRequest(string friendGamertag)
+        {
+            SpiderClueService.IFriendshipManager friendshipManager = new SpiderClueService.FriendshipManagerClient();
+            return friendshipManager.ThereIsNoFriendRequest(UserSingleton.Instance.GamerTag, friendGamertag);
+        }
+
+        private Boolean IsNotASelfFriendRequest(string friendGamertag)
         {
             Boolean result = false;
             if (friendGamertag != UserSingleton.Instance.GamerTag)
@@ -77,6 +87,7 @@ namespace Spider_Clue.Views
         {
             IFriendRequestManager friend = new SpiderClueService.FriendRequestManagerClient();
             friend.CreateFriendRequest(UserSingleton.Instance.GamerTag, lblGamertag.Content.ToString());
+            this.Close();
         }
 
     }

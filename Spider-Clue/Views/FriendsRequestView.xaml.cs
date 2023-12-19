@@ -1,16 +1,15 @@
 ﻿using Spider_Clue.Logic;
+using Spider_Clue.SpiderClueService;
 using System.Collections.ObjectModel;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for FriendsRequestView.xaml
-    /// </summary>
-    public partial class FriendsRequestView : Page
+    public partial class FriendsRequestView : Page, IFriendsManagerCallback
     {
-
+        private readonly FriendsManagerClient friendsManagerClient;
         public ObservableCollection<FriendRequest> FriendRequests { get; set; }
 
         public FriendsRequestView()
@@ -18,6 +17,7 @@ namespace Spider_Clue.Views
             InitializeComponent();
             FriendRequests = new ObservableCollection<FriendRequest>();
             FriendRequestGrid.ItemsSource = FriendRequests;
+            friendsManagerClient = new FriendsManagerClient(new InstanceContext(this));
             ShowFriendRequestList();          
         }
 
@@ -97,7 +97,13 @@ namespace Spider_Clue.Views
 
         private void BtnChangeFriendRequest(object sender, RoutedEventArgs e)
         {
+            friendsManagerClient.GetConnectedFriends(UserSingleton.Instance.GamerTag);
+        }
 
+        public void ReceiveConnectedFriends(string[] connectedFriends)
+        {
+            FriendsListView friendListView = new FriendsListView(connectedFriends);
+            NavigationService.Navigate(friendListView);
         }
     }
 }
