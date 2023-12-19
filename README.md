@@ -25,8 +25,6 @@ git clone https://github.com/fairyofshampoo/SpiderCLUE-Client.git
 
 # Ingresa al directorio del proyecto
 cd SpiderCLUE-Client
-
-dotnet run
 ```
 
 ## Uso
