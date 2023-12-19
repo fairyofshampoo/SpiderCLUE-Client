@@ -430,6 +430,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Better Luck Next Time.
+        /// </summary>
+        public static string LblBetterLuckNextTime {
+            get {
+                return ResourceManager.GetString("LblBetterLuckNextTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change Avatar.
         /// </summary>
         public static string LblChangeAvatar {
@@ -750,6 +759,15 @@ namespace Spider_Clue.Properties {
         public static string LblUsername {
             get {
                 return ResourceManager.GetString("LblUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Winner.
+        /// </summary>
+        public static string LblWinner {
+            get {
+                return ResourceManager.GetString("LblWinner", resourceCulture);
             }
         }
         

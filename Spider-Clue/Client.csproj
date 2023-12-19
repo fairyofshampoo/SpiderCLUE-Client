@@ -112,6 +112,9 @@
     <Compile Include="Views\GameBoardView.xaml.cs">
       <DependentUpon>GameBoardView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\GameResultsView.xaml.cs">
+      <DependentUpon>GameResultsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LanguageSettings.xaml.cs">
       <DependentUpon>LanguageSettings.xaml</DependentUpon>
     </Compile>
@@ -201,6 +204,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GameBoardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GameResultsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -472,6 +479,8 @@
     <Resource Include="Images\Icons\sendCodeIcon.png" />
     <Resource Include="Images\Background\WoodBackground.jpg" />
     <Resource Include="Images\Elements\ClipBoard.png" />
+    <Resource Include="Images\Background\GameResults.jpg" />
+    <Resource Include="Images\Icons\CrownIcon.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />

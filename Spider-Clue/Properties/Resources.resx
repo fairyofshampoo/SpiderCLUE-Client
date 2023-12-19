@@ -386,4 +386,10 @@
   <data name="LblNotes" xml:space="preserve">
     <value>Notes</value>
   </data>
+  <data name="LblBetterLuckNextTime" xml:space="preserve">
+    <value>Better Luck Next Time</value>
+  </data>
+  <data name="LblWinner" xml:space="preserve">
+    <value>Winner</value>
+  </data>
 </root>
