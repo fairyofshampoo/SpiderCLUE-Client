@@ -30,8 +30,27 @@ namespace Spider_Clue.Views
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
+            if (UserSingleton.Instance.IsGuestPlayer)
+            {
+                GoToMainMenuGuestView();
+            }
+            else
+            {
+                GoToMainMenuView();
+            }
+            
+        }
+
+        private void GoToMainMenuView()
+        {
             MainMenuView mainMenuView = new MainMenuView();
             this.NavigationService.Navigate(mainMenuView);
+        }
+
+        private void GoToMainMenuGuestView()
+        {
+            MainMenuForGuestView mainMenuGuestView = new MainMenuForGuestView();
+            this.NavigationService.Navigate(mainMenuGuestView);
         }
 
         private void LblLanguage_Click(object sender, MouseButtonEventArgs e)

@@ -1,0 +1,143 @@
+﻿<Window x:Class="Spider_Clue.Views.SendFriendRequest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Spider_Clue.Views"
+        xmlns:p = "clr-namespace:Spider_Clue.Properties"
+        mc:Ignorable="d" Height="200" Width="500">
+
+    <Grid>
+        <Border CornerRadius="10" 
+                Background="#B45959">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid
+                    Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width = "Auto"/>
+                        <ColumnDefinition Width = "Auto"/>
+                        <ColumnDefinition Width = "Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Label x:Name = "lblSearchGamertag" Content = "{x:Static p:Resources.LblUsername}"
+                           Foreground = "White"
+                           FontWeight = "Light"
+                           FontSize = "25"
+                           FontFamily = "Monsterrat"
+                           HorizontalAlignment = "Left"
+                           Margin = "50,10,0,0"
+                           Grid.Row = "0"/>
+                    <Border CornerRadius = "5" BorderBrush = "LightGray" BorderThickness = "3" Grid.Column = "1" Height = "30" Width = "200" Margin = "10,10,12,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBox x:Name="txtSearchGamer" 
+                                         Grid.Column="0" 
+                                         FontSize="18" 
+                                         FontWeight="Medium" 
+                                         FontFamily="Montserrat" 
+                                         Background="LightGray" 
+                                         Foreground="Black" 
+                                         BorderThickness="0"
+                                         Width="170"/>
+                            <Border
+                                    Background="LightGray"
+                                    Grid.Column="1">
+                                <Image x:Name="SearchIcon"  
+                                           Stretch="UniformToFill" 
+                                           Width="20" Height="20"
+                                           Source="/Images/Icons/SearchIcon.png"
+                                           MouseDown="Search_Click"
+                                           HorizontalAlignment="Right"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Grid>
+                <Border 
+                    x:Name="searchData"
+                    CornerRadius = "13"
+                    Grid.Row = "1"
+                    Background = "#655E73"
+                    Width = "290"
+                    Height = "100"
+                    Margin = "10"
+                    HorizontalAlignment="Center"
+                    Visibility = "Collapsed">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border 
+                                Height="80"
+                                Width="80"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Grid.Column="0"
+                                CornerRadius="10"
+                                Margin="25,0,0,0">
+                            <Border.Background>
+                                <ImageBrush ImageSource ="{Binding Path = ImagePath}"
+                                Stretch = "UniformToFill">
+                                </ImageBrush>
+                            </Border.Background>
+                        </Border>
+                        <Grid
+                            Grid.Column = "1">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+
+                            <Label x:Name = "lblGamertag" Content = "{x:Static p:Resources.LblUsername}"
+                                    Foreground = "White"
+                                    FontWeight = "Light"
+                                    FontSize = "16"
+                                    FontFamily = "Monsterrat"
+                                    VerticalContentAlignment = "Top"
+                                    HorizontalAlignment = "Center"
+                                    Grid.Row="0" 
+                                    Margin="15,10,0,0"/>
+
+                            <Button x:Name="btnSendFriendRequest"
+                                    Visibility = "Collapsed"
+                                    Content="{x:Static p:Resources.BtnFriendRequest}"
+                                    Foreground="White"
+                                    FontSize="8"
+                                    FontWeight="Bold"
+                                    Cursor="Hand"
+                                    Margin="15,10,0,0"
+                                    HorizontalAlignment="Center" 
+                                    Width="82"
+                                    Grid.Row="1" Click="BtnSendFriendRequest_Click">
+                                <Button.Style>
+                                    <Style TargetType="Button">
+                                        <Setter Property="Background" Value="#FAA465"/>
+                                    </Style>
+                                </Button.Style>
+                                <Button.Template>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Width="80" Height="20"
+                                                CornerRadius="5"
+                                                Background="{TemplateBinding Background}">
+                                            <ContentPresenter VerticalAlignment="Center"
+                                                              HorizontalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

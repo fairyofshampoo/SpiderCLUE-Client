@@ -18,7 +18,7 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
             Loaded += PageLoaded;
-          //  Utilities.PlayMainThemeSong(mainThemePlayer);
+            Utilities.PlayMainThemeSong(mainThemePlayer);
             friendsManagerClient = new FriendsManagerClient(new InstanceContext(this));
             ConnectToService();
         }
@@ -31,7 +31,7 @@ namespace Spider_Clue.Views
         {
             lblUserName.Content = UserSingleton.Instance.GamerTag;
             lblLevel.Content = UserSingleton.Instance.Level;
-            string iconPath = Utilities.GetImagePathForIcon();
+            string iconPath = Utilities.GetImagePathForIcon(UserSingleton.Instance.ImageCode);
             this.DataContext = new { ImagePath = iconPath };
         }
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
@@ -51,6 +51,8 @@ namespace Spider_Clue.Views
             Window mainWindow = Window.GetWindow(this);
             SearchGameView searchGamePopUp = new SearchGameView();
             searchGamePopUp.Owner = mainWindow;
+            searchGamePopUp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            SearchGameView.MenuView = this;
             searchGamePopUp.ShowDialog();
         }
 
@@ -69,12 +71,13 @@ namespace Spider_Clue.Views
         private void BtnPlay_Click(object sender, RoutedEventArgs e)
         {
             CreateMatch();
-            GoToLobbyView();
+       //     GoToLobbyView();
         }
 
         private void CreateMatch()
         {
-            
+            SpiderClueService.IMatchManager matchManager = new SpiderClueService.MatchManagerClient(new InstanceContext(this));
+            matchManager.CreateMatch(UserSingleton.Instance.GamerTag);
         }
 
         private void GoToLobbyView()

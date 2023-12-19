@@ -1,0 +1,760 @@
+﻿<Page x:Class="Spider_Clue.Views.GameBoardView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Spider_Clue.Views"
+      mc:Ignorable="d" 
+      xmlns:p = "clr-namespace:Spider_Clue.Properties"
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="GameBoardView">
+
+    <Grid>
+        <Border>
+            <Border.Background>
+                <ImageBrush ImageSource="/Images/Background/WoodBackground.jpg" Stretch="UniformToFill" />
+            </Border.Background>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="0"
+                Width="800"
+                CornerRadius="10"
+                Margin="30">
+                    <Border Width="750"
+                    Height="600">
+                        <Border.Background>
+                            <ImageBrush ImageSource = "/Images/Elements/ClueBoard.png">
+                            </ImageBrush>
+                        </Border.Background>
+                        <Grid Margin="42,26,42,24">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="23"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                                <RowDefinition Height="24"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="31"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="31"/>
+                                <ColumnDefinition Width="31"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="31"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="31"/>
+                                <ColumnDefinition Width="31"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                                <ColumnDefinition Width="30"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Background="Black"
+                                Grid.ColumnSpan = "4"
+                                Grid.Row="0"
+                                Width="120"
+                                Height="20"
+                                CornerRadius="10">
+                                <Label Content = "{x:Static p:Resources.F103ClassroomCard}"
+                                   Width="120"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "9"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "20"/>
+                            </Border>
+
+                            <Border Background="Black"
+                                Grid.ColumnSpan = "5"
+                                Grid.Row="7"
+                                Width="150"
+                                Height="20"
+                                CornerRadius="10">
+                                <Label Content = "{x:Static p:Resources.GlassRoomCard}"
+                                   Width="150"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "9"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "20"/>
+                            </Border>
+
+                            <Border Background="Black"
+                                Grid.ColumnSpan = "4"
+                                Grid.Row="13"
+                                Width="120"
+                                Height="20"
+                                CornerRadius="10">
+                                <Label Content = "{x:Static p:Resources.LaboratoryCard}"
+                                   Width="120"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "9"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "20"/>
+                            </Border>
+
+                            <Border Background="Black"
+                                Grid.ColumnSpan = "4"
+                                Grid.Row="20"
+                                Width="120"
+                                Height="20"
+                                CornerRadius="10">
+                                <Label Content = "{x:Static p:Resources.CubiclesCard}"
+                                   Width="120"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "9"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "20"/>
+                            </Border>
+
+                            <Border Background="Black"
+                                Grid.ColumnSpan = "22"
+                                Grid.Row="1"
+                                Width="150"
+                                Height="20"
+                                CornerRadius="10">
+                                <Label Content = "{x:Static p:Resources.AmphitheaterCard}"
+                                   Width="150"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "9"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "20"/>
+                            </Border>
+
+                            <Border Background="Black"
+                                Grid.Column="17"
+                                Grid.ColumnSpan = "5"
+                                Grid.Row="1"
+                                Width="150"
+                                Height="20"
+                                CornerRadius="10">
+                                <Label Content = "{x:Static p:Resources.CourtCard}"
+                                   Width="150"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "9"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "20"/>
+                            </Border>
+
+                            <Border Background="Black"
+                                Grid.Column="16"
+                                Grid.ColumnSpan = "6"
+                                Grid.Row="10"
+                                Width="180"
+                                Height="20"
+                                CornerRadius="10">
+                                <Label Content = "{x:Static p:Resources.ParkingLotCard}"
+                                   Width="180"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "9"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "20"/>
+                            </Border>
+
+                            <Border Background="Black"
+                                Grid.ColumnSpan = "22"
+                                Grid.Row="20"
+                                Width="190"
+                                Height="20"
+                                CornerRadius="10">
+                                <Label Content = "{x:Static p:Resources.ComputerCenterCard}"
+                                   Width="190"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "9"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "20"/>
+                            </Border>
+
+                            <Border Background="Black"
+                                Grid.Column="17"
+                                Grid.ColumnSpan = "6"
+                                Grid.Row="20"
+                                Width="120"
+                                Height="20"
+                                CornerRadius="10">
+                                <Label Content = "{x:Static p:Resources.TeachersLoungecard}"
+                                   Width="120"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "9"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" 
+                                   Height = "20"/>
+                            </Border>
+                        </Grid>
+                    </Border>
+                </Border>
+                <Grid Grid.Column="1"
+              Margin="0,30,0,0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Border 
+                        CornerRadius = "30"
+                        Background = "#AB2E2E"
+                        Width = "100"
+                        Height = "100"
+                        Margin = "0,50,0,0"
+                        Grid.Row="0">
+                        <Border Margin="10,21,10,10">
+                            <Border.Background>
+                                <ImageBrush ImageSource = "/Images/Icons/LeaveIcon.png"
+                            Stretch = "UniformToFill">
+                                </ImageBrush>
+                            </Border.Background>
+                        </Border>
+                    </Border>
+
+                    <Border 
+                        CornerRadius = "30"
+                        Background = "#EEF8EB"
+                        Width = "100"
+                        Height = "100"
+                        Margin = "0,50,0,0"
+                        Grid.Row="1">
+                        <Border Margin="10,10,10,10">
+                            <Border.Background>
+                                <ImageBrush ImageSource = "/Images/Icons/CardsIcon.png"
+                            Stretch = "UniformToFill">
+                                </ImageBrush>
+                            </Border.Background>
+                        </Border>
+                    </Border>
+
+                    <Border 
+                        CornerRadius = "30"
+                        Background = "#EEF8EB"
+                        Width = "100"
+                        Height = "100"
+                        Margin = "0,50,0,0"
+                        Grid.Row="2">
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush ImageSource = "/Images/Icons/DiceIcon.png"
+                            Stretch = "UniformToFill">
+                                </ImageBrush>
+                            </Border.Background>
+                        </Border>
+                    </Border>
+
+                    <Border 
+                        CornerRadius = "30"
+                        Background = "#EEF8EB"
+                        Width = "100"
+                        Height = "100"
+                        Margin = "0,50,0,0"
+                        Grid.Row = "3">
+                        <Border Margin = "10,10,10,10">
+                            <Border.Background>
+                                <ImageBrush ImageSource = "/Images/Icons/AccusationIcon.png"
+                            Stretch = "UniformToFill">
+                                </ImageBrush>
+                            </Border.Background>
+                        </Border>
+                    </Border>
+                </Grid>
+
+                <Border
+                Grid.Column="2"
+                Width="306"
+                Height="670"
+                HorizontalAlignment="Left"
+                Margin="35,-4,0,54">
+                    <Border.Background>
+                        <ImageBrush ImageSource="/Images/Elements/ClipBoard.png" 
+                                    Stretch="Fill"/>
+                    </Border.Background>
+                    <Grid Width="237"
+                          HorizontalAlignment="Left"
+                           Margin="10,127,0,21">
+
+                        <Grid.Resources>
+                           
+                            <Style TargetType="Border">
+                                <Setter Property="BorderBrush" Value="Black"/>
+                                <Setter Property="BorderThickness" Value="1"/>
+                            </Style>
+                        </Grid.Resources>
+                        
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="34"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+
+                        <Label Content = "{x:Static p:Resources.LblNotes}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "20"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" Margin="94,0,0,0"/>
+
+                        <Border Grid.Row="1"
+                                Grid.ColumnSpan="5"
+                                Background="Gray">
+                            <Label Content = "SOSPECHOSO"
+                                   Grid.Row="0"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="2">
+                            <Label Content = "Doc Och"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="3">
+                            <Label Content = "MysteRevo"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="4">
+                            <Label Content = "RhinoSidro"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="5">
+                            <Label Content = "Electro-Juan"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="6">
+                            <Label Content = "Xand-Man"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="7">
+                            <Label Content = "Vernom"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="8"
+                                Grid.ColumnSpan="5"
+                                Background="Gray">
+                            <Label Content = "MOTIVO"
+                                   Grid.Row="0"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="9">
+                            <Label Content = "{x:Static p:Resources.NotSubmitHomeworkCard}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="21"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="10">
+                            <Label Content = "{x:Static p:Resources.NotTakeExamCard}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="11">
+                            <Label Content = "{x:Static p:Resources.NotSubmitProject}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="12">
+                            <Label Content = "{x:Static p:Resources.NoAttendanceCard}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="13">
+                            <Label Content = "{x:Static p:Resources.FailedProficiencyExamCard}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="14">
+                            <Label Content = "{x:Static p:Resources.ChoseToBeHappyCard}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="15"
+                                Grid.ColumnSpan="5"
+                                Background="Gray">
+                            <Label Content = "LUGAR"
+                                   Grid.Row="0"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="16">
+                            <Label Content = "{x:Static p:Resources.GlassRoomCard}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="17">
+                            <Label Content = "{x:Static p:Resources.ComputerCenterCard}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="18">
+                            <Label Content = "{x:Static p:Resources.TeachersLoungecard}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="19">
+                            <Label Content = "{x:Static p:Resources.F103ClassroomCard}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="20">
+                            <Label Content = "{x:Static p:Resources.CourtCard}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="21">
+                            <Label Content = "{x:Static p:Resources.ParkingLotCard}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="22">
+                            <Label Content = "{x:Static p:Resources.CubiclesCard}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="23">
+                            <Label Content = "{x:Static p:Resources.LaboratoryCard}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+                        
+                        <Border Grid.Row="24">
+                            <Label Content = "{x:Static p:Resources.AmphitheaterCard}"
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "10"
+                                   FontFamily = "Monsterrat"
+                                   Height="20"
+                                   HorizontalContentAlignment="Left"/>
+                        </Border>
+
+                        <Border Grid.Row="2" Grid.Column="1"/>
+                        <Border Grid.Row="2" Grid.Column="2"/>
+                        <Border Grid.Row="2" Grid.Column="3"/>
+                        <Border Grid.Row="2" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="3" Grid.Column="1"/>
+                        <Border Grid.Row="3" Grid.Column="2"/>
+                        <Border Grid.Row="3" Grid.Column="3"/>
+                        <Border Grid.Row="3" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="4" Grid.Column="1"/>
+                        <Border Grid.Row="4" Grid.Column="2"/>
+                        <Border Grid.Row="4" Grid.Column="3"/>
+                        <Border Grid.Row="4" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="5" Grid.Column="1"/>
+                        <Border Grid.Row="5" Grid.Column="2"/>
+                        <Border Grid.Row="5" Grid.Column="3"/>
+                        <Border Grid.Row="5" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="6" Grid.Column="1"/>
+                        <Border Grid.Row="6" Grid.Column="2"/>
+                        <Border Grid.Row="6" Grid.Column="3"/>
+                        <Border Grid.Row="6" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="7" Grid.Column="1"/>
+                        <Border Grid.Row="7" Grid.Column="2"/>
+                        <Border Grid.Row="7" Grid.Column="3"/>
+                        <Border Grid.Row="7" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="9" Grid.Column="1"/>
+                        <Border Grid.Row="9" Grid.Column="2"/>
+                        <Border Grid.Row="9" Grid.Column="3"/>
+                        <Border Grid.Row="9" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="10" Grid.Column="1"/>
+                        <Border Grid.Row="10" Grid.Column="2"/>
+                        <Border Grid.Row="10" Grid.Column="3"/>
+                        <Border Grid.Row="10" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="11" Grid.Column="1"/>
+                        <Border Grid.Row="11" Grid.Column="2"/>
+                        <Border Grid.Row="11" Grid.Column="3"/>
+                        <Border Grid.Row="11" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="12" Grid.Column="1"/>
+                        <Border Grid.Row="12" Grid.Column="2"/>
+                        <Border Grid.Row="12" Grid.Column="3"/>
+                        <Border Grid.Row="12" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="13" Grid.Column="1"/>
+                        <Border Grid.Row="13" Grid.Column="2"/>
+                        <Border Grid.Row="13" Grid.Column="3"/>
+                        <Border Grid.Row="13" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="14" Grid.Column="1"/>
+                        <Border Grid.Row="14" Grid.Column="2"/>
+                        <Border Grid.Row="14" Grid.Column="3"/>
+                        <Border Grid.Row="14" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="16" Grid.Column="1"/>
+                        <Border Grid.Row="16" Grid.Column="2"/>
+                        <Border Grid.Row="16" Grid.Column="3"/>
+                        <Border Grid.Row="16" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="17" Grid.Column="1"/>
+                        <Border Grid.Row="17" Grid.Column="2"/>
+                        <Border Grid.Row="17" Grid.Column="3"/>
+                        <Border Grid.Row="17" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="18" Grid.Column="1"/>
+                        <Border Grid.Row="18" Grid.Column="2"/>
+                        <Border Grid.Row="18" Grid.Column="3"/>
+                        <Border Grid.Row="18" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="19" Grid.Column="1"/>
+                        <Border Grid.Row="19" Grid.Column="2"/>
+                        <Border Grid.Row="19" Grid.Column="3"/>
+                        <Border Grid.Row="19" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="20" Grid.Column="1"/>
+                        <Border Grid.Row="20" Grid.Column="2"/>
+                        <Border Grid.Row="20" Grid.Column="3"/>
+                        <Border Grid.Row="20" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="21" Grid.Column="1"/>
+                        <Border Grid.Row="21" Grid.Column="2"/>
+                        <Border Grid.Row="21" Grid.Column="3"/>
+                        <Border Grid.Row="21" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="22" Grid.Column="1"/>
+                        <Border Grid.Row="22" Grid.Column="2"/>
+                        <Border Grid.Row="22" Grid.Column="3"/>
+                        <Border Grid.Row="22" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="23" Grid.Column="1"/>
+                        <Border Grid.Row="23" Grid.Column="2"/>
+                        <Border Grid.Row="23" Grid.Column="3"/>
+                        <Border Grid.Row="23" Grid.Column="4"/>
+                        
+                        <Border Grid.Row="24" Grid.Column="1"/>
+                        <Border Grid.Row="24" Grid.Column="2"/>
+                        <Border Grid.Row="24" Grid.Column="3"/>
+                        <Border Grid.Row="24" Grid.Column="4"/>
+                        
+                        
+
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

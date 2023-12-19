@@ -326,4 +326,70 @@
   <data name="InformationTitle" xml:space="preserve">
     <value>INFORMATION</value>
   </data>
+  <data name="BtnFriendRequest" xml:space="preserve">
+    <value>Send Friend Request</value>
+  </data>
+  <data name="ResultsNotFoundMessage" xml:space="preserve">
+    <value>Results not found</value>
+  </data>
+  <data name="GameHasEndedMessage" xml:space="preserve">
+    <value>The game has ended. Try joining another one.</value>
+  </data>
+  <data name="GameIsFullMessage" xml:space="preserve">
+    <value>The games is full. Please try joining another one</value>
+  </data>
+  <data name="AmphitheaterCard" xml:space="preserve">
+    <value>Amphitheater</value>
+  </data>
+  <data name="ChoseToBeHappyCard" xml:space="preserve">
+    <value>Chose to be happy</value>
+  </data>
+  <data name="ComputerCenterCard" xml:space="preserve">
+    <value>Computer Center</value>
+  </data>
+  <data name="CourtCard" xml:space="preserve">
+    <value>Court</value>
+  </data>
+  <data name="CubiclesCard" xml:space="preserve">
+    <value>Cubicles</value>
+  </data>
+  <data name="F103ClassroomCard" xml:space="preserve">
+    <value>Classroom F-103</value>
+  </data>
+  <data name="FailedProficiencyExamCard" xml:space="preserve">
+    <value>Did not pass profiency exam</value>
+  </data>
+  <data name="GlassRoomCard" xml:space="preserve">
+    <value>Glass Room</value>
+  </data>
+  <data name="LaboratoryCard" xml:space="preserve">
+    <value>Laboratory</value>
+  </data>
+  <data name="NoAttendanceCard" xml:space="preserve">
+    <value>No attendance</value>
+  </data>
+  <data name="NotSubmitHomeworkCard" xml:space="preserve">
+    <value>Did not submit homework</value>
+  </data>
+  <data name="NotSubmitProject" xml:space="preserve">
+    <value>Did not submit project</value>
+  </data>
+  <data name="NotTakeExamCard" xml:space="preserve">
+    <value>Did not take the exam</value>
+  </data>
+  <data name="ParkingLotCard" xml:space="preserve">
+    <value>Parking Lot</value>
+  </data>
+  <data name="TeachersLoungecard" xml:space="preserve">
+    <value>Teachers' Lounge</value>
+  </data>
+  <data name="LblNotes" xml:space="preserve">
+    <value>Notes</value>
+  </data>
+  <data name="LblBetterLuckNextTime" xml:space="preserve">
+    <value>Better Luck Next Time</value>
+  </data>
+  <data name="LblWinner" xml:space="preserve">
+    <value>Winner</value>
+  </data>
 </root>

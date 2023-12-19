@@ -6,13 +6,12 @@
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
       xmlns:local="clr-namespace:Spider_Clue.Views"
       mc:Ignorable="d" 
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Title="SelectAvatarView">
+      d:DesignHeight="720" d:DesignWidth="1280">
 
     <Grid>
         <Border>
             <Border.Background>
-                <ImageBrush ImageSource = "/Images/backgroundREGISTER.png"
+                <ImageBrush ImageSource = "/Images/Background/backgroundREGISTER.png"
                             Stretch = "UniformToFill">
                 </ImageBrush>
             </Border.Background>
@@ -28,7 +27,7 @@
                 Cursor="Hand">
             <Button.Template>
                 <ControlTemplate>
-                    <Image Source="/Images/GoBackIcon.png" 
+                    <Image Source="/Images/Icons/GoBackIcon.png" 
                                     Stretch="Uniform">
                     </Image>
                 </ControlTemplate>
@@ -75,7 +74,7 @@
                             BorderBrush = "Black"
 >
                         <Image x:Name = "Icon1" 
-                               Source = "/Images/Icon1.JPG"
+                               Source = "/Images/Avatars/Icon1.JPG"
                                Height = "100"
                                Margin = "45,30,0,0"
                                Stretch = "UniformToFill"
@@ -86,7 +85,7 @@
                     <Border Grid.Row = "0"
                             Grid.Column = "1">
                         <Image x:Name = "Icon2" 
-                               Source = "/Images/Icon2.JPG"
+                               Source = "/Images/Avatars/Icon2.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
                                MouseDown = "Image_Click"
@@ -96,7 +95,7 @@
                     <Border Grid.Row = "0"
                             Grid.Column = "2">
                         <Image x:Name = "Icon3" 
-                               Source = "/Images/Icon3.JPG"
+                               Source = "/Images/Avatars/Icon3.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
                                MouseDown = "Image_Click"
@@ -106,7 +105,7 @@
                     <Border Grid.Row = "0"
                             Grid.Column = "3">
                         <Image x:Name = "Icon4" 
-                               Source = "/Images/Icon4.JPG"
+                               Source = "/Images/Avatars/Icon4.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
                                MouseDown = "Image_Click"
@@ -116,7 +115,7 @@
                     <Border Grid.Row = "1"
                             Grid.Column = "0">
                         <Image x:Name = "Icon5" 
-                               Source = "/Images/Icon5.JPG"
+                               Source = "/Images/Avatars/Icon5.JPG"
                                Height = "100"
                                Margin = "45,30,0,0"
                                MouseDown = "Image_Click"
@@ -126,7 +125,7 @@
                     <Border Grid.Row = "1"
                             Grid.Column = "1">
                         <Image x:Name = "Icon6" 
-                               Source = "/Images/Icon6.JPG"
+                               Source = "/Images/Avatars/Icon6.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
                                MouseDown = "Image_Click"
@@ -136,7 +135,7 @@
                     <Border Grid.Row = "1"
                             Grid.Column = "2">
                         <Image x:Name = "Icon7" 
-                               Source = "/Images/Icon7.JPG"
+                               Source = "/Images/Avatars/Icon7.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
                                MouseDown = "Image_Click"
@@ -146,7 +145,7 @@
                     <Border Grid.Row = "1"
                             Grid.Column = "3">
                         <Image x:Name = "Icon8" 
-                               Source = "/Images/Icon8.JPG"
+                               Source = "/Images/Avatars/Icon8.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
                                MouseDown = "Image_Click"

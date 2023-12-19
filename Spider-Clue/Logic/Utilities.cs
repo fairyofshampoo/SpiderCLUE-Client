@@ -56,14 +56,6 @@ namespace Spider_Clue.Logic
             }
         }
 
-        public static Image SetUserIcon(Image imageIcon)
-        {
-            string iconName = UserSingleton.Instance.ImageCode;
-            imageIcon.Source = new BitmapImage(new Uri(@"Images/"+ iconName + ".jpg", UriKind.Relative));
-
-            return imageIcon;
-        }
-
         private static string GetMainThemeSongPath()
         {
             string PathDirectory = AppDomain.CurrentDomain.BaseDirectory;
@@ -71,9 +63,9 @@ namespace Spider_Clue.Logic
             return PathProyectoDirectory + "Spider-Clue\\Audio\\MainMenuSong.wav";
         }
 
-        public static string GetImagePathForIcon()
+        public static string GetImagePathForIcon(string imageCode)
         {
-            return GetImagePathForImages() + UserSingleton.Instance.ImageCode;
+            return GetImagePathForImages() + "Avatars\\" + imageCode;
         }
 
         public static string GetImagePathForImages()
@@ -95,6 +87,7 @@ namespace Spider_Clue.Logic
         {
             CodeInputDialog codeInputPopUp = new CodeInputDialog();
             codeInputPopUp.Owner = mainWindow;
+            codeInputPopUp.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
             string codeFromInput = null;
 

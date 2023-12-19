@@ -31,7 +31,7 @@ namespace Spider_Clue.Views
         {
             Utilities.PlayButtonClickSound();
             SetGuessPlayerData();
-            DisplayMainMenuView();
+            DisplayMainMenuGuestView();
         }
 
         private void LblForgotPassword_Clicked(object sender, MouseButtonEventArgs e)
@@ -43,14 +43,20 @@ namespace Spider_Clue.Views
 
         private void SetGuessPlayerData()
         {
-            string guessPlayerUsername = GenerateGuessPlayerUsername();
-            //UserSingleton.Instance.Initialize();
+            int minimumLevel = 0;
+            string guestPlayerUsername = GenerateGuestPlayerUsername();
+            UserSingleton.Instance.GamerTag = guestPlayerUsername;
+            UserSingleton.Instance.Level = minimumLevel;
+            UserSingleton.Instance.ImageCode = "Icon0.jpg";
+            UserSingleton.Instance.Name = "Guest";
+            UserSingleton.Instance.LastName = "Player";
+            UserSingleton.Instance.IsGuestPlayer = true;
         }
 
-        private string GenerateGuessPlayerUsername()
+        private string GenerateGuestPlayerUsername()
         {
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            return userManager.RequestGuessPlayer();
+            return userManager.RequestGuestPlayer();
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
@@ -184,6 +190,12 @@ namespace Spider_Clue.Views
             this.NavigationService.Navigate(mainMenuView);
         }
 
+        private void DisplayMainMenuGuestView()
+        {
+            MainMenuForGuestView mainMenuGuestView = new MainMenuForGuestView();
+            this.NavigationService.Navigate(mainMenuGuestView);
+        }
+
         private bool ValidateCredentials()
         {
             string username = txtUsername.Text;
@@ -238,11 +250,12 @@ namespace Spider_Clue.Views
             }
         }
 
-        private void SetPasswordIcon(string iconFileName)
+        private void SetPasswordIcon(string iconPassword)
         {
-            Uri newImageUri = new Uri($"/Images/{iconFileName}", UriKind.Relative);
+            Uri newImageUri = new Uri($"/Images/Icons/{iconPassword}", UriKind.Relative);
             BitmapImage newImageSource = new BitmapImage(newImageUri);
-            Image imgPasswordIcon = btnPasswordVisibility.Template.FindName("imgPasswordIcon", btnPasswordVisibility) as Image;
+            Image imgPasswordIcon = new Image();
+            imgPasswordIcon = btnPasswordVisibility.Template.FindName("imgPasswordIcon", btnPasswordVisibility) as Image;
             imgPasswordIcon.Source = newImageSource;
         }
 

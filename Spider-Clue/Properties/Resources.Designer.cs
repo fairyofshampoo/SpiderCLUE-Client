@@ -70,6 +70,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Amphitheater.
+        /// </summary>
+        public static string AmphitheaterCard {
+            get {
+                return ResourceManager.GetString("AmphitheaterCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Add Friend.
         /// </summary>
         public static string BtnAddFriend {
@@ -111,6 +120,15 @@ namespace Spider_Clue.Properties {
         public static string BtnExitToDesktop {
             get {
                 return ResourceManager.GetString("BtnExitToDesktop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send Friend Request.
+        /// </summary>
+        public static string BtnFriendRequest {
+            get {
+                return ResourceManager.GetString("BtnFriendRequest", resourceCulture);
             }
         }
         
@@ -214,6 +232,42 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Chose to be happy.
+        /// </summary>
+        public static string ChoseToBeHappyCard {
+            get {
+                return ResourceManager.GetString("ChoseToBeHappyCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Computer Center.
+        /// </summary>
+        public static string ComputerCenterCard {
+            get {
+                return ResourceManager.GetString("ComputerCenterCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Court.
+        /// </summary>
+        public static string CourtCard {
+            get {
+                return ResourceManager.GetString("CourtCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cubicles.
+        /// </summary>
+        public static string CubiclesCard {
+            get {
+                return ResourceManager.GetString("CubiclesCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your account has been banned.
         /// </summary>
         public static string DlgAccountBanned {
@@ -268,6 +322,51 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Classroom F-103.
+        /// </summary>
+        public static string F103ClassroomCard {
+            get {
+                return ResourceManager.GetString("F103ClassroomCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Did not pass profiency exam.
+        /// </summary>
+        public static string FailedProficiencyExamCard {
+            get {
+                return ResourceManager.GetString("FailedProficiencyExamCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The game has ended. Try joining another one..
+        /// </summary>
+        public static string GameHasEndedMessage {
+            get {
+                return ResourceManager.GetString("GameHasEndedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The games is full. Please try joining another one.
+        /// </summary>
+        public static string GameIsFullMessage {
+            get {
+                return ResourceManager.GetString("GameIsFullMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Glass Room.
+        /// </summary>
+        public static string GlassRoomCard {
+            get {
+                return ResourceManager.GetString("GlassRoomCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Guess .
         /// </summary>
         public static string GuessName {
@@ -282,6 +381,15 @@ namespace Spider_Clue.Properties {
         public static string InformationTitle {
             get {
                 return ResourceManager.GetString("InformationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Laboratory.
+        /// </summary>
+        public static string LaboratoryCard {
+            get {
+                return ResourceManager.GetString("LaboratoryCard", resourceCulture);
             }
         }
         
@@ -318,6 +426,15 @@ namespace Spider_Clue.Properties {
         public static string LblAudioSettingsTitle {
             get {
                 return ResourceManager.GetString("LblAudioSettingsTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Better Luck Next Time.
+        /// </summary>
+        public static string LblBetterLuckNextTime {
+            get {
+                return ResourceManager.GetString("LblBetterLuckNextTime", resourceCulture);
             }
         }
         
@@ -556,6 +673,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Notes.
+        /// </summary>
+        public static string LblNotes {
+            get {
+                return ResourceManager.GetString("LblNotes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Password.
         /// </summary>
         public static string LblPassword {
@@ -637,6 +763,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Winner.
+        /// </summary>
+        public static string LblWinner {
+            get {
+                return ResourceManager.GetString("LblWinner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string LoginTitle {
@@ -664,6 +799,51 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No attendance.
+        /// </summary>
+        public static string NoAttendanceCard {
+            get {
+                return ResourceManager.GetString("NoAttendanceCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Did not submit homework.
+        /// </summary>
+        public static string NotSubmitHomeworkCard {
+            get {
+                return ResourceManager.GetString("NotSubmitHomeworkCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Did not submit project.
+        /// </summary>
+        public static string NotSubmitProject {
+            get {
+                return ResourceManager.GetString("NotSubmitProject", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Did not take the exam.
+        /// </summary>
+        public static string NotTakeExamCard {
+            get {
+                return ResourceManager.GetString("NotTakeExamCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Parking Lot.
+        /// </summary>
+        public static string ParkingLotCard {
+            get {
+                return ResourceManager.GetString("ParkingLotCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Join the game.
         /// </summary>
         public static string RegisterTitle {
@@ -673,11 +853,29 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Results not found.
+        /// </summary>
+        public static string ResultsNotFoundMessage {
+            get {
+                return ResourceManager.GetString("ResultsNotFoundMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SUCCESS.
         /// </summary>
         public static string SuccessTitle {
             get {
                 return ResourceManager.GetString("SuccessTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Teachers&apos; Lounge.
+        /// </summary>
+        public static string TeachersLoungecard {
+            get {
+                return ResourceManager.GetString("TeachersLoungecard", resourceCulture);
             }
         }
     }

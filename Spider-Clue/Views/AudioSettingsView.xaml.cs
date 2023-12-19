@@ -83,10 +83,23 @@ namespace Spider_Clue.Views
             SettingsView.NavigationService.Navigate(mainMenuView);
         }
 
+        private void GoToMainMenuGuestView()
+        {
+            MainMenuForGuestView mainMenuGuestView = new MainMenuForGuestView();
+            SettingsView.NavigationService.Navigate(mainMenuGuestView);
+        }
+
         private void BtnSaveChanges_Click(object sender, RoutedEventArgs e)
         {
             SaveConfiguration();
-            GoToMainMenuView();
+            if (UserSingleton.Instance.IsGuestPlayer)
+            {
+                GoToMainMenuGuestView();
+            }
+            else
+            {
+                GoToMainMenuView();
+            }
         }
 
 
@@ -115,13 +128,13 @@ namespace Spider_Clue.Views
         }
         private void SetMusicIcon(string iconFileName)
         {
-            string iconPath = Utilities.GetImagePathForImages() + iconFileName;
+            string iconPath = Utilities.GetImagePathForImages() + "Icons\\" + iconFileName;
             imgMusicIcon.Source = new BitmapImage(new Uri(iconPath, UriKind.RelativeOrAbsolute));
         }
 
         private void SetSoundIcon(string iconFileName)
         {
-            string iconPath = Utilities.GetImagePathForImages() + iconFileName;
+            string iconPath = Utilities.GetImagePathForImages() + "Icons\\" + iconFileName;
             imgSoundIcon.Source = new BitmapImage(new Uri(iconPath, UriKind.RelativeOrAbsolute));
         }
 

@@ -1,0 +1,145 @@
+﻿<Page x:Class="Spider_Clue.Views.FriendsRequestView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Spider_Clue.Views"
+      mc:Ignorable="d" 
+      xmlns:p = "clr-namespace:Spider_Clue.Properties"
+      d:DesignHeight="720" d:DesignWidth="1280">
+
+    <Grid>
+        <Border>
+            <Border.Background>
+                <ImageBrush ImageSource = "/Images/Background/backgroundREGISTER.png"
+                            Stretch = "UniformToFill">
+                </ImageBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height = "Auto"/>
+                    <RowDefinition Height = "Auto"/>
+                    <RowDefinition Height = "Auto"/>
+                </Grid.RowDefinitions>
+                <Grid
+                    Grid.Row = "0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border 
+                        CornerRadius = "30"
+                        Background = "#AB2E2E"
+                        Width = "100"
+                        Height = "100"
+                        HorizontalAlignment="Left"
+                        Margin = "120,50,0,0"
+                        Grid.Column="0">
+                        <Button Background = "Transparent" BorderBrush = "Transparent" Click = "BtnChangeFriendRequest">
+                            <Image Source = "/Images/Icons/FriendsListIcon.png"
+                                   Stretch = "UniformToFill"/>
+                        </Button>
+                    </Border>
+
+                    <Border 
+                        CornerRadius = "30"
+                        Background = "#655E73"
+                        Width = "100"
+                        Height = "100"
+                        HorizontalAlignment="Left"
+                        Margin = "60,50,0,0"
+                        Grid.Column="1">
+                        <Border>
+                            <Border.Background>
+                                <ImageBrush ImageSource = "/Images/Icons/NotificationIcon.png"
+                            Stretch = "UniformToFill">
+                                </ImageBrush>
+                            </Border.Background>
+                        </Border>
+                    </Border>
+
+                </Grid>
+                <Border
+                    Background = "#B45959"
+                    Grid.Row = "1"
+                    Width="1080"
+                    Height = "400"
+                    Margin = "100,20,134,0"
+                    CornerRadius = "10">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height = "Auto"/>
+                            <RowDefinition Height = "Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriendsRequest}"
+                                   Width="440"
+                                   Foreground ="White"
+                                   FontWeight = "Medium"
+                                   FontSize = "60"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Left"
+                                   Margin="100,0,242,0" 
+                                   Grid.Row="0"
+                                   Height = "70"/>
+
+
+
+                        <DataGrid Grid.Row="1"  AutoGenerateColumns="False" CanUserAddRows="False" Name = "FriendRequestGrid" Margin = "0,10,65,0" HorizontalAlignment="Right" Width="900">
+                            <DataGrid.ColumnHeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="FontSize" Value="28"/>
+                                    <Setter Property = "Background" Value="#655E73"/>
+                                    <Setter Property = "Foreground" Value="White"/>
+                                </Style>
+                            </DataGrid.ColumnHeaderStyle>
+                            <DataGrid.Columns>
+                                <DataGridTemplateColumn x:Name = "Icon" Header="Icon" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Border 
+                                                Height="80"
+                                                Width="80"
+                                                HorizontalAlignment="Center"
+                                                CornerRadius="10">
+                                                <Border.Background>
+                                                    <ImageBrush ImageSource = "{Binding Icon}"
+                                                    Stretch = "Fill">
+                                                    </ImageBrush>
+                                                </Border.Background>
+                                            </Border>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTextColumn  Header="Gamertag" Width="300" FontSize="28" Binding="{Binding Gamertag}"/>
+                                <DataGridTemplateColumn x:Name = "Accept" Header="Accept" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Background="Transparent" BorderBrush="Transparent" Click="BtnAcceptFriendRequest">
+                                                <Image Source="/Images/Icons/AcceptIcon.png" 
+                                                       Width="60" 
+                                                       Height="50"/>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn x:Name = "Decline" Header="Reject" Width="*">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button Background="Transparent" BorderBrush="Transparent" Click="BtnRejectFriendRequest">
+                                                <Image Source="/Images/Icons/RejectIcon.png" 
+                                                       Width="60" 
+                                                       Height="50"/>
+                                            </Button>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Border>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

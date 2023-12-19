@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Spider_Clue.Logic
 {
@@ -18,6 +19,7 @@ namespace Spider_Clue.Logic
         public string Email { get; set; }
         public int Level { get; set; }
         public string ImageCode { get; set; }
+        public bool IsGuestPlayer { get; set; }
 
         private UserSingleton() { }
 
@@ -29,6 +31,7 @@ namespace Spider_Clue.Logic
             Email = gamer.Email;
             Level = gamer.Level;
             ImageCode = gamer.ImageCode;
+            IsGuestPlayer = false;
         }
 
         public void Clear()
@@ -37,7 +40,7 @@ namespace Spider_Clue.Logic
             Name = null;
             LastName = null;
             Email = null;
-            ImageCode = "Icon0";
+            ImageCode = "Icon0.png";
         }
 
 

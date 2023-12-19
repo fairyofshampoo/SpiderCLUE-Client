@@ -33,7 +33,7 @@ namespace Spider_Clue.Views
 
         private void SetGamerIconInPage()
         {
-            string iconPath = Utilities.GetImagePathForIcon();
+            string iconPath = Utilities.GetImagePathForIcon(UserSingleton.Instance.ImageCode);
             this.DataContext = new { ImagePath = iconPath };
         }
 

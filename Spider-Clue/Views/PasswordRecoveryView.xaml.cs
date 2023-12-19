@@ -28,8 +28,9 @@ namespace Spider_Clue.Views
             SecureString securePassword = txtPassword.SecurePassword;
             string password = new NetworkCredential(string.Empty, securePassword).Password;
             bool passwordValid = Validations.IsPasswordValid(password);
+            bool passwordsMatching = ArePasswordsMatching();
 
-            return passwordValid;
+            return passwordValid && passwordsMatching;
         }
 
         private bool ArePasswordsMatching()
@@ -61,17 +62,14 @@ namespace Spider_Clue.Views
 
             if (ValidatePassword())
             {
-                if (ArePasswordsMatching())
+                if (UpdateGamerPassword())
                 {
-                    if (UpdateGamerPassword())
-                    {
-                        ShowSuccessMessage();
-                        GoToLoginView();
-                    }
-                    else
-                    {
-                        ShowErrorMessage();
-                    }
+                    ShowSuccessMessage();
+                    GoToLoginView();
+                }
+                else
+                {
+                    ShowErrorMessage();
                 }
             }
         }

@@ -13,7 +13,7 @@
             <Grid>
                 <Border>
                     <Border.Background>
-                        <ImageBrush ImageSource="/Images/backgroundLOGIN.png" Stretch="Fill" />
+                        <ImageBrush ImageSource="/Images/Background/backgroundLOGIN.png" Stretch="Fill" />
                     </Border.Background>
                 </Border>
                 <Border Opacity="0.75">
@@ -30,7 +30,7 @@
                         <RowDefinition />
                     </Grid.RowDefinitions>
                     <StackPanel Width="500" Grid.Row="0" Orientation="Vertical" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
-                        <Image Source="/Images/Logo.png" Width="442" Height="195" />
+                        <Image Source="/Images/Elements/Logo.png" Width="442" Height="195" />
 
                         <Label x:Name="lblUsername" Content="{x:Static p:Resources.LblUsername}"
                                Foreground="White"
@@ -95,7 +95,7 @@
                                     Checked = "BtnPasswordVisibility_Checked" Unchecked = "BtnPasswordVisibility_Unchecked">
                                 <ToggleButton.Template>
                                     <ControlTemplate>
-                                        <Image x:Name="imgPasswordIcon" Source = "/Images/VisibleIcon.png" Width = "30" Height = "30" HorizontalAlignment = "Left" Margin = "15,0,0,0" />
+                                        <Image x:Name="imgPasswordIcon" Source = "/Images/Icons/VisibleIcon.png" Width = "30" Height = "30" HorizontalAlignment = "Left" Margin = "15,0,0,0" />
                                     </ControlTemplate>
                                 </ToggleButton.Template>
                             </ToggleButton>

@@ -69,8 +69,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Logic\GamerForListBox.cs" />
     <Compile Include="Logic\Utilities.cs" />
-    <Compile Include="Logic\LanguageManager.cs" />
     <Compile Include="Logic\UserSingleton.cs" />
     <Compile Include="Logic\Validations.cs" />
     <Compile Include="Properties\Resources.en-US.Designer.cs">
@@ -106,6 +106,15 @@
     <Compile Include="Views\FriendsListView.xaml.cs">
       <DependentUpon>FriendsListView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\FriendsRequestView.xaml.cs">
+      <DependentUpon>FriendsRequestView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameBoardView.xaml.cs">
+      <DependentUpon>GameBoardView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameResultsView.xaml.cs">
+      <DependentUpon>GameResultsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LanguageSettings.xaml.cs">
       <DependentUpon>LanguageSettings.xaml</DependentUpon>
     </Compile>
@@ -114,6 +123,9 @@
     </Compile>
     <Compile Include="Views\LoginView.xaml.cs">
       <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainMenuForGuestView.xaml.cs">
+      <DependentUpon>MainMenuForGuestView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainMenuView.xaml.cs">
       <DependentUpon>MainMenuView.xaml</DependentUpon>
@@ -127,8 +139,14 @@
     <Compile Include="Views\PersonalInformationView.xaml.cs">
       <DependentUpon>PersonalInformationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PlacesCardsView.xaml.cs">
+      <DependentUpon>PlacesCardsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProfileEditionView.xaml.cs">
       <DependentUpon>ProfileEditionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReasonCardsView.xaml.cs">
+      <DependentUpon>ReasonCardsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
@@ -138,6 +156,9 @@
     </Compile>
     <Compile Include="Views\SelectAvatarView.xaml.cs">
       <DependentUpon>SelectAvatarView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SendFriendRequest.xaml.cs">
+      <DependentUpon>SendFriendRequest.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
@@ -178,6 +199,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\FriendsRequestView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GameBoardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\GameResultsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LanguageSettings.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,6 +220,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainMenuForGuestView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -206,9 +243,17 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PlacesCardsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ProfileEditionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ReasonCardsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Register.xaml">
       <SubType>Designer</SubType>
@@ -219,6 +264,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SelectAvatarView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SendFriendRequest.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -294,6 +343,9 @@
     <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Gamer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Match.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -303,22 +355,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\backgroundLOGIN.png" />
+    <Resource Include="Images\Background\backgroundLOGIN.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Logo.png" />
+    <Resource Include="Images\Elements\Logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\VisibleIcon.png" />
+    <Resource Include="Images\Icons\VisibleIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\backgroundREGISTER.png" />
+    <Resource Include="Images\Background\backgroundREGISTER.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Icon6.jpg" />
+    <Resource Include="Images\Avatars\Icon6.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\GoBackIcon.png" />
+    <Resource Include="Images\Icons\GoBackIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
@@ -339,72 +391,98 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\GoBackIconBlack.png" />
+    <Resource Include="Images\Icons\GoBackIconBlack.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\FriendsIcon.png" />
+    <Resource Include="Images\Icons\FriendsIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\FriendsListIcon.png" />
+    <Resource Include="Images\Icons\FriendsListIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\NotificationIcon.png" />
+    <Resource Include="Images\Icons\NotificationIcon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\DeleteIcon.png" />
+    <Resource Include="Images\Icons\DeleteIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\SpiderClueService\item.disco" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\SettingsFinalBackground.png" />
+    <Resource Include="Images\Background\SettingsFinalBackground.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\paperIMG.png" />
+    <Resource Include="Images\Elements\paperIMG.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\papersWithWoman.png" />
+    <Resource Include="Images\Icons\papersWithWoman.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MilesMoralesBackground.jpg" />
+    <Resource Include="Images\Background\MilesMoralesBackground.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\MexicoFlag.png" />
+    <Resource Include="Images\Icons\MexicoFlag.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\EUAFlag.png" />
+    <Resource Include="Images\Icons\EUAFlag.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Audio\MainMenuSong.mp3" />
     <None Include="Connected Services\SpiderClueService\item1.disco" />
-    <Resource Include="Images\Icon7.jpg" />
-    <Resource Include="Images\Icon2.jpg" />
-    <Resource Include="Images\Icon1.jpg" />
-    <Resource Include="Images\Icon5.jpg" />
-    <Resource Include="Images\Icon4.jpg" />
-    <Resource Include="Images\Icon8.jpg" />
-    <Resource Include="Images\Icon3.jpg" />
-    <Resource Include="Images\InvisibleIcon.png" />
+    <Resource Include="Images\Avatars\Icon7.jpg" />
+    <Resource Include="Images\Avatars\Icon2.jpg" />
+    <Resource Include="Images\Avatars\Icon1.jpg" />
+    <Resource Include="Images\Avatars\Icon5.jpg" />
+    <Resource Include="Images\Avatars\Icon4.jpg" />
+    <Resource Include="Images\Avatars\Icon8.jpg" />
+    <Resource Include="Images\Avatars\Icon3.jpg" />
+    <Resource Include="Images\Icons\InvisibleIcon.png" />
     <None Include="Audio\MinecraftButtonSound.wav" />
     <None Include="Audio\MainMenuSong.wav" />
-    <Resource Include="Images\Icon0.jpg" />
-    <Resource Include="Images\searchIcon.png" />
-    <Resource Include="Images\LobbyBackground.jpg" />
+    <Resource Include="Images\Avatars\Icon0.jpg" />
+    <Resource Include="Images\Icons\searchIcon.png" />
+    <Resource Include="Images\Background\LobbyBackground.jpg" />
     <Resource Include="Images\Characters\PurpleCharacter.png" />
     <Resource Include="Images\Characters\WhiteCharacter.png" />
     <Resource Include="Images\Characters\RedCharacter.png" />
     <Resource Include="Images\Characters\GreenCharacter.png" />
     <Resource Include="Images\Characters\YellowCharacter.png" />
     <Resource Include="Images\Characters\BlueCharacter.png" />
-    <Resource Include="Images\PaperForCode.png" />
-    <Resource Include="Images\sound-on.png" />
-    <Resource Include="Images\sound-off.png" />
-    <Resource Include="Images\music-off.png" />
-    <Resource Include="Images\music-on.png" />
+    <Resource Include="Images\Elements\PaperForCode.png" />
+    <Resource Include="Images\Icons\sound-on.png" />
+    <Resource Include="Images\Icons\sound-off.png" />
+    <Resource Include="Images\Icons\music-off.png" />
+    <Resource Include="Images\Icons\music-on.png" />
+    <Resource Include="Images\Icons\NotFoundIcon.png" />
+    <Resource Include="Images\Icons\AcceptIcon.png" />
+    <Resource Include="Images\Icons\RejectIcon.png" />
+    <Resource Include="Images\GameCards\motive1.png" />
+    <Resource Include="Images\GameCards\motive2.png" />
+    <Resource Include="Images\GameCards\motive3.png" />
+    <Resource Include="Images\GameCards\motive4.png" />
+    <Resource Include="Images\GameCards\motive5.png" />
+    <Resource Include="Images\GameCards\motive6.png" />
+    <Resource Include="Images\GameCards\place1.png" />
+    <Resource Include="Images\GameCards\place2.png" />
+    <Resource Include="Images\GameCards\place3.png" />
+    <Resource Include="Images\GameCards\place4.png" />
+    <Resource Include="Images\GameCards\place5.png" />
+    <Resource Include="Images\GameCards\place6.png" />
+    <Resource Include="Images\GameCards\place7.png" />
+    <Resource Include="Images\GameCards\place8.png" />
+    <Resource Include="Images\GameCards\place9.png" />
+    <Resource Include="Images\Icons\CardsIcon.png" />
+    <Resource Include="Images\Elements\ClueBoard.png" />
+    <Resource Include="Images\Icons\DiceIcon.png" />
+    <Resource Include="Images\Icons\LeaveIcon.png" />
+    <Resource Include="Images\Icons\AccusationIcon.png" />
+    <Resource Include="Images\Icons\kickGamerIcon.png" />
+    <Resource Include="Images\Icons\sendCodeIcon.png" />
+    <Resource Include="Images\Background\WoodBackground.jpg" />
+    <Resource Include="Images\Elements\ClipBoard.png" />
+    <Resource Include="Images\Background\GameResults.jpg" />
+    <Resource Include="Images\Icons\CrownIcon.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

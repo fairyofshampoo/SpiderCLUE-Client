@@ -13,9 +13,7 @@
             <Grid>
                 <Border>
                     <Border.Background>
-                        <ImageBrush ImageSource="/Images/backgroundREGISTER.png"
-                            Stretch="Fill">
-                        </ImageBrush>
+                        <ImageBrush ImageSource="/Images/Background/backgroundREGISTER.png" Stretch="Fill"> </ImageBrush>
                     </Border.Background>
                 </Border>
                 
@@ -29,9 +27,7 @@
                 Cursor="Hand">
                     <Button.Template>
                         <ControlTemplate>
-                            <Image Source="/Images/GoBackIcon.png" 
-                                    Stretch="Uniform">
-                            </Image>
+                            <Image Source="/Images/Icons/GoBackIcon.png" Stretch="Uniform"> </Image>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
