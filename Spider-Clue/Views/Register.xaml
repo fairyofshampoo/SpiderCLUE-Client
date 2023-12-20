@@ -150,7 +150,7 @@
                                    OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="3"
                                    Grid.Column="2"
-                                       Visibility="Hidden"/>
+                                   Visibility="Hidden"/>
 
                                 <Label x:Name="lblGamerTag" Content="{x:Static p:Resources.LblUsername}"
                                    Foreground="White"
