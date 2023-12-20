@@ -33,7 +33,15 @@
                     <RowDefinition Height = "Auto" />
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                
+
+                <Border
+                    CornerRadius="10"
+                    Height="Auto"
+                    Width="Auto"
+                    Background="#B45959"
+                    Grid.Row="0">
+                </Border>
+
                 <Border
                     CornerRadius="10"
                     Height="Auto"

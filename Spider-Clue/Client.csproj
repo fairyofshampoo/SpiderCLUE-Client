@@ -495,9 +495,6 @@
     <Resource Include="Images\Elements\ClipBoard.png" />
     <Resource Include="Images\Background\GameResults.jpg" />
     <Resource Include="Images\Icons\CrownIcon.png" />
-    <Resource Include="Images\Icons\copyIcon.png" />
-    <Resource Include="Images\Background\invitationBackground.jpg" />
-    <Resource Include="Images\Icons\EmailIcon.png" />
     <Resource Include="Images\Icons\KickPlayerIcon.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>

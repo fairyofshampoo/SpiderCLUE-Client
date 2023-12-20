@@ -407,25 +407,4 @@
   <data name="LblKickPlayers" xml:space="preserve">
     <value>Kick Players</value>
   </data>
-  <data name="DlgCommunicationException" xml:space="preserve">
-    <value>Failed to establish a connection with the server. Please check your internet connection, ensure the server is available, and try again.</value>
-  </data>
-  <data name="DlgMatchCodeCopied" xml:space="preserve">
-    <value>Match code copied to clipboard.</value>
-  </data>
-  <data name="LblEnterEmail" xml:space="preserve">
-    <value>Enter the email address to send the match code.</value>
-  </data>
-  <data name="LblInviteYourFriends" xml:space="preserve">
-    <value>Invite Your Friends</value>
-  </data>
-  <data name="LblSearchGame" xml:space="preserve">
-    <value>Search Game</value>
-  </data>
-  <data name="LblSendMatchCode" xml:space="preserve">
-    <value>Send the following code to your friends.</value>
-  </data>
-  <data name="LblViaEmail" xml:space="preserve">
-    <value>Send invitation via email</value>
-  </data>
 </root>

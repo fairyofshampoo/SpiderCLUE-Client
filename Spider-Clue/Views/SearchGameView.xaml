@@ -21,8 +21,8 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
                     Margin="5,5,5,0">
-                    <Label x:Name = "lblPasswordRecoveryTitle" Content = "{x:Static p:Resources.LblSearchGame}"
-                               Foreground = "White" FontWeight = "Light" HorizontalContentAlignment="Center"
+                    <Label x:Name = "lblPasswordRecoveryTitle" Content = "{x:Static p:Resources.LblPasswordRecoveryTitle}"
+                               Foreground = "White" FontWeight = "Light"
                                FontSize = "20" FontFamily = "Monsterrat" Margin="30,50,0,35"/>
                     <Border CornerRadius="10"
                             Height="200" Width="350"

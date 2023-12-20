@@ -36,7 +36,7 @@
                        Grid.Row="0"
                        Height = "21"/>
 
-                <DataGrid Grid.Row="1" AutoGenerateColumns = "False" Name = "KickPlayersGrid" Margin = "0,0,0,10" HorizontalAlignment="Center" Width="300">
+                <DataGrid Grid.Row="1" AutoGenerateColumns = "False" Name = "KickPlayersGrid" Margin = "0,0,0,10" HorizontalAlignment="Center" Width="300" SelectionChanged="KickPlayersGrid_SelectionChanged">s
                     <DataGrid.ColumnHeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="10"/>
@@ -45,7 +45,7 @@
                         </Style>
                     </DataGrid.ColumnHeaderStyle>
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn Header="Icon"  Width="*">
+                        <DataGridTemplateColumn x:Name = "Icon" Header="Icon"  Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Border 
