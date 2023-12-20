@@ -277,6 +277,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this friend?.
+        /// </summary>
+        public static string DlgConfirmDeleteFriend {
+            get {
+                return ResourceManager.GetString("DlgConfirmDeleteFriend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Try again, invalid information.
         /// </summary>
         public static string DlgInvalidData {
@@ -435,6 +444,15 @@ namespace Spider_Clue.Properties {
         public static string LblBetterLuckNextTime {
             get {
                 return ResourceManager.GetString("LblBetterLuckNextTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string LblCancel {
+            get {
+                return ResourceManager.GetString("LblCancel", resourceCulture);
             }
         }
         
@@ -732,6 +750,15 @@ namespace Spider_Clue.Properties {
         public static string LblProfileEdition {
             get {
                 return ResourceManager.GetString("LblProfileEdition", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ready.
+        /// </summary>
+        public static string LblReady {
+            get {
+                return ResourceManager.GetString("LblReady", resourceCulture);
             }
         }
         

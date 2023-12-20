@@ -386,4 +386,13 @@
   <data name="LblNotes" xml:space="preserve">
     <value>Notas</value>
   </data>
+  <data name="DlgConfirmDeleteFriend" xml:space="preserve">
+    <value>¿Estás seguro que deseas eliminar este amigo?</value>
+  </data>
+  <data name="LblCancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="LblReady" xml:space="preserve">
+    <value>Listo</value>
+  </data>
 </root>
