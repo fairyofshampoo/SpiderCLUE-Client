@@ -286,6 +286,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to establish a connection with the server. Please check your internet connection, ensure the server is available, and try again..
+        /// </summary>
+        public static string DlgCommunicationException {
+            get {
+                return ResourceManager.GetString("DlgCommunicationException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Are you sure you want to delete this friend?.
         /// </summary>
         public static string DlgConfirmDeleteFriend {
@@ -300,6 +309,15 @@ namespace Spider_Clue.Properties {
         public static string DlgInvalidData {
             get {
                 return ResourceManager.GetString("DlgInvalidData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Match code copied to clipboard..
+        /// </summary>
+        public static string DlgMatchCodeCopied {
+            get {
+                return ResourceManager.GetString("DlgMatchCodeCopied", resourceCulture);
             }
         }
         
@@ -511,6 +529,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Enter the email address to send the match code..
+        /// </summary>
+        public static string LblEnterEmail {
+            get {
+                return ResourceManager.GetString("LblEnterEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Forgot your password?.
         /// </summary>
         public static string LblForgotPassword {
@@ -615,6 +642,15 @@ namespace Spider_Clue.Properties {
         public static string LblInvalidPassword {
             get {
                 return ResourceManager.GetString("LblInvalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invite Your Friends.
+        /// </summary>
+        public static string LblInviteYourFriends {
+            get {
+                return ResourceManager.GetString("LblInviteYourFriends", resourceCulture);
             }
         }
         
@@ -790,6 +826,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search Game.
+        /// </summary>
+        public static string LblSearchGame {
+            get {
+                return ResourceManager.GetString("LblSearchGame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select an Icon.
         /// </summary>
         public static string LblSelectIcon {
@@ -799,11 +844,29 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Send the following code to your friends..
+        /// </summary>
+        public static string LblSendMatchCode {
+            get {
+                return ResourceManager.GetString("LblSendMatchCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string LblUsername {
             get {
                 return ResourceManager.GetString("LblUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send invitation via email.
+        /// </summary>
+        public static string LblViaEmail {
+            get {
+                return ResourceManager.GetString("LblViaEmail", resourceCulture);
             }
         }
         
