@@ -268,6 +268,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Friend.
+        /// </summary>
+        public static string DeleteFriendTitle {
+            get {
+                return ResourceManager.GetString("DeleteFriendTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your account has been banned.
         /// </summary>
         public static string DlgAccountBanned {
@@ -606,6 +615,15 @@ namespace Spider_Clue.Properties {
         public static string LblInvalidPassword {
             get {
                 return ResourceManager.GetString("LblInvalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kick Players.
+        /// </summary>
+        public static string LblKickPlayers {
+            get {
+                return ResourceManager.GetString("LblKickPlayers", resourceCulture);
             }
         }
         

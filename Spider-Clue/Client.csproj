@@ -115,6 +115,9 @@
     <Compile Include="Views\GameResultsView.xaml.cs">
       <DependentUpon>GameResultsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\KickPlayersView.xaml.cs">
+      <DependentUpon>KickPlayersView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\LanguageSettings.xaml.cs">
       <DependentUpon>LanguageSettings.xaml</DependentUpon>
     </Compile>
@@ -208,6 +211,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GameResultsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\KickPlayersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
