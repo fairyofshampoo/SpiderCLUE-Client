@@ -498,6 +498,7 @@
     <Resource Include="Images\Icons\copyIcon.png" />
     <Resource Include="Images\Background\invitationBackground.jpg" />
     <Resource Include="Images\Icons\EmailIcon.png" />
+    <Resource Include="Images\Icons\KickPlayerIcon.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />
