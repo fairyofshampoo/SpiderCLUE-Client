@@ -21,18 +21,13 @@ namespace Spider_Clue.Views
     public partial class KickPlayersView : Window 
     {
         public string[] PlayersInLobby { get; set; }
-        public List<string> playersToKick { get; set; }
+        public List<string> PlayersToKick { get; set; }
 
         public KickPlayersView(string[] playersInLobby)
         {
             InitializeComponent();
             PlayersInLobby = playersInLobby;
             ShowPlayersInLobby();
-        }
-
-        public void ReceiveGamersInMatch(string[] gamertags)
-        {
-            throw new NotImplementedException();
         }
 
         public void ShowPlayersInLobby()
@@ -72,7 +67,7 @@ namespace Spider_Clue.Views
             if (button != null && button.DataContext is FriendRequest dataObject)
             {
                gamertag = dataObject.Gamertag;
-               playersToKick.Add(gamertag);
+               PlayersToKick.Add(gamertag);
             }
         }
     }
