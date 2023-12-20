@@ -11,6 +11,7 @@
     <DockPanel>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <Grid>
+                <MediaElement x:Name = "mainThemePlayer" LoadedBehavior = "Manual"/>
                 <Border>
                     <Border.Background>
                         <ImageBrush ImageSource="/Images/Background/LobbyBackground.jpg" Stretch="UniformToFill" />
@@ -36,14 +37,12 @@
                             </ListBox.ItemTemplate>
                         </ListBox>
 
-                        <Border 
-                        CornerRadius = "40"
-                        Background = "#94857B"
-                        Width = "50"
-                        Height = "50"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Right"
-                        Margin = "10,20,0,0" Grid.Column="2">
+                        <Border CornerRadius = "40" Background = "#94857B"
+                                Width = "50" Height = "50"
+                                VerticalAlignment="Top"
+                                HorizontalAlignment="Right"
+                                MouseDown="KickPlayer_Click"
+                                Margin = "10,20,0,0" Grid.Column="2">
                             <Border Margin = "10,10,10,10">
                                 <Border.Background>
                                     <ImageBrush ImageSource = "/Images/Icons/kickGamerIcon.png"
@@ -113,11 +112,12 @@
                                     Grid.Column="1">
                             
                             <Button x:Name="btnCancel" Grid.Column="0" BorderThickness="0"
-                                    Content="{x:Static p:Resources.BtnGuestPlayer}"
+                                    Content="{x:Static p:Resources.LblCancel}"
                                     Foreground="White"
                                     FontSize="15"
                                     FontFamily="Montserrat"
                                     Cursor="Hand"
+                                    Click="BtnCancel_Click"
                                     Margin="0,0,10,50"
                                     HorizontalAlignment="Right">
                                 <Button.Style>
@@ -142,11 +142,12 @@
                             </Button>
 
                             <Button x:Name="btnReady" Grid.Column="0" BorderThickness="0"
-                                    Content="{x:Static p:Resources.BtnGuestPlayer}"
+                                    Content="{x:Static p:Resources.LblReady}"
                                     Foreground="White"
                                     FontSize="15"
                                     FontFamily="Montserrat"
                                     Cursor="Hand"
+                                    Click="BtnReady_Click"
                                     Margin="0,0,10,50"
                                     HorizontalAlignment="Right">
                                 <Button.Style>
@@ -192,6 +193,7 @@
                         Background = "#B4A859"
                         Width = "50"
                         Height = "50"
+                            MouseDown="SendInvitation_Click"
                         Margin = "192,118,14,32" Grid.Column="2">
                             <Border Margin = "10,10,10,10">
                                 <Border.Background>
