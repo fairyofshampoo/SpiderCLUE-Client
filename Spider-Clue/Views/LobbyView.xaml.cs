@@ -119,7 +119,7 @@ namespace Spider_Clue.Views
             }
             catch (CommunicationException)
             {
-                //mostrar mensaje de que no hay conexion
+                MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
                 GoToMainMenu();
             }
         }
