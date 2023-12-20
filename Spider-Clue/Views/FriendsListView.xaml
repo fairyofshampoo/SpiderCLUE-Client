@@ -120,7 +120,7 @@
                                 <DataGridTemplateColumn x:Name = "Delete" Header="Delete" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Background="Transparent" BorderBrush="Transparent">
+                                            <Button Background="Transparent" BorderBrush="Transparent" Click="BtnDeleteFiend_Click">
                                                 <Image Source="/Images/Icons/DeleteIcon.png" 
                                                        Width="60" 
                                                        Height="50"/>

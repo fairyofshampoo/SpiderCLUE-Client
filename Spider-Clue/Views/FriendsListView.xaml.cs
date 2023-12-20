@@ -95,5 +95,24 @@ namespace Spider_Clue.Views
             MainMenuView mainMenuView = new MainMenuView();
             this.NavigationService.Navigate(mainMenuView);
         }
+
+        private void BtnDeleteFiend_Click(object sender, RoutedEventArgs e)
+        {
+            Utilities.PlayButtonClickSound();
+            if(ShowConfirmationMessage() == MessageBoxResult.OK)
+            {
+                DeleteFriend();
+            }
+        }
+
+        private MessageBoxResult ShowConfirmationMessage()
+        {
+           return MessageBox.Show(Properties.Resources.DlgConfirmDeleteFriend, Properties.Resources.DeleteFriendTitle, MessageBoxButton.OKCancel, MessageBoxImage.Question);
+        }
+
+        private void DeleteFriend()
+        {
+
+        }
     }
 }

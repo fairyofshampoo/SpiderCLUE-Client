@@ -401,4 +401,10 @@
   <data name="LblReady" xml:space="preserve">
     <value>Ready</value>
   </data>
+  <data name="DeleteFriendTitle" xml:space="preserve">
+    <value>Delete Friend</value>
+  </data>
+  <data name="LblKickPlayers" xml:space="preserve">
+    <value>Kick Players</value>
+  </data>
 </root>
