@@ -36,7 +36,7 @@
                        Grid.Row="0"
                        Height = "21"/>
 
-                <DataGrid Grid.Row="1" AutoGenerateColumns = "False" Name = "KickPlayersGrid" Margin = "0,0,0,10" HorizontalAlignment="Center" Width="300">
+                <DataGrid Grid.Row="1" AutoGenerateColumns = "False" Name = "KickPlayersGrid" Margin = "0,0,0,10" HorizontalAlignment="Center" Width="300" SelectionChanged="KickPlayersGrid_SelectionChanged">s
                     <DataGrid.ColumnHeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="10"/>
@@ -45,31 +45,31 @@
                         </Style>
                     </DataGrid.ColumnHeaderStyle>
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn x:Name = "Icon" Width="*">
+                        <DataGridTemplateColumn x:Name = "Icon" Header="Icon"  Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Border 
-                                        Height="10"
-                                        Width="10"
+                                        Height="20"
+                                        Width="20"
                                         HorizontalAlignment="Center"
                                         CornerRadius="10">
                                         <Border.Background>
                                             <ImageBrush ImageSource = "{Binding Icon}"
-                                                    Stretch = "Fill">
+                                                    Stretch = "UniformToFill">
                                             </ImageBrush>
                                         </Border.Background>
                                     </Border>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn  Width="150" FontSize="10" Binding="{Binding Gamertag}"/>
-                        <DataGridTemplateColumn x:Name = "Delete" Width="*">
+                        <DataGridTextColumn  Width="150" Header="Gamertag" FontSize="20" Binding="{Binding Gamertag}"/>
+                        <DataGridTemplateColumn x:Name = "Delete" Header="Kick" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Background="Transparent" BorderBrush="Transparent" Click="BtnDeleteFiend_Click">
-                                        <Image Source="/Images/Icons/DeleteIcon.png" 
-                                                       Width="60" 
-                                                       Height="50"/>
+                                    <Button Background="Transparent" BorderBrush="Transparent" Click="BtnKickPlayer_Click">
+                                        <Image Source="/Images/Icons/KickPlayerIcon.png" 
+                                                       Width="28" 
+                                                       Height="24"/>
                                     </Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
