@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Spider_Clue.Views.FriendsRequestView;
 
 namespace Spider_Clue.Views
 {
@@ -101,7 +102,9 @@ namespace Spider_Clue.Views
             Utilities.PlayButtonClickSound();
             if(ShowConfirmationMessage() == MessageBoxResult.OK)
             {
-                DeleteFriend();
+               string friend = GetFriendData(sender);
+               DeleteFriend(friend);
+               DeleteFriendsRequest(friend);
             }
         }
 
@@ -110,9 +113,28 @@ namespace Spider_Clue.Views
            return MessageBox.Show(Properties.Resources.DlgConfirmDeleteFriend, Properties.Resources.DeleteFriendTitle, MessageBoxButton.OKCancel, MessageBoxImage.Question);
         }
 
-        private void DeleteFriend()
+        private string GetFriendData (object sender)
         {
+            string gamertag = "Not found";
+            var button = sender as System.Windows.Controls.Button;
+            if (button != null && button.DataContext is Player dataObject)
+            {
+               gamertag = dataObject.Gamertag;
+            }
+            Console.WriteLine(gamertag);
+            return gamertag;
+        }
 
+        private void DeleteFriend(string friend)
+        {
+            SpiderClueService.IFriendshipManager friendship = new SpiderClueService.FriendshipManagerClient();
+            friendship.DeleteFriend(UserSingleton.Instance.GamerTag, friend);
+        }
+
+        private void DeleteFriendsRequest(string friend)
+        {
+            SpiderClueService.IFriendRequestManager friendRequest = new SpiderClueService.FriendRequestManagerClient();
+            friendRequest.DeleteFriendRequest(UserSingleton.Instance.GamerTag, friend);
         }
     }
 }

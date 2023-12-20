@@ -23,5 +23,10 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
         }
+
+        private void BtnDeleteFiend_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
