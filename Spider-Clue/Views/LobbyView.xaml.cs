@@ -25,10 +25,12 @@ namespace Spider_Clue.Views
     {
         private string matchCode;
         public readonly MatchManagerClient MatchManager;
+        public readonly LobbyManagerClient LobbyManager;
         public readonly IUserManager UserManager = new SpiderClueService.UserManagerClient();
         public LobbyView()
         {
             InitializeComponent();
+            Utilities.PlayMainThemeSong(mainThemePlayer);
         }
 
         public void SetMatchDataInPage(string matchCode)
@@ -74,11 +76,6 @@ namespace Spider_Clue.Views
             }
         }
 
-        public void StartMatch()
-        {
-            throw new NotImplementedException();
-        }
-
         private void GoToMainMenu()
         {
             if (UserSingleton.Instance.IsGuestPlayer)
@@ -90,6 +87,43 @@ namespace Spider_Clue.Views
             {
                 MainMenuView mainMenuView = new MainMenuView();
                 this.NavigationService.Navigate(mainMenuView);
+            }
+        }
+
+        private void KickPlayer_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void BtnCancel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnReady_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void SendInvitation_Click(object sender, MouseButtonEventArgs e)
+        {
+
+        }
+
+        private void SendMailWithCodeMatch()
+        {
+
+        }
+
+        public void StartGame()
+        {
+            try
+            {
+                LobbyManager.BeginMatch(matchCode);
+            }
+            catch (CommunicationException)
+            {
+                //mostrar mensaje de que no hay conexion
+                GoToMainMenu();
             }
         }
     }
