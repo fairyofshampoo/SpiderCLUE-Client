@@ -18,9 +18,6 @@ using Spider_Clue.Logic;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for LobbyView.xaml
-    /// </summary>
     public partial class LobbyView : Page, IMatchManagerCallback, ILobbyManagerCallback
     {
         private string matchCode;
