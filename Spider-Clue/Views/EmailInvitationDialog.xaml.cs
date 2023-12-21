@@ -22,13 +22,18 @@ namespace Spider_Clue.Views
     /// </summary>
     public partial class EmailInvitationDialog : Window
     {
-        public string MatchCode { get; set; }
+        private string MatchCode;
         public readonly IInvitationManager InvitationManager = new SpiderClueService.InvitationManagerClient();
         public EmailInvitationDialog()
         {
             InitializeComponent();
         }
 
+        public void SetMatchCodeInPage(string matchCode)
+        {
+            MatchCode = matchCode;
+            lblCodeMatch.Content = matchCode;
+        }
         private void Copy_Click(object sender, MouseButtonEventArgs e)
         {
             CopyMatchCode();

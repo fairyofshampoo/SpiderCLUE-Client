@@ -5,7 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
-      Height="300" Width="400">
+      
+      mc:Ignorable="d" Height="500" Width="700">
     <Grid>
         <Border>
             <Border.Background>
@@ -17,50 +18,51 @@
 
         <StackPanel x:Name="stckPanelCopyCode" Visibility="Visible"
             Width="Auto" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#B4A859" Opacity="0.90">
-            <Label Content="{x:Static p:Resources.LblInviteYourFriends}" FontFamily = "Segoe UI Variable Display Semibold" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Top"/>
-            <Label Content="{x:Static p:Resources.LblSendMatchCode}" FontFamily ="Segoe UI Variable Display Semibold" HorizontalAlignment="Center"/>
+            <Label Content="{x:Static p:Resources.LblInviteYourFriends}" FontFamily = "Segoe UI Variable Display Semibold" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Label Content="{x:Static p:Resources.LblSendMatchCode}" FontFamily ="Segoe UI Variable Display Semibold" FontSize="20"  HorizontalAlignment="Center"/>
             <Grid HorizontalAlignment="Center">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <Label x:Name="lblCodeMatch" FontFamily="Segoe UI Variable Display Bold" Content="SAMPLE" Foreground="Black" FontSize="30" Width="141" Grid.Column="0"/>
-                <Image Source="/Images/Icons/copyIcon.png" Grid.Column="1" Height="30" Width= "30" Stretch="UniformToFill" MouseDown="Copy_Click" Cursor="Hand"/>
+                <Label x:Name="lblCodeMatch" FontFamily="Segoe UI Variable Display Bold" Content="SAMPLE" Foreground="Black" FontSize="40" Grid.Column="0" Margin="0,0,5,0"/>
+                <Image Source="/Images/Icons/copyIcon.png" Grid.Column="1" Height="40" Width= "40" Stretch="UniformToFill" MouseDown="Copy_Click" Cursor="Hand"/>
             </Grid>
-            <Border CornerRadius = "10" Background = "#59A6B4" Width = "240" Height = "51" HorizontalAlignment="Center" MouseDown="SendEmail_Click" Cursor="Hand" Margin = "0,0,0,10">
+            <Border CornerRadius = "10" Background = "#59A6B4" Width = "Auto" Height = "70" HorizontalAlignment="Center" MouseDown="SendEmail_Click" Cursor="Hand" Margin = "0,0,0,10">
                 <Grid HorizontalAlignment="Center">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
                         <ColumnDefinition Width="Auto" />
                     </Grid.ColumnDefinitions>
-                    <Image Source="/Images/Icons/emailIcon.png" Grid.Column="0" Height="30" VerticalAlignment="Center" Width= "30" Stretch="UniformToFill"/>
-                    <Label FontFamily="Segoe UI Variable Display" Content="{x:Static p:Resources.LblViaEmail}" VerticalAlignment="Center" Foreground="Black" FontSize="10" Grid.Column="1" Margin="0,0,0,0"/>
+                    <Image Source="/Images/Icons/emailIcon.png" Grid.Column="0" Height="50" VerticalAlignment="Center" Width= "50" Stretch="UniformToFill"/>
+                    <Label FontFamily="Segoe UI Variable Display" Content="{x:Static p:Resources.LblViaEmail}" VerticalAlignment="Center" Foreground="Black" FontSize="15" Grid.Column="1" Margin="0,0,0,0"/>
                 </Grid>
             </Border>
         </StackPanel>
+        
         <StackPanel x:Name="stckPanelSendEmail" Width="Auto" Visibility="Collapsed" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#B4A859" Opacity="0.93">
             <StackPanel Orientation="Horizontal">
-                <Button VerticalAlignment="Top" Width="27" Height="38" BorderThickness="0" Click="BtnGoBack_Click" Cursor="Hand" Margin="10,10,10,10">
+                <Button VerticalAlignment="Top" Width="50" Height="50" BorderThickness="0" Click="BtnGoBack_Click" Cursor="Hand" Margin="10,10,10,10">
                     <Button.Template>
                         <ControlTemplate>
                             <Image Source="/Images/Icons/GoBackIcon.png" Stretch="Uniform"></Image>
                         </ControlTemplate>
                     </Button.Template>
                 </Button>
-                <Label Content="{x:Static p:Resources.LblInviteYourFriends}" FontFamily = "Segoe UI Variable Display Semibold" FontSize="30" VerticalAlignment="Top" Padding="10"/>
+                <Label Content="{x:Static p:Resources.LblInviteYourFriends}" FontFamily = "Segoe UI Variable Display Semibold" FontSize="50" VerticalAlignment="Top" HorizontalAlignment="Center"/>
             </StackPanel>
 
-            <Label Content="{x:Static p:Resources.LblEnterEmail}" FontSize="10" FontFamily ="Segoe UI Variable Display Semibold" HorizontalAlignment="Center"/>
-            <Border CornerRadius = "10" Background = "#59A6B4" Width = "252" Height = "Auto" HorizontalAlignment="Center" Margin = "0,10,0,10">
+            <Label Content="{x:Static p:Resources.LblEnterEmail}" FontSize="16" FontFamily ="Segoe UI Variable Display Semibold" HorizontalAlignment="Center"/>
+            <Border CornerRadius = "10" Background = "#59A6B4" Width = "364" Height = "Auto" HorizontalAlignment="Center" Margin = "0,10,0,10">
                 <Grid HorizontalAlignment="Center">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
-                    <Border CornerRadius = "5" BorderBrush="LightGray" BorderThickness="3" Grid.Row="0" Grid.Column="1" Width="250" Margin="15,15,15,10">
-                        <TextBox x:Name="txtEmail" Height="20" FontSize="13" FontWeight="Medium" FontFamily="Montserrat" Background="LightGray" Foreground="Black" BorderThickness="0"/>
+                    <Border CornerRadius = "5" BorderBrush="LightGray" BorderThickness="3" Grid.Row="0" Grid.Column="1" Width="300" Margin="15,15,15,10">
+                        <TextBox x:Name="txtEmail" Height="20" FontSize="15" FontWeight="Medium" FontFamily="Montserrat" Background="LightGray" Foreground="Black" BorderThickness="0"/>
                     </Border>
-                    <Button x:Name = "btnSendCodeEmail" BorderThickness = "0" Content = "{x:Static p:Resources.BtnSendCode}" Foreground = "White" FontSize = "12" FontWeight="Bold" Grid.Row="1" Cursor = "Hand" Margin = "0,5,0,10" Click="BtnSendCode_Click">
+                    <Button x:Name = "btnSendCodeEmail" BorderThickness = "0" Content = "{x:Static p:Resources.BtnSendCode}" Foreground = "White" FontSize = "15" FontWeight="Bold" Grid.Row="1" Cursor = "Hand" Margin = "0,5,0,10" Click="BtnSendCode_Click">
                         <Button.Style>
                             <Style TargetType = "Button">
                                 <Setter Property = "Background" Value = "Black"/>
@@ -69,7 +71,7 @@
 
                         <Button.Template>
                             <ControlTemplate TargetType = "Button">
-                                <Border Width = "150" Height = "30" CornerRadius = "10" Background="{TemplateBinding Background}">
+                                <Border Width = "150" Height = "40" CornerRadius = "10" Background="{TemplateBinding Background}">
                                     <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                 </Border>
                             </ControlTemplate>
