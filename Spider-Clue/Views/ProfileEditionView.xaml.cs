@@ -72,12 +72,12 @@ namespace Spider_Clue.Views
 
             if (!nameValid)
             {
-                //lblInvalidName.Visibility = Visibility.Visible;
+                lblInvalidName.Visibility = Visibility.Visible;
             }
 
             if (!lastNameValid)
             {
-                //lblInvalidLastName.Visibility = Visibility.Visible;
+                lblInvalidLastName.Visibility = Visibility.Visible;
             }
 
             return nameValid && lastNameValid;
