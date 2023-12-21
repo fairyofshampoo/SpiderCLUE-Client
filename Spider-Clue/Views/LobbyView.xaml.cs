@@ -108,8 +108,14 @@ namespace Spider_Clue.Views
 
         private void KickPlayer_Click(object sender, MouseButtonEventArgs e)
         {
-
+            //OpenKickPlayerDialog(MatchCode);
         }
+
+        /*private string[] OpenKickPlayerDialog(string matchCode)
+        {
+
+        }*/
+
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {

@@ -4,21 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Spider_Clue.Views"
-        mc:Ignorable="d"
         xmlns:p = "clr-namespace:Spider_Clue.Properties"
-        Title="KickPlayersView" Height="200" Width="500">
+        mc:Ignorable="d" Height="500" Width="700">
     <Grid>
         <Border>
             <Border.Background>
-                <ImageBrush ImageSource = "/Images/Background/backgroundREGISTER.png"
+                <ImageBrush ImageSource = "/Images/Background/kickPlayerBackground.jpg"
                             Stretch = "UniformToFill">
                 </ImageBrush>
             </Border.Background>
         </Border>
 
-        <Border Background="#AB2E2E"
-                Height="120"
-                Width="350"
+        <Border Background="#b542ae"
+                Height="200"
+                Width="400"
                 CornerRadius="8">
             <Grid>
                 <Grid.RowDefinitions>
@@ -27,14 +26,14 @@
                 </Grid.RowDefinitions>
 
                 <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblKickPlayers}"
-                       Width="150"
+                       Width="Auto"
                        Foreground ="White"
                        FontWeight = "Medium"
-                       FontSize = "10"
-                       FontFamily = "Monsterrat"
+                       FontSize = "30"
+                       FontFamily = "Segoe UI Variable Display SemiBold"
                        HorizontalContentAlignment="Center" 
                        Grid.Row="0"
-                       Height = "21"/>
+                       Height = "Auto"/>
 
                 <DataGrid Grid.Row="1" AutoGenerateColumns = "False" Name = "KickPlayersGrid" Margin = "0,0,0,10" HorizontalAlignment="Center" Width="300">
                     <DataGrid.ColumnHeaderStyle>
