@@ -503,6 +503,7 @@
     <Resource Include="Images\Background\accountRecoveryBackground.jpg" />
     <Resource Include="Images\Background\loginBackground.jpg" />
     <Resource Include="Images\Background\registerBackGround.jpg" />
+    <Resource Include="Images\Background\mainMenuBackground.jpg" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />

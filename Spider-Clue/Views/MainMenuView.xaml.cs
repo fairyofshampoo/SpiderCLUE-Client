@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Spider_Clue.Logic;
-using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ServiceModel;
 using Spider_Clue.SpiderClueService;
@@ -70,19 +69,30 @@ namespace Spider_Clue.Views
 
         private void BtnPlay_Click(object sender, RoutedEventArgs e)
         {
-            CreateMatch();
-       //     GoToLobbyView();
+            string matchCode = CreateMatch();
+
+            if (string.IsNullOrEmpty(matchCode))
+            {
+                MessageBox.Show("Error al crear la partida. Inténtalo de nuevo.", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                GoToLobbyView(matchCode);
+            }
         }
 
-        private void CreateMatch()
+        private string CreateMatch()
         {
             SpiderClueService.IMatchCreationManager matchCreationManager = new SpiderClueService.MatchCreationManagerClient();
-            matchCreationManager.CreateMatch(UserSingleton.Instance.GamerTag);
+            return matchCreationManager.CreateMatch(UserSingleton.Instance.GamerTag);
         }
 
-        private void GoToLobbyView()
+        private void GoToLobbyView(string matchCode)
         {
-            
+            LobbyView lobbyView = new LobbyView();
+            lobbyView.SetMatchDataInPage(matchCode);
+            NavigationService.Navigate(lobbyView);
+
         }
 
         private void BtnFriends_Click(object sender, RoutedEventArgs e)

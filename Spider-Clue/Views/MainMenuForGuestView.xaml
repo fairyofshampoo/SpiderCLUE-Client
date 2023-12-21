@@ -15,7 +15,7 @@
                 <Grid>
                     <Border>
                         <Border.Background>
-                            <ImageBrush ImageSource = "/Images/Background/backgroundREGISTER.png"
+                            <ImageBrush ImageSource = "/Images/Background/mainMenuBackground.jpg"
                                         Stretch = "UniformToFill">
                             </ImageBrush>
                         </Border.Background>
@@ -128,7 +128,7 @@
                                 Click="BtnJoinToParty_Click">
                                 <Button.Style>
                                     <Style TargetType = "Button">
-                                        <Setter Property = "Background" Value = "#8A8884"/>
+                                        <Setter Property = "Background" Value = "#d12666"/>
                                     </Style>
                                 </Button.Style>
 
@@ -157,7 +157,7 @@
                                 Click="BtnSettings_Click">
                                 <Button.Style>
                                     <Style TargetType = "Button">
-                                        <Setter Property = "Background" Value = "#8A8884"/>
+                                        <Setter Property = "Background" Value = "#d12666"/>
                                     </Style>
                                 </Button.Style>
 
@@ -186,7 +186,7 @@
                                     Click="BtnExit_Click">
                                 <Button.Style>
                                     <Style TargetType = "Button">
-                                        <Setter Property = "Background" Value = "#8A8884"/>
+                                        <Setter Property = "Background" Value = "#d12666"/>
                                     </Style>
                                 </Button.Style>
                                 <Button.Template>
