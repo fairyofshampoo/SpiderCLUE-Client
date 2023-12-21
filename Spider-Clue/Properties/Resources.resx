@@ -428,4 +428,10 @@
   <data name="LblViaEmail" xml:space="preserve">
     <value>Send invitation via email</value>
   </data>
+  <data name="DlgSuccessfulChange" xml:space="preserve">
+    <value>Changes saved successfully!</value>
+  </data>
+  <data name="DlgWrongChange" xml:space="preserve">
+    <value>An error occurred while saving changes. Please try again.</value>
+  </data>
 </root>

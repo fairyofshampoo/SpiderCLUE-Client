@@ -422,4 +422,10 @@
   <data name="LblViaEmail" xml:space="preserve">
     <value>Mandar invitación por correo electrónico</value>
   </data>
+  <data name="DlgSuccessfulChange" xml:space="preserve">
+    <value>¡Cambios guardados exitosamente!</value>
+  </data>
+  <data name="DlgWrongChange" xml:space="preserve">
+    <value>Se produjo un error al guardar los cambios. Por favor, inténtalo nuevamente.</value>
+  </data>
 </root>

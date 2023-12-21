@@ -499,6 +499,7 @@
     <Resource Include="Images\Background\invitationBackground.jpg" />
     <Resource Include="Images\Icons\EmailIcon.png" />
     <Resource Include="Images\Icons\KickPlayerIcon.png" />
+    <Resource Include="Images\Background\forgotPasswordBackground.jpg" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />
