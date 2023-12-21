@@ -510,6 +510,7 @@
     <Resource Include="Images\Characters\RedPawn.png" />
     <Resource Include="Images\Characters\WhitePawn.png" />
     <Resource Include="Images\Characters\YellowPawn.png" />
+    <Resource Include="Images\Background\kickPlayerBackground.jpg" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />
