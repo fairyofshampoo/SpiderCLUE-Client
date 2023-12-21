@@ -89,7 +89,7 @@ namespace Spider_Clue.Views
         private Gamer GetGamerData(String gamerTag)
         {
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            return userManager.GetGamer(gamerTag);
+            return userManager.GetGamerByGamertag(gamerTag);
         }
 
         private void ShowErrorMessage()
@@ -103,30 +103,8 @@ namespace Spider_Clue.Views
             if (continueLogin)
             {
                 continueLogin = ValidateCredentials();
-                if (continueLogin)
-                {
-                    continueLogin = !IsBanned();
-                }
             }
             return continueLogin;
-        }
-
-        private bool IsBanned()
-        {
-            bool banned = false;
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            if (userManager.GetBannedStatus(txtUsername.Text) == 1)
-            {
-                banned = true;
-                ShowBannedDialog();
-            }
-
-            return banned;
-        }
-
-        private void ShowBannedDialog()
-        {
-            MessageBox.Show(Properties.Resources.DlgWrongDataForLogin,Properties.Resources.InformationTitle, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private bool VerifyFields()
