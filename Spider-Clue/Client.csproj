@@ -504,6 +504,12 @@
     <Resource Include="Images\Background\loginBackground.jpg" />
     <Resource Include="Images\Background\registerBackGround.jpg" />
     <Resource Include="Images\Background\mainMenuBackground.jpg" />
+    <Resource Include="Images\Characters\BluePawn.png" />
+    <Resource Include="Images\Characters\GreenPawn.png" />
+    <Resource Include="Images\Characters\PurplePawn.png" />
+    <Resource Include="Images\Characters\RedPawn.png" />
+    <Resource Include="Images\Characters\WhitePawn.png" />
+    <Resource Include="Images\Characters\YellowPawn.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />
