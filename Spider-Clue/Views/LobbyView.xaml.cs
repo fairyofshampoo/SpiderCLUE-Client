@@ -20,7 +20,7 @@ namespace Spider_Clue.Views
 {
     public partial class LobbyView : Page, IMatchManagerCallback, ILobbyManagerCallback
     {
-        private string matchCode;
+        private string MatchCode;
         public readonly MatchManagerClient MatchManager;
         public readonly LobbyManagerClient LobbyManager;
         public readonly IUserManager UserManager = new SpiderClueService.UserManagerClient();
@@ -35,7 +35,7 @@ namespace Spider_Clue.Views
 
         public void SetMatchDataInPage(string matchCode)
         {
-            this.matchCode = matchCode;
+            MatchCode = matchCode;
             txtMatchCode.Text = matchCode;
             string gamertag = UserSingleton.Instance.GamerTag;
 
@@ -57,7 +57,7 @@ namespace Spider_Clue.Views
         private bool CheckMatchOwnership()
         {
             string gamertag = UserSingleton.Instance.GamerTag;
-            return LobbyManager.IsOwnerOfTheMatch(gamertag, matchCode);
+            return LobbyManager.IsOwnerOfTheMatch(gamertag, MatchCode);
         }
         private void SetGamersList(string[] gamertags)
         {
@@ -129,7 +129,8 @@ namespace Spider_Clue.Views
         {
             EmailInvitationDialog invitationDialog = new EmailInvitationDialog();
             invitationDialog.Owner = Window.GetWindow(this);
-            invitationDialog.MatchCode = this.matchCode;
+            invitationDialog.SetMatchCodeInPage(MatchCode);
+            invitationDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             invitationDialog.ShowDialog();
         }
 
@@ -137,7 +138,7 @@ namespace Spider_Clue.Views
         {
             try
             {
-                LobbyManager.BeginMatch(matchCode);
+                LobbyManager.BeginMatch(MatchCode);
             }
             catch (CommunicationException)
             {
