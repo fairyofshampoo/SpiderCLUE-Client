@@ -340,6 +340,24 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Changes saved successfully!.
+        /// </summary>
+        public static string DlgSuccessfulChange {
+            get {
+                return ResourceManager.GetString("DlgSuccessfulChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred while saving changes. Please try again..
+        /// </summary>
+        public static string DlgWrongChange {
+            get {
+                return ResourceManager.GetString("DlgWrongChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check that the email and password are correct. Unable to log in..
         /// </summary>
         public static string DlgWrongDataForLogin {
