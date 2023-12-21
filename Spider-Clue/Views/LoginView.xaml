@@ -13,13 +13,13 @@
             <Grid>
                 <Border>
                     <Border.Background>
-                        <ImageBrush ImageSource="/Images/Background/backgroundLOGIN.png" Stretch="Fill" />
+                        <ImageBrush ImageSource="/Images/Background/loginBackground.jpg" Stretch="UniformToFill" />
                     </Border.Background>
                 </Border>
-                <Border Opacity="0.75">
+                <Border Opacity="0.45">
                     <Border.Background>
                         <LinearGradientBrush StartPoint="0,1" EndPoint="0,0">
-                            <GradientStop Color="DarkRed" Offset="0" />
+                            <GradientStop Color="#127625" Offset="0" />
                             <GradientStop Color="Black" Offset="0.55" />
                         </LinearGradientBrush>
                     </Border.Background>
@@ -35,8 +35,8 @@
                         <Label x:Name="lblUsername" Content="{x:Static p:Resources.LblUsername}"
                                Foreground="White"
                                FontWeight="Bold"
-                               FontSize="18"
-                               FontFamily="Montserrat"
+                               FontSize="20"
+                               FontFamily = "Segoe UI Variable Display"
                                Grid.Column="0"
                                VerticalAlignment="Center"
                                Margin="100,0,0,0" />
@@ -45,9 +45,9 @@
                                 Width="250" HorizontalAlignment="Left"
                                 Margin="100,0,0,0" Height="35">
                             <TextBox x:Name="txtUsername"
-                                     FontSize="14"
+                                     FontSize="15"
                                      FontWeight="Medium"
-                                     FontFamily="Montserrat"
+                                     FontFamily = "Segoe UI Variable Display"
                                      Background="LightGray"
                                      Foreground="Black"
                                      BorderThickness="0"
@@ -58,7 +58,7 @@
                                Background="Black"
                                Foreground="Red"
                                FontWeight="Bold"
-                               FontSize="10"
+                               FontSize="13"
                                FontFamily="Montserrat"
                                Grid.Column="0"
                                VerticalAlignment="Center"
@@ -68,8 +68,8 @@
                         <Label x:Name="lblPassword" Content="{x:Static p:Resources.LblPassword}"
                                Foreground="White"
                                FontWeight="Bold"
-                               FontSize="18"
-                               FontFamily="Montserrat"
+                               FontSize="20"
+                               FontFamily = "Segoe UI Variable Display"
                                Grid.Column="0"
                                VerticalAlignment="Center"
                                Margin="100,0,0,0" />
@@ -82,9 +82,9 @@
                             <Border x:Name="bdrPassword" CornerRadius="5" BorderBrush="LightGray" BorderThickness="3" Grid.Row="4" Grid.Column="0"
                                     Margin="100,0,0,0" Height="35" Visibility="Visible">
                                 <PasswordBox x:Name="txtPassword"
-                                             FontSize="14"
+                                             FontSize="15"
                                              FontWeight="Medium"
-                                             FontFamily="Montserrat"
+                                             FontFamily = "Segoe UI Variable Display"
                                              Background="LightGray"
                                              Foreground="Black"
                                              BorderThickness="0"
@@ -101,7 +101,7 @@
                             </ToggleButton>
                             <Border x:Name="bdrPasswordDisplay" CornerRadius="5" BorderBrush="LightGray" BorderThickness="3" Grid.Row="4" Grid.Column="0" Margin="100,0,0,0" Height="35" Visibility="Collapsed">
                                 <TextBox x:Name="txtPasswordDisplay"
-                                        FontSize="14"
+                                        FontSize="15"
                                         FontWeight="Medium"
                                         FontFamily="Montserrat"
                                         Background="LightGray"
@@ -116,14 +116,14 @@
                                Background="Black"
                                Foreground="Red"
                                FontWeight="Bold"
-                               FontSize="10"
+                               FontSize="13"
                                FontFamily="Montserrat"
                                Grid.Column="0"
                                VerticalAlignment="Center"
                                Margin="0,5,0,0"
                                Visibility="Hidden" />
 
-                        <Grid>
+                        <Grid HorizontalAlignment="Center">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="200" />
                                 <ColumnDefinition Width="200" />
@@ -131,14 +131,14 @@
                             <Button x:Name="btnLogin" Grid.Column="1" BorderThickness="0"
                                     Content="{x:Static p:Resources.BtnLogin}"
                                     Foreground="White"
-                                    FontSize="15"
-                                    FontFamily="Montserrat"
+                                    FontSize="20"
+                                    FontFamily = "Segoe UI Variable Display Bold"
                                     Cursor="Hand"
                                     Margin="0,0,0,0"
                                     Click="BtnLogin_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
-                                        <Setter Property="Background" Value="#B45959" />
+                                        <Setter Property="Background" Value="#ca2c29" />
                                         <Style.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
                                                 <Setter Property="Background" Value="#000000" />
@@ -148,7 +148,7 @@
                                 </Button.Style>
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
-                                        <Border Width="130" Height="40" CornerRadius="20" Background="{TemplateBinding Background}">
+                                        <Border Width="140" Height="40" CornerRadius="20" Background="{TemplateBinding Background}">
                                             <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
@@ -158,14 +158,14 @@
                             <Button x:Name="btnGuestPlayer" Grid.Column="0" BorderThickness="0"
                                     Content="{x:Static p:Resources.BtnGuestPlayer}"
                                     Foreground="White"
-                                    FontSize="15"
-                                    FontFamily="Montserrat"
+                                    FontSize="20"
+                                    FontFamily = "Segoe UI Variable Display Bold"
                                     Cursor="Hand"
                                     Margin="0,0,0,0"
                                     HorizontalAlignment="Right" Click="BtnGuestPlayer_Click">
                                 <Button.Style>
                                     <Style TargetType="Button">
-                                        <Setter Property="Background" Value="#48457D" />
+                                        <Setter Property="Background" Value="#33446f" />
                                         <Style.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
                                                 <Setter Property="Background" Value="#000000" />
@@ -175,7 +175,7 @@
                                 </Button.Style>
                                 <Button.Template>
                                     <ControlTemplate TargetType="Button">
-                                        <Border Width="130" Height="40" CornerRadius="20" Background="{TemplateBinding Background}">
+                                        <Border Width="170" Height="40" CornerRadius="20" Background="{TemplateBinding Background}">
                                             <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
                                         </Border>
                                     </ControlTemplate>
@@ -186,8 +186,8 @@
                         <Label x:Name="lblForgotPassword" Content="{x:Static p:Resources.LblForgotPassword}"
                                Foreground="White"
                                FontWeight="Medium"
-                               FontSize="16"
-                               FontFamily="Montserrat"
+                               FontSize="18"
+                               FontFamily = "Segoe UI Variable Display"
                                Grid.Column="0"
                                VerticalAlignment="Center"
                                Margin="100,15,0,0"
@@ -197,8 +197,8 @@
                         <Label x:Name="lblRegister" Content="{x:Static p:Resources.LblRegister}"
                                Foreground="White"
                                FontWeight="Medium"
-                               FontSize="16"
-                               FontFamily="Montserrat"
+                               FontSize="18"
+                               FontFamily = "Segoe UI Variable Display"
                                Grid.Column="0"
                                VerticalAlignment="Center"
                                Margin="100,5,0,0"
