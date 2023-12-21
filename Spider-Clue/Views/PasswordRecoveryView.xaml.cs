@@ -25,12 +25,25 @@ namespace Spider_Clue.Views
 
         private bool ValidatePassword()
         {
-            SecureString securePassword = txtPassword.SecurePassword;
-            string password = new NetworkCredential(string.Empty, securePassword).Password;
-            bool passwordValid = Validations.IsPasswordValid(password);
+            
+            bool passwordValid = IsPasswordValid();
             bool passwordsMatching = ArePasswordsMatching();
 
             return passwordValid && passwordsMatching;
+        }
+
+        private bool IsPasswordValid()
+        {
+            SecureString securePassword = txtPassword.SecurePassword;
+            string password = new NetworkCredential(string.Empty, securePassword).Password;
+            bool passwordValid = Validations.IsPasswordValid(password);
+
+            if(!passwordValid)
+            {
+                lblPasswordInvalid.Visibility = Visibility.Visible;
+            }
+
+            return passwordValid;
         }
 
         private bool ArePasswordsMatching()
@@ -50,7 +63,7 @@ namespace Spider_Clue.Views
             }
             else
             {
-                //lblPasswordsDontMatch.Visibility = Visibility.Visible;
+                lblPasswordsDontMatch.Visibility = Visibility.Visible;
             }
 
             return passwordsValidation;
@@ -111,6 +124,16 @@ namespace Spider_Clue.Views
         private void ShowErrorMessage()
         {
             MessageBox.Show(Properties.Resources.DlgWrongChange, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void TypingConfirmPassword(object sender, RoutedEventArgs e)
+        {
+            lblPasswordsDontMatch.Visibility = Visibility.Hidden;
+        }
+
+        private void TypingPassword(object sender, RoutedEventArgs e)
+        {
+            lblPasswordInvalid.Visibility = Visibility.Hidden;
         }
     }
 }
