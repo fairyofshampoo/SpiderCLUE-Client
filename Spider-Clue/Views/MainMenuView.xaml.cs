@@ -76,8 +76,8 @@ namespace Spider_Clue.Views
 
         private void CreateMatch()
         {
-            SpiderClueService.IMatchManager matchManager = new SpiderClueService.MatchManagerClient(new InstanceContext(this));
-            matchManager.CreateMatch(UserSingleton.Instance.GamerTag);
+            SpiderClueService.IMatchCreationManager matchCreationManager = new SpiderClueService.MatchCreationManagerClient();
+            matchCreationManager.CreateMatch(UserSingleton.Instance.GamerTag);
         }
 
         private void GoToLobbyView()
