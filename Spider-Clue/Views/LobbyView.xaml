@@ -8,7 +8,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800">
 
-    <DockPanel>
+    <Viewbox Stretch="Fill">
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <Grid>
                 <MediaElement x:Name = "mainThemePlayer" LoadedBehavior = "Manual"/>
@@ -37,10 +37,10 @@
                             </ListBox.ItemTemplate>
                         </ListBox>
 
-                        <Border CornerRadius = "40" Background = "#94857B"
+                        <Border x:Name="bdrKickPlayer" CornerRadius = "40" Background = "#94857B"
                                 Width = "50" Height = "50"
-                                VerticalAlignment="Top"
-                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top" Visibility="Hidden"
+                                HorizontalAlignment="Right" Cursor="Hand"
                                 MouseDown="KickPlayer_Click"
                                 Margin = "10,20,0,0" Grid.Column="2">
                             <Border Margin = "10,10,10,10">
@@ -118,7 +118,7 @@
                                     FontFamily="Montserrat"
                                     Cursor="Hand"
                                     Click="BtnCancel_Click"
-                                    Margin="0,0,10,50"
+                                    Margin="5,0,10,50"
                                     HorizontalAlignment="Right">
                                 <Button.Style>
                                     <Style TargetType="Button">
@@ -144,7 +144,7 @@
                             <Button x:Name="btnReady" Grid.Column="0" BorderThickness="0"
                                     Content="{x:Static p:Resources.LblReady}"
                                     Foreground="White"
-                                    FontSize="15"
+                                    FontSize="15" Visibility="Collapsed"
                                     FontFamily="Montserrat"
                                     Cursor="Hand"
                                     Click="BtnReady_Click"
@@ -192,7 +192,7 @@
                         CornerRadius = "40"
                         Background = "#B4A859"
                         Width = "50"
-                        Height = "50"
+                        Height = "50" Cursor="Hand"
                             MouseDown="SendInvitation_Click"
                         Margin = "192,118,14,32" Grid.Column="2">
                             <Border Margin = "10,10,10,10">
@@ -209,5 +209,5 @@
                 </Grid>
             </Grid>
         </ScrollViewer>
-    </DockPanel>
+    </Viewbox>
 </Page>

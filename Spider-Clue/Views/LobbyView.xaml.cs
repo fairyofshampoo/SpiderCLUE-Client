@@ -28,6 +28,9 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
             Utilities.PlayMainThemeSong(mainThemePlayer);
+            MatchManager = new MatchManagerClient(new InstanceContext(this));
+            LobbyManager = new LobbyManagerClient(new InstanceContext(this));
+
         }
 
         public void SetMatchDataInPage(string matchCode)
@@ -38,15 +41,31 @@ namespace Spider_Clue.Views
 
             MatchManager.ConnectToMatch(gamertag, matchCode);
             MatchManager.GetGamersInMatch(gamertag, matchCode);
+
+            SetOwnerButtons();
         }
 
+        private void SetOwnerButtons()
+        {
+            if (CheckMatchOwnership())
+            {
+                btnReady.Visibility = Visibility.Visible;
+                bdrKickPlayer.Visibility = Visibility.Visible;
+            }
+        }
+
+        private bool CheckMatchOwnership()
+        {
+            string gamertag = UserSingleton.Instance.GamerTag;
+            return LobbyManager.IsOwnerOfTheMatch(gamertag, matchCode);
+        }
         private void SetGamersList(string[] gamertags)
         {
             List<GamerForListBox> gamersList = gamertags
                 .Select(gamertag => new GamerForListBox
                 {
                     ImageIconGamer = new BitmapImage(new Uri(GetIconImagePathForGamer(gamertag))),
-                    GamerTag = gamertag
+                    GamerName = gamertag
                 })
                 .ToList();
 
@@ -94,7 +113,7 @@ namespace Spider_Clue.Views
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
-
+            GoToMainMenu();
         }
 
         private void BtnReady_Click(object sender, RoutedEventArgs e)
