@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Spider_Clue.Logic;
+using Spider_Clue.SpiderClueService;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,7 +22,8 @@ namespace Spider_Clue.Views
     /// </summary>
     public partial class EmailInvitationDialog : Window
     {
-        public readonly string MatchCode;
+        public string MatchCode { get; set; }
+        public readonly IInvitationManager InvitationManager = new SpiderClueService.InvitationManagerClient();
         public EmailInvitationDialog()
         {
             InitializeComponent();
@@ -39,7 +42,41 @@ namespace Spider_Clue.Views
 
         private void BtnSendCode_Click(object sender, RoutedEventArgs e)
         {
+            if (ValidateEmail(txtEmail.Text))
+            {
+                SendInvitation();
+            }
+            else
+            {
+                ShowErrorMessageBox(Properties.Resources.DlgInvalidData);
+            }
 
+        }
+        private void ShowErrorMessageBox(string errorMessage)
+        {
+            MessageBox.Show(errorMessage, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void ShowSuccessMessageBox(string successMessage)
+        {
+            MessageBox.Show(successMessage, Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        private void SendInvitation()
+        {
+            bool invitationResult = InvitationManager.SendInvitation(txtEmail.Text, MatchCode, UserSingleton.Instance.GamerTag);
+            if (invitationResult)
+            {
+                ShowSuccessMessageBox(Properties.Resources.DlgInvitationSent);
+            }
+            else
+            {
+                ShowErrorMessageBox(Properties.Resources.DlgErrorInvitation);
+            }
+        }
+        private bool ValidateEmail(string toEmail)
+        {
+            return Validations.IsEmailValid(toEmail);
         }
 
         private void SendEmail_Click(object sender, MouseButtonEventArgs e)

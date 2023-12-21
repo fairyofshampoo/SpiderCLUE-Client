@@ -103,12 +103,15 @@ namespace Spider_Clue.Views
         }
         private void SendInvitation_Click(object sender, MouseButtonEventArgs e)
         {
-
+            SendMailWithCodeMatch();
         }
 
         private void SendMailWithCodeMatch()
         {
-
+            EmailInvitationDialog invitationDialog = new EmailInvitationDialog();
+            invitationDialog.Owner = Window.GetWindow(this);
+            invitationDialog.MatchCode = this.matchCode;
+            invitationDialog.ShowDialog();
         }
 
         public void StartGame()

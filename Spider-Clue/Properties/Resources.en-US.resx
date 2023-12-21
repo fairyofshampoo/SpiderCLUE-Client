@@ -422,4 +422,10 @@
   <data name="DlgWrongChange" xml:space="preserve">
     <value>An error occurred while saving changes. Please try again.</value>
   </data>
+  <data name="DlgInvitationSent" xml:space="preserve">
+    <value>The game code has been sent successfully. Enjoy the game!</value>
+  </data>
+  <data name="DlgErrorInvitation" xml:space="preserve">
+    <value>Unable to send the game code. Please check your connection and try again later.</value>
+  </data>
 </root>

@@ -13,14 +13,14 @@
             <Grid>
                 <Border>
                     <Border.Background>
-                        <ImageBrush ImageSource="/Images/Background/backgroundREGISTER.png" Stretch="Fill"> </ImageBrush>
+                        <ImageBrush ImageSource="/Images/Background/accountRecoveryBackground.jpg" Stretch="UniformToFill"> </ImageBrush>
                     </Border.Background>
                 </Border>
                 
                 <Button
                 HorizontalAlignment="Left"
                 VerticalAlignment="Top"
-                Width="50" Height="50"
+                Width="70" Height="70"
                 BorderThickness="0"
                 Margin="100,50,40,10"
                 Click="BtnGoBack_Click"
@@ -38,26 +38,21 @@
                         VerticalAlignment="Center"
                     HorizontalAlignment="Center"
                         Margin="0,30,0,0">
-
-                    <Label x:Name = "lblAccountRecovery" Content = "{x:Static p:Resources.LblAccountRecoveryTitle}"
-                   Foreground = "White"
-                   FontWeight = "SemiBold"
-                   FontSize = "55"
-                   FontFamily = "Monsterrat"
-                   HorizontalContentAlignment="Center"
-                   Margin="0,50,0,10"/>
+                    <Border CornerRadius="40" Background="White" Opacity="0.90"  Margin="0,50,0,10">
+                        <Label x:Name = "lblAccountRecovery" Content = "{x:Static p:Resources.LblAccountRecoveryTitle}" Foreground = "Black" FontSize = "55" HorizontalContentAlignment="Center" FontFamily = "Segoe UI Variable Display Bold" VerticalAlignment="Center"/>
+                    </Border>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height = "Auto" />
                             <RowDefinition/>
                         </Grid.RowDefinitions>
 
-                        <Border
+                        <Border Opacity="0.93"
                     CornerRadius="10"
                     Width="Auto"
-                    Background="#B45959"
+                    Background="#ce6ca9"
                     Grid.Row="0">
-                            <StackPanel>
+                            <StackPanel Opacity="0.96">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
@@ -67,26 +62,26 @@
 
                                     <Label x:Name = "lblEmailForRecovery" Content = "{x:Static p:Resources.LblEmailForRecovery}"
                                    Width="Auto"
-                                   Foreground ="White"
+                                   Foreground ="Black"
                                    FontWeight = "Medium"
                                    FontSize = "22"
-                                   FontFamily = "Monsterrat"
+                                   FontFamily = "Segoe UI Variable Display"
                                    HorizontalContentAlignment="Center"
                                    Margin="5,5,5,5" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="0"/>
                                     <Border
                                 Width="Auto"
                                 CornerRadius="5"
-                                BorderBrush="LightGray"
+                                BorderBrush="White"
                                 BorderThickness="3"
                                 Grid.Row="1"
                                 Margin="15,10,15,10">
                                         <TextBox x:Name="txtEmailForRecovery" 
                                          Height="35"
-                                         FontSize="13"
+                                         FontSize="15"
                                          FontWeight="Medium"
-                                         FontFamily="Montserrat"
-                                         Background="LightGray"
+                                         FontFamily = "Segoe UI Variable Display"
+                                         Background="White"
                                          Foreground="Black"
                                          BorderThickness="0"/>
                                     </Border>
@@ -96,8 +91,8 @@
                             BorderThickness = "0"
                             Content = "{x:Static p:Resources.BtnSendCode}"
                             Foreground = "White"
-                            FontSize = "18"
-                            FontWeight="Bold"
+                            FontSize = "20"
+                            FontFamily = "Segoe UI Variable Display Bold"
                             Cursor = "Hand"
                             Margin = "0,5,0,10"
                                         Click="BtnSendCode_Click">
@@ -120,15 +115,6 @@
                                     </Button.Template>
                                 </Button>
                             </StackPanel>
-                        </Border>
-
-                        <Border
-                    CornerRadius="10"
-                    Height="Auto"
-                    Width="400"
-                    Background="#655E73"
-                    Grid.Row="1"
-                    Margin="0,50,0,0">
                         </Border>
                     </Grid>
 
