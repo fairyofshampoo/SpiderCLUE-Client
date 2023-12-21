@@ -128,12 +128,12 @@ namespace Spider_Clue.Views
 
         private void TypingConfirmPassword(object sender, RoutedEventArgs e)
         {
-            lblPasswordsDontMatch.Visibility = Visibility.Hidden;
+            lblPasswordsDontMatch.Visibility = Visibility.Collapsed;
         }
 
         private void TypingPassword(object sender, RoutedEventArgs e)
         {
-            lblPasswordInvalid.Visibility = Visibility.Hidden;
+            lblPasswordInvalid.Visibility = Visibility.Collapsed;
         }
     }
 }

@@ -304,11 +304,29 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to send the game code. Please check your connection and try again later..
+        /// </summary>
+        public static string DlgErrorInvitation {
+            get {
+                return ResourceManager.GetString("DlgErrorInvitation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Try again, invalid information.
         /// </summary>
         public static string DlgInvalidData {
             get {
                 return ResourceManager.GetString("DlgInvalidData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The game code has been sent successfully. Enjoy the game!.
+        /// </summary>
+        public static string DlgInvitationSent {
+            get {
+                return ResourceManager.GetString("DlgInvitationSent", resourceCulture);
             }
         }
         

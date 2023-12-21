@@ -25,9 +25,10 @@ namespace Spider_Clue.Views
         private void BtnSendCode_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
+
             string toEmail = txtEmailForRecovery.Text;
 
-            if (CheckPlayerExistence(toEmail))
+            if (ValidateEmail(toEmail) && CheckPlayerExistence(toEmail))
             {
                 if (VerifyCode(toEmail))
                 {
@@ -38,6 +39,11 @@ namespace Spider_Clue.Views
             {
                 ShowErrorMessageBox(Properties.Resources.DlgInvalidData);
             }
+        }
+
+        private bool ValidateEmail( string toEmail)
+        {
+            return Validations.IsEmailValid(toEmail);
         }
 
         private bool VerifyCode(string toEmail)

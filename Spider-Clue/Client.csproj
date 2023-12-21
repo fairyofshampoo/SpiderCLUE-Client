@@ -500,6 +500,7 @@
     <Resource Include="Images\Icons\EmailIcon.png" />
     <Resource Include="Images\Icons\KickPlayerIcon.png" />
     <Resource Include="Images\Background\forgotPasswordBackground.jpg" />
+    <Resource Include="Images\Background\accountRecoveryBackground.jpg" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />
