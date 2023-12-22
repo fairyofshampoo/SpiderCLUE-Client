@@ -13,6 +13,7 @@ namespace Spider_Clue.Views
     public partial class MainMenuView : Page, IFriendsManagerCallback
     {
         private readonly FriendsManagerClient friendsManagerClient;
+        public readonly ISessionManager SessionManager = new SpiderClueService.SessionManagerClient();
         public MainMenuView()
         {
             InitializeComponent();
@@ -113,8 +114,7 @@ namespace Spider_Clue.Views
 
         private void ConnectToService()
         {
-            SpiderClueService.IFriendsManager friendsManager = new FriendsManagerClient(new System.ServiceModel.InstanceContext(this));
-            friendsManager.Connect(UserSingleton.Instance.GamerTag);
+            SessionManager.Connect(UserSingleton.Instance.GamerTag);
         }
     }
 }
