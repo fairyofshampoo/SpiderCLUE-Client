@@ -13,6 +13,7 @@ namespace Spider_Clue.Views
     public partial class MainMenuView : Page, IFriendsManagerCallback
     {
         private readonly FriendsManagerClient friendsManagerClient;
+        private string[] connectedFriends;
         public readonly ISessionManager SessionManager = new SpiderClueService.SessionManagerClient();
         public MainMenuView()
         {
@@ -30,7 +31,7 @@ namespace Spider_Clue.Views
         private void SetGamerData()
         {
             lblUserName.Content = UserSingleton.Instance.GamerTag;
-            lblLevel.Content = UserSingleton.Instance.Level;
+            lblLevel.Content = UserSingleton.Instance.GamesWon;
             string iconPath = Utilities.GetImagePathForIcon(UserSingleton.Instance.ImageCode);
             this.DataContext = new { ImagePath = iconPath };
         }
@@ -38,7 +39,7 @@ namespace Spider_Clue.Views
         {
             Utilities.PlayButtonClickSound();
             SettingsView settingsView = new SettingsView();
-            NavigationService.Navigate(settingsView);
+            this.NavigationService.Navigate(settingsView);
         }
         private void BtnJoinToParty_Click(object sender, RoutedEventArgs e)
         {
@@ -92,7 +93,7 @@ namespace Spider_Clue.Views
         {
             LobbyView lobbyView = new LobbyView();
             lobbyView.SetMatchDataInPage(matchCode);
-            NavigationService.Navigate(lobbyView);
+            this.NavigationService.Navigate(lobbyView);
 
         }
 
@@ -108,7 +109,13 @@ namespace Spider_Clue.Views
 
         public void ReceiveConnectedFriends(string[] connectedFriends)
         {
-            FriendsListView friendListView = new FriendsListView(connectedFriends); 
+            this.connectedFriends = connectedFriends;
+            GoToFriendsListView();
+        }
+
+        private void GoToFriendsListView()
+        {
+            FriendsListView friendListView = new FriendsListView(connectedFriends);
             NavigationService.Navigate(friendListView);
         }
 
