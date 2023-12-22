@@ -12,15 +12,15 @@ namespace Spider_Clue.Views
     /// </summary>
     public partial class PasswordRecoveryView : Page
     {
-        private Gamer gamer;
+        private string gamertag;
         public PasswordRecoveryView()
         {
             InitializeComponent();
         }
 
-        public void SetGamerInWindow(Gamer gamer)
+        public void SetGamertagInWindow(string gamertag)
         {
-            this.gamer = gamer;
+            this.gamertag = gamertag;
         }
 
         private bool ValidatePassword()
@@ -99,10 +99,10 @@ namespace Spider_Clue.Views
             bool result = false;
             SecureString securePassword = txtPassword.SecurePassword;
             string password = new NetworkCredential(string.Empty, securePassword).Password;
-            gamer.Password = Utilities.CalculateSHA1Hash(password);
+            string newPassword = Utilities.CalculateSHA1Hash(password);
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
 
-            if (userManager.UpdateGamerTransaction(gamer) == 1)
+            if (userManager.UpdatePassword(gamertag, newPassword) == 1)
             {
                 result = true;
             }

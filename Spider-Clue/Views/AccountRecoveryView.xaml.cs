@@ -55,13 +55,13 @@ namespace Spider_Clue.Views
         {
             Gamer gamer = userManager.GetGamerByEmail(email);
             PasswordRecoveryView changePasswordView = new PasswordRecoveryView();
-            changePasswordView.SetGamerInWindow(gamer);
+            changePasswordView.SetGamertagInWindow(gamer.Gamertag);
             NavigationService.Navigate(changePasswordView);
         }
 
         private bool CheckPlayerExistence(string email)
         {
-            return userManager.IsAccountExisting(email);
+            return userManager.IsEmailExisting(email);
         }
 
         private void ShowErrorMessageBox(string errorMessage)

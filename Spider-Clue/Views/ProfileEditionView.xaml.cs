@@ -99,10 +99,8 @@ namespace Spider_Clue.Views
 
         private void GoToChangePasswordView()
         {
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            Gamer gamer = userManager.GetGamerByEmail(UserSingleton.Instance.Email);
             PasswordRecoveryView changePasswordView = new PasswordRecoveryView();
-            changePasswordView.SetGamerInWindow(gamer);
+            changePasswordView.SetGamertagInWindow(UserSingleton.Instance.GamerTag);
             this.NavigationService.Navigate(changePasswordView);
         }
 

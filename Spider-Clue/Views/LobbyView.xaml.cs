@@ -24,6 +24,7 @@ namespace Spider_Clue.Views
         public readonly MatchManagerClient MatchManager;
         public readonly LobbyManagerClient LobbyManager;
         public readonly IUserManager UserManager = new SpiderClueService.UserManagerClient();
+        private string[] gamersInLobby;
         public LobbyView()
         {
             InitializeComponent();
@@ -81,6 +82,7 @@ namespace Spider_Clue.Views
 
         public void ReceiveGamersInMatch(string[] gamertags)
         {
+            gamersInLobby = gamertags;
             SetGamersList(gamertags);
         }
 
@@ -104,17 +106,33 @@ namespace Spider_Clue.Views
                 MainMenuView mainMenuView = new MainMenuView();
                 this.NavigationService.Navigate(mainMenuView);
             }
+            MatchManager.LeaveMatch(UserSingleton.Instance.GamerTag, MatchCode);
         }
 
         private void KickPlayer_Click(object sender, MouseButtonEventArgs e)
         {
-            //OpenKickPlayerDialog(MatchCode);
+            List<string> selectedGamers = OpenKickPlayerDialog();
+            foreach (string gamer in selectedGamers)
+            {
+                LobbyManager.KickPlayer(gamer);
+            }
         }
 
-        /*private string[] OpenKickPlayerDialog(string matchCode)
+        private List<string> OpenKickPlayerDialog()
         {
+            KickPlayersView kickPlayersDialog = new KickPlayersView(gamersInLobby);
+            kickPlayersDialog.Owner = Window.GetWindow(this);
+            kickPlayersDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
-        }*/
+            List<string> selectedGamersToKick = new List<string>();
+
+            if (kickPlayersDialog.ShowDialog() == true)
+            {
+                selectedGamersToKick = kickPlayersDialog.PlayersToKick;
+            }
+
+            return selectedGamersToKick;
+        }
 
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)

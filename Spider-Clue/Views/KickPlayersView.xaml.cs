@@ -27,6 +27,7 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
             PlayersInLobby = playersInLobby;
+            PlayersToKick = new List<string>();
             ShowPlayersInLobby();
         }
 
@@ -52,6 +53,7 @@ namespace Spider_Clue.Views
             if (ShowConfirmationMessageToKickPlayer() == MessageBoxResult.OK)
             {
                 GetPlayerData(sender);
+                DialogResult = true;
             }
         }
 
@@ -62,12 +64,11 @@ namespace Spider_Clue.Views
 
         private void GetPlayerData(object sender)
         {
-            string gamertag = "Not found";
             var button = sender as System.Windows.Controls.Button;
             if (button != null && button.DataContext is FriendRequest dataObject)
             {
-               gamertag = dataObject.Gamertag;
-               PlayersToKick.Add(gamertag);
+                string gamertag = dataObject.Gamertag;
+                PlayersToKick.Add(gamertag);
             }
         }
     }
