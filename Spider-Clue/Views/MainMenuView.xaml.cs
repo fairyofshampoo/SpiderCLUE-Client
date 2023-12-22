@@ -30,7 +30,7 @@ namespace Spider_Clue.Views
         private void SetGamerData()
         {
             lblUserName.Content = UserSingleton.Instance.GamerTag;
-            lblLevel.Content = UserSingleton.Instance.Level;
+            lblLevel.Content = UserSingleton.Instance.GamesWon;
             string iconPath = Utilities.GetImagePathForIcon(UserSingleton.Instance.ImageCode);
             this.DataContext = new { ImagePath = iconPath };
         }

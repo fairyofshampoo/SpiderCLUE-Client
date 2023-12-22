@@ -43,10 +43,10 @@ namespace Spider_Clue.Views
 
         private void SetGuessPlayerData()
         {
-            int minimumLevel = 0;
+            int minimumGamesWon = 0;
             string guestPlayerUsername = GenerateGuestPlayerUsername();
             UserSingleton.Instance.GamerTag = guestPlayerUsername;
-            UserSingleton.Instance.Level = minimumLevel;
+            UserSingleton.Instance.GamesWon = minimumGamesWon;
             UserSingleton.Instance.ImageCode = "Icon0.jpg";
             UserSingleton.Instance.Name = "Guest";
             UserSingleton.Instance.LastName = "Player";
