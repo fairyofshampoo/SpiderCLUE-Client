@@ -29,8 +29,8 @@ namespace Spider_Clue
 
         private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea cerra la app?", "Confirmar cierre", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.No) 
+            MessageBoxResult result = MessageBox.Show("¿Desea cerrar la app?", "Confirmar cierre", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.No)
             {
                 e.Cancel = true;
             }
@@ -38,10 +38,18 @@ namespace Spider_Clue
             {
                 if (UserSingleton.Instance.GamerTag != null)
                 {
-                    SpiderClueService.ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
-                    sessionManager.Disconnect(UserSingleton.Instance.GamerTag);
+                    try
+                    {
+                        SpiderClueService.ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
+                        sessionManager.Disconnect(UserSingleton.Instance.GamerTag);
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"Error en Disconnect: {ex.Message}");
+                    }
                 }
             }
         }
+
     }
 }
