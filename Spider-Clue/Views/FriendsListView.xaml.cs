@@ -43,6 +43,7 @@ namespace Spider_Clue.Views
 
         private void ShowFriendList()
         {
+            FriendsConnectedGrid.Items.Clear();
             string[] friendList = GetFriends();
             string statusColor = "Red";
             for(int firstIndex = 0; firstIndex < friendList.Length; firstIndex++)
@@ -138,6 +139,7 @@ namespace Spider_Clue.Views
         {
             SpiderClueService.IFriendshipManager friendship = new SpiderClueService.FriendshipManagerClient();
             friendship.DeleteFriend(UserSingleton.Instance.GamerTag, friend);
+            ShowFriendList();
         }
 
         private void DeleteFriendsRequest(string friend)
