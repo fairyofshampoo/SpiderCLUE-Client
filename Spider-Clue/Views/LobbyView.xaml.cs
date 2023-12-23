@@ -32,7 +32,14 @@ namespace Spider_Clue.Views
             Utilities.PlayMainThemeSong(mainThemePlayer);
             MatchManager = new MatchManagerClient(new InstanceContext(this));
             LobbyManager = new LobbyManagerClient(new InstanceContext(this));
+            SetChatInLobby();
 
+        }
+
+        public void SetChatInLobby()
+        {
+            ChatView chatView = new ChatView();
+            chatFrame.NavigationService.Navigate(chatView);
         }
 
         public void SetMatchDataInPage(string matchCode)

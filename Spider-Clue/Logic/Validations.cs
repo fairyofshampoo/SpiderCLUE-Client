@@ -14,8 +14,6 @@ namespace Spider_Clue.Logic
 
         private static bool ValidateWithTimeout(string input, Regex regex)
         {
-            
-
             bool isValid;
 
             try
@@ -44,6 +42,22 @@ namespace Spider_Clue.Logic
                                          RegexOptions.None, TimeSpan.FromMilliseconds(limitTime));
 
             return isValid && ValidateWithTimeout(password, passwordRegex);
+        }
+
+        public static bool IsMessageValid(string message)
+        {
+            int limitTime = 500;
+            bool isValid = true;
+
+            if (string.IsNullOrWhiteSpace(message))
+            {
+                isValid = false;
+            }
+
+            var messageRegex = new Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d\\s\\W]{1,200}$",
+                                         RegexOptions.None, TimeSpan.FromMilliseconds(limitTime));
+
+            return isValid && ValidateWithTimeout(message, messageRegex);
         }
 
         public static bool IsEmailValid(string email)

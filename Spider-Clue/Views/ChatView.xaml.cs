@@ -1,7 +1,9 @@
 ﻿using Spider_Clue.Logic;
+using Spider_Clue.SpiderClueService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -26,9 +28,36 @@ namespace Spider_Clue.Views
             InitializeComponent();
         }
 
-        private void txtMessage_KeyDown(object sender, KeyEventArgs e)
+        private void TxtMessage_KeyDown(object sender, KeyEventArgs e)
         {
+            SendMessage(txtMessage.Text);
+        }
+        private void ShowErrorMessageBox(string errorMessage)
+        {
+            MessageBox.Show(errorMessage, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
 
+        private void SendMessage(string message)
+        {
+            if(Validations.IsMessageValid(message))
+            {
+                string senderGamertag = UserSingleton.Instance.GamerTag;
+
+                try
+                {
+                    //MANDAR
+                    txtMessage.Clear();
+                }
+                catch (CommunicationException)
+                {
+                    ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+                }
+            }
+            else
+            {
+                ShowErrorMessageBox(Properties.Resources.DlgInvalidData);
+            }
+            
         }
     }
 }
