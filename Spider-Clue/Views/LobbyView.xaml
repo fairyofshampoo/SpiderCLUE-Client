@@ -66,34 +66,35 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <Border Margin="0,0,15,0" Grid.Column="0">
+                            <Border Margin="0,0,15,0" Grid.Column="0" Grid.Row="0">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Images/Characters/PurpleCharacter.png" Stretch="UniformToFill" />
+                                    <ImageBrush ImageSource="/Images/Characters/PurpleCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
+                            <Label x:Name="lblPurpleGamertag" Grid.Row="1" Content="Juanito"/>
                             <Border Margin="0,0,15,0" Grid.Column="1">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Images/Characters/WhiteCharacter.png" Stretch="UniformToFill" />
+                                    <ImageBrush ImageSource="/Images/Characters/WhiteCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
                             <Border Margin="0,0,15,0" Grid.Column="2">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Images/Characters/RedCharacter.png" Stretch="UniformToFill" />
+                                    <ImageBrush ImageSource="/Images/Characters/RedCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
                             <Border Margin="0,0,15,0" Grid.Column="3">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Images/Characters/GreenCharacter.png" Stretch="UniformToFill" />
+                                    <ImageBrush ImageSource="/Images/Characters/GreenCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
                             <Border Margin="0,0,15,0" Grid.Column="4">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Images/Characters/YellowCharacter.png" Stretch="UniformToFill" />
+                                    <ImageBrush ImageSource="/Images/Characters/YellowCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
                             <Border Margin="0,0,15,0" Grid.Column="5">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Images/Characters/BlueCharacter.png" Stretch="UniformToFill" />
+                                    <ImageBrush ImageSource="/Images/Characters/BlueCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
                         </Grid>

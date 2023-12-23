@@ -25,6 +25,7 @@ namespace Spider_Clue.Views
         public readonly LobbyManagerClient LobbyManager;
         public readonly IUserManager UserManager = new SpiderClueService.UserManagerClient();
         private string[] gamersInLobby;
+        private bool isOwnerOfMatch = false;
         public LobbyView()
         {
             InitializeComponent();
@@ -48,7 +49,8 @@ namespace Spider_Clue.Views
 
         private void SetOwnerButtons()
         {
-            if (CheckMatchOwnership())
+            isOwnerOfMatch = CheckMatchOwnership();
+            if (isOwnerOfMatch)
             {
                 btnReady.Visibility = Visibility.Visible;
                 bdrKickPlayer.Visibility = Visibility.Visible;
@@ -60,6 +62,7 @@ namespace Spider_Clue.Views
             string gamertag = UserSingleton.Instance.GamerTag;
             return LobbyManager.IsOwnerOfTheMatch(gamertag, MatchCode);
         }
+
         private void SetGamersList(string[] gamertags)
         {
             List<GamerForListBox> gamersList = gamertags
@@ -79,7 +82,6 @@ namespace Spider_Clue.Views
             return Utilities.GetImagePathForIcon(iconName);
         }
 
-
         public void ReceiveGamersInMatch(string[] gamertags)
         {
             gamersInLobby = gamertags;
@@ -91,6 +93,15 @@ namespace Spider_Clue.Views
             if (gamertag.Equals(UserSingleton.Instance.GamerTag))
             {
                 GoToMainMenu();
+            }
+        }
+
+        private void KickAllPlayersFromMatch()
+        {
+            string[] gamersToKick = GetGamersInLobbyExceptOwner();
+            foreach (string gamer in gamersToKick)
+            {
+                LobbyManager.KickPlayerAsync(gamer);
             }
         }
 
@@ -106,32 +117,45 @@ namespace Spider_Clue.Views
                 MainMenuView mainMenuView = new MainMenuView();
                 this.NavigationService.Navigate(mainMenuView);
             }
-            MatchManager.LeaveMatch(UserSingleton.Instance.GamerTag, MatchCode);
+            if(isOwnerOfMatch)
+            {
+                KickAllPlayersFromMatch();
+
+            }
+
+            MatchManager.LeaveMatchAsync(UserSingleton.Instance.GamerTag, MatchCode);
         }
 
         private void KickPlayer_Click(object sender, MouseButtonEventArgs e)
         {
-            List<string> selectedGamers = OpenKickPlayerDialog();
-            foreach (string gamer in selectedGamers)
+            string selectedGamer = OpenKickPlayerDialog();
+            if (!selectedGamer.Equals(String.Empty))
             {
-                LobbyManager.KickPlayer(gamer);
+                LobbyManager.KickPlayer(selectedGamer);
             }
         }
 
-        private List<string> OpenKickPlayerDialog()
+        private string[] GetGamersInLobbyExceptOwner()
         {
-            KickPlayersView kickPlayersDialog = new KickPlayersView(gamersInLobby);
+            string gamertag = UserSingleton.Instance.GamerTag;
+            string[] gamersToSend = gamersInLobby.Where(gamer => gamer != gamertag).ToArray();
+            return gamersToSend;
+        }
+
+        private string OpenKickPlayerDialog()
+        {
+            KickPlayersView kickPlayersDialog = new KickPlayersView(GetGamersInLobbyExceptOwner());
             kickPlayersDialog.Owner = Window.GetWindow(this);
             kickPlayersDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
-            List<string> selectedGamersToKick = new List<string>();
+            string selectedGamerToKick = string.Empty;
 
             if (kickPlayersDialog.ShowDialog() == true)
             {
-                selectedGamersToKick = kickPlayersDialog.PlayersToKick;
+                selectedGamerToKick = kickPlayersDialog.PlayerToKick;
             }
 
-            return selectedGamersToKick;
+            return selectedGamerToKick;
         }
 
 
