@@ -24,5 +24,15 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
         }
+
+        private void Grid_Click(object sender, MouseButtonEventArgs e)
+        {
+            Point click = e.GetPosition(GameBoardGrid);
+            var columnClick = (int)(click.X / (int)GameBoardGrid.ActualWidth * GameBoardGrid.ColumnDefinitions.Count);
+            var rowClick = (int)(click.Y / (int)GameBoardGrid.ActualHeight * GameBoardGrid.RowDefinitions.Count);
+
+            Grid.SetRow(bluePawn, rowClick);
+            Grid.SetColumn(bluePawn, columnClick);
+        }
     }
 }
