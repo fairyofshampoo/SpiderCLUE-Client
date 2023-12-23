@@ -21,13 +21,12 @@ namespace Spider_Clue.Views
     public partial class KickPlayersView : Window 
     {
         public string[] PlayersInLobby { get; set; }
-        public List<string> PlayersToKick { get; set; }
+        public string PlayerToKick = string.Empty;
 
         public KickPlayersView(string[] playersInLobby)
         {
             InitializeComponent();
             PlayersInLobby = playersInLobby;
-            PlayersToKick = new List<string>();
             ShowPlayersInLobby();
         }
 
@@ -62,13 +61,13 @@ namespace Spider_Clue.Views
             return MessageBox.Show(Properties.Resources.DlgConfirmDeleteFriend, Properties.Resources.DeleteFriendTitle, MessageBoxButton.OKCancel, MessageBoxImage.Question);
         }
 
-        private void GetPlayerData(object sender)
+        public void GetPlayerData(object sender)
         {
             var button = sender as System.Windows.Controls.Button;
+
             if (button != null && button.DataContext is FriendRequest dataObject)
             {
-                string gamertag = dataObject.Gamertag;
-                PlayersToKick.Add(gamertag);
+                PlayerToKick = dataObject.Gamertag;
             }
         }
     }

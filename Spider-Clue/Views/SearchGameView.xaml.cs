@@ -73,7 +73,7 @@ namespace Spider_Clue.Views
 
         private void GoToLobby(int numberOfGamers)
         {
-            int maximumOfPlayers = 6;
+            int maximumOfPlayers = 3;
             int numberOfPlayersEmptyMatch = 0;
 
             if(numberOfGamers > numberOfPlayersEmptyMatch)
