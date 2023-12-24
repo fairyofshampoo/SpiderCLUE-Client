@@ -14,7 +14,7 @@ namespace Spider_Clue.Views
     {
         private readonly FriendsManagerClient friendsManagerClient;
         private string[] connectedFriends;
-        public readonly ISessionManager SessionManager = new SpiderClueService.SessionManagerClient();
+
         public MainMenuView()
         {
             InitializeComponent();
@@ -121,7 +121,8 @@ namespace Spider_Clue.Views
 
         private void ConnectToService()
         {
-            SessionManager.Connect(UserSingleton.Instance.GamerTag);
+            ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
+            sessionManager.Connect(UserSingleton.Instance.GamerTag);
         }
     }
 }

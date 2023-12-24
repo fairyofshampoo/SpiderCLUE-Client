@@ -174,7 +174,14 @@ namespace Spider_Clue.Views
 
         private void BtnReady_Click(object sender, RoutedEventArgs e)
         {
-
+            try
+            {
+                LobbyManager.BeginMatch(MatchCode);
+            }
+            catch (CommunicationException)
+            {
+                MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
         private void SendInvitation_Click(object sender, MouseButtonEventArgs e)
         {
@@ -199,8 +206,9 @@ namespace Spider_Clue.Views
             catch (CommunicationException)
             {
                 MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
-                GoToMainMenu();
             }
+            LobbyManager.Close();
+            MatchManager.Close();
         }
     }
 }

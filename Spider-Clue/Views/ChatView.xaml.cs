@@ -53,6 +53,7 @@ namespace Spider_Clue.Views
                 SendMessage(txtMessage.Text);
             }
         }
+
         private void ShowErrorMessageBox(string errorMessage)
         {
             MessageBox.Show(errorMessage, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
@@ -106,6 +107,8 @@ namespace Spider_Clue.Views
             {
                 ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
             }
+
+            ChatManager.Close();
         }
     }
 }
