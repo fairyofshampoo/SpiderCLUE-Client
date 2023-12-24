@@ -96,19 +96,5 @@ namespace Spider_Clue.Views
                 listBoxChat.ScrollIntoView(listBoxChat.Items[listBoxChat.Items.Count - 1]);
             }
         }
-
-        public void CloseChat()
-        {
-            try
-            {
-                ChatManager.DisconnectFromChatAsync(UserSingleton.Instance.GamerTag);
-            }
-            catch (CommunicationException)
-            {
-                ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
-            }
-
-            ChatManager.Close();
-        }
     }
 }

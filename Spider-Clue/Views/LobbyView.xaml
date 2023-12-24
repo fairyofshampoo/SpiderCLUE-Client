@@ -71,37 +71,37 @@
                                     <ImageBrush ImageSource="/Images/Characters/PurpleCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
-                            <Label x:Name="lblPurpleGamertag" Grid.Row="1" Background="#7F4CA5" Foreground="White" FontWeight="SemiBold" Margin="5,0,5,0"/>
+                            <Label x:Name="lblPurpleCharacter" Grid.Row="1" Background="#7F4CA5" Foreground="White" FontWeight="SemiBold" Margin="5,0,5,0"/>
                             <Border Margin="0,0,15,0" Grid.Column="1">
                                 <Border.Background>
                                     <ImageBrush ImageSource="/Images/Characters/WhiteCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
-                            <Label x:Name="lblWhiteGamertag" Grid.Row="1" Grid.Column="1" Background="White" Foreground="Black" FontWeight="SemiBold" Margin="5,0,5,0"/>
+                            <Label x:Name="lblWhiteCharacter" Grid.Row="1" Grid.Column="1" Background="White" Foreground="Black" FontWeight="SemiBold" Margin="5,0,5,0"/>
                             <Border Margin="0,0,15,0" Grid.Column="2">
                                 <Border.Background>
                                     <ImageBrush ImageSource="/Images/Characters/RedCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
-                            <Label x:Name="lblRedGamertag" Grid.Row="1" Grid.Column="2" Background="#BC1823" Foreground="White" FontWeight="SemiBold" Margin="5,0,5,0"/>
+                            <Label x:Name="lblRedCharacter" Grid.Row="1" Grid.Column="2" Background="#BC1823" Foreground="White" FontWeight="SemiBold" Margin="5,0,5,0"/>
                             <Border Margin="0,0,15,0" Grid.Column="3">
                                 <Border.Background>
                                     <ImageBrush ImageSource="/Images/Characters/GreenCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
-                            <Label x:Name="lblGreenGamertag" Grid.Row="1" Grid.Column="3" Background="#68902B" Foreground="White" FontWeight="SemiBold" Margin="5,0,5,0"/>
+                            <Label x:Name="lblGreenCharacter" Grid.Row="1" Grid.Column="3" Background="#68902B" Foreground="White" FontWeight="SemiBold" Margin="5,0,5,0"/>
                             <Border Margin="0,0,15,0" Grid.Column="4">
                                 <Border.Background>
                                     <ImageBrush ImageSource="/Images/Characters/YellowCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
-                            <Label x:Name="lblYellowGamertag" Grid.Row="1" Grid.Column="4" Background="#FFD230" Foreground="Black" FontWeight="SemiBold" Margin="5,0,5,0"/>
+                            <Label x:Name="lblYellowCharacter" Grid.Row="1" Grid.Column="4" Background="#FFD230" Foreground="Black" FontWeight="SemiBold" Margin="5,0,5,0"/>
                             <Border Margin="0,0,15,0" Grid.Column="5">
                                 <Border.Background>
                                     <ImageBrush ImageSource="/Images/Characters/BlueCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
-                            <Label x:Name="lblBlueGamertag" Grid.Row="1" Grid.Column="5" Background="#145DA0" Foreground="White" FontWeight="SemiBold" Margin="5,0,5,0"/>
+                            <Label x:Name="lblBlueCharacter" Grid.Row="1" Grid.Column="5" Background="#145DA0" Foreground="White" FontWeight="SemiBold" Margin="5,0,5,0"/>
                         </Grid>
                     </StackPanel>
 

@@ -23,10 +23,8 @@ namespace Spider_Clue.Views
         private string MatchCode;
         public readonly MatchManagerClient MatchManager;
         public readonly LobbyManagerClient LobbyManager;
-        public readonly IUserManager UserManager = new SpiderClueService.UserManagerClient();
         private string[] gamersInLobby;
         private bool isOwnerOfMatch = false;
-        private readonly ChatView chatView = new ChatView();
         public LobbyView()
         {
             InitializeComponent();
@@ -37,6 +35,7 @@ namespace Spider_Clue.Views
 
         public void SetChatInLobby()
         {
+            ChatView chatView = new ChatView();
             chatView.ConfigureWindow(MatchCode);
             chatFrame.NavigationService.Navigate(chatView);
         }
@@ -49,10 +48,41 @@ namespace Spider_Clue.Views
 
             MatchManager.ConnectToMatch(gamertag, matchCode);
             MatchManager.GetGamersInMatch(gamertag, matchCode);
+            LobbyManager.ConnectToLobby(gamertag, matchCode);
 
             SetOwnerButtons();
             SetChatInLobby();
         }
+
+        private Label FindCharacterLabel(string characterName)
+        {
+            Label resultLabel = null;
+
+            switch (characterName)
+            {
+                case "PurpleCharacter":
+                    resultLabel = lblPurpleCharacter;
+                    break;
+                case "WhiteCharacter":
+                    resultLabel = lblWhiteCharacter;
+                    break;
+                case "RedCharacter":
+                    resultLabel = lblRedCharacter;
+                    break;
+                case "GreenCharacter":
+                    resultLabel = lblGreenCharacter;
+                    break;
+                case "YellowCharacter":
+                    resultLabel = lblYellowCharacter;
+                    break;
+                case "BlueCharacter":
+                    resultLabel = lblBlueCharacter;
+                    break;
+            }
+
+            return resultLabel;
+        }
+
 
         private void SetOwnerButtons()
         {
@@ -83,16 +113,38 @@ namespace Spider_Clue.Views
             GamersInMatchListBox.ItemsSource = gamersList;
         }
 
+        public void SetCharactersInLobby(string[] gamertags)
+        {
+            foreach (var gamertag in gamertags)
+            {
+                Character character = LobbyManager.GetCharacterPerGamer(gamertag);
+
+                if(character != null)
+                {
+                    Label characterLabel = FindCharacterLabel(character.CharacterName);
+
+                    if (characterLabel != null)
+                    {
+                        characterLabel.Content = gamertag;
+                    }
+                }
+            }
+        }
+
         private string GetIconImagePathForGamer(string gamertag)
         {
-            string iconName = UserManager.GetIcon(gamertag);
+            IUserManager userManager = new SpiderClueService.UserManagerClient();
+            string iconName = userManager.GetIcon(gamertag);
+
             return Utilities.GetImagePathForIcon(iconName);
         }
 
         public void ReceiveGamersInMatch(string[] gamertags)
         {
+            Console.WriteLine("recibo gamers");
             gamersInLobby = gamertags;
             SetGamersList(gamertags);
+            SetCharactersInLobby(gamertags);
         }
 
         public void KickPlayerFromMatch(string gamertag)
@@ -129,7 +181,7 @@ namespace Spider_Clue.Views
                 KickAllPlayersFromMatch();
 
             }
-            chatView.CloseChat();
+
             MatchManager.LeaveMatchAsync(UserSingleton.Instance.GamerTag, MatchCode);
         }
 
@@ -209,6 +261,6 @@ namespace Spider_Clue.Views
             }
             LobbyManager.Close();
             MatchManager.Close();
-        }
+        }    
     }
 }
