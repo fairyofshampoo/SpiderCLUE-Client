@@ -26,19 +26,18 @@ namespace Spider_Clue.Views
         public readonly IUserManager UserManager = new SpiderClueService.UserManagerClient();
         private string[] gamersInLobby;
         private bool isOwnerOfMatch = false;
+        private readonly ChatView chatView = new ChatView();
         public LobbyView()
         {
             InitializeComponent();
             Utilities.PlayMainThemeSong(mainThemePlayer);
             MatchManager = new MatchManagerClient(new InstanceContext(this));
             LobbyManager = new LobbyManagerClient(new InstanceContext(this));
-            SetChatInLobby();
-
         }
 
         public void SetChatInLobby()
         {
-            ChatView chatView = new ChatView();
+            chatView.ConfigureWindow(MatchCode);
             chatFrame.NavigationService.Navigate(chatView);
         }
 
@@ -52,6 +51,7 @@ namespace Spider_Clue.Views
             MatchManager.GetGamersInMatch(gamertag, matchCode);
 
             SetOwnerButtons();
+            SetChatInLobby();
         }
 
         private void SetOwnerButtons()
@@ -129,7 +129,7 @@ namespace Spider_Clue.Views
                 KickAllPlayersFromMatch();
 
             }
-
+            chatView.CloseChat();
             MatchManager.LeaveMatchAsync(UserSingleton.Instance.GamerTag, MatchCode);
         }
 
@@ -169,6 +169,7 @@ namespace Spider_Clue.Views
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
             GoToMainMenu();
+
         }
 
         private void BtnReady_Click(object sender, RoutedEventArgs e)
