@@ -53,7 +53,6 @@ namespace Spider_Clue.Views
                 SendMessage(txtMessage.Text);
             }
         }
-
         private void ShowErrorMessageBox(string errorMessage)
         {
             MessageBox.Show(errorMessage, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
@@ -94,6 +93,19 @@ namespace Spider_Clue.Views
                 string textToShow = string.Concat(message.GamerTag + ": " + message.Text + "\n");
                 listBoxChat.Items.Add(textToShow);
                 listBoxChat.ScrollIntoView(listBoxChat.Items[listBoxChat.Items.Count - 1]);
+            }
+        }
+
+        public void CloseChat()
+        {
+            try
+            {
+                //revisar esto con cuidado
+                ChatManager.DisconnectFromChatAsync(UserSingleton.Instance.GamerTag);
+            }
+            catch (CommunicationException)
+            {
+                ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
             }
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
+using Spider_Clue.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,14 +21,14 @@ namespace Spider_Clue
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : NavigationWindow
+    public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
         }
 
-        private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             MessageBoxResult result = MessageBox.Show("¿Desea cerrar la app?", "Confirmar cierre", MessageBoxButton.YesNo, MessageBoxImage.Question);
             if (result == MessageBoxResult.No)
@@ -36,6 +37,14 @@ namespace Spider_Clue
             }
             else
             {
+                if (NavigationFrame.Content is Page currentPage)
+                {
+                    if (currentPage is LobbyView lobby)
+                    {
+                        lobby.GoToMainMenu();
+                    }
+                }
+
                 if (UserSingleton.Instance.GamerTag != null)
                 {
                     try
@@ -48,8 +57,30 @@ namespace Spider_Clue
                         Console.WriteLine($"Error en Disconnect: {ex.Message}");
                     }
                 }
+
+                UserSingleton.Instance.Clear();
             }
         }
 
+        private void MainWindow_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+            {
+                WindowStyle = WindowStyle.SingleBorderWindow;
+                WindowState = WindowState.Normal;
+            }
+        }
+
+        private void MainWindow_StateChanged(object sender, EventArgs e)
+        {
+            if (WindowState == WindowState.Maximized)
+            {
+                WindowStyle = WindowStyle.None;
+            }
+            else
+            {
+                WindowStyle = WindowStyle.SingleBorderWindow;
+            }
+        }
     }
 }

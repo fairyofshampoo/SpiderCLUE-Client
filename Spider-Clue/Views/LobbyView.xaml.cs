@@ -23,8 +23,10 @@ namespace Spider_Clue.Views
         private string MatchCode;
         public readonly MatchManagerClient MatchManager;
         public readonly LobbyManagerClient LobbyManager;
+        public readonly IUserManager UserManager = new SpiderClueService.UserManagerClient();
         private string[] gamersInLobby;
         private bool isOwnerOfMatch = false;
+        private readonly ChatView chatView = new ChatView();
         public LobbyView()
         {
             InitializeComponent();
@@ -35,7 +37,6 @@ namespace Spider_Clue.Views
 
         public void SetChatInLobby()
         {
-            ChatView chatView = new ChatView();
             chatView.ConfigureWindow(MatchCode);
             chatFrame.NavigationService.Navigate(chatView);
         }
@@ -47,42 +48,11 @@ namespace Spider_Clue.Views
             string gamertag = UserSingleton.Instance.GamerTag;
 
             MatchManager.ConnectToMatch(gamertag, matchCode);
-            MatchManager.GetGamersInMatch(gamertag, matchCode);
-            LobbyManager.ConnectToLobby(gamertag, matchCode);
+            MatchManager.GetCharactersInMatch(gamertag, matchCode);
 
             SetOwnerButtons();
             SetChatInLobby();
         }
-
-        private Label FindCharacterLabel(string characterName)
-        {
-            Label resultLabel = null;
-
-            switch (characterName)
-            {
-                case "PurpleCharacter":
-                    resultLabel = lblPurpleCharacter;
-                    break;
-                case "WhiteCharacter":
-                    resultLabel = lblWhiteCharacter;
-                    break;
-                case "RedCharacter":
-                    resultLabel = lblRedCharacter;
-                    break;
-                case "GreenCharacter":
-                    resultLabel = lblGreenCharacter;
-                    break;
-                case "YellowCharacter":
-                    resultLabel = lblYellowCharacter;
-                    break;
-                case "BlueCharacter":
-                    resultLabel = lblBlueCharacter;
-                    break;
-            }
-
-            return resultLabel;
-        }
-
 
         private void SetOwnerButtons()
         {
@@ -113,38 +83,16 @@ namespace Spider_Clue.Views
             GamersInMatchListBox.ItemsSource = gamersList;
         }
 
-        public void SetCharactersInLobby(string[] gamertags)
-        {
-            foreach (var gamertag in gamertags)
-            {
-                Character character = LobbyManager.GetCharacterPerGamer(gamertag);
-
-                if(character != null)
-                {
-                    Label characterLabel = FindCharacterLabel(character.CharacterName);
-
-                    if (characterLabel != null)
-                    {
-                        characterLabel.Content = gamertag;
-                    }
-                }
-            }
-        }
-
         private string GetIconImagePathForGamer(string gamertag)
         {
-            IUserManager userManager = new SpiderClueService.UserManagerClient();
-            string iconName = userManager.GetIcon(gamertag);
-
+            string iconName = UserManager.GetIcon(gamertag);
             return Utilities.GetImagePathForIcon(iconName);
         }
 
         public void ReceiveGamersInMatch(string[] gamertags)
         {
-            Console.WriteLine("recibo gamers");
             gamersInLobby = gamertags;
             SetGamersList(gamertags);
-            SetCharactersInLobby(gamertags);
         }
 
         public void KickPlayerFromMatch(string gamertag)
@@ -164,7 +112,7 @@ namespace Spider_Clue.Views
             }
         }
 
-        private void GoToMainMenu()
+        public void GoToMainMenu()
         {
             if (UserSingleton.Instance.IsGuestPlayer)
             {
@@ -176,14 +124,71 @@ namespace Spider_Clue.Views
                 MainMenuView mainMenuView = new MainMenuView();
                 this.NavigationService.Navigate(mainMenuView);
             }
-
-            if(isOwnerOfMatch)
+            if (isOwnerOfMatch)
             {
                 KickAllPlayersFromMatch();
 
             }
-
+            chatView.CloseChat();
             MatchManager.LeaveMatchAsync(UserSingleton.Instance.GamerTag, MatchCode);
+        }
+
+        private void ClearCharacterLabels()
+        {
+            lblPurpleGamertag.Content = string.Empty;
+            lblWhiteGamertag.Content = string.Empty;
+            lblRedGamertag.Content = string.Empty;
+            lblGreenGamertag.Content = string.Empty;
+            lblYellowGamertag.Content = string.Empty;
+            lblBlueGamertag.Content = string.Empty;
+        }
+
+        public void SetCharactersInLobby(Dictionary<string, string> charactersInMatch)
+        {
+            ClearCharacterLabels();
+
+            foreach (var gamer in charactersInMatch)
+            {
+                string character = gamer.Value;
+                if (character != null)
+                {
+                    Label characterLabel = FindCharacterLabel(character);
+
+                    if (characterLabel != null)
+                    {
+                        characterLabel.Content = gamer.Key;
+                    }
+                }
+            }
+        }
+
+        private Label FindCharacterLabel(string characterName)
+        {
+            Label resultLabel = null;
+
+            switch (characterName)
+            {
+                case "Purple":
+                    resultLabel = lblPurpleGamertag;
+                    break;
+                case "White":
+                    resultLabel = lblWhiteGamertag;
+                    break;
+                case "Red":
+                    resultLabel = lblRedGamertag;
+                    break;
+                case "Green":
+                    resultLabel = lblGreenGamertag;
+                    break;
+                case "Yellow":
+                    resultLabel = lblYellowGamertag;
+                    break;
+                case "Blue":
+                    resultLabel = lblBlueGamertag;
+                    break;
+            }
+
+            return resultLabel;
         }
 
         private void KickPlayer_Click(object sender, MouseButtonEventArgs e)
@@ -227,15 +232,9 @@ namespace Spider_Clue.Views
 
         private void BtnReady_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                LobbyManager.BeginMatch(MatchCode);
-            }
-            catch (CommunicationException)
-            {
-                MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+
         }
+
         private void SendInvitation_Click(object sender, MouseButtonEventArgs e)
         {
             SendMailWithCodeMatch();
@@ -259,9 +258,8 @@ namespace Spider_Clue.Views
             catch (CommunicationException)
             {
                 MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                GoToMainMenu();
             }
-            LobbyManager.Close();
-            MatchManager.Close();
-        }    
+        }
     }
 }

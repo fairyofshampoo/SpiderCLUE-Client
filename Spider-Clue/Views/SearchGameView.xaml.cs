@@ -109,6 +109,10 @@ namespace Spider_Clue.Views
                 MenuView.NavigationService.Navigate(lobbyView);
             }
         }
- 
+
+        public void ReceiveCharactersInMatch(Dictionary<string, string> charactersInMatch)
+        {
+
+        }
     }
 }
