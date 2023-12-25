@@ -24,7 +24,7 @@ namespace Spider_Clue.Views
         public readonly MatchManagerClient MatchManager;
         public readonly LobbyManagerClient LobbyManager;
         public readonly IUserManager UserManager = new SpiderClueService.UserManagerClient();
-        private string[] gamersInLobby;
+        private Dictionary<string, string> gamersInLobby;
         private bool isOwnerOfMatch = false;
         private readonly ChatView chatView = new ChatView();
         public LobbyView()
@@ -48,7 +48,7 @@ namespace Spider_Clue.Views
             string gamertag = UserSingleton.Instance.GamerTag;
 
             MatchManager.ConnectToMatch(gamertag, matchCode);
-            MatchManager.GetCharactersInMatch(gamertag, matchCode);
+            MatchManager.GetGamersInMatch(gamertag, matchCode);
 
             SetOwnerButtons();
             SetChatInLobby();
@@ -83,16 +83,22 @@ namespace Spider_Clue.Views
             GamersInMatchListBox.ItemsSource = gamersList;
         }
 
+        private string[] GetArrayWithGamerTags(Dictionary<string, string> gamers)
+        {
+            return gamers.Keys.ToArray();
+        }
+
         private string GetIconImagePathForGamer(string gamertag)
         {
             string iconName = UserManager.GetIcon(gamertag);
             return Utilities.GetImagePathForIcon(iconName);
         }
 
-        public void ReceiveGamersInMatch(string[] gamertags)
+        public void ReceiveGamersInMatch(Dictionary<string, string> gamers)
         {
-            gamersInLobby = gamertags;
-            SetGamersList(gamertags);
+            gamersInLobby = gamers;
+            SetGamersList(GetArrayWithGamerTags(gamers));
+            SetCharactersInLobby(gamers);
         }
 
         public void KickPlayerFromMatch(string gamertag)
@@ -203,7 +209,7 @@ namespace Spider_Clue.Views
         private string[] GetGamersInLobbyExceptOwner()
         {
             string gamertag = UserSingleton.Instance.GamerTag;
-            string[] gamersToSend = gamersInLobby.Where(gamer => gamer != gamertag).ToArray();
+            string[] gamersToSend = GetArrayWithGamerTags(gamersInLobby).Where(gamer => gamer != gamertag).ToArray();
             return gamersToSend;
         }
 
