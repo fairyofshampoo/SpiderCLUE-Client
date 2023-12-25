@@ -176,6 +176,7 @@ namespace Spider_Clue.Views
                 MainMenuView mainMenuView = new MainMenuView();
                 this.NavigationService.Navigate(mainMenuView);
             }
+
             if(isOwnerOfMatch)
             {
                 KickAllPlayersFromMatch();
