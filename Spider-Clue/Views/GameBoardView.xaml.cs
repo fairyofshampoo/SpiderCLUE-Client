@@ -3,6 +3,7 @@ using Spider_Clue.SpiderClueService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,9 +20,41 @@ namespace Spider_Clue.Views
 {
     public partial class GameBoardView : Page , IGameManagerCallback
     {
+        public readonly GameManagerClient GameManager;
+        private Dictionary<string, Pawn> gamersInGame;
+        private string matchCode;
         public GameBoardView()
         {
             InitializeComponent();
+            GameManager = new GameManagerClient(new InstanceContext(this));
+        }
+
+        public void ConfigureWindow(string matchCode, Dictionary<string, Pawn> gamersInGame)
+        {
+            this.matchCode = matchCode;
+            this.gamersInGame = gamersInGame;
+            SetPawnsInBoard();
+
+            try
+            {
+                GameManager.ConnectGamerToGameBoard(UserSingleton.Instance.GamerTag);
+            }
+            catch (CommunicationException)
+            {
+                MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle);
+                GoToMainMenu();
+            }
+        }
+
+        public void GoToMainMenu()
+        {
+            //hay que checar la lógica de esto porque si no llegan todos los jugadores a conectarse, hay que terminar la partida
+            //el inivtado debe ir al guest main menu
+        }
+
+        private void SetPawnsInBoard()
+        {
+            //en este método debería setear los pawn que recibió
         }
 
         private void Grid_Click(object sender, MouseButtonEventArgs mouseEvent)
@@ -36,7 +69,7 @@ namespace Spider_Clue.Views
 
         private void BtnLeaveGame(object sender, RoutedEventArgs e)
         {
-
+            //hay que hacer método de dejar juego en server y que el callback sea un ReceiveEndOfGame o algo así
         }
 
         private void BtnShowCards(object sender, RoutedEventArgs e)

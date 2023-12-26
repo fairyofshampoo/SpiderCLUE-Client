@@ -3,17 +3,10 @@ using System.ServiceModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Spider_Clue.Logic;
 
 namespace Spider_Clue.Views
@@ -23,7 +16,6 @@ namespace Spider_Clue.Views
         private string MatchCode;
         public readonly MatchManagerClient MatchManager;
         public readonly LobbyManagerClient LobbyManager;
-        public readonly IUserManager UserManager = new SpiderClueService.UserManagerClient();
         private Dictionary<string, Pawn> gamersInLobby;
         private bool isOwnerOfMatch = false;
         private readonly ChatView chatView = new ChatView();
@@ -90,6 +82,7 @@ namespace Spider_Clue.Views
 
         private string GetIconImagePathForGamer(string gamertag)
         {
+            IUserManager UserManager = new SpiderClueService.UserManagerClient();
             string iconName = UserManager.GetIcon(gamertag);
             return Utilities.GetImagePathForIcon(iconName);
         }
@@ -238,6 +231,16 @@ namespace Spider_Clue.Views
 
         private void BtnReady_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                LobbyManager.BeginMatch(MatchCode);
+            }
+            catch (CommunicationException)
+            {
+                MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle);
+                GoToMainMenu();
+            }
+
 
         }
 
@@ -257,15 +260,8 @@ namespace Spider_Clue.Views
 
         public void StartGame()
         {
-            try
-            {
-                LobbyManager.BeginMatch(MatchCode);
-            }
-            catch (CommunicationException)
-            {
-                MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
-                GoToMainMenu();
-            }
+            GameBoardView gameBoardView = new GameBoardView();
+
         }
     }
 }
