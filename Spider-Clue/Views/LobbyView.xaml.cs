@@ -24,7 +24,7 @@ namespace Spider_Clue.Views
         public readonly MatchManagerClient MatchManager;
         public readonly LobbyManagerClient LobbyManager;
         public readonly IUserManager UserManager = new SpiderClueService.UserManagerClient();
-        private Dictionary<string, string> gamersInLobby;
+        private Dictionary<string, Pawn> gamersInLobby;
         private bool isOwnerOfMatch = false;
         private readonly ChatView chatView = new ChatView();
         public LobbyView()
@@ -83,7 +83,7 @@ namespace Spider_Clue.Views
             GamersInMatchListBox.ItemsSource = gamersList;
         }
 
-        private string[] GetArrayWithGamerTags(Dictionary<string, string> gamers)
+        private string[] GetArrayWithGamerTags(Dictionary<string, Pawn> gamers)
         {
             return gamers.Keys.ToArray();
         }
@@ -94,11 +94,11 @@ namespace Spider_Clue.Views
             return Utilities.GetImagePathForIcon(iconName);
         }
 
-        public void ReceiveGamersInMatch(Dictionary<string, string> gamers)
+        public void ReceiveGamersInMatch(Dictionary<string, Pawn> characters)
         {
-            gamersInLobby = gamers;
-            SetGamersList(GetArrayWithGamerTags(gamers));
-            SetCharactersInLobby(gamers);
+            gamersInLobby = characters;
+            SetGamersList(GetArrayWithGamerTags(characters));
+            SetCharactersInLobby(characters);
         }
 
         public void KickPlayerFromMatch(string gamertag)
@@ -149,16 +149,16 @@ namespace Spider_Clue.Views
             lblBlueGamertag.Content = string.Empty;
         }
 
-        public void SetCharactersInLobby(Dictionary<string, string> charactersInMatch)
+        public void SetCharactersInLobby(Dictionary<string, Pawn> charactersInMatch)
         {
             ClearCharacterLabels();
 
             foreach (var gamer in charactersInMatch)
             {
-                string character = gamer.Value;
+                Pawn character = gamer.Value;
                 if (character != null)
                 {
-                    Label characterLabel = FindCharacterLabel(character);
+                    Label characterLabel = FindCharacterLabel(character.Color);
 
                     if (characterLabel != null)
                     {
@@ -174,22 +174,22 @@ namespace Spider_Clue.Views
 
             switch (characterName)
             {
-                case "Purple":
+                case "PurplePawn.png":
                     resultLabel = lblPurpleGamertag;
                     break;
-                case "White":
+                case "WhitePawn.png":
                     resultLabel = lblWhiteGamertag;
                     break;
-                case "Red":
+                case "RedPawn.png":
                     resultLabel = lblRedGamertag;
                     break;
-                case "Green":
+                case "GreenPawn.png":
                     resultLabel = lblGreenGamertag;
                     break;
-                case "Yellow":
+                case "YellowPawn.png":
                     resultLabel = lblYellowGamertag;
                     break;
-                case "Blue":
+                case "BluePawn.png":
                     resultLabel = lblBlueGamertag;
                     break;
             }
