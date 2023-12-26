@@ -205,7 +205,7 @@
                     Grid.Column="3"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Villain3Path}"
+                        <ImageBrush ImageSource ="{Binding Path = Motive3Path}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
@@ -276,7 +276,7 @@
                     Grid.Column="1"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Motive1Path}"
+                        <ImageBrush ImageSource ="{Binding Path = Place1Path}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
@@ -291,7 +291,7 @@
                     Grid.Column="2"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Motive2Path}"
+                        <ImageBrush ImageSource ="{Binding Path = Place2Path}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
@@ -306,7 +306,7 @@
                     Grid.Column="3"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Villain3Path}"
+                        <ImageBrush ImageSource ="{Binding Path = Place3Path}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
@@ -321,7 +321,7 @@
                     Grid.Column="4"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Motive4Path}"
+                        <ImageBrush ImageSource ="{Binding Path = Place4Path}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
@@ -336,7 +336,7 @@
                     Grid.Column="5"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Motive5Path}"
+                        <ImageBrush ImageSource ="{Binding Path = Place5Path}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
@@ -351,7 +351,7 @@
                     Grid.Column="6"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Motive6Path}"
+                        <ImageBrush ImageSource ="{Binding Path = Place6Path}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>

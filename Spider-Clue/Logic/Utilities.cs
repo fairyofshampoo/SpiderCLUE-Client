@@ -75,6 +75,11 @@ namespace Spider_Clue.Logic
             return PathProyectoDirectory + "Spider-Clue\\Images\\";
         }
 
+        public static string GetImagePathForCards(string imageCode)
+        {
+            return GetImagePathForImages() + "GameCards\\" + imageCode;
+        }
+
         public static bool SendEmailWithCode(string toEmail, Window mainWindow)
         {
             SpiderClueService.IEmailVerificationManager emailVerificationManager = new SpiderClueService.EmailVerificationManagerClient();
