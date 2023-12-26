@@ -32,8 +32,6 @@ namespace Spider_Clue.Views
 
             Grid.SetRow(bluePawn, rowClick);
             Grid.SetColumn(bluePawn, columnClick);
-
-            
         }
 
         private void BtnLeaveGame(object sender, RoutedEventArgs e)
@@ -50,6 +48,7 @@ namespace Spider_Clue.Views
         private void BtnRollDice(object sender, RoutedEventArgs e)
         {
             //Manda a llamar al que tira los dados y le notifica cuanto sacó 
+
         }
 
         private void BtnAccuse(object sender, RoutedEventArgs e)
@@ -60,14 +59,10 @@ namespace Spider_Clue.Views
             //Si no, deshabilia las funciones principales
         }
 
-        public void ReceivePawnsMove()
+        public void ReceivePawnsMove(Pawn pawn)
         {
-            throw new NotImplementedException();
-        }
-
-        public void ReceiveRollDice(int diceRoll)
-        {
-            OpenDialogRollDice(diceRoll);
+            //Si el pawn es diferente a nulo manda a llamar el método de mover
+            //Si el pawn es nulo manda a llamar el método para avisar que no se puede
         }
 
         public void OpenDialogRollDice(int diceRoll) 
