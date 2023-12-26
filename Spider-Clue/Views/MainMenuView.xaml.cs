@@ -66,6 +66,19 @@ namespace Spider_Clue.Views
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
+            if (UserSingleton.Instance.GamerTag != null)
+            {
+                try
+                {
+                    SpiderClueService.ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
+                    sessionManager.Disconnect(UserSingleton.Instance.GamerTag);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error en Disconnect: {ex.Message}");
+                }
+            }
+
             App.Current.Shutdown();
         }
 
@@ -94,7 +107,6 @@ namespace Spider_Clue.Views
             LobbyView lobbyView = new LobbyView();
             lobbyView.SetMatchDataInPage(matchCode);
             this.NavigationService.Navigate(lobbyView);
-
         }
 
         private void BtnFriends_Click(object sender, RoutedEventArgs e)

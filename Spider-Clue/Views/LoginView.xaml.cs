@@ -62,15 +62,23 @@ namespace Spider_Clue.Views
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            Utilities.PlayButtonClickSound();
             if (HandleLoginAttempt())
             {
-                SaveSession();
-                DisplayMainMenuView();
+                ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
+
+                if (sessionManager.IsGamerAlreadyOnline(txtUsername.Text))
+                {
+                    ShowUserAlreadyOnlineMessage();
+                }
+                else
+                {
+                    SaveSession();
+                    DisplayMainMenuView();
+                }
             }
             else
             {
-                ShowErrorMessage();
+                ShowWrongDataMessage();
             }
         }
 
@@ -92,9 +100,14 @@ namespace Spider_Clue.Views
             return userManager.GetGamerByGamertag(gamerTag);
         }
 
-        private void ShowErrorMessage()
+        private void ShowWrongDataMessage()
         {
             MessageBox.Show(Properties.Resources.DlgWrongDataForLogin, Properties.Resources.DlgRegisterError, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void ShowUserAlreadyOnlineMessage()
+        {
+            MessageBox.Show("Ya has iniciado sesión", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private bool HandleLoginAttempt()
@@ -103,7 +116,9 @@ namespace Spider_Clue.Views
             if (continueLogin)
             {
                 continueLogin = ValidateCredentials();
+
             }
+
             return continueLogin;
         }
 
@@ -237,5 +252,21 @@ namespace Spider_Clue.Views
             imgPasswordIcon.Source = newImageSource;
         }
 
+        private void BtnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            Window mainWindow = Window.GetWindow(this);
+            mainWindow.WindowState = WindowState.Minimized;
+        }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void BtnMaximize_Click(object sender, MouseButtonEventArgs e)
+        {
+            Window mainWindow = Window.GetWindow(this);
+            mainWindow.WindowState = WindowState.Maximized;
+        }
     }
 }

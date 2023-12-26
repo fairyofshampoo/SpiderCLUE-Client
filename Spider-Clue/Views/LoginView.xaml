@@ -27,9 +27,9 @@
 
                 <Grid>
                     <Grid.RowDefinitions>
-                        <RowDefinition />
+                        <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <StackPanel Width="500" Grid.Row="0" Orientation="Vertical" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <StackPanel Width="500" Grid.Row="1" Orientation="Vertical" Margin="0,0,0,0" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Image Source="/Images/Elements/Logo.png" Width="442" Height="195" />
 
                         <Label x:Name="lblUsername" Content="{x:Static p:Resources.LblUsername}"

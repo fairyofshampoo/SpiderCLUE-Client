@@ -54,7 +54,7 @@ namespace Spider_Clue.Logic
                 isValid = false;
             }
 
-            var messageRegex = new Regex("^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d\\s\\W]{1,200}$",
+            var messageRegex = new Regex("^[\\p{L}\\d\\s\\W]{0,200}$",
                                          RegexOptions.None, TimeSpan.FromMilliseconds(limitTime));
 
             return isValid && ValidateWithTimeout(message, messageRegex);
