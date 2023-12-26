@@ -6,6 +6,6 @@
         xmlns:local="clr-namespace:Spider_Clue"
         mc:Ignorable="d"
         Closing = "WindowClosing"
-        Title="Spider-Clue" WindowState="Normal"  Source ="Views/LoginView.xaml"
+        Title="Spider-Clue" WindowState="Normal"  Source ="Views/GameBoardView.xaml"
                   ShowsNavigationUI="False">
 </NavigationWindow>

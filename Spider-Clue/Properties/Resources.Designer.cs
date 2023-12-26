@@ -547,6 +547,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your Cards.
+        /// </summary>
+        public static string LblDeck {
+            get {
+                return ResourceManager.GetString("LblDeck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string LblEmail {
