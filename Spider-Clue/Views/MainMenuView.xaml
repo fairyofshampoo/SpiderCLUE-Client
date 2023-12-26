@@ -49,7 +49,7 @@
                                 CornerRadius="10">
                                 <Border.Background>
                                     <ImageBrush ImageSource ="{Binding Path = ImagePath}"
-                            Stretch = "Fill">
+                                    Stretch = "Fill">
                                     </ImageBrush>
                                 </Border.Background>
                             </Border>

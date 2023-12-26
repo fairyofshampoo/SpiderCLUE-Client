@@ -428,4 +428,7 @@
   <data name="DlgErrorInvitation" xml:space="preserve">
     <value>Unable to send the game code. Please check your connection and try again later.</value>
   </data>
+  <data name="LblDeck" xml:space="preserve">
+    <value>Your Cards</value>
+  </data>
 </root>
