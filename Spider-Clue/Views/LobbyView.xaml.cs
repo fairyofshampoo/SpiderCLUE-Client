@@ -261,7 +261,7 @@ namespace Spider_Clue.Views
         public void StartGame()
         {
             GameBoardView gameBoardView = new GameBoardView();
-
+            NavigationService.Navigate(gameBoardView);
         }
     }
 }
