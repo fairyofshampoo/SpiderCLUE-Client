@@ -440,4 +440,7 @@
   <data name="DlgInvitationSent" xml:space="preserve">
     <value>The game code has been sent successfully. Enjoy the game!</value>
   </data>
+  <data name="LblDeck" xml:space="preserve">
+    <value>Your Cards</value>
+  </data>
 </root>

@@ -103,6 +103,9 @@
     <Compile Include="Views\ConfirmPasswordView.xaml.cs">
       <DependentUpon>ConfirmPasswordView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DeckView.xaml.cs">
+      <DependentUpon>DeckView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\EmailInvitationDialog.xaml.cs">
       <DependentUpon>EmailInvitationDialog.xaml</DependentUpon>
     </Compile>
@@ -157,6 +160,9 @@
     <Compile Include="Views\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\RollDiceView.xaml.cs">
+      <DependentUpon>RollDiceView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SearchGameView.xaml.cs">
       <DependentUpon>SearchGameView.xaml</DependentUpon>
     </Compile>
@@ -198,6 +204,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ConfirmPasswordView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DeckView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -270,6 +280,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RollDiceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -355,9 +369,6 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Card.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Character.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Gamer.datasource">
@@ -517,6 +528,8 @@
     <Resource Include="Images\Characters\WhitePawn.png" />
     <Resource Include="Images\Characters\YellowPawn.png" />
     <Resource Include="Images\Background\kickPlayerBackground.jpg" />
+    <Resource Include="Images\Background\deckBackground.jpeg" />
+    <Resource Include="Images\Background\rollDiceBackground.jpg" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />

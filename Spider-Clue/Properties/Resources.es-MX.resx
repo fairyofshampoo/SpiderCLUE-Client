@@ -434,4 +434,7 @@
   <data name="DlgErrorInvitation" xml:space="preserve">
     <value>No se pudo enviar el código de la partida. Por favor, verifica tu conexión e intenta nuevamente más tarde.</value>
   </data>
+  <data name="LblDeck" xml:space="preserve">
+    <value>Tus cartas</value>
+  </data>
 </root>
