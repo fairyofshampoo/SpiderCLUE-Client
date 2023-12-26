@@ -82,5 +82,10 @@ namespace Spider_Clue.Views
             deckView.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             deckView.ShowDialog();
         }
+
+        public void ReceiveTurn(bool isYourTurn)
+        {
+            //falta jeje
+        }
     }
 }
