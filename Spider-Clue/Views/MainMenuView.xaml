@@ -5,7 +5,7 @@
       xmlns:d = "http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local = "clr-namespace:Spider_Clue.Views"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
-      mc:Ignorable = "d"
+      mc:Ignorable = "d" d:DesignHeight="720" d:DesignWidth="1280"
       Background = "Transparent">
     <Grid>
         <MediaElement x:Name = "mainThemePlayer" LoadedBehavior = "Manual"/>
@@ -14,7 +14,7 @@
                 <Grid>
                     <Border>
                         <Border.Background>
-                            <ImageBrush ImageSource = "/Images/Background/backgroundREGISTER.png" Stretch = "UniformToFill"> </ImageBrush>
+                            <ImageBrush ImageSource = "/Images/Background/mainMenuBackground.jpg" Stretch = "UniformToFill"> </ImageBrush>
                         </Border.Background>
                     </Border>
                     <Grid>
@@ -49,7 +49,7 @@
                                 CornerRadius="10">
                                 <Border.Background>
                                     <ImageBrush ImageSource ="{Binding Path = ImagePath}"
-                            Stretch = "Fill">
+                                    Stretch = "Fill">
                                     </ImageBrush>
                                 </Border.Background>
                             </Border>
@@ -69,7 +69,7 @@
                                          Width="246"
                                          HorizontalAlignment="Center"
                                          VerticalAlignment="Top"
-                                         Background="#2F3859">
+                                         Background="Black">
                                     <Grid>
                                         <Grid.RowDefinitions>
                                             <RowDefinition Height = "Auto"/>
@@ -112,7 +112,7 @@
                             <Border 
                     Grid.Row = "0"
                             VerticalAlignment="Top"
-                    Width="400" Height="120"
+                    Width="570" Height="180"
                     Margin="25,30,25,0">
                                 <Border.Background>
                                     <ImageBrush ImageSource = "/Images/Elements/Logo.png"
@@ -135,7 +135,7 @@
                                     Click="BtnPlay_Click">
                                 <Button.Style>
                                     <Style TargetType = "Button">
-                                        <Setter Property = "Background" Value = "#8A8884"/>
+                                        <Setter Property = "Background" Value = "#d12666"/>
                                     </Style>
                                 </Button.Style>
 
@@ -165,7 +165,7 @@
                                 Click="BtnJoinToParty_Click">
                                 <Button.Style>
                                     <Style TargetType = "Button">
-                                        <Setter Property = "Background" Value = "#8A8884"/>
+                                        <Setter Property = "Background" Value = "#d12666"/>
                                     </Style>
                                 </Button.Style>
 
@@ -195,7 +195,7 @@
                                 Click="BtnSettings_Click">
                                 <Button.Style>
                                     <Style TargetType = "Button">
-                                        <Setter Property = "Background" Value = "#8A8884"/>
+                                        <Setter Property = "Background" Value = "#d12666"/>
                                     </Style>
                                 </Button.Style>
 
@@ -224,7 +224,7 @@
                                     Click="BtnExit_Click">
                                 <Button.Style>
                                     <Style TargetType = "Button">
-                                        <Setter Property = "Background" Value = "#8A8884"/>
+                                        <Setter Property = "Background" Value = "#d12666"/>
                                     </Style>
                                 </Button.Style>
                                 <Button.Template>

@@ -12,25 +12,38 @@ namespace Spider_Clue.Views
     /// </summary>
     public partial class PasswordRecoveryView : Page
     {
-        private Gamer gamer;
+        private string gamertag;
         public PasswordRecoveryView()
         {
             InitializeComponent();
         }
 
-        public void SetGamerInWindow(Gamer gamer)
+        public void SetGamertagInWindow(string gamertag)
         {
-            this.gamer = gamer;
+            this.gamertag = gamertag;
         }
 
         private bool ValidatePassword()
         {
-            SecureString securePassword = txtPassword.SecurePassword;
-            string password = new NetworkCredential(string.Empty, securePassword).Password;
-            bool passwordValid = Validations.IsPasswordValid(password);
+            
+            bool passwordValid = IsPasswordValid();
             bool passwordsMatching = ArePasswordsMatching();
 
             return passwordValid && passwordsMatching;
+        }
+
+        private bool IsPasswordValid()
+        {
+            SecureString securePassword = txtPassword.SecurePassword;
+            string password = new NetworkCredential(string.Empty, securePassword).Password;
+            bool passwordValid = Validations.IsPasswordValid(password);
+
+            if(!passwordValid)
+            {
+                lblPasswordInvalid.Visibility = Visibility.Visible;
+            }
+
+            return passwordValid;
         }
 
         private bool ArePasswordsMatching()
@@ -50,7 +63,7 @@ namespace Spider_Clue.Views
             }
             else
             {
-                //lblPasswordsDontMatch.Visibility = Visibility.Visible;
+                lblPasswordsDontMatch.Visibility = Visibility.Visible;
             }
 
             return passwordsValidation;
@@ -86,10 +99,10 @@ namespace Spider_Clue.Views
             bool result = false;
             SecureString securePassword = txtPassword.SecurePassword;
             string password = new NetworkCredential(string.Empty, securePassword).Password;
-            gamer.Password = Utilities.CalculateSHA1Hash(password);
+            string newPassword = Utilities.CalculateSHA1Hash(password);
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
 
-            if (userManager.UpdateGamerTransaction(gamer) == 1)
+            if (userManager.UpdatePassword(gamertag, newPassword) == 1)
             {
                 result = true;
             }
@@ -105,12 +118,22 @@ namespace Spider_Clue.Views
 
         private void ShowSuccessMessage()
         {
-            MessageBox.Show("Cambio realizado", Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show(Properties.Resources.DlgSuccessfulChange, Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void ShowErrorMessage()
         {
-            MessageBox.Show("Error en el cambio", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            MessageBox.Show(Properties.Resources.DlgWrongChange, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void TypingConfirmPassword(object sender, RoutedEventArgs e)
+        {
+            lblPasswordsDontMatch.Visibility = Visibility.Collapsed;
+        }
+
+        private void TypingPassword(object sender, RoutedEventArgs e)
+        {
+            lblPasswordInvalid.Visibility = Visibility.Collapsed;
         }
     }
 }

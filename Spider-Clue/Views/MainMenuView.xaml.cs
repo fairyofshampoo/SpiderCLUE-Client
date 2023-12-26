@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 using Spider_Clue.Logic;
-using System.Windows.Forms;
 using System.Collections.Generic;
 using System.ServiceModel;
 using Spider_Clue.SpiderClueService;
@@ -14,6 +13,8 @@ namespace Spider_Clue.Views
     public partial class MainMenuView : Page, IFriendsManagerCallback
     {
         private readonly FriendsManagerClient friendsManagerClient;
+        private string[] connectedFriends;
+        public readonly ISessionManager SessionManager = new SpiderClueService.SessionManagerClient();
         public MainMenuView()
         {
             InitializeComponent();
@@ -30,7 +31,7 @@ namespace Spider_Clue.Views
         private void SetGamerData()
         {
             lblUserName.Content = UserSingleton.Instance.GamerTag;
-            lblLevel.Content = UserSingleton.Instance.Level;
+            lblLevel.Content = UserSingleton.Instance.GamesWon;
             string iconPath = Utilities.GetImagePathForIcon(UserSingleton.Instance.ImageCode);
             this.DataContext = new { ImagePath = iconPath };
         }
@@ -38,7 +39,7 @@ namespace Spider_Clue.Views
         {
             Utilities.PlayButtonClickSound();
             SettingsView settingsView = new SettingsView();
-            NavigationService.Navigate(settingsView);
+            this.NavigationService.Navigate(settingsView);
         }
         private void BtnJoinToParty_Click(object sender, RoutedEventArgs e)
         {
@@ -65,24 +66,47 @@ namespace Spider_Clue.Views
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
+            if (UserSingleton.Instance.GamerTag != null)
+            {
+                try
+                {
+                    SpiderClueService.ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
+                    sessionManager.Disconnect(UserSingleton.Instance.GamerTag);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error en Disconnect: {ex.Message}");
+                }
+            }
+
             App.Current.Shutdown();
         }
 
         private void BtnPlay_Click(object sender, RoutedEventArgs e)
         {
-            CreateMatch();
-       //     GoToLobbyView();
+            string matchCode = CreateMatch();
+
+            if (string.IsNullOrEmpty(matchCode))
+            {
+                MessageBox.Show("Error al crear la partida. Inténtalo de nuevo.", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                GoToLobbyView(matchCode);
+            }
         }
 
-        private void CreateMatch()
+        private string CreateMatch()
         {
-            SpiderClueService.IMatchManager matchManager = new SpiderClueService.MatchManagerClient(new InstanceContext(this));
-            matchManager.CreateMatch(UserSingleton.Instance.GamerTag);
+            SpiderClueService.IMatchCreationManager matchCreationManager = new SpiderClueService.MatchCreationManagerClient();
+            return matchCreationManager.CreateMatch(UserSingleton.Instance.GamerTag);
         }
 
-        private void GoToLobbyView()
+        private void GoToLobbyView(string matchCode)
         {
-            
+            LobbyView lobbyView = new LobbyView();
+            lobbyView.SetMatchDataInPage(matchCode);
+            this.NavigationService.Navigate(lobbyView);
         }
 
         private void BtnFriends_Click(object sender, RoutedEventArgs e)
@@ -97,14 +121,19 @@ namespace Spider_Clue.Views
 
         public void ReceiveConnectedFriends(string[] connectedFriends)
         {
-            FriendsListView friendListView = new FriendsListView(connectedFriends); 
+            this.connectedFriends = connectedFriends;
+            GoToFriendsListView();
+        }
+
+        private void GoToFriendsListView()
+        {
+            FriendsListView friendListView = new FriendsListView(connectedFriends);
             NavigationService.Navigate(friendListView);
         }
 
         private void ConnectToService()
         {
-            SpiderClueService.IFriendsManager friendsManager = new FriendsManagerClient(new System.ServiceModel.InstanceContext(this));
-            friendsManager.Connect(UserSingleton.Instance.GamerTag);
+            SessionManager.Connect(UserSingleton.Instance.GamerTag);
         }
     }
 }

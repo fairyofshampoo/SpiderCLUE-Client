@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
-      mc:Ignorable="d" Height="400" Width="600">
+      mc:Ignorable="d" Height="500" Width="700">
     <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
         <Grid>
             <Border>
@@ -21,8 +21,8 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Top"
                     Margin="5,5,5,0">
-                    <Label x:Name = "lblPasswordRecoveryTitle" Content = "{x:Static p:Resources.LblPasswordRecoveryTitle}"
-                               Foreground = "White" FontWeight = "Light"
+                    <Label x:Name = "lblPasswordRecoveryTitle" Content = "{x:Static p:Resources.LblSearchGame}"
+                               Foreground = "White" FontWeight = "Light" HorizontalContentAlignment="Center"
                                FontSize = "20" FontFamily = "Monsterrat" Margin="30,50,0,35"/>
                     <Border CornerRadius="10"
                             Height="200" Width="350"

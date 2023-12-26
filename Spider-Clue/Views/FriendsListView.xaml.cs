@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Reflection;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,23 +17,33 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static Spider_Clue.Views.FriendsRequestView;
 
 namespace Spider_Clue.Views
 {
 
-    public partial class FriendsListView : Page
+    public partial class FriendsListView : Page, IFriendsManagerCallback
     {
         public string[] FriendsConnected { get; set; }
 
         public FriendsListView(String[] friendsConnected)
         {
             InitializeComponent();
+            JoinFriendListView();
             FriendsConnected = friendsConnected;
+
             ShowFriendList();
+        }
+
+        private void JoinFriendListView()
+        {
+            SpiderClueService.IFriendsManager friendsManager = new SpiderClueService.FriendsManagerClient(new InstanceContext(this)); ;
+            friendsManager.JoinFriendsConnected(UserSingleton.Instance.GamerTag);
         }
 
         private void ShowFriendList()
         {
+            FriendsConnectedGrid.Items.Clear();
             string[] friendList = GetFriends();
             string statusColor = "Red";
             for(int firstIndex = 0; firstIndex < friendList.Length; firstIndex++)
@@ -94,6 +105,53 @@ namespace Spider_Clue.Views
             Utilities.PlayButtonClickSound();
             MainMenuView mainMenuView = new MainMenuView();
             this.NavigationService.Navigate(mainMenuView);
+        }
+
+        private void BtnDeleteFiend_Click(object sender, RoutedEventArgs e)
+        {
+            Utilities.PlayButtonClickSound();
+            if(ShowConfirmationMessage() == MessageBoxResult.OK)
+            {
+               string friend = GetFriendData(sender);
+               DeleteFriend(friend);
+               DeleteFriendsRequest(friend);
+            }
+        }
+
+        private MessageBoxResult ShowConfirmationMessage()
+        {
+           return MessageBox.Show(Properties.Resources.DlgConfirmDeleteFriend, Properties.Resources.DeleteFriendTitle, MessageBoxButton.OKCancel, MessageBoxImage.Question);
+        }
+
+        private string GetFriendData (object sender)
+        {
+            string gamertag = "Not found";
+            var button = sender as System.Windows.Controls.Button;
+            if (button != null && button.DataContext is Player dataObject)
+            {
+               gamertag = dataObject.Gamertag;
+            }
+            Console.WriteLine(gamertag);
+            return gamertag;
+        }
+
+        private void DeleteFriend(string friend)
+        {
+            SpiderClueService.IFriendshipManager friendship = new SpiderClueService.FriendshipManagerClient();
+            friendship.DeleteFriend(UserSingleton.Instance.GamerTag, friend);
+            ShowFriendList();
+        }
+
+        private void DeleteFriendsRequest(string friend)
+        {
+            SpiderClueService.IFriendRequestManager friendRequest = new SpiderClueService.FriendRequestManagerClient();
+            friendRequest.DeleteFriendRequest(UserSingleton.Instance.GamerTag, friend);
+        }
+
+        public void ReceiveConnectedFriends(string[] connectedFriends)
+        {
+            FriendsConnected = connectedFriends;
+            ShowFriendList();
         }
     }
 }

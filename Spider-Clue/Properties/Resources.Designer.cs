@@ -268,6 +268,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Delete Friend.
+        /// </summary>
+        public static string DeleteFriendTitle {
+            get {
+                return ResourceManager.GetString("DeleteFriendTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your account has been banned.
         /// </summary>
         public static string DlgAccountBanned {
@@ -277,11 +286,56 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to establish a connection with the server. Please check your internet connection, ensure the server is available, and try again..
+        /// </summary>
+        public static string DlgCommunicationException {
+            get {
+                return ResourceManager.GetString("DlgCommunicationException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Are you sure you want to delete this friend?.
+        /// </summary>
+        public static string DlgConfirmDeleteFriend {
+            get {
+                return ResourceManager.GetString("DlgConfirmDeleteFriend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to send the game code. Please check your connection and try again later..
+        /// </summary>
+        public static string DlgErrorInvitation {
+            get {
+                return ResourceManager.GetString("DlgErrorInvitation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Try again, invalid information.
         /// </summary>
         public static string DlgInvalidData {
             get {
                 return ResourceManager.GetString("DlgInvalidData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The game code has been sent successfully. Enjoy the game!.
+        /// </summary>
+        public static string DlgInvitationSent {
+            get {
+                return ResourceManager.GetString("DlgInvitationSent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Match code copied to clipboard..
+        /// </summary>
+        public static string DlgMatchCodeCopied {
+            get {
+                return ResourceManager.GetString("DlgMatchCodeCopied", resourceCulture);
             }
         }
         
@@ -300,6 +354,24 @@ namespace Spider_Clue.Properties {
         public static string DlgRegisterSuccessful {
             get {
                 return ResourceManager.GetString("DlgRegisterSuccessful", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Changes saved successfully!.
+        /// </summary>
+        public static string DlgSuccessfulChange {
+            get {
+                return ResourceManager.GetString("DlgSuccessfulChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occurred while saving changes. Please try again..
+        /// </summary>
+        public static string DlgWrongChange {
+            get {
+                return ResourceManager.GetString("DlgWrongChange", resourceCulture);
             }
         }
         
@@ -439,6 +511,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string LblCancel {
+            get {
+                return ResourceManager.GetString("LblCancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Change Avatar.
         /// </summary>
         public static string LblChangeAvatar {
@@ -466,6 +547,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your Cards.
+        /// </summary>
+        public static string LblDeck {
+            get {
+                return ResourceManager.GetString("LblDeck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string LblEmail {
@@ -480,6 +570,15 @@ namespace Spider_Clue.Properties {
         public static string LblEmailForRecovery {
             get {
                 return ResourceManager.GetString("LblEmailForRecovery", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enter the email address to send the match code..
+        /// </summary>
+        public static string LblEnterEmail {
+            get {
+                return ResourceManager.GetString("LblEnterEmail", resourceCulture);
             }
         }
         
@@ -588,6 +687,24 @@ namespace Spider_Clue.Properties {
         public static string LblInvalidPassword {
             get {
                 return ResourceManager.GetString("LblInvalidPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invite Your Friends.
+        /// </summary>
+        public static string LblInviteYourFriends {
+            get {
+                return ResourceManager.GetString("LblInviteYourFriends", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kick Players.
+        /// </summary>
+        public static string LblKickPlayers {
+            get {
+                return ResourceManager.GetString("LblKickPlayers", resourceCulture);
             }
         }
         
@@ -736,11 +853,29 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ready.
+        /// </summary>
+        public static string LblReady {
+            get {
+                return ResourceManager.GetString("LblReady", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sign up.
         /// </summary>
         public static string LblRegister {
             get {
                 return ResourceManager.GetString("LblRegister", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search Game.
+        /// </summary>
+        public static string LblSearchGame {
+            get {
+                return ResourceManager.GetString("LblSearchGame", resourceCulture);
             }
         }
         
@@ -754,11 +889,29 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Send the following code to your friends..
+        /// </summary>
+        public static string LblSendMatchCode {
+            get {
+                return ResourceManager.GetString("LblSendMatchCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Username.
         /// </summary>
         public static string LblUsername {
             get {
                 return ResourceManager.GetString("LblUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Send invitation via email.
+        /// </summary>
+        public static string LblViaEmail {
+            get {
+                return ResourceManager.GetString("LblViaEmail", resourceCulture);
             }
         }
         

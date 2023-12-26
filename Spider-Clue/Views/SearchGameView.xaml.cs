@@ -65,15 +65,15 @@ namespace Spider_Clue.Views
             matchManagerClient.GetGamersInMatch(gamertag, matchCode);
         }
 
-        public void ReceiveGamersInMatch(string[] gamertags)
+        public void ReceiveGamersInMatch(Dictionary<string, Pawn> gamers)
         {
-            int numberOfGamersInMatch = gamertags.Length;
+            int numberOfGamersInMatch = gamers.Count;
             GoToLobby(numberOfGamersInMatch);
         }
 
         private void GoToLobby(int numberOfGamers)
         {
-            int maximumOfPlayers = 6;
+            int maximumOfPlayers = 3;
             int numberOfPlayersEmptyMatch = 0;
 
             if(numberOfGamers > numberOfPlayersEmptyMatch)
@@ -109,6 +109,5 @@ namespace Spider_Clue.Views
                 MenuView.NavigationService.Navigate(lobbyView);
             }
         }
- 
     }
 }

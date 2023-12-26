@@ -1,0 +1,81 @@
+﻿<Window x:Class="Spider_Clue.Views.KickPlayersView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Spider_Clue.Views"
+        xmlns:p = "clr-namespace:Spider_Clue.Properties"
+        mc:Ignorable="d" Height="500" Width="700">
+    <Grid>
+        <Border>
+            <Border.Background>
+                <ImageBrush ImageSource = "/Images/Background/kickPlayerBackground.jpg"
+                            Stretch = "UniformToFill">
+                </ImageBrush>
+            </Border.Background>
+        </Border>
+
+        <Border Background="#b542ae"
+                Height="200"
+                Width="400"
+                CornerRadius="8">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblKickPlayers}"
+                       Width="Auto"
+                       Foreground ="White"
+                       FontWeight = "Medium"
+                       FontSize = "30"
+                       FontFamily = "Segoe UI Variable Display SemiBold"
+                       HorizontalContentAlignment="Center" 
+                       Grid.Row="0"
+                       Height = "Auto"/>
+
+                <DataGrid Grid.Row="1" AutoGenerateColumns = "False" Name = "KickPlayersGrid" Margin = "0,0,0,10" HorizontalAlignment="Center" Width="300">
+                    <DataGrid.ColumnHeaderStyle>
+                        <Style TargetType="DataGridColumnHeader">
+                            <Setter Property="FontSize" Value="10"/>
+                            <Setter Property = "Background" Value="#655E73"/>
+                            <Setter Property = "Foreground" Value="White"/>
+                        </Style>
+                    </DataGrid.ColumnHeaderStyle>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="Icon"  Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border 
+                                        Height="20"
+                                        Width="20"
+                                        HorizontalAlignment="Center"
+                                        CornerRadius="10">
+                                        <Border.Background>
+                                            <ImageBrush ImageSource = "{Binding Icon}"
+                                                    Stretch = "UniformToFill">
+                                            </ImageBrush>
+                                        </Border.Background>
+                                    </Border>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn  Width="150" Header="Gamertag" FontSize="20" Binding="{Binding Gamertag}"/>
+                        <DataGridTemplateColumn x:Name = "Delete" Header="Kick" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Background="Transparent" BorderBrush="Transparent" Click="BtnKickPlayer_Click">
+                                        <Image Source="/Images/Icons/KickPlayerIcon.png" 
+                                                       Width="28" 
+                                                       Height="24"/>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

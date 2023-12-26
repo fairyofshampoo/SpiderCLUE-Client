@@ -13,7 +13,7 @@
             CornerRadius = "10"
             Background = "#141210"
             Width = "600"
-            Height = "400">
+            Height = "400" Opacity="0.93">
 
             <Grid>
                 <Grid.RowDefinitions>

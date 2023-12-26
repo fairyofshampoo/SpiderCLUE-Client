@@ -17,7 +17,7 @@ namespace Spider_Clue.Logic
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public int Level { get; set; }
+        public int GamesWon { get; set; }
         public string ImageCode { get; set; }
         public bool IsGuestPlayer { get; set; }
 
@@ -29,7 +29,7 @@ namespace Spider_Clue.Logic
             Name = gamer.FirstName;
             LastName = gamer.LastName;
             Email = gamer.Email;
-            Level = gamer.Level;
+            GamesWon = gamer.GamesWon;
             ImageCode = gamer.ImageCode;
             IsGuestPlayer = false;
         }

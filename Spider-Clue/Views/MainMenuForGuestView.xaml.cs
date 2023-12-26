@@ -22,6 +22,7 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
             Loaded += PageLoaded;
+            Utilities.PlayMainThemeSong(mainThemePlayer);
         }
 
         private void PageLoaded(object sender, RoutedEventArgs e)

@@ -386,4 +386,55 @@
   <data name="LblNotes" xml:space="preserve">
     <value>Notas</value>
   </data>
+  <data name="DlgConfirmDeleteFriend" xml:space="preserve">
+    <value>¿Estás seguro que deseas eliminar este amigo?</value>
+  </data>
+  <data name="LblCancel" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="LblReady" xml:space="preserve">
+    <value>Listo</value>
+  </data>
+  <data name="DeleteFriendTitle" xml:space="preserve">
+    <value>Eliminar amigo</value>
+  </data>
+  <data name="LblKickPlayers" xml:space="preserve">
+    <value>Expulsar jugadores</value>
+  </data>
+  <data name="DlgCommunicationException" xml:space="preserve">
+    <value>No se pudo establecer una conexión con el servidor. Verifica tu conexión a internet, asegúrate de que el servidor esté disponible y vuelve a intentarlo.", "Error de comunicación</value>
+  </data>
+  <data name="DlgMatchCodeCopied" xml:space="preserve">
+    <value>Código de partida copiado al portapapeles</value>
+  </data>
+  <data name="LblEnterEmail" xml:space="preserve">
+    <value>Ingresa la dirección de correo electrónico para enviar el código de la partida</value>
+  </data>
+  <data name="LblInviteYourFriends" xml:space="preserve">
+    <value>Invita a tus amigos</value>
+  </data>
+  <data name="LblSearchGame" xml:space="preserve">
+    <value>Búsqueda de partida</value>
+  </data>
+  <data name="LblSendMatchCode" xml:space="preserve">
+    <value>Manda el siguiente codigo a tus amigos</value>
+  </data>
+  <data name="LblViaEmail" xml:space="preserve">
+    <value>Mandar invitación por correo electrónico</value>
+  </data>
+  <data name="DlgSuccessfulChange" xml:space="preserve">
+    <value>¡Cambios guardados exitosamente!</value>
+  </data>
+  <data name="DlgWrongChange" xml:space="preserve">
+    <value>Se produjo un error al guardar los cambios. Por favor, inténtalo nuevamente.</value>
+  </data>
+  <data name="DlgInvitationSent" xml:space="preserve">
+    <value>El código de la partida se ha enviado exitosamente. ¡Esperamos que disfrutes del juego!</value>
+  </data>
+  <data name="DlgErrorInvitation" xml:space="preserve">
+    <value>No se pudo enviar el código de la partida. Por favor, verifica tu conexión e intenta nuevamente más tarde.</value>
+  </data>
+  <data name="LblDeck" xml:space="preserve">
+    <value>Tus cartas</value>
+  </data>
 </root>

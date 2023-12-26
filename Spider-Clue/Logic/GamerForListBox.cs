@@ -10,7 +10,7 @@ namespace Spider_Clue.Logic
     public class GamerForListBox
     {
         public BitmapImage ImageIconGamer { get; set; }
-        public string GamerTag { get; set; }
+        public string GamerName { get; set; }
     }
 
 }

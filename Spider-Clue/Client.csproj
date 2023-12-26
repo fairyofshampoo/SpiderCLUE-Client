@@ -103,6 +103,12 @@
     <Compile Include="Views\ConfirmPasswordView.xaml.cs">
       <DependentUpon>ConfirmPasswordView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DeckView.xaml.cs">
+      <DependentUpon>DeckView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EmailInvitationDialog.xaml.cs">
+      <DependentUpon>EmailInvitationDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\FriendsListView.xaml.cs">
       <DependentUpon>FriendsListView.xaml</DependentUpon>
     </Compile>
@@ -114,6 +120,9 @@
     </Compile>
     <Compile Include="Views\GameResultsView.xaml.cs">
       <DependentUpon>GameResultsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\KickPlayersView.xaml.cs">
+      <DependentUpon>KickPlayersView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\LanguageSettings.xaml.cs">
       <DependentUpon>LanguageSettings.xaml</DependentUpon>
@@ -150,6 +159,9 @@
     </Compile>
     <Compile Include="Views\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RollDiceView.xaml.cs">
+      <DependentUpon>RollDiceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\SearchGameView.xaml.cs">
       <DependentUpon>SearchGameView.xaml</DependentUpon>
@@ -195,6 +207,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\DeckView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EmailInvitationDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\FriendsListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -208,6 +228,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GameResultsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\KickPlayersView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -256,6 +280,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RollDiceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -339,6 +367,9 @@
     </None>
     <None Include="Connected Services\SpiderClueService\item8.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Card.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Gamer.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -481,6 +512,24 @@
     <Resource Include="Images\Elements\ClipBoard.png" />
     <Resource Include="Images\Background\GameResults.jpg" />
     <Resource Include="Images\Icons\CrownIcon.png" />
+    <Resource Include="Images\Icons\copyIcon.png" />
+    <Resource Include="Images\Background\invitationBackground.jpg" />
+    <Resource Include="Images\Icons\EmailIcon.png" />
+    <Resource Include="Images\Icons\KickPlayerIcon.png" />
+    <Resource Include="Images\Background\forgotPasswordBackground.jpg" />
+    <Resource Include="Images\Background\accountRecoveryBackground.jpg" />
+    <Resource Include="Images\Background\loginBackground.jpg" />
+    <Resource Include="Images\Background\registerBackGround.jpg" />
+    <Resource Include="Images\Background\mainMenuBackground.jpg" />
+    <Resource Include="Images\Characters\BluePawn.png" />
+    <Resource Include="Images\Characters\GreenPawn.png" />
+    <Resource Include="Images\Characters\PurplePawn.png" />
+    <Resource Include="Images\Characters\RedPawn.png" />
+    <Resource Include="Images\Characters\WhitePawn.png" />
+    <Resource Include="Images\Characters\YellowPawn.png" />
+    <Resource Include="Images\Background\kickPlayerBackground.jpg" />
+    <Resource Include="Images\Background\deckBackground.jpeg" />
+    <Resource Include="Images\Background\rollDiceBackground.jpg" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />

@@ -31,7 +31,7 @@
                             <ImageBrush ImageSource = "/Images/Elements/ClueBoard.png">
                             </ImageBrush>
                         </Border.Background>
-                        <Grid Margin="42,26,42,24">
+                        <Grid Margin="42,26,42,24" x:Name="GameBoardGrid" MouseDown = "Grid_Click" Background="Transparent">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="23"/>
                                 <RowDefinition Height="24"/>
@@ -60,7 +60,7 @@
                             </Grid.RowDefinitions>
 
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="31"/>
+                                <ColumnDefinition Width="31" />
                                 <ColumnDefinition Width="30"/>
                                 <ColumnDefinition Width="30"/>
                                 <ColumnDefinition Width="30"/>
@@ -84,6 +84,13 @@
                                 <ColumnDefinition Width="30"/>
                                 <ColumnDefinition Width="30"/>
                             </Grid.ColumnDefinitions>
+
+                            <Image x:Name="bluePawn" Source="/Images/Characters/BluePawn.png" Grid.Row="17" Grid.Column="0"/>
+                            <Image x:Name="purplePawn" Source="/Images/Characters/PurplePawn.png" Grid.Row="4" Grid.Column="0"/>
+                            <Image x:Name="whitePawn" Source="/Images/Characters/WhitePawn.png" Grid.Row="22" Grid.Column="13"/>
+                            <Image x:Name="redPawn" Source="/Images/Characters/RedPawn.png" Grid.Row="0" Grid.Column="15"/>
+                            <Image x:Name="yellowPawn" Source="/Images/Characters/YellowPawn.png" Grid.Row="6" Grid.Column="21"/>
+                            <Image x:Name="greenPawn" Source="/Images/Characters/GreenPawn.png" Grid.Row="22" Grid.Column="8"/>
 
                             <Border Background="Black"
                                 Grid.ColumnSpan = "4"
@@ -250,13 +257,10 @@
                         Height = "100"
                         Margin = "0,50,0,0"
                         Grid.Row="0">
-                        <Border Margin="10,21,10,10">
-                            <Border.Background>
-                                <ImageBrush ImageSource = "/Images/Icons/LeaveIcon.png"
-                            Stretch = "UniformToFill">
-                                </ImageBrush>
-                            </Border.Background>
-                        </Border>
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnLeaveGame">
+                            <Image Source = "/Images/Icons/LeaveIcon.png"
+                            Stretch = "UniformToFill"/>
+                        </Button>
                     </Border>
 
                     <Border 
@@ -266,13 +270,10 @@
                         Height = "100"
                         Margin = "0,50,0,0"
                         Grid.Row="1">
-                        <Border Margin="10,10,10,10">
-                            <Border.Background>
-                                <ImageBrush ImageSource = "/Images/Icons/CardsIcon.png"
-                            Stretch = "UniformToFill">
-                                </ImageBrush>
-                            </Border.Background>
-                        </Border>
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnShowCards">
+                            <Image Source = "/Images/Icons/CardsIcon.png"
+                                            Stretch = "UniformToFill" Height="86" Width="86"/>
+                        </Button>
                     </Border>
 
                     <Border 
@@ -282,13 +283,10 @@
                         Height = "100"
                         Margin = "0,50,0,0"
                         Grid.Row="2">
-                        <Border>
-                            <Border.Background>
-                                <ImageBrush ImageSource = "/Images/Icons/DiceIcon.png"
-                            Stretch = "UniformToFill">
-                                </ImageBrush>
-                            </Border.Background>
-                        </Border>
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnRollDice">
+                            <Image Source = "/Images/Icons/DiceIcon.png"
+                            Stretch = "UniformToFill"/>
+                        </Button>
                     </Border>
 
                     <Border 
@@ -298,13 +296,10 @@
                         Height = "100"
                         Margin = "0,50,0,0"
                         Grid.Row = "3">
-                        <Border Margin = "10,10,10,10">
-                            <Border.Background>
-                                <ImageBrush ImageSource = "/Images/Icons/AccusationIcon.png"
-                            Stretch = "UniformToFill">
-                                </ImageBrush>
-                            </Border.Background>
-                        </Border>
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnAccuse">
+                            <Image Source = "/Images/Icons/AccusationIcon.png"
+                            Stretch = "UniformToFill"/>
+                        </Button>
                     </Border>
                 </Grid>
 
@@ -320,7 +315,8 @@
                     </Border.Background>
                     <Grid Width="237"
                           HorizontalAlignment="Left"
-                           Margin="10,127,0,21">
+                          Margin="10,127,0,21"
+                          >
 
                         <Grid.Resources>
                            

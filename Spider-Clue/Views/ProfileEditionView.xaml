@@ -13,7 +13,7 @@
         <Border>
             <Border.Background>
                 <ImageBrush ImageSource = "/Images/Background/backgroundREGISTER.png"
-                            Stretch = "Fill">
+                            Stretch = "UniformToFill">
                 </ImageBrush>
             </Border.Background>
         </Border>
@@ -56,12 +56,12 @@
                     </Grid.ColumnDefinitions>
 
                     <Border 
-                CornerRadius="10"
-                Margin="20,20,0,0"
-                Width="70"
-                Height="70"
-                Grid.Column="0"
-                VerticalAlignment="Top"
+                        CornerRadius="10"
+                        Margin="20,20,0,0"
+                        Width="70"
+                        Height="70"
+                        Grid.Column="0"
+                        VerticalAlignment="Top"
                         MouseDown="LblChangeAvatar_Click">
                         <Border.Background>
                             <ImageBrush ImageSource ="{Binding Path=ImagePath}"
@@ -85,6 +85,8 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
@@ -98,16 +100,17 @@
                                    FontFamily = "Monsterrat"
                                    Margin="0,15,0,0" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
                                    Grid.Row="0"
-                                   Grid.Column="0" Grid.RowSpan="2"/>
+                                   Grid.Column="0"/>
 
                         <Border 
                                     CornerRadius="5" 
                                     BorderBrush="LightGray" 
                                     BorderThickness="3" 
                                     Grid.Row="0"
+                                    Grid.Column="1"
                                     Height="20"
                                     Width="200"
-                                    Margin="102,15,18,0" Grid.ColumnSpan="2">
+                                    Margin="0,25,0,0">
                             <TextBox x:Name="txtName"
                                   Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="15"
@@ -119,23 +122,35 @@
                             </TextBox>
                         </Border>
 
+                        <Label x:Name="lblInvalidName" Content="{x:Static p:Resources.LblInvalidName}"
+                                   Foreground="Black"
+                                   FontWeight="Medium"
+                                   FontSize="10"
+                                   Grid.ColumnSpan = "2"
+                                   FontFamily="Monsterrat"
+                                   OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                                   Grid.Row="1"
+                                   Grid.Column="0"
+                                   Visibility="Collapsed"/>
+
                         <Label x:Name = "lblLastName" Content = "{x:Static p:Resources.LblLastName}"
                                    Foreground ="White"
                                    FontWeight = "SemiBold"
                                    FontSize = "15"
                                    FontFamily = "Monsterrat"
-                                   Margin="0,25,0,0" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
-                                   Grid.Row="1"
-                                   Grid.Column="0" Grid.RowSpan="2"/>
+                                   Margin="0,25,0,5" OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                                   Grid.Row="2"
+                                   Grid.Column="0"/>
 
                         <Border 
                                     CornerRadius="5" 
                                     BorderBrush="LightGray" 
                                     BorderThickness="3" 
-                                    Grid.Row="1"
+                                    Grid.Row="2"
+                                    Grid.Column="1"
                                     Width="200"
                                     Height="20"
-                                    Margin="84,25,0,0" Grid.ColumnSpan="2">
+                                    Margin="0,25,0,0">
                             <TextBox x:Name="txtLastName"
                                   Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="13"
@@ -147,6 +162,17 @@
                             </TextBox>
                         </Border>
 
+                        <Label x:Name="lblInvalidLastName" Content="{x:Static p:Resources.LblInvalidLastName}"
+                                   Foreground="Black"
+                                   FontWeight="Medium"
+                                   FontSize="10"
+                                   Grid.ColumnSpan = "2"
+                                   FontFamily="Monsterrat"
+                                   OpacityMask="{DynamicResource {x:Static SystemColors.MenuBrushKey}}"
+                                   Grid.Row="3"
+                                   Grid.Column="0"
+                                   Visibility="Collapsed"/>
+
                         <Button x:Name = "btnChangePassword"
                             Content = "{x:Static p:Resources.BtnChangePassword}"
                             Foreground = "White"
@@ -155,9 +181,9 @@
                             Width="120"
                             Height="40"
                             Cursor = "Hand"
-                            Grid.Row="2"
+                            Grid.Row="4"
                             Grid.Column = "0"
-                            Margin = "0,40,0,0"
+                            Margin = "0,10,0,0"
                             Click="BtnChangePassword_Click">
 
                             <Button.Style>
@@ -186,9 +212,9 @@
                             Width="120"
                             Height="30"
                             Cursor = "Hand"
-                            Grid.Row="2"
+                            Grid.Row="4"
                             Grid.Column = "1"
-                            Margin = "0,40,0,0" Click="BtnSave_Click">
+                            Margin = "0,10,0,0" Click="BtnSave_Click">
 
                             <Button.Style>
                                 <Style TargetType = "Button">

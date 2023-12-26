@@ -72,12 +72,12 @@ namespace Spider_Clue.Views
 
             if (!nameValid)
             {
-                //lblInvalidName.Visibility = Visibility.Visible;
+                lblInvalidName.Visibility = Visibility.Visible;
             }
 
             if (!lastNameValid)
             {
-                //lblInvalidLastName.Visibility = Visibility.Visible;
+                lblInvalidLastName.Visibility = Visibility.Visible;
             }
 
             return nameValid && lastNameValid;
@@ -99,10 +99,8 @@ namespace Spider_Clue.Views
 
         private void GoToChangePasswordView()
         {
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            Gamer gamer = userManager.GetGamerByEmail(UserSingleton.Instance.Email);
             PasswordRecoveryView changePasswordView = new PasswordRecoveryView();
-            changePasswordView.SetGamerInWindow(gamer);
+            changePasswordView.SetGamertagInWindow(UserSingleton.Instance.GamerTag);
             this.NavigationService.Navigate(changePasswordView);
         }
 

@@ -6,11 +6,12 @@
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p="clr-namespace:Spider_Clue.Properties"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800">
+      d:DesignHeight="720" d:DesignWidth="1280">
 
-    <DockPanel>
+    <Viewbox Stretch="Fill">
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <Grid>
+                <MediaElement x:Name = "mainThemePlayer" LoadedBehavior = "Manual"/>
                 <Border>
                     <Border.Background>
                         <ImageBrush ImageSource="/Images/Background/LobbyBackground.jpg" Stretch="UniformToFill" />
@@ -36,14 +37,12 @@
                             </ListBox.ItemTemplate>
                         </ListBox>
 
-                        <Border 
-                        CornerRadius = "40"
-                        Background = "#94857B"
-                        Width = "50"
-                        Height = "50"
-                            VerticalAlignment="Top"
-                            HorizontalAlignment="Right"
-                        Margin = "10,20,0,0" Grid.Column="2">
+                        <Border x:Name="bdrKickPlayer" CornerRadius = "40" Background = "#94857B"
+                                Width = "50" Height = "50"
+                                VerticalAlignment="Top" Visibility="Hidden"
+                                HorizontalAlignment="Right" Cursor="Hand"
+                                MouseDown="KickPlayer_Click"
+                                Margin = "10,20,0,0" Grid.Column="2">
                             <Border Margin = "10,10,10,10">
                                 <Border.Background>
                                     <ImageBrush ImageSource = "/Images/Icons/kickGamerIcon.png"
@@ -67,36 +66,42 @@
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
 
-                            <Border Margin="0,0,15,0" Grid.Column="0">
+                            <Border Margin="0,0,15,0" Grid.Column="0" Grid.Row="0">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Images/Characters/PurpleCharacter.png" Stretch="UniformToFill" />
+                                    <ImageBrush ImageSource="/Images/Characters/PurpleCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
+                            <Label x:Name="lblPurpleGamertag" Grid.Row="1" Background="#7F4CA5" Foreground="White" FontWeight="SemiBold" Margin="5,0,5,0"/>
                             <Border Margin="0,0,15,0" Grid.Column="1">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Images/Characters/WhiteCharacter.png" Stretch="UniformToFill" />
+                                    <ImageBrush ImageSource="/Images/Characters/WhiteCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
+                            <Label x:Name="lblWhiteGamertag" Grid.Row="1" Grid.Column="1" Background="White" Foreground="Black" FontWeight="SemiBold" Margin="5,0,5,0"/>
                             <Border Margin="0,0,15,0" Grid.Column="2">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Images/Characters/RedCharacter.png" Stretch="UniformToFill" />
+                                    <ImageBrush ImageSource="/Images/Characters/RedCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
+                            <Label x:Name="lblRedGamertag" Grid.Row="1" Grid.Column="2" Background="#BC1823" Foreground="White" FontWeight="SemiBold" Margin="5,0,5,0"/>
                             <Border Margin="0,0,15,0" Grid.Column="3">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Images/Characters/GreenCharacter.png" Stretch="UniformToFill" />
+                                    <ImageBrush ImageSource="/Images/Characters/GreenCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
+                            <Label x:Name="lblGreenGamertag" Grid.Row="1" Grid.Column="3" Background="#68902B" Foreground="White" FontWeight="SemiBold" Margin="5,0,5,0"/>
                             <Border Margin="0,0,15,0" Grid.Column="4">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Images/Characters/YellowCharacter.png" Stretch="UniformToFill" />
+                                    <ImageBrush ImageSource="/Images/Characters/YellowCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
+                            <Label x:Name="lblYellowGamertag" Grid.Row="1" Grid.Column="4" Background="#FFD230" Foreground="Black" FontWeight="SemiBold" Margin="5,0,5,0"/>
                             <Border Margin="0,0,15,0" Grid.Column="5">
                                 <Border.Background>
-                                    <ImageBrush ImageSource="/Images/Characters/BlueCharacter.png" Stretch="UniformToFill" />
+                                    <ImageBrush ImageSource="/Images/Characters/BlueCharacter.png" Stretch="Uniform" />
                                 </Border.Background>
                             </Border>
+                            <Label x:Name="lblBlueGamertag" Grid.Row="1" Grid.Column="5" Background="#145DA0" Foreground="White" FontWeight="SemiBold" Margin="5,0,5,0"/>
                         </Grid>
                     </StackPanel>
 
@@ -106,19 +111,20 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Viewbox Grid.Column="0">
-                            
+                        <Viewbox x:Name="chatViewBox" Grid.Column="0" Margin="0,10,7,0">
+                            <Frame Name="chatFrame"/>
                         </Viewbox>
                         <StackPanel Orientation="Horizontal"
                                     Grid.Column="1">
                             
                             <Button x:Name="btnCancel" Grid.Column="0" BorderThickness="0"
-                                    Content="{x:Static p:Resources.BtnGuestPlayer}"
+                                    Content="{x:Static p:Resources.LblCancel}"
                                     Foreground="White"
                                     FontSize="15"
                                     FontFamily="Montserrat"
                                     Cursor="Hand"
-                                    Margin="0,0,10,50"
+                                    Click="BtnCancel_Click"
+                                    Margin="5,0,10,50"
                                     HorizontalAlignment="Right">
                                 <Button.Style>
                                     <Style TargetType="Button">
@@ -142,11 +148,12 @@
                             </Button>
 
                             <Button x:Name="btnReady" Grid.Column="0" BorderThickness="0"
-                                    Content="{x:Static p:Resources.BtnGuestPlayer}"
+                                    Content="{x:Static p:Resources.LblReady}"
                                     Foreground="White"
-                                    FontSize="15"
+                                    FontSize="15" Visibility="Collapsed"
                                     FontFamily="Montserrat"
                                     Cursor="Hand"
+                                    Click="BtnReady_Click"
                                     Margin="0,0,10,50"
                                     HorizontalAlignment="Right">
                                 <Button.Style>
@@ -191,7 +198,8 @@
                         CornerRadius = "40"
                         Background = "#B4A859"
                         Width = "50"
-                        Height = "50"
+                        Height = "50" Cursor="Hand"
+                            MouseDown="SendInvitation_Click"
                         Margin = "192,118,14,32" Grid.Column="2">
                             <Border Margin = "10,10,10,10">
                                 <Border.Background>
@@ -207,5 +215,5 @@
                 </Grid>
             </Grid>
         </ScrollViewer>
-    </DockPanel>
+    </Viewbox>
 </Page>

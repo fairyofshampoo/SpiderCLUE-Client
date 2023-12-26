@@ -43,10 +43,10 @@ namespace Spider_Clue.Views
 
         private void SetGuessPlayerData()
         {
-            int minimumLevel = 0;
+            int minimumGamesWon = 0;
             string guestPlayerUsername = GenerateGuestPlayerUsername();
             UserSingleton.Instance.GamerTag = guestPlayerUsername;
-            UserSingleton.Instance.Level = minimumLevel;
+            UserSingleton.Instance.GamesWon = minimumGamesWon;
             UserSingleton.Instance.ImageCode = "Icon0.jpg";
             UserSingleton.Instance.Name = "Guest";
             UserSingleton.Instance.LastName = "Player";
@@ -62,15 +62,23 @@ namespace Spider_Clue.Views
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            Utilities.PlayButtonClickSound();
             if (HandleLoginAttempt())
             {
-                SaveSession();
-                DisplayMainMenuView();
+                ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
+
+                if (sessionManager.IsGamerAlreadyOnline(txtUsername.Text))
+                {
+                    ShowUserAlreadyOnlineMessage();
+                }
+                else
+                {
+                    SaveSession();
+                    DisplayMainMenuView();
+                }
             }
             else
             {
-                ShowErrorMessage();
+                ShowWrongDataMessage();
             }
         }
 
@@ -89,12 +97,17 @@ namespace Spider_Clue.Views
         private Gamer GetGamerData(String gamerTag)
         {
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            return userManager.GetGamer(gamerTag);
+            return userManager.GetGamerByGamertag(gamerTag);
         }
 
-        private void ShowErrorMessage()
+        private void ShowWrongDataMessage()
         {
             MessageBox.Show(Properties.Resources.DlgWrongDataForLogin, Properties.Resources.DlgRegisterError, MessageBoxButton.OK, MessageBoxImage.Error);
+        }
+
+        private void ShowUserAlreadyOnlineMessage()
+        {
+            MessageBox.Show("Ya has iniciado sesión", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private bool HandleLoginAttempt()
@@ -103,30 +116,10 @@ namespace Spider_Clue.Views
             if (continueLogin)
             {
                 continueLogin = ValidateCredentials();
-                if (continueLogin)
-                {
-                    continueLogin = !IsBanned();
-                }
+
             }
+
             return continueLogin;
-        }
-
-        private bool IsBanned()
-        {
-            bool banned = false;
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            if (userManager.GetBannedStatus(txtUsername.Text) == 1)
-            {
-                banned = true;
-                ShowBannedDialog();
-            }
-
-            return banned;
-        }
-
-        private void ShowBannedDialog()
-        {
-            MessageBox.Show(Properties.Resources.DlgWrongDataForLogin,Properties.Resources.InformationTitle, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private bool VerifyFields()
@@ -259,5 +252,21 @@ namespace Spider_Clue.Views
             imgPasswordIcon.Source = newImageSource;
         }
 
+        private void BtnMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            Window mainWindow = Window.GetWindow(this);
+            mainWindow.WindowState = WindowState.Minimized;
+        }
+
+        private void BtnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void BtnMaximize_Click(object sender, MouseButtonEventArgs e)
+        {
+            Window mainWindow = Window.GetWindow(this);
+            mainWindow.WindowState = WindowState.Maximized;
+        }
     }
 }

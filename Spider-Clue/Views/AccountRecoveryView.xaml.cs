@@ -25,9 +25,10 @@ namespace Spider_Clue.Views
         private void BtnSendCode_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
+
             string toEmail = txtEmailForRecovery.Text;
 
-            if (CheckPlayerExistence(toEmail))
+            if (ValidateEmail(toEmail) && CheckPlayerExistence(toEmail))
             {
                 if (VerifyCode(toEmail))
                 {
@@ -40,6 +41,11 @@ namespace Spider_Clue.Views
             }
         }
 
+        private bool ValidateEmail( string toEmail)
+        {
+            return Validations.IsEmailValid(toEmail);
+        }
+
         private bool VerifyCode(string toEmail)
         {
             return Utilities.SendEmailWithCode(toEmail, Window.GetWindow(this));
@@ -49,13 +55,13 @@ namespace Spider_Clue.Views
         {
             Gamer gamer = userManager.GetGamerByEmail(email);
             PasswordRecoveryView changePasswordView = new PasswordRecoveryView();
-            changePasswordView.SetGamerInWindow(gamer);
+            changePasswordView.SetGamertagInWindow(gamer.Gamertag);
             NavigationService.Navigate(changePasswordView);
         }
 
         private bool CheckPlayerExistence(string email)
         {
-            return userManager.IsAccountExisting(email);
+            return userManager.IsEmailExisting(email);
         }
 
         private void ShowErrorMessageBox(string errorMessage)
