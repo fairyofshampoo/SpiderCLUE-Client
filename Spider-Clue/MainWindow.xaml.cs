@@ -43,6 +43,11 @@ namespace Spider_Clue
                     {
                         lobby.GoToMainMenu();
                     }
+
+                    if (currentPage is GameBoardView gameBoard)
+                    {
+                        gameBoard.GoToMainMenu();
+                    }
                 }
 
                 if (UserSingleton.Instance.GamerTag != null)
