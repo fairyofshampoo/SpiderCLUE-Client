@@ -241,8 +241,6 @@ namespace Spider_Clue.Views
                 MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle);
                 GoToMainMenu();
             }
-
-
         }
 
         private void SendInvitation_Click(object sender, MouseButtonEventArgs e)

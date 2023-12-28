@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Spider_Clue.Views
 {
@@ -23,6 +24,9 @@ namespace Spider_Clue.Views
         public readonly GameManagerClient GameManager;
         private Dictionary<string, Pawn> gamersInGame;
         private string matchCode;
+        private DispatcherTimer timer;
+        private TimeSpan remainingTime;
+        private bool isOwner = false;
 
         public GameBoardView()
         {
@@ -48,10 +52,19 @@ namespace Spider_Clue.Views
             }
         }
 
-        public void GoToMainMenu()
+        private void GoToMainMenu()
         {
-            //hay que checar la lógica de esto porque si no llegan todos los jugadores a conectarse, hay que terminar la partida
-            //el inivtado debe ir al guest main menu
+            if (UserSingleton.Instance.IsGuestPlayer)
+            {
+                MainMenuForGuestView mainMenuForGuestView = new MainMenuForGuestView();
+                this.NavigationService.Navigate(mainMenuForGuestView);
+            }
+            else
+            {
+                MainMenuView mainMenuView = new MainMenuView();
+                this.NavigationService.Navigate(mainMenuView);
+            }
+            GameManager.DisconnectFromBoardAsync(UserSingleton.Instance.GamerTag, matchCode);
         }
 
         private void SetPawnsInBoard()
@@ -126,6 +139,16 @@ namespace Spider_Clue.Views
         public void ReceiveRollDice(int rollDice)
         {
             OpenDialogRollDice(rollDice);
+        }
+
+        public void UpdateNumberOfPlayersInGameboard(int numberOfPlayers)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LeaveGameBoard()
+        {
+            GoToMainMenu();
         }
     }
 }
