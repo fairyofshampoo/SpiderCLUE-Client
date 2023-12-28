@@ -277,12 +277,14 @@
                     </Border>
 
                     <Border 
+                        x:Name="rollDiceButtom"
                         CornerRadius = "30"
                         Background = "#EEF8EB"
                         Width = "100"
                         Height = "100"
                         Margin = "0,50,0,0"
-                        Grid.Row="2">
+                        Grid.Row="2"
+                        Visibility="Collapsed">
                         <Button Background="Transparent" BorderBrush="Transparent" Click="BtnRollDice">
                             <Image Source = "/Images/Icons/DiceIcon.png"
                             Stretch = "UniformToFill"/>
@@ -290,12 +292,14 @@
                     </Border>
 
                     <Border 
+                        x:Name="accusationButtom"
                         CornerRadius = "30"
                         Background = "#EEF8EB"
                         Width = "100"
                         Height = "100"
                         Margin = "0,50,0,0"
-                        Grid.Row = "3">
+                        Grid.Row = "3"
+                        Visibility="Collapsed">
                         <Button Background="Transparent" BorderBrush="Transparent" Click="BtnAccuse">
                             <Image Source = "/Images/Icons/AccusationIcon.png"
                             Stretch = "UniformToFill"/>
