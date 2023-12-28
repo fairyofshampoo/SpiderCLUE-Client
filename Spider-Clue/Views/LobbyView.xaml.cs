@@ -260,6 +260,7 @@ namespace Spider_Clue.Views
         public void StartGame()
         {
             GameBoardView gameBoardView = new GameBoardView();
+            gameBoardView.ConfigureWindow(MatchCode, gamersInLobby);
             NavigationService.Navigate(gameBoardView);
         }
     }
