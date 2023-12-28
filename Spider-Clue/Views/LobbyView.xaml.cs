@@ -42,6 +42,7 @@ namespace Spider_Clue.Views
 
             MatchManager.ConnectToMatch(gamertag, matchCode);
             MatchManager.GetGamersInMatch(gamertag, matchCode);
+            LobbyManager.ConnectToLobbyAsync(gamertag);
 
             SetOwnerButtons();
             SetChatInLobby();
