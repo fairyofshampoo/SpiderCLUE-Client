@@ -68,7 +68,7 @@ namespace Spider_Clue.Views
             Point click = mouseEvent.GetPosition(GameBoardGrid);
             int columnClick = (int)(click.X / (int)GameBoardGrid.ActualWidth * GameBoardGrid.ColumnDefinitions.Count);
             int rowClick = (int)(click.Y / (int)GameBoardGrid.ActualHeight * GameBoardGrid.RowDefinitions.Count);
-
+            GameBoardGrid.IsEnabled = false;
             GameManager.MovePawn(columnClick, rowClick, UserSingleton.Instance.GamerTag);
         }
 
