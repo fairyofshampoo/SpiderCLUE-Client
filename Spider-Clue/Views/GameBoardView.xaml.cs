@@ -23,10 +23,12 @@ namespace Spider_Clue.Views
         public readonly GameManagerClient GameManager;
         private Dictionary<string, Pawn> gamersInGame;
         private string matchCode;
+
         public GameBoardView()
         {
             InitializeComponent();
             GameManager = new GameManagerClient(new InstanceContext(this));
+            
         }
 
         public void ConfigureWindow(string matchCode, Dictionary<string, Pawn> gamersInGame)
@@ -37,7 +39,7 @@ namespace Spider_Clue.Views
 
             try
             {
-                GameManager.ConnectGamerToGameBoard(UserSingleton.Instance.GamerTag);
+                GameManager.ConnectGamerToGameBoard(UserSingleton.Instance.GamerTag, matchCode);
             }
             catch (CommunicationException)
             {
@@ -80,8 +82,7 @@ namespace Spider_Clue.Views
 
         private void BtnRollDice(object sender, RoutedEventArgs e)
         {
-            //Manda a llamar al que tira los dados y le notifica cuanto sacó 
-
+           GameManager.RollDice();
         }
 
         private void BtnAccuse(object sender, RoutedEventArgs e)
@@ -96,6 +97,7 @@ namespace Spider_Clue.Views
         {
             //Si el pawn es diferente a nulo manda a llamar el método de mover
             //Si el pawn es nulo manda a llamar el método para avisar que no se puede
+
         }
 
         public void OpenDialogRollDice(int diceRoll) 
@@ -119,6 +121,11 @@ namespace Spider_Clue.Views
         public void ReceiveTurn(bool isYourTurn)
         {
             //falta jeje
+        }
+
+        public void ReceiveRollDice(int rollDice)
+        {
+            OpenDialogRollDice(rollDice);
         }
     }
 }

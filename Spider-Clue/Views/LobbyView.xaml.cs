@@ -19,6 +19,7 @@ namespace Spider_Clue.Views
         private Dictionary<string, Pawn> gamersInLobby;
         private bool isOwnerOfMatch = false;
         private readonly ChatView chatView = new ChatView();
+
         public LobbyView()
         {
             InitializeComponent();
