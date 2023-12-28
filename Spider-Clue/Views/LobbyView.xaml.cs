@@ -19,6 +19,7 @@ namespace Spider_Clue.Views
         private Dictionary<string, Pawn> gamersInLobby;
         private bool isOwnerOfMatch = false;
         private readonly ChatView chatView = new ChatView();
+
         public LobbyView()
         {
             InitializeComponent();
@@ -240,8 +241,6 @@ namespace Spider_Clue.Views
                 MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle);
                 GoToMainMenu();
             }
-
-
         }
 
         private void SendInvitation_Click(object sender, MouseButtonEventArgs e)
@@ -261,6 +260,7 @@ namespace Spider_Clue.Views
         public void StartGame()
         {
             GameBoardView gameBoardView = new GameBoardView();
+            gameBoardView.ConfigureWindow(MatchCode, gamersInLobby);
             NavigationService.Navigate(gameBoardView);
         }
     }

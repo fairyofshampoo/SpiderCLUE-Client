@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Spider_Clue.Views
 {
@@ -23,6 +24,7 @@ namespace Spider_Clue.Views
         public readonly GameManagerClient GameManager;
         private Dictionary<string, Pawn> gamersInGame;
         private string matchCode;
+
         public GameBoardView()
         {
             InitializeComponent();
@@ -33,11 +35,11 @@ namespace Spider_Clue.Views
         {
             this.matchCode = matchCode;
             this.gamersInGame = gamersInGame;
-            SetPawnsInBoard();
+            //SetPawnsInBoard();
 
             try
             {
-                GameManager.ConnectGamerToGameBoard(UserSingleton.Instance.GamerTag);
+                GameManager.ConnectGamerToGameBoard(UserSingleton.Instance.GamerTag, matchCode);
             }
             catch (CommunicationException)
             {
@@ -46,15 +48,19 @@ namespace Spider_Clue.Views
             }
         }
 
-        public void GoToMainMenu()
+        private void GoToMainMenu()
         {
-            //hay que checar la lógica de esto porque si no llegan todos los jugadores a conectarse, hay que terminar la partida
-            //el inivtado debe ir al guest main menu
-        }
-
-        private void SetPawnsInBoard()
-        {
-            //en este método debería setear los pawn que recibió
+            if (UserSingleton.Instance.IsGuestPlayer)
+            {
+                MainMenuForGuestView mainMenuForGuestView = new MainMenuForGuestView();
+                this.NavigationService.Navigate(mainMenuForGuestView);
+            }
+            else
+            {
+                MainMenuView mainMenuView = new MainMenuView();
+                this.NavigationService.Navigate(mainMenuView);
+            }
+            GameManager.DisconnectFromBoardAsync(UserSingleton.Instance.GamerTag, matchCode);
         }
 
         private void Grid_Click(object sender, MouseButtonEventArgs mouseEvent)
@@ -62,9 +68,8 @@ namespace Spider_Clue.Views
             Point click = mouseEvent.GetPosition(GameBoardGrid);
             int columnClick = (int)(click.X / (int)GameBoardGrid.ActualWidth * GameBoardGrid.ColumnDefinitions.Count);
             int rowClick = (int)(click.Y / (int)GameBoardGrid.ActualHeight * GameBoardGrid.RowDefinitions.Count);
-
-            Grid.SetRow(bluePawn, rowClick);
-            Grid.SetColumn(bluePawn, columnClick);
+            GameBoardGrid.IsEnabled = false;
+            GameManager.MovePawn(columnClick, rowClick, UserSingleton.Instance.GamerTag);
         }
 
         private void BtnLeaveGame(object sender, RoutedEventArgs e)
@@ -80,8 +85,11 @@ namespace Spider_Clue.Views
 
         private void BtnRollDice(object sender, RoutedEventArgs e)
         {
-            //Manda a llamar al que tira los dados y le notifica cuanto sacó 
+           int rollDice = GameManager.RollDice();
+            Console.WriteLine("Los dados son: ");
+            Console.WriteLine(rollDice);
 
+           OpenDialogRollDice(rollDice);
         }
 
         private void BtnAccuse(object sender, RoutedEventArgs e)
@@ -94,9 +102,48 @@ namespace Spider_Clue.Views
 
         public void ReceivePawnsMove(Pawn pawn)
         {
-            //Si el pawn es diferente a nulo manda a llamar el método de mover
-            //Si el pawn es nulo manda a llamar el método para avisar que no se puede
+            Console.WriteLine("Peón");
+            Console.WriteLine($"Pawn {pawn.Color}");
+            Console.WriteLine($"Pawn {pawn.XPosition}");
+            Console.WriteLine($"Pawn {pawn.YPosition}");
+
+            switch (pawn.Color)
+            {
+                case "BluePawn.png":
+                    Grid.SetRow(bluePawn, pawn.YPosition);
+                    Grid.SetColumn(bluePawn, pawn.XPosition);
+                    break;
+
+                case "PurplePawn.png":
+                    Grid.SetRow(purplePawn, pawn.YPosition);
+                    Grid.SetColumn(purplePawn, pawn.XPosition);
+                    break;
+
+                case "WhitePawn.png":
+                    Grid.SetRow(whitePawn, pawn.YPosition);
+                    Grid.SetColumn(whitePawn, pawn.XPosition);
+                    break;
+
+                case "RedPawn.png":
+                    Grid.SetRow(redPawn, pawn.YPosition);
+                    Grid.SetColumn(redPawn, pawn.XPosition);
+                    break;
+
+                case "YellowPawn.png":
+                    Grid.SetRow(yellowPawn, pawn.YPosition);
+                    Grid.SetColumn(yellowPawn, pawn.XPosition);
+                    break;
+
+                case "GreenPawn.png":
+                    Grid.SetRow(greenPawn, pawn.YPosition);
+                    Grid.SetColumn(greenPawn, pawn.XPosition);
+                    break; 
+
+                default: //Llamar la opción de avisar que el movimiento es inválido
+                          break;
+            }
         }
+
 
         public void OpenDialogRollDice(int diceRoll) 
         {
@@ -119,6 +166,16 @@ namespace Spider_Clue.Views
         public void ReceiveTurn(bool isYourTurn)
         {
             //falta jeje
+        }
+
+        public void UpdateNumberOfPlayersInGameboard(int numberOfPlayers)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void LeaveGameBoard()
+        {
+            GoToMainMenu();
         }
     }
 }
