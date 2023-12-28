@@ -69,7 +69,7 @@ namespace Spider_Clue.Views
             int columnClick = (int)(click.X / (int)GameBoardGrid.ActualWidth * GameBoardGrid.ColumnDefinitions.Count);
             int rowClick = (int)(click.Y / (int)GameBoardGrid.ActualHeight * GameBoardGrid.RowDefinitions.Count);
             GameBoardGrid.IsEnabled = false;
-            GameManager.MovePawn(columnClick, rowClick, UserSingleton.Instance.GamerTag);
+            GameManager.MovePawn(columnClick, rowClick, UserSingleton.Instance.GamerTag, matchCode);
         }
 
         private void BtnLeaveGame(object sender, RoutedEventArgs e)
@@ -85,7 +85,7 @@ namespace Spider_Clue.Views
 
         private void BtnRollDice(object sender, RoutedEventArgs e)
         {
-           int rollDice = GameManager.RollDice();
+           int rollDice = GameManager.RollDice(matchCode);
             Console.WriteLine("Los dados son: ");
             Console.WriteLine(rollDice);
 
@@ -138,9 +138,6 @@ namespace Spider_Clue.Views
                     Grid.SetRow(greenPawn, pawn.YPosition);
                     Grid.SetColumn(greenPawn, pawn.XPosition);
                     break; 
-
-                default: //Llamar la opción de avisar que el movimiento es inválido
-                          break;
             }
         }
 
@@ -165,7 +162,17 @@ namespace Spider_Clue.Views
 
         public void ReceiveTurn(bool isYourTurn)
         {
-            //falta jeje
+            if(isYourTurn)
+            {
+                rollDiceButtom.Visibility = Visibility.Visible;
+                accusationButtom.Visibility = Visibility.Visible;
+                GameBoardGrid.IsEnabled = true;
+            } else
+            {
+                rollDiceButtom.Visibility = Visibility.Collapsed;
+                accusationButtom.Visibility = Visibility.Collapsed;
+                GameBoardGrid.IsEnabled = false;
+            }
         }
 
         public void UpdateNumberOfPlayersInGameboard(int numberOfPlayers)
@@ -176,6 +183,11 @@ namespace Spider_Clue.Views
         public void LeaveGameBoard()
         {
             GoToMainMenu();
+        }
+
+        public void ReceivInvalidMove()
+        {
+            GameBoardGrid.IsEnabled = true;
         }
     }
 }
