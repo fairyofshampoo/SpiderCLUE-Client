@@ -35,7 +35,7 @@ namespace Spider_Clue.Views
         {
             this.matchCode = matchCode;
             this.gamersInGame = gamersInGame;
-            //SetPawnsInBoard();
+            SetPawnInBoard();
 
             try
             {
@@ -48,7 +48,13 @@ namespace Spider_Clue.Views
             }
         }
 
-        private void GoToMainMenu()
+        private void SetPawnInBoard()
+        {
+            string pawnColor = gamersInGame[UserSingleton.Instance.GamerTag].Color;
+            txtblckPawnColor.Text = "Tu peón es: " + pawnColor;
+        }
+
+        public void GoToMainMenu()
         {
             if (UserSingleton.Instance.IsGuestPlayer)
             {
@@ -74,7 +80,7 @@ namespace Spider_Clue.Views
 
         private void BtnLeaveGame(object sender, RoutedEventArgs e)
         {
-            //hay que hacer método de dejar juego en server y que el callback sea un ReceiveEndOfGame o algo así
+            GoToMainMenu();
         }
 
         private void BtnShowCards(object sender, RoutedEventArgs e)
@@ -86,8 +92,6 @@ namespace Spider_Clue.Views
         private void BtnRollDice(object sender, RoutedEventArgs e)
         {
            int rollDice = GameManager.RollDice(matchCode);
-            Console.WriteLine("Los dados son: ");
-            Console.WriteLine(rollDice);
 
            OpenDialogRollDice(rollDice);
         }
@@ -175,19 +179,16 @@ namespace Spider_Clue.Views
             }
         }
 
-        public void UpdateNumberOfPlayersInGameboard(int numberOfPlayers)
-        {
-            throw new NotImplementedException();
-        }
-
         public void LeaveGameBoard()
         {
             GoToMainMenu();
         }
 
-        public void ReceivInvalidMove()
+        public void ReceiveInvalidMove()
         {
             GameBoardGrid.IsEnabled = true;
+
+            MessageBox.Show(Properties.Resources.DlgInvalidMove, Properties.Resources.InformationTitle);
         }
     }
 }

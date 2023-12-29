@@ -307,453 +307,458 @@
                     </Border>
                 </Grid>
 
-                <Border
-                Grid.Column="2"
-                Width="306"
-                Height="670"
-                HorizontalAlignment="Left"
-                Margin="35,-4,0,54">
-                    <Border.Background>
-                        <ImageBrush ImageSource="/Images/Elements/ClipBoard.png" 
-                                    Stretch="Fill"/>
-                    </Border.Background>
-                    <Grid Width="237"
-                          HorizontalAlignment="Left"
-                          Margin="10,127,0,21"
-                          >
+                <StackPanel Orientation="Vertical" Grid.Column="2">
+                    <Border
 
-                        <Grid.Resources>
-                           
-                            <Style TargetType="Border">
-                                <Setter Property="BorderBrush" Value="Black"/>
-                                <Setter Property="BorderThickness" Value="1"/>
-                            </Style>
-                        </Grid.Resources>
-                        
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="34"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
-                        </Grid.RowDefinitions>
+Width="306"
+Height="670"
+HorizontalAlignment="Left"
+Margin="30,5,5,5">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Images/Elements/ClipBoard.png" 
+                    Stretch="Fill"/>
+                        </Border.Background>
+                        <Grid Width="237"
+          HorizontalAlignment="Left"
+          Margin="10,127,0,21"
+          >
 
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="160"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
+                            <Grid.Resources>
+
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderBrush" Value="Black"/>
+                                    <Setter Property="BorderThickness" Value="1"/>
+                                </Style>
+                            </Grid.Resources>
+
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="34"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="160"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
 
 
-                        <Label Content = "{x:Static p:Resources.LblNotes}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "20"
-                                   FontFamily = "Monsterrat"
-                                   HorizontalContentAlignment="Center" Margin="94,0,0,0"/>
+                            <Label Content = "{x:Static p:Resources.LblNotes}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "20"
+                   FontFamily = "Monsterrat"
+                   HorizontalContentAlignment="Center" Margin="94,0,0,0"/>
 
-                        <Border Grid.Row="1"
-                                Grid.ColumnSpan="5"
-                                Background="Gray">
-                            <Label Content = "SOSPECHOSO"
-                                   Grid.Row="0"
-                                   Foreground ="White"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
+                            <Border Grid.Row="1"
+                Grid.ColumnSpan="5"
+                Background="Gray">
+                                <Label Content = "SOSPECHOSO"
+                   Grid.Row="0"
+                   Foreground ="White"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
 
-                        <Border Grid.Row="2">
-                            <Label Content = "Doc Och"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="3">
-                            <Label Content = "MysteRevo"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="4">
-                            <Label Content = "RhinoSidro"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
+                            <Border Grid.Row="2">
+                                <Label Content = "Doc Och"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
 
-                        <Border Grid.Row="5">
-                            <Label Content = "Electro-Juan"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="6">
-                            <Label Content = "Xand-Man"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="7">
-                            <Label Content = "Vernom"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
+                            <Border Grid.Row="3">
+                                <Label Content = "MysteRevo"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
 
-                        <Border Grid.Row="8"
-                                Grid.ColumnSpan="5"
-                                Background="Gray">
-                            <Label Content = "MOTIVO"
-                                   Grid.Row="0"
-                                   Foreground ="White"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
+                            <Border Grid.Row="4">
+                                <Label Content = "RhinoSidro"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
 
-                        <Border Grid.Row="9">
-                            <Label Content = "{x:Static p:Resources.NotSubmitHomeworkCard}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="21"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="10">
-                            <Label Content = "{x:Static p:Resources.NotTakeExamCard}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="11">
-                            <Label Content = "{x:Static p:Resources.NotSubmitProject}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="12">
-                            <Label Content = "{x:Static p:Resources.NoAttendanceCard}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="13">
-                            <Label Content = "{x:Static p:Resources.FailedProficiencyExamCard}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="14">
-                            <Label Content = "{x:Static p:Resources.ChoseToBeHappyCard}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
+                            <Border Grid.Row="5">
+                                <Label Content = "Electro-Juan"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
 
-                        <Border Grid.Row="15"
-                                Grid.ColumnSpan="5"
-                                Background="Gray">
-                            <Label Content = "LUGAR"
-                                   Grid.Row="0"
-                                   Foreground ="White"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
+                            <Border Grid.Row="6">
+                                <Label Content = "Xand-Man"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
 
-                        <Border Grid.Row="16">
-                            <Label Content = "{x:Static p:Resources.GlassRoomCard}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="17">
-                            <Label Content = "{x:Static p:Resources.ComputerCenterCard}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
+                            <Border Grid.Row="7">
+                                <Label Content = "Vernom"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
 
-                        <Border Grid.Row="18">
-                            <Label Content = "{x:Static p:Resources.TeachersLoungecard}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
+                            <Border Grid.Row="8"
+                Grid.ColumnSpan="5"
+                Background="Gray">
+                                <Label Content = "MOTIVO"
+                   Grid.Row="0"
+                   Foreground ="White"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
 
-                        <Border Grid.Row="19">
-                            <Label Content = "{x:Static p:Resources.F103ClassroomCard}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="20">
-                            <Label Content = "{x:Static p:Resources.CourtCard}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="21">
-                            <Label Content = "{x:Static p:Resources.ParkingLotCard}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="22">
-                            <Label Content = "{x:Static p:Resources.CubiclesCard}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="23">
-                            <Label Content = "{x:Static p:Resources.LaboratoryCard}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
-                        
-                        <Border Grid.Row="24">
-                            <Label Content = "{x:Static p:Resources.AmphitheaterCard}"
-                                   Grid.Row="0"
-                                   Foreground ="Black"
-                                   FontWeight = "Medium"
-                                   FontSize = "10"
-                                   FontFamily = "Monsterrat"
-                                   Height="20"
-                                   HorizontalContentAlignment="Left"/>
-                        </Border>
+                            <Border Grid.Row="9">
+                                <Label Content = "{x:Static p:Resources.NotSubmitHomeworkCard}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="21"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
 
-                        <Border Grid.Row="2" Grid.Column="1"/>
-                        <Border Grid.Row="2" Grid.Column="2"/>
-                        <Border Grid.Row="2" Grid.Column="3"/>
-                        <Border Grid.Row="2" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="3" Grid.Column="1"/>
-                        <Border Grid.Row="3" Grid.Column="2"/>
-                        <Border Grid.Row="3" Grid.Column="3"/>
-                        <Border Grid.Row="3" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="4" Grid.Column="1"/>
-                        <Border Grid.Row="4" Grid.Column="2"/>
-                        <Border Grid.Row="4" Grid.Column="3"/>
-                        <Border Grid.Row="4" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="5" Grid.Column="1"/>
-                        <Border Grid.Row="5" Grid.Column="2"/>
-                        <Border Grid.Row="5" Grid.Column="3"/>
-                        <Border Grid.Row="5" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="6" Grid.Column="1"/>
-                        <Border Grid.Row="6" Grid.Column="2"/>
-                        <Border Grid.Row="6" Grid.Column="3"/>
-                        <Border Grid.Row="6" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="7" Grid.Column="1"/>
-                        <Border Grid.Row="7" Grid.Column="2"/>
-                        <Border Grid.Row="7" Grid.Column="3"/>
-                        <Border Grid.Row="7" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="9" Grid.Column="1"/>
-                        <Border Grid.Row="9" Grid.Column="2"/>
-                        <Border Grid.Row="9" Grid.Column="3"/>
-                        <Border Grid.Row="9" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="10" Grid.Column="1"/>
-                        <Border Grid.Row="10" Grid.Column="2"/>
-                        <Border Grid.Row="10" Grid.Column="3"/>
-                        <Border Grid.Row="10" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="11" Grid.Column="1"/>
-                        <Border Grid.Row="11" Grid.Column="2"/>
-                        <Border Grid.Row="11" Grid.Column="3"/>
-                        <Border Grid.Row="11" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="12" Grid.Column="1"/>
-                        <Border Grid.Row="12" Grid.Column="2"/>
-                        <Border Grid.Row="12" Grid.Column="3"/>
-                        <Border Grid.Row="12" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="13" Grid.Column="1"/>
-                        <Border Grid.Row="13" Grid.Column="2"/>
-                        <Border Grid.Row="13" Grid.Column="3"/>
-                        <Border Grid.Row="13" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="14" Grid.Column="1"/>
-                        <Border Grid.Row="14" Grid.Column="2"/>
-                        <Border Grid.Row="14" Grid.Column="3"/>
-                        <Border Grid.Row="14" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="16" Grid.Column="1"/>
-                        <Border Grid.Row="16" Grid.Column="2"/>
-                        <Border Grid.Row="16" Grid.Column="3"/>
-                        <Border Grid.Row="16" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="17" Grid.Column="1"/>
-                        <Border Grid.Row="17" Grid.Column="2"/>
-                        <Border Grid.Row="17" Grid.Column="3"/>
-                        <Border Grid.Row="17" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="18" Grid.Column="1"/>
-                        <Border Grid.Row="18" Grid.Column="2"/>
-                        <Border Grid.Row="18" Grid.Column="3"/>
-                        <Border Grid.Row="18" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="19" Grid.Column="1"/>
-                        <Border Grid.Row="19" Grid.Column="2"/>
-                        <Border Grid.Row="19" Grid.Column="3"/>
-                        <Border Grid.Row="19" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="20" Grid.Column="1"/>
-                        <Border Grid.Row="20" Grid.Column="2"/>
-                        <Border Grid.Row="20" Grid.Column="3"/>
-                        <Border Grid.Row="20" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="21" Grid.Column="1"/>
-                        <Border Grid.Row="21" Grid.Column="2"/>
-                        <Border Grid.Row="21" Grid.Column="3"/>
-                        <Border Grid.Row="21" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="22" Grid.Column="1"/>
-                        <Border Grid.Row="22" Grid.Column="2"/>
-                        <Border Grid.Row="22" Grid.Column="3"/>
-                        <Border Grid.Row="22" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="23" Grid.Column="1"/>
-                        <Border Grid.Row="23" Grid.Column="2"/>
-                        <Border Grid.Row="23" Grid.Column="3"/>
-                        <Border Grid.Row="23" Grid.Column="4"/>
-                        
-                        <Border Grid.Row="24" Grid.Column="1"/>
-                        <Border Grid.Row="24" Grid.Column="2"/>
-                        <Border Grid.Row="24" Grid.Column="3"/>
-                        <Border Grid.Row="24" Grid.Column="4"/>
-                        
-                        
+                            <Border Grid.Row="10">
+                                <Label Content = "{x:Static p:Resources.NotTakeExamCard}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
 
-                    </Grid>
-                </Border>
+                            <Border Grid.Row="11">
+                                <Label Content = "{x:Static p:Resources.NotSubmitProject}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
+
+                            <Border Grid.Row="12">
+                                <Label Content = "{x:Static p:Resources.NoAttendanceCard}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
+
+                            <Border Grid.Row="13">
+                                <Label Content = "{x:Static p:Resources.FailedProficiencyExamCard}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
+
+                            <Border Grid.Row="14">
+                                <Label Content = "{x:Static p:Resources.ChoseToBeHappyCard}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
+
+                            <Border Grid.Row="15"
+                Grid.ColumnSpan="5"
+                Background="Gray">
+                                <Label Content = "LUGAR"
+                   Grid.Row="0"
+                   Foreground ="White"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
+
+                            <Border Grid.Row="16">
+                                <Label Content = "{x:Static p:Resources.GlassRoomCard}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
+
+                            <Border Grid.Row="17">
+                                <Label Content = "{x:Static p:Resources.ComputerCenterCard}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
+
+                            <Border Grid.Row="18">
+                                <Label Content = "{x:Static p:Resources.TeachersLoungecard}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
+
+                            <Border Grid.Row="19">
+                                <Label Content = "{x:Static p:Resources.F103ClassroomCard}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
+
+                            <Border Grid.Row="20">
+                                <Label Content = "{x:Static p:Resources.CourtCard}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
+
+                            <Border Grid.Row="21">
+                                <Label Content = "{x:Static p:Resources.ParkingLotCard}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
+
+                            <Border Grid.Row="22">
+                                <Label Content = "{x:Static p:Resources.CubiclesCard}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
+
+                            <Border Grid.Row="23">
+                                <Label Content = "{x:Static p:Resources.LaboratoryCard}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
+
+                            <Border Grid.Row="24">
+                                <Label Content = "{x:Static p:Resources.AmphitheaterCard}"
+                   Grid.Row="0"
+                   Foreground ="Black"
+                   FontWeight = "Medium"
+                   FontSize = "10"
+                   FontFamily = "Monsterrat"
+                   Height="20"
+                   HorizontalContentAlignment="Left"/>
+                            </Border>
+
+                            <Border Grid.Row="2" Grid.Column="1"/>
+                            <Border Grid.Row="2" Grid.Column="2"/>
+                            <Border Grid.Row="2" Grid.Column="3"/>
+                            <Border Grid.Row="2" Grid.Column="4"/>
+
+                            <Border Grid.Row="3" Grid.Column="1"/>
+                            <Border Grid.Row="3" Grid.Column="2"/>
+                            <Border Grid.Row="3" Grid.Column="3"/>
+                            <Border Grid.Row="3" Grid.Column="4"/>
+
+                            <Border Grid.Row="4" Grid.Column="1"/>
+                            <Border Grid.Row="4" Grid.Column="2"/>
+                            <Border Grid.Row="4" Grid.Column="3"/>
+                            <Border Grid.Row="4" Grid.Column="4"/>
+
+                            <Border Grid.Row="5" Grid.Column="1"/>
+                            <Border Grid.Row="5" Grid.Column="2"/>
+                            <Border Grid.Row="5" Grid.Column="3"/>
+                            <Border Grid.Row="5" Grid.Column="4"/>
+
+                            <Border Grid.Row="6" Grid.Column="1"/>
+                            <Border Grid.Row="6" Grid.Column="2"/>
+                            <Border Grid.Row="6" Grid.Column="3"/>
+                            <Border Grid.Row="6" Grid.Column="4"/>
+
+                            <Border Grid.Row="7" Grid.Column="1"/>
+                            <Border Grid.Row="7" Grid.Column="2"/>
+                            <Border Grid.Row="7" Grid.Column="3"/>
+                            <Border Grid.Row="7" Grid.Column="4"/>
+
+                            <Border Grid.Row="9" Grid.Column="1"/>
+                            <Border Grid.Row="9" Grid.Column="2"/>
+                            <Border Grid.Row="9" Grid.Column="3"/>
+                            <Border Grid.Row="9" Grid.Column="4"/>
+
+                            <Border Grid.Row="10" Grid.Column="1"/>
+                            <Border Grid.Row="10" Grid.Column="2"/>
+                            <Border Grid.Row="10" Grid.Column="3"/>
+                            <Border Grid.Row="10" Grid.Column="4"/>
+
+                            <Border Grid.Row="11" Grid.Column="1"/>
+                            <Border Grid.Row="11" Grid.Column="2"/>
+                            <Border Grid.Row="11" Grid.Column="3"/>
+                            <Border Grid.Row="11" Grid.Column="4"/>
+
+                            <Border Grid.Row="12" Grid.Column="1"/>
+                            <Border Grid.Row="12" Grid.Column="2"/>
+                            <Border Grid.Row="12" Grid.Column="3"/>
+                            <Border Grid.Row="12" Grid.Column="4"/>
+
+                            <Border Grid.Row="13" Grid.Column="1"/>
+                            <Border Grid.Row="13" Grid.Column="2"/>
+                            <Border Grid.Row="13" Grid.Column="3"/>
+                            <Border Grid.Row="13" Grid.Column="4"/>
+
+                            <Border Grid.Row="14" Grid.Column="1"/>
+                            <Border Grid.Row="14" Grid.Column="2"/>
+                            <Border Grid.Row="14" Grid.Column="3"/>
+                            <Border Grid.Row="14" Grid.Column="4"/>
+
+                            <Border Grid.Row="16" Grid.Column="1"/>
+                            <Border Grid.Row="16" Grid.Column="2"/>
+                            <Border Grid.Row="16" Grid.Column="3"/>
+                            <Border Grid.Row="16" Grid.Column="4"/>
+
+                            <Border Grid.Row="17" Grid.Column="1"/>
+                            <Border Grid.Row="17" Grid.Column="2"/>
+                            <Border Grid.Row="17" Grid.Column="3"/>
+                            <Border Grid.Row="17" Grid.Column="4"/>
+
+                            <Border Grid.Row="18" Grid.Column="1"/>
+                            <Border Grid.Row="18" Grid.Column="2"/>
+                            <Border Grid.Row="18" Grid.Column="3"/>
+                            <Border Grid.Row="18" Grid.Column="4"/>
+
+                            <Border Grid.Row="19" Grid.Column="1"/>
+                            <Border Grid.Row="19" Grid.Column="2"/>
+                            <Border Grid.Row="19" Grid.Column="3"/>
+                            <Border Grid.Row="19" Grid.Column="4"/>
+
+                            <Border Grid.Row="20" Grid.Column="1"/>
+                            <Border Grid.Row="20" Grid.Column="2"/>
+                            <Border Grid.Row="20" Grid.Column="3"/>
+                            <Border Grid.Row="20" Grid.Column="4"/>
+
+                            <Border Grid.Row="21" Grid.Column="1"/>
+                            <Border Grid.Row="21" Grid.Column="2"/>
+                            <Border Grid.Row="21" Grid.Column="3"/>
+                            <Border Grid.Row="21" Grid.Column="4"/>
+
+                            <Border Grid.Row="22" Grid.Column="1"/>
+                            <Border Grid.Row="22" Grid.Column="2"/>
+                            <Border Grid.Row="22" Grid.Column="3"/>
+                            <Border Grid.Row="22" Grid.Column="4"/>
+
+                            <Border Grid.Row="23" Grid.Column="1"/>
+                            <Border Grid.Row="23" Grid.Column="2"/>
+                            <Border Grid.Row="23" Grid.Column="3"/>
+                            <Border Grid.Row="23" Grid.Column="4"/>
+
+                            <Border Grid.Row="24" Grid.Column="1"/>
+                            <Border Grid.Row="24" Grid.Column="2"/>
+                            <Border Grid.Row="24" Grid.Column="3"/>
+                            <Border Grid.Row="24" Grid.Column="4"/>
+
+
+
+                        </Grid>
+                    </Border>
+                    <TextBlock x:Name="txtblckPawnColor" Background="White" TextWrapping="Wrap" FontSize="15">
+                        
+                    </TextBlock>
+                </StackPanel>
             </Grid>
         </Border>
     </Grid>

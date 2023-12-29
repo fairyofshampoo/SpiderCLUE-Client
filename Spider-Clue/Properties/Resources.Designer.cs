@@ -322,6 +322,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your move is not valid. Please try again..
+        /// </summary>
+        public static string DlgInvalidMove {
+            get {
+                return ResourceManager.GetString("DlgInvalidMove", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The game code has been sent successfully. Enjoy the game!.
         /// </summary>
         public static string DlgInvitationSent {
@@ -336,6 +345,15 @@ namespace Spider_Clue.Properties {
         public static string DlgMatchCodeCopied {
             get {
                 return ResourceManager.GetString("DlgMatchCodeCopied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not enough players to start..
+        /// </summary>
+        public static string DlgNotEnoughPlayers {
+            get {
+                return ResourceManager.GetString("DlgNotEnoughPlayers", resourceCulture);
             }
         }
         
