@@ -52,14 +52,29 @@ namespace Spider_Clue
 
                 if (UserSingleton.Instance.GamerTag != null)
                 {
-                    try
+                    SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                    if (UserSingleton.Instance.IsGuestPlayer)
                     {
-                        SpiderClueService.ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
-                        sessionManager.Disconnect(UserSingleton.Instance.GamerTag);
+                        try
+                        {
+                            userManager.DeleteGuestPlayer(UserSingleton.Instance.GamerTag);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error en Disconnect: {ex.Message}");
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        Console.WriteLine($"Error en Disconnect: {ex.Message}");
+                        try
+                        {
+                            SpiderClueService.ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
+                            sessionManager.Disconnect(UserSingleton.Instance.GamerTag);
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine($"Error en Disconnect: {ex.Message}");
+                        }
                     }
                 }
 

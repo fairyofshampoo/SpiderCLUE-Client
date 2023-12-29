@@ -41,7 +41,6 @@ namespace Spider_Clue.Views
             string gamertag = UserSingleton.Instance.GamerTag;
 
             MatchManager.ConnectToMatch(gamertag, matchCode);
-            MatchManager.GetGamersInMatch(gamertag, matchCode);
             LobbyManager.ConnectToLobbyAsync(gamertag);
 
             SetOwnerButtons();
@@ -233,14 +232,21 @@ namespace Spider_Clue.Views
 
         private void BtnReady_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (gamersInLobby.Count == 3)
             {
-                LobbyManager.BeginMatch(MatchCode);
+                try
+                {
+                    LobbyManager.BeginMatch(MatchCode);
+                }
+                catch (CommunicationException)
+                {
+                    MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle);
+                    GoToMainMenu();
+                }
             }
-            catch (CommunicationException)
+            else
             {
-                MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle);
-                GoToMainMenu();
+                MessageBox.Show(Properties.Resources.DlgNotEnoughPlayers, Properties.Resources.InformationTitle);
             }
         }
 

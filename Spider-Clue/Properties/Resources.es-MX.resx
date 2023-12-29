@@ -437,4 +437,10 @@
   <data name="LblDeck" xml:space="preserve">
     <value>Tus cartas</value>
   </data>
+  <data name="DlgNotEnoughPlayers" xml:space="preserve">
+    <value>Jugadores insuficientes para comenzar partida.</value>
+  </data>
+  <data name="DlgInvalidMove" xml:space="preserve">
+    <value>Tu movimiento es inválido. Por favor, intenta de nuevo.</value>
+  </data>
 </root>

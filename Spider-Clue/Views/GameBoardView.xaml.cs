@@ -35,7 +35,7 @@ namespace Spider_Clue.Views
         {
             this.matchCode = matchCode;
             this.gamersInGame = gamersInGame;
-            //SetPawnsInBoard();
+            SetPawnInBoard();
 
             try
             {
@@ -46,6 +46,12 @@ namespace Spider_Clue.Views
                 MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle);
                 GoToMainMenu();
             }
+        }
+
+        private void SetPawnInBoard()
+        {
+            string pawnColor = gamersInGame[UserSingleton.Instance.GamerTag].Color;
+            txtblckPawnColor.Text = "Tu peón es: " + pawnColor;
         }
 
         public void GoToMainMenu()
@@ -86,8 +92,6 @@ namespace Spider_Clue.Views
         private void BtnRollDice(object sender, RoutedEventArgs e)
         {
            int rollDice = GameManager.RollDice(matchCode);
-            Console.WriteLine("Los dados son: ");
-            Console.WriteLine(rollDice);
 
            OpenDialogRollDice(rollDice);
         }
@@ -184,7 +188,7 @@ namespace Spider_Clue.Views
         {
             GameBoardGrid.IsEnabled = true;
 
-            //ponerle mensaje de invalido
+            MessageBox.Show(Properties.Resources.DlgInvalidMove, Properties.Resources.InformationTitle);
         }
     }
 }
