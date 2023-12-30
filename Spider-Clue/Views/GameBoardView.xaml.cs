@@ -78,25 +78,25 @@ namespace Spider_Clue.Views
             GameManager.MovePawn(columnClick, rowClick, UserSingleton.Instance.GamerTag, matchCode);
         }
 
-        private void BtnLeaveGame(object sender, RoutedEventArgs e)
+        private void BtnLeaveGame_Click(object sender, RoutedEventArgs e)
         {
             GoToMainMenu();
         }
 
-        private void BtnShowCards(object sender, RoutedEventArgs e)
+        private void BtnShowCards_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             OpenDialogDeck();
         }
 
-        private void BtnRollDice(object sender, RoutedEventArgs e)
+        private void BtnRollDice_Click(object sender, RoutedEventArgs e)
         {
            int rollDice = GameManager.RollDice(matchCode);
 
            OpenDialogRollDice(rollDice);
         }
 
-        private void BtnAccuse(object sender, RoutedEventArgs e)
+        private void BtnAccuse_Click(object sender, RoutedEventArgs e)
         {
             //Realizar la acusación final 
             //Se tendrá que verificar cuál manda y ver si en el array es el mismo
@@ -168,13 +168,13 @@ namespace Spider_Clue.Views
         {
             if(isYourTurn)
             {
-                rollDiceButtom.Visibility = Visibility.Visible;
-                accusationButtom.Visibility = Visibility.Visible;
+                btnRollDice.Visibility = Visibility.Visible;
+                btnAccuse.Visibility = Visibility.Visible;
                 GameBoardGrid.IsEnabled = true;
             } else
             {
-                rollDiceButtom.Visibility = Visibility.Collapsed;
-                accusationButtom.Visibility = Visibility.Collapsed;
+                btnRollDice.Visibility = Visibility.Collapsed;
+                btnAccuse.Visibility = Visibility.Collapsed;
                 GameBoardGrid.IsEnabled = false;
             }
         }
