@@ -1,21 +1,10 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Windows.Threading;
 
 namespace Spider_Clue.Views
 {
@@ -24,6 +13,7 @@ namespace Spider_Clue.Views
         public readonly GameManagerClient GameManager;
         private Dictionary<string, Pawn> gamersInGame;
         private string matchCode;
+        private int diceNumber = 0;
 
         public GameBoardView()
         {
@@ -91,9 +81,9 @@ namespace Spider_Clue.Views
 
         private void BtnRollDice_Click(object sender, RoutedEventArgs e)
         {
-           int rollDice = GameManager.RollDice(matchCode);
-
-           OpenDialogRollDice(rollDice);
+            diceNumber = GameManager.RollDice(matchCode);
+            OpenDialogRollDice(diceNumber);
+            btnRollDice.Visibility = Visibility.Collapsed;
         }
 
         private void BtnAccuse_Click(object sender, RoutedEventArgs e)
@@ -106,11 +96,7 @@ namespace Spider_Clue.Views
 
         public void ReceivePawnsMove(Pawn pawn)
         {
-            Console.WriteLine("Peón");
-            Console.WriteLine($"Pawn {pawn.Color}");
-            Console.WriteLine($"Pawn {pawn.XPosition}");
-            Console.WriteLine($"Pawn {pawn.YPosition}");
-
+            diceNumber = 0;
             switch (pawn.Color)
             {
                 case "BluePawn.png":
@@ -168,8 +154,10 @@ namespace Spider_Clue.Views
         {
             if(isYourTurn)
             {
-                btnRollDice.Visibility = Visibility.Visible;
-                btnAccuse.Visibility = Visibility.Visible;
+                if (diceNumber == 0)
+                {
+                    btnRollDice.Visibility = Visibility.Visible;
+                }
                 GameBoardGrid.IsEnabled = true;
             } else
             {
@@ -186,9 +174,27 @@ namespace Spider_Clue.Views
 
         public void ReceiveInvalidMove()
         {
-            GameBoardGrid.IsEnabled = true;
-
+            ReceiveTurn(true);
             MessageBox.Show(Properties.Resources.DlgInvalidMove, Properties.Resources.InformationTitle);
+        }
+
+        public void ReceiveFinalAccusationOption(bool isEnabled)
+        {
+            if(isEnabled)
+            {
+                btnAccuse.Visibility = Visibility.Visible;
+            }
+        }
+
+        public void RequestShowCard(Card[] cards)
+        {
+            //abrir ventanita con tarjetas y regresar la que elige enseñar
+        }
+
+        public void ReceiveCommonAccusationOption(bool isEnabled)
+        {
+            //abrir ventana? 
+            MessageBox.Show("acusa tonoto", Properties.Resources.InformationTitle);
         }
     }
 }
