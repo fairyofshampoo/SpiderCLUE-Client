@@ -257,7 +257,7 @@
                         Height = "100"
                         Margin = "0,50,0,0"
                         Grid.Row="0">
-                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnLeaveGame">
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnLeaveGame_Click">
                             <Image Source = "/Images/Icons/LeaveIcon.png"
                             Stretch = "UniformToFill"/>
                         </Button>
@@ -270,14 +270,14 @@
                         Height = "100"
                         Margin = "0,50,0,0"
                         Grid.Row="1">
-                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnShowCards">
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnShowCards_Click">
                             <Image Source = "/Images/Icons/CardsIcon.png"
                                             Stretch = "UniformToFill" Height="86" Width="86"/>
                         </Button>
                     </Border>
 
                     <Border 
-                        x:Name="rollDiceButtom"
+                        x:Name="btnRollDice"
                         CornerRadius = "30"
                         Background = "#EEF8EB"
                         Width = "100"
@@ -285,14 +285,14 @@
                         Margin = "0,50,0,0"
                         Grid.Row="2"
                         Visibility="Collapsed">
-                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnRollDice">
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnRollDice_Click">
                             <Image Source = "/Images/Icons/DiceIcon.png"
                             Stretch = "UniformToFill"/>
                         </Button>
                     </Border>
 
                     <Border 
-                        x:Name="accusationButtom"
+                        x:Name="btnAccuse"
                         CornerRadius = "30"
                         Background = "#EEF8EB"
                         Width = "100"
@@ -300,7 +300,7 @@
                         Margin = "0,50,0,0"
                         Grid.Row = "3"
                         Visibility="Collapsed">
-                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnAccuse">
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnAccuse_Click">
                             <Image Source = "/Images/Icons/AccusationIcon.png"
                             Stretch = "UniformToFill"/>
                         </Button>
