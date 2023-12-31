@@ -22,7 +22,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label x:Name = "lblSinisterSixTitle" Content = "{x:Static p:Resources.LblDeck}"
+            <Label x:Name = "lblPassCardView" Content = "{x:Static p:Resources.LblDeck}"
                        Width="300"
                        Foreground ="White"
                        FontWeight = "Medium"
@@ -43,7 +43,8 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Background="Transparent" 
+                    <Button Name="BtnSinister"
+                            Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Column="0"
                             Click="BtnSiniesterCard_Click"
@@ -55,7 +56,8 @@
                                Stretch="UniformToFill"/>
                     </Button>
 
-                    <Button Background="Transparent" 
+                    <Button Name="BtnPlace"
+                            Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Column="1"
                             Click="BtnPlaceCard_Click"
@@ -67,7 +69,8 @@
                                Stretch="UniformToFill"/>
                     </Button>
 
-                    <Button Background="Transparent" 
+                    <Button Name="BtnMotive"
+                            Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Column="2"
                             Click="BtnMotiveCard_Click"

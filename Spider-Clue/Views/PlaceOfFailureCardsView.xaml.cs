@@ -14,14 +14,65 @@ using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for PlaceOfFailureCardsView.xaml
-    /// </summary>
+
     public partial class PlaceOfFailureCardsView : Window
     {
+        public string PlaceCard { get; set; }
         public PlaceOfFailureCardsView()
         {
             InitializeComponent();
+        }
+
+        private void BtnGlassRoomCard_Click(object sender, RoutedEventArgs e)
+        {
+            GetSinister("place1");
+        }
+
+        private void BtnComputerCenterCard_Click(object sender, RoutedEventArgs e)
+        {
+            GetSinister("place2");
+        }
+
+        private void BtnProfessorsRoomCard_Click(object sender, RoutedEventArgs e)
+        {
+            GetSinister("place3");
+        }
+
+        private void BtnFieldCard_Click(object sender, RoutedEventArgs e)
+        {
+            GetSinister("place4");
+        }
+
+        private void BtnParkingLotCard_Click(object sender, RoutedEventArgs e)
+        {
+            GetSinister("place5");
+        }
+
+        private void BtnF103Card_Click(object sender, RoutedEventArgs e)
+        {
+            GetSinister("place6");
+        }
+
+        private void BtnCubiclesCard_Click(object sender, RoutedEventArgs e)
+        {
+            GetSinister("place7");
+        }
+
+        private void BtnLaboratoryCard_Click(object sender, RoutedEventArgs e)
+        {
+            GetSinister("place8");
+        }
+
+        private void BtnAmphitheaterCard_Click(object sender, RoutedEventArgs e)
+        {
+            GetSinister("place9");
+        }
+
+        private void GetSinister(string place)
+        {
+            PlaceCard = place;
+            DialogResult = true;
+            this.Close();
         }
     }
 }
