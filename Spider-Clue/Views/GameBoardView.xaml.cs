@@ -202,7 +202,7 @@ namespace Spider_Clue.Views
             cards[0] = place;
             cards[1] = sinister;
             cards[2] = motive;
-            GameManager.ShowCommonAccusation(cards, matchCode);
+            GameManager.ShowCommonAccusation(cards, matchCode, UserSingleton.Instance.GamerTag);
         }
 
         public void ReceiveCommonAccusationByOtherGamer(string[] accusation)
@@ -216,7 +216,7 @@ namespace Spider_Clue.Views
             ShowCommonAccusationView commonAccusation = new ShowCommonAccusationView(accusation);
             commonAccusation.Owner = mainWindow;
             commonAccusation.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            commonAccusation.ShowDialog();
+            commonAccusation.Show();
         }
 
         public string OpenDialogSixSinistersCard()

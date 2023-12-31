@@ -23,5 +23,20 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
         }
+
+        private void BtnMotiveCard_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnPlaceCard_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BtnSiniesterCard_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
