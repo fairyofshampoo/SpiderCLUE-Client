@@ -583,6 +583,7 @@
     <Resource Include="Images\Background\SinistersSixCardsBackground.jpg" />
     <Resource Include="Images\Background\CommonAccusationBackground.png" />
     <Resource Include="Images\Background\PassCardBackground.png" />
+    <Resource Include="Images\GameCards\DefaultCard.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />

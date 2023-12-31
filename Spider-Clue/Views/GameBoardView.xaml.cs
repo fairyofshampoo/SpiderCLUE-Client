@@ -329,7 +329,8 @@ namespace Spider_Clue.Views
 
         public void ShowNobodyAnswers()
         {
-            throw new NotImplementedException();
+            //Cambiar mensajito
+            MessageBox.Show(Properties.Resources.DlgConfirmDeleteFriend, Properties.Resources.DeleteFriendTitle, MessageBoxButton.OKCancel, MessageBoxImage.Question);
         }
 
         
