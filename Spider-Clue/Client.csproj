@@ -142,6 +142,9 @@
     <Compile Include="Views\NotificationsView.xaml.cs">
       <DependentUpon>NotificationsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PassCardView.xaml.cs">
+      <DependentUpon>PassCardView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PasswordRecoveryView.xaml.cs">
       <DependentUpon>PasswordRecoveryView.xaml</DependentUpon>
     </Compile>
@@ -268,6 +271,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\NotificationsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PassCardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -568,6 +575,7 @@
     <Resource Include="Images\Background\PlacesCardsBackground.png" />
     <Resource Include="Images\Background\SinistersSixCardsBackground.jpg" />
     <Resource Include="Images\Background\CommonAccusationBackground.png" />
+    <Resource Include="Images\Background\PassCardBackground.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />
