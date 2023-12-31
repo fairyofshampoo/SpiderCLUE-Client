@@ -52,7 +52,8 @@
                         BorderBrush="Transparent"
                         Width="90" 
                         Height="130"
-                        Grid.Column="0">
+                        Grid.Column="0"
+                        Click="BtnGlassRoomCard_Click">
                     <Image Source="/Images/GameCards/place1.png"
                                    Stretch="UniformToFill"/>
                 </Button>
@@ -77,7 +78,8 @@
                                 BorderBrush="Transparent"
                                 Width="90" 
                                 Height="130"
-                                Grid.Column="1">
+                                Grid.Column="1"
+                                Click="BtnComputerCenterCard_Click">
                     <Image Source="/Images/GameCards/place2.png"
                                    Stretch="UniformToFill"/>
                 </Button>
@@ -102,7 +104,8 @@
                                 BorderBrush="Transparent"
                                 Width="90" 
                                 Height="130"
-                                Grid.Column="2">
+                                Grid.Column="2"
+                                Click="BtnProfessorsRoomCard_Click">
                     <Image Source="/Images/GameCards/place3.png"
                                    Stretch="UniformToFill"/>
                 </Button>
@@ -127,7 +130,8 @@
                                 BorderBrush="Transparent"
                                 Width="90" 
                                 Height="130"
-                                Grid.Column="3">
+                                Grid.Column="3"
+                                Click="BtnFieldCard_Click">
                     <Image Source="/Images/GameCards/place4.png"
                                    Stretch="UniformToFill"/>
                 </Button>
@@ -152,7 +156,8 @@
                                 BorderBrush="Transparent"
                                 Width="80" 
                                 Height="120"
-                                Grid.Column="4">
+                                Grid.Column="4"
+                                Click="BtnParkingLotCard_Click">
                     <Image Source="/Images/GameCards/place5.png"
                                    Stretch="UniformToFill"/>
                 </Button>
@@ -189,8 +194,9 @@
                 <Button Background="Transparent" 
                                 BorderBrush="Transparent"
                                 Width="90" 
-                        Height="130"
-                                Grid.Column="0">
+                                Height="130"
+                                Grid.Column="0"
+                                Click="BtnF103Card_Click">
                     <Image Source="/Images/GameCards/place6.png"
                                    Stretch="UniformToFill"/>
                 </Button>
@@ -215,7 +221,8 @@
                                 BorderBrush="Transparent"
                                 Width="90" 
                                 Height="130"
-                                Grid.Column="1">
+                                Grid.Column="1"
+                                Click="BtnCubiclesCard_Click">
                     <Image Source="/Images/GameCards/place7.png"
                                    Stretch="UniformToFill"/>
                 </Button>
@@ -240,7 +247,8 @@
                                 BorderBrush="Transparent"
                                 Width="90" 
                                 Height="130"
-                                Grid.Column="2">
+                                Grid.Column="2"
+                                Click="BtnLaboratoryCard_Click">
                     <Image Source="/Images/GameCards/place8.png"
                                    Stretch="UniformToFill"/>
                 </Button>
@@ -264,8 +272,9 @@
                 <Button Background="Transparent" 
                                 BorderBrush="Transparent"
                                 Width="90" 
-                        Height="130"
-                                Grid.Column="3">
+                                Height="130"
+                                Grid.Column="3"
+                                Click="BtnAmphitheaterCard_Click">
                     <Image Source="/Images/GameCards/place9.png"
                                    Stretch="UniformToFill"/>
                 </Button>

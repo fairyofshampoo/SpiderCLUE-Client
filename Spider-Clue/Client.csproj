@@ -187,6 +187,9 @@
     <Compile Include="Views\ShowCommonAccusationView.xaml.cs">
       <DependentUpon>ShowCommonAccusationView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShowEvidenceView.xaml.cs">
+      <DependentUpon>ShowEvidenceView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SinisterSixCardsView.xaml.cs">
       <DependentUpon>SinisterSixCardsView.xaml</DependentUpon>
     </Compile>
@@ -331,6 +334,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShowCommonAccusationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShowEvidenceView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

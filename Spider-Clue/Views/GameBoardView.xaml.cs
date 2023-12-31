@@ -12,6 +12,7 @@ namespace Spider_Clue.Views
     public partial class GameBoardView : Page , IGameManagerCallback
     {
         public readonly GameManagerClient GameManager;
+        public readonly SpiderClueService.ICardManager CardManager;
         private Dictionary<string, Pawn> gamersInGame;
         private string matchCode;
         private int diceNumber = 0;
@@ -20,6 +21,7 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
             GameManager = new GameManagerClient(new InstanceContext(this));
+            CardManager = new SpiderClueService.CardManagerClient();
         }
 
         public void ConfigureWindow(string matchCode, Dictionary<string, Pawn> gamersInGame)
@@ -77,7 +79,15 @@ namespace Spider_Clue.Views
         private void BtnShowCards_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            OpenDialogDeck();
+            SpiderClueService.ICardManager cardManager = new SpiderClueService.CardManagerClient();
+            Card[] cards = GameManager.GetDeck(UserSingleton.Instance.GamerTag);
+            Console.WriteLine("El mazo es:");
+            foreach(var deck in cards)
+            {
+                Console.WriteLine(deck.ID);
+                Console.WriteLine("-----");
+            }
+            OpenDialogDeck(cards);
         }
 
         private void BtnRollDice_Click(object sender, RoutedEventArgs e)
@@ -142,10 +152,10 @@ namespace Spider_Clue.Views
             rollDiceView.ShowDialog();
         }
 
-        public void OpenDialogDeck()
+        public void OpenDialogDeck(Card[] deck)
         {
             Window mainWindow = Window.GetWindow(this);
-            DeckView deckView = new DeckView();
+            DeckView deckView = new DeckView(deck);
             deckView.Owner = mainWindow;
             deckView.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             deckView.ShowDialog();
@@ -163,7 +173,6 @@ namespace Spider_Clue.Views
             } else
             {
                 btnRollDice.Visibility = Visibility.Collapsed;
-                btnAccuse.Visibility = Visibility.Collapsed;
                 GameBoardGrid.IsEnabled = false;
             }
         }
@@ -183,13 +192,24 @@ namespace Spider_Clue.Views
         {
             if(isEnabled)
             {
-                btnAccuse.Visibility = Visibility.Visible;
+                if (ShowConfirmationFinalAccusation() == MessageBoxResult.OK)
+                {
+                    string sinister = OpenDialogSixSinistersCard();
+                    string motive = OpenDialogMotiveCard();
+                    string place = OpenDialogPlaceCard();
+                    string[] cards = new string[3];
+                    cards[0] = sinister;
+                    cards[1] = motive;
+                    cards[2] = place;
+                    GameManager.MakeFinalAccusation(cards, matchCode, UserSingleton.Instance.GamerTag);
+                }
             }
         }
 
-        public void RequestShowCard(Card[] cards)
+        private MessageBoxResult ShowConfirmationFinalAccusation()
         {
-            //abrir ventanita con tarjetas y regresar la que elige enseñar
+            //Cambiar el mensaje para que pregunte si quiere realizar la acusación final
+            return MessageBox.Show(Properties.Resources.DlgConfirmDeleteFriend, Properties.Resources.DeleteFriendTitle, MessageBoxButton.OKCancel, MessageBoxImage.Question);
         }
 
         public void ReceiveCommonAccusationOption(bool isEnabled, Door door)
@@ -207,16 +227,58 @@ namespace Spider_Clue.Views
 
         public void ReceiveCommonAccusationByOtherGamer(string[] accusation)
         {
-            OpednDialogCommonAccusationByOtherGamer(accusation);
+            OpenDialogCommonAccusationByOtherGamer(accusation);
         }
 
-        public void OpednDialogCommonAccusationByOtherGamer(string[] accusation)
+        public void ReceiveCardAccused(Card card)
+        {
+            OpenDialogShowEvidence(card.ID);
+        }
+
+        public void RequestShowCard(Card[] cards, string accuser)
+        {
+            string typeSelected = OpenDialogPassCard(cards);
+            Card selectedCard = new Card();
+            foreach(var card in cards)
+            {
+                if(card.Type == typeSelected)
+                {
+                    selectedCard = card; break;
+                }
+            }
+            GameManager.ShowCard(selectedCard, matchCode, accuser);
+        }
+
+        public void OpenDialogShowEvidence(string cardID)
+        {
+            Window mainWindow = Window.GetWindow(this);
+            ShowEvidenceView evidenceView = new ShowEvidenceView(cardID);
+            evidenceView.Owner = mainWindow;
+            evidenceView.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            evidenceView.Show();
+        }
+
+        public void OpenDialogCommonAccusationByOtherGamer(string[] accusation)
         {
             Window mainWindow = Window.GetWindow(this);
             ShowCommonAccusationView commonAccusation = new ShowCommonAccusationView(accusation);
             commonAccusation.Owner = mainWindow;
             commonAccusation.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             commonAccusation.Show();
+        }
+
+        public string OpenDialogPassCard(Card[] card)
+        {
+            Window mainWindow = Window.GetWindow(this);
+            PassCardView passCard = new PassCardView(card);
+            passCard.Owner = mainWindow;
+            passCard.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            string typeSelected = string.Empty;
+            if (passCard.ShowDialog() == true)
+            {
+                typeSelected = passCard.TypeSelected;
+            }
+            return typeSelected;
         }
 
         public string OpenDialogSixSinistersCard()
@@ -249,6 +311,27 @@ namespace Spider_Clue.Views
             return motiveCard;
         }
 
+        public string OpenDialogPlaceCard()
+        {
+            Window mainWindow = Window.GetWindow(this);
+            PlaceOfFailureCardsView placeOfFailure = new PlaceOfFailureCardsView();
+            placeOfFailure.Owner = mainWindow;
+            placeOfFailure.WindowStartupLocation = WindowStartupLocation.CenterOwner;
 
+            string placeCard = string.Empty;
+            if (placeOfFailure.ShowDialog() == true)
+            {
+                placeCard = placeOfFailure.PlaceCard;
+            }
+            return placeCard;
+        }
+
+
+        public void ShowNobodyAnswers()
+        {
+            throw new NotImplementedException();
+        }
+
+        
     }
 }
