@@ -46,7 +46,7 @@
                     <Button Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Column="0"
-                            Click="BtnDocOchCard_Click"
+                            Click="BtnSiniesterCard_Click"
                             Margin="0,60,0,0"
                             Visibility="Collapsed">
                         <Image Source="{Binding Path = [SinisterCardPath]}" 
@@ -58,7 +58,7 @@
                     <Button Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Column="1"
-                            Click="BtnDocOchCard_Click"
+                            Click="BtnPlaceCard_Click"
                             Margin="0,60,0,0"
                             Visibility="Collapsed">
                         <Image Source="{Binding Path = [PlaceCardPath]}" 
@@ -70,7 +70,7 @@
                     <Button Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Column="2"
-                            Click="BtnDocOchCard_Click"
+                            Click="BtnMotiveCard_Click"
                             Margin="0,60,0,0"
                             Visibility="Collapsed">
                         <Image Source="{Binding Path = [MotiveCardPath]}" 
