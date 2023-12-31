@@ -142,11 +142,17 @@
     <Compile Include="Views\NotificationsView.xaml.cs">
       <DependentUpon>NotificationsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PassCardView.xaml.cs">
+      <DependentUpon>PassCardView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PasswordRecoveryView.xaml.cs">
       <DependentUpon>PasswordRecoveryView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PersonalInformationView.xaml.cs">
       <DependentUpon>PersonalInformationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlaceOfFailureCardsView.xaml.cs">
+      <DependentUpon>PlaceOfFailureCardsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PlacesCardsView.xaml.cs">
       <DependentUpon>PlacesCardsView.xaml</DependentUpon>
@@ -156,6 +162,9 @@
     </Compile>
     <Compile Include="Views\ReasonCardsView.xaml.cs">
       <DependentUpon>ReasonCardsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReasonForFailureCardsView.xaml.cs">
+      <DependentUpon>ReasonForFailureCardsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
@@ -174,6 +183,12 @@
     </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShowCommonAccusationView.xaml.cs">
+      <DependentUpon>ShowCommonAccusationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SinisterSixCardsView.xaml.cs">
+      <DependentUpon>SinisterSixCardsView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -259,11 +274,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\PassCardView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PasswordRecoveryView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PersonalInformationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PlaceOfFailureCardsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -276,6 +299,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\ReasonCardsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReasonForFailureCardsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -300,6 +327,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShowCommonAccusationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SinisterSixCardsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -490,7 +525,6 @@
     <Resource Include="Images\GameCards\motive2.png" />
     <Resource Include="Images\GameCards\motive3.png" />
     <Resource Include="Images\GameCards\motive4.png" />
-    <Resource Include="Images\GameCards\motive5.png" />
     <Resource Include="Images\GameCards\motive6.png" />
     <Resource Include="Images\GameCards\place1.png" />
     <Resource Include="Images\GameCards\place2.png" />
@@ -530,6 +564,18 @@
     <Resource Include="Images\Background\kickPlayerBackground.jpg" />
     <Resource Include="Images\Background\deckBackground.jpeg" />
     <Resource Include="Images\Background\rollDiceBackground.jpg" />
+    <Resource Include="Images\GameCards\DocOchCard.png" />
+    <Resource Include="Images\GameCards\ElectroJuanCard.png" />
+    <Resource Include="Images\GameCards\MysteRevoCard.png" />
+    <Resource Include="Images\GameCards\RhinosidroCard.png" />
+    <Resource Include="Images\GameCards\VernomCard.png" />
+    <Resource Include="Images\GameCards\XandManCard.png" />
+    <Resource Include="Images\GameCards\motive5.png" />
+    <Resource Include="Images\Background\MotivesCardsBackground.png" />
+    <Resource Include="Images\Background\PlacesCardsBackground.png" />
+    <Resource Include="Images\Background\SinistersSixCardsBackground.jpg" />
+    <Resource Include="Images\Background\CommonAccusationBackground.png" />
+    <Resource Include="Images\Background\PassCardBackground.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />
