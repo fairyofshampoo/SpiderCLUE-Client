@@ -52,7 +52,8 @@
                     <Button Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Row="0"
-                            Grid.Column="0">
+                            Grid.Column="0"
+                            Click="BtnMotive1_Click">
                         <Image Source="/Images/GameCards/motive1.png" 
                                Width="116" 
                                Height="162"
@@ -78,7 +79,8 @@
                     <Button Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Row="0"
-                            Grid.Column="1">
+                            Grid.Column="1"
+                            Click="BtnMotive2_Click">
                         <Image Source="/Images/GameCards/motive2.png" 
                               Width="116" 
                                Height="162"
@@ -104,7 +106,8 @@
                     <Button Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Row="0"
-                            Grid.Column="2">
+                            Grid.Column="2"
+                            Click="BtnMotive3_Click">
                         <Image Source="/Images/GameCards/motive3.png" 
                               Width="116" 
                                Height="162"
@@ -130,7 +133,8 @@
                     <Button Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Row="2"
-                            Grid.Column="0">
+                            Grid.Column="0"
+                            Click="BtnMotive4_Click">
                         <Image Source="/Images/GameCards/motive4.png" 
                                Width="116" 
                                Height="162"
@@ -156,7 +160,8 @@
                     <Button Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Row="2"
-                            Grid.Column="1">
+                            Grid.Column="1"
+                            Click="BtnMotive5_Click">
                         <Image Source="/Images/GameCards/motive5.png" 
                                Width="116" 
                                Height="162"
@@ -182,7 +187,8 @@
                     <Button Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Row="2"
-                            Grid.Column="2">
+                            Grid.Column="2"
+                            Click="BtnMotive6_Click">
                         <Image Source="/Images/GameCards/motive6.png" 
                                 Width="116" 
                                Height="162"

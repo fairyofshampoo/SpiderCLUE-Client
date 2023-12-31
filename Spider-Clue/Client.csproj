@@ -181,6 +181,9 @@
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShowCommonAccusationView.xaml.cs">
+      <DependentUpon>ShowCommonAccusationView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SinisterSixCardsView.xaml.cs">
       <DependentUpon>SinisterSixCardsView.xaml</DependentUpon>
     </Compile>
@@ -317,6 +320,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShowCommonAccusationView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -560,6 +567,7 @@
     <Resource Include="Images\Background\MotivesCardsBackground.png" />
     <Resource Include="Images\Background\PlacesCardsBackground.png" />
     <Resource Include="Images\Background\SinistersSixCardsBackground.jpg" />
+    <Resource Include="Images\Background\CommonAccusationBackground.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />

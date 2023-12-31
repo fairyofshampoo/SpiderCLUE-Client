@@ -1,5 +1,6 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
+using System;
 using System.Collections.Generic;
 using System.ServiceModel;
 using System.Windows;
@@ -191,10 +192,63 @@ namespace Spider_Clue.Views
             //abrir ventanita con tarjetas y regresar la que elige enseñar
         }
 
-        public void ReceiveCommonAccusationOption(bool isEnabled)
+        public void ReceiveCommonAccusationOption(bool isEnabled, Door door)
         {
-            //abrir ventana? 
-            MessageBox.Show("acusa tonoto", Properties.Resources.InformationTitle);
+            string sinister = OpenDialogSixSinistersCard();
+            string motive = OpenDialogMotiveCard();
+            string place = door.ZoneName;
+
+            string[] cards = new string[3];
+            cards[0] = place;
+            cards[1] = sinister;
+            cards[2] = motive;
+            GameManager.ShowCommonAccusation(cards, matchCode);
         }
+
+        public void ReceiveCommonAccusationByOtherGamer(string[] accusation)
+        {
+            OpednDialogCommonAccusationByOtherGamer(accusation);
+        }
+
+        public void OpednDialogCommonAccusationByOtherGamer(string[] accusation)
+        {
+            Window mainWindow = Window.GetWindow(this);
+            ShowCommonAccusationView commonAccusation = new ShowCommonAccusationView(accusation);
+            commonAccusation.Owner = mainWindow;
+            commonAccusation.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            commonAccusation.ShowDialog();
+        }
+
+        public string OpenDialogSixSinistersCard()
+        {
+            Window mainWindow = Window.GetWindow(this);
+            SinisterSixCardsView sinisterSixCards = new SinisterSixCardsView();
+            sinisterSixCards.Owner = mainWindow;
+            sinisterSixCards.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
+            string sinisterCard = string.Empty;
+            if(sinisterSixCards.ShowDialog() == true)
+            {
+                sinisterCard = sinisterSixCards.SinisterCard;
+            }
+            return sinisterCard;
+        }
+
+        public string OpenDialogMotiveCard()
+        {
+            Window mainWindow = Window.GetWindow(this);
+            ReasonForFailureCardsView reasonForFailure = new ReasonForFailureCardsView();
+            reasonForFailure.Owner = mainWindow;
+            reasonForFailure.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+
+            string motiveCard = string.Empty;
+            if (reasonForFailure.ShowDialog() == true)
+            {
+                motiveCard = reasonForFailure.ReasonCard;
+            }
+            return motiveCard;
+        }
+
+
     }
 }
