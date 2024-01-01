@@ -290,21 +290,6 @@
                             Stretch = "UniformToFill"/>
                         </Button>
                     </Border>
-
-                    <Border 
-                        x:Name="btnAccuse"
-                        CornerRadius = "30"
-                        Background = "#EEF8EB"
-                        Width = "100"
-                        Height = "100"
-                        Margin = "0,50,0,0"
-                        Grid.Row = "3"
-                        Visibility="Collapsed">
-                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnAccuse_Click">
-                            <Image Source = "/Images/Icons/AccusationIcon.png"
-                            Stretch = "UniformToFill"/>
-                        </Button>
-                    </Border>
                 </Grid>
 
                 <StackPanel Orientation="Vertical" Grid.Column="2">

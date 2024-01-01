@@ -190,6 +190,9 @@
     <Compile Include="Views\ShowEvidenceView.xaml.cs">
       <DependentUpon>ShowEvidenceView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ShowWinner.xaml.cs">
+      <DependentUpon>ShowWinner.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SinisterSixCardsView.xaml.cs">
       <DependentUpon>SinisterSixCardsView.xaml</DependentUpon>
     </Compile>
@@ -338,6 +341,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ShowEvidenceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShowWinner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -584,6 +591,7 @@
     <Resource Include="Images\Background\CommonAccusationBackground.png" />
     <Resource Include="Images\Background\PassCardBackground.png" />
     <Resource Include="Images\GameCards\DefaultCard.png" />
+    <Resource Include="Images\Background\ShowWinnerBackground.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />

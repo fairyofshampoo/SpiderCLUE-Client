@@ -97,14 +97,6 @@ namespace Spider_Clue.Views
             btnRollDice.Visibility = Visibility.Collapsed;
         }
 
-        private void BtnAccuse_Click(object sender, RoutedEventArgs e)
-        {
-            //Realizar la acusación final 
-            //Se tendrá que verificar cuál manda y ver si en el array es el mismo
-            //Si sí es terminar la partida y guardar al usuario como ganador
-            //Si no, deshabilia las funciones principales
-        }
-
         public void ReceivePawnsMove(Pawn pawn)
         {
             diceNumber = 0;
@@ -141,7 +133,6 @@ namespace Spider_Clue.Views
                     break; 
             }
         }
-
 
         public void OpenDialogRollDice(int diceRoll) 
         {
@@ -239,14 +230,28 @@ namespace Spider_Clue.Views
         {
             string typeSelected = OpenDialogPassCard(cards);
             Card selectedCard = new Card();
-            foreach(var card in cards)
+            foreach (var card in cards)
             {
-                if(card.Type == typeSelected)
+                if (card.Type == typeSelected)
                 {
                     selectedCard = card; break;
                 }
             }
             GameManager.ShowCard(selectedCard, matchCode, accuser);
+        }
+
+        public void ReceiveWinner(string winnerGamertag, string gamerIcon)
+        {
+            OpenDialogShowWinner(winnerGamertag, gamerIcon);
+        }
+
+        public void OpenDialogShowWinner(string winnerGamertag, string gamerIcon)
+        {
+            Window mainWindow = Window.GetWindow(this);
+            ShowWinner showWinner = new ShowWinner(winnerGamertag, gamerIcon);
+            showWinner.Owner = mainWindow;
+            showWinner.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            showWinner.Show();
         }
 
         public void OpenDialogShowEvidence(string cardID)
@@ -326,13 +331,10 @@ namespace Spider_Clue.Views
             return placeCard;
         }
 
-
         public void ShowNobodyAnswers()
         {
             //Cambiar mensajito
             MessageBox.Show(Properties.Resources.DlgConfirmDeleteFriend, Properties.Resources.DeleteFriendTitle, MessageBoxButton.OKCancel, MessageBoxImage.Question);
         }
-
-        
     }
 }
