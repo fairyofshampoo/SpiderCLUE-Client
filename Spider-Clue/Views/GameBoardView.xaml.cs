@@ -16,6 +16,7 @@ namespace Spider_Clue.Views
         private Dictionary<string, Pawn> gamersInGame;
         private string matchCode;
         private int diceNumber = 0;
+        private bool isLeaving = false;
 
         public GameBoardView()
         {
@@ -59,8 +60,30 @@ namespace Spider_Clue.Views
                 MainMenuView mainMenuView = new MainMenuView();
                 this.NavigationService.Navigate(mainMenuView);
             }
+            if (!isLeaving)
+            {
+                RemovePlayersFromGameboard();
+            }
+
             GameManager.DisconnectFromBoardAsync(UserSingleton.Instance.GamerTag, matchCode);
         }
+
+        private void RemovePlayersFromGameboard()
+        {
+            List<string> gamersToRemove = GetGamersExceptOwner();
+            foreach (string gamer in gamersToRemove)
+            {
+                GameManager.RemovePlayerFromGameboardAsync(gamer);
+            }
+        }
+
+        private List<string> GetGamersExceptOwner()
+        {
+            List<string> gamerTagsList = new List<string>(gamersInGame.Keys);
+            gamerTagsList.Remove(UserSingleton.Instance.GamerTag);
+            return gamerTagsList;
+        }
+
 
         private void Grid_Click(object sender, MouseButtonEventArgs mouseEvent)
         {
@@ -79,14 +102,7 @@ namespace Spider_Clue.Views
         private void BtnShowCards_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            SpiderClueService.ICardManager cardManager = new SpiderClueService.CardManagerClient();
             Card[] cards = GameManager.GetDeck(UserSingleton.Instance.GamerTag);
-            Console.WriteLine("El mazo es:");
-            foreach(var deck in cards)
-            {
-                Console.WriteLine(deck.ID);
-                Console.WriteLine("-----");
-            }
             OpenDialogDeck(cards);
         }
 
@@ -170,6 +186,7 @@ namespace Spider_Clue.Views
 
         public void LeaveGameBoard()
         {
+            isLeaving = true;
             GoToMainMenu();
         }
 
