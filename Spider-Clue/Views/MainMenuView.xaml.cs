@@ -31,9 +31,17 @@ namespace Spider_Clue.Views
         private void SetGamerData()
         {
             lblUserName.Content = UserSingleton.Instance.GamerTag;
+            UpdateGamesWon();
             lblLevel.Content = UserSingleton.Instance.GamesWon;
             string iconPath = Utilities.GetImagePathForIcon(UserSingleton.Instance.ImageCode);
             this.DataContext = new { ImagePath = iconPath };
+        }
+
+        private void UpdateGamesWon()
+        {
+            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+            Gamer gamer = userManager.GetGamerByGamertag(UserSingleton.Instance.GamerTag);
+            UserSingleton.Instance.GamesWon = gamer.GamesWon;
         }
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
         {
