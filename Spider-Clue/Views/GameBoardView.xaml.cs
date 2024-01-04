@@ -47,7 +47,7 @@ namespace Spider_Clue.Views
             txtblckPawnColor.Text = "Tu peón es: " + pawnColor;
         }
 
-        public void GoToMainMenu()
+        private void GoToMainMenu()
         {
             if (UserSingleton.Instance.IsGuestPlayer)
             {
@@ -59,7 +59,6 @@ namespace Spider_Clue.Views
                 MainMenuView mainMenuView = new MainMenuView();
                 this.NavigationService.Navigate(mainMenuView);
             }
-            GameManager.DisconnectFromBoardAsync(UserSingleton.Instance.GamerTag, matchCode);
         }
 
         private void Grid_Click(object sender, MouseButtonEventArgs mouseEvent)
@@ -73,20 +72,19 @@ namespace Spider_Clue.Views
 
         private void BtnLeaveGame_Click(object sender, RoutedEventArgs e)
         {
+            LeaveGame();
+        }
+
+        public void LeaveGame()
+        {
+            GameManager.EndGameAsync(matchCode);
             GoToMainMenu();
         }
 
         private void BtnShowCards_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            SpiderClueService.ICardManager cardManager = new SpiderClueService.CardManagerClient();
             Card[] cards = GameManager.GetDeck(UserSingleton.Instance.GamerTag);
-            Console.WriteLine("El mazo es:");
-            foreach(var deck in cards)
-            {
-                Console.WriteLine(deck.ID);
-                Console.WriteLine("-----");
-            }
             OpenDialogDeck(cards);
         }
 
