@@ -46,7 +46,7 @@ namespace Spider_Clue
 
                     if (currentPage is GameBoardView gameBoard)
                     {
-                        gameBoard.GoToMainMenu();
+                        gameBoard.LeaveGame();
                     }
                 }
 

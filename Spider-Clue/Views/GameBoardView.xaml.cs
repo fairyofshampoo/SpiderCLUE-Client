@@ -16,7 +16,6 @@ namespace Spider_Clue.Views
         private Dictionary<string, Pawn> gamersInGame;
         private string matchCode;
         private int diceNumber = 0;
-        private bool isLeaving = false;
 
         public GameBoardView()
         {
@@ -48,7 +47,7 @@ namespace Spider_Clue.Views
             txtblckPawnColor.Text = "Tu peón es: " + pawnColor;
         }
 
-        public void GoToMainMenu()
+        private void GoToMainMenu()
         {
             if (UserSingleton.Instance.IsGuestPlayer)
             {
@@ -60,30 +59,7 @@ namespace Spider_Clue.Views
                 MainMenuView mainMenuView = new MainMenuView();
                 this.NavigationService.Navigate(mainMenuView);
             }
-            if (!isLeaving)
-            {
-                RemovePlayersFromGameboard();
-            }
-
-            GameManager.DisconnectFromBoardAsync(UserSingleton.Instance.GamerTag, matchCode);
         }
-
-        private void RemovePlayersFromGameboard()
-        {
-            List<string> gamersToRemove = GetGamersExceptOwner();
-            foreach (string gamer in gamersToRemove)
-            {
-                GameManager.RemovePlayerFromGameboardAsync(gamer);
-            }
-        }
-
-        private List<string> GetGamersExceptOwner()
-        {
-            List<string> gamerTagsList = new List<string>(gamersInGame.Keys);
-            gamerTagsList.Remove(UserSingleton.Instance.GamerTag);
-            return gamerTagsList;
-        }
-
 
         private void Grid_Click(object sender, MouseButtonEventArgs mouseEvent)
         {
@@ -96,6 +72,12 @@ namespace Spider_Clue.Views
 
         private void BtnLeaveGame_Click(object sender, RoutedEventArgs e)
         {
+            LeaveGame();
+        }
+
+        public void LeaveGame()
+        {
+            GameManager.EndGameAsync(matchCode);
             GoToMainMenu();
         }
 
@@ -186,7 +168,6 @@ namespace Spider_Clue.Views
 
         public void LeaveGameBoard()
         {
-            isLeaving = true;
             GoToMainMenu();
         }
 
