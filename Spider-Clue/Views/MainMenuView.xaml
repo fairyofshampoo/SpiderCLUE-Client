@@ -278,12 +278,12 @@
                                     </Label.LayoutTransform>
                                 </Label>
                                 <Border
-                        Grid.Row = "1"
-                        Height = "30"
-                        Width = "30"
-                        Background="White"
-                        CornerRadius="15"
-                        Margin="0,20,0,0">
+                                    Grid.Row = "1"
+                                    Height = "30"
+                                    Width = "30"
+                                    Background="White"
+                                    CornerRadius="15"
+                                    Margin="0,20,0,0">
                                     <Border>
                                         <Border.Background>
                                             <ImageBrush ImageSource = "/Images/Icons/FriendsIcon.png" Stretch = "UniformToFill">
@@ -293,6 +293,61 @@
                                 </Border>
                             </Grid>
                         </Border>
+                        </Button>
+
+                        <Button
+                            Grid.Column = "1"
+                            Grid.Row = "0"
+                            Height = "200"
+                            Width = "55"
+                            HorizontalAlignment = "Right"
+                            Background = "Transparent"
+                            BorderBrush = "Transparent"
+                            Click = "BtnTopGlobal_Click"
+                            Margin="0,410,0,0">
+                            <Border 
+                            Background = "Black"
+                            Height = "200"
+                            Width = "55"
+                            HorizontalAlignment = "Right"
+                            CornerRadius = "10"
+                            Margin="0,0,-7,0"
+                            Cursor ="Hand">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height = "Auto"/>
+                                        <RowDefinition Height = "Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Label x:Name = "lblTopGlobal" Content = "{x:Static p:Resources.LblFriends}"
+                                       Foreground = "White"
+                                       FontWeight = "Light"
+                                       FontSize = "25"
+                                       FontFamily = "Monsterrat"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Top"
+                                       Grid.Row="0"
+                                       Margin="0,40,0,0" 
+                                       Width="100">
+                                        <Label.LayoutTransform>
+                                            <RotateTransform   Angle="270"/>
+                                        </Label.LayoutTransform>
+                                    </Label>
+                                    <Border
+                                    Grid.Row = "1"
+                                    Height = "30"
+                                    Width = "30"
+                                    Background="White"
+                                    CornerRadius="15"
+                                    Margin="0,20,0,0">
+                                        <Border>
+                                            <Border.Background>
+                                                <ImageBrush ImageSource = "/Images/Icons/TopGlobalIcon.png" Stretch = "UniformToFill">
+                                                </ImageBrush>
+                                            </Border.Background>
+                                        </Border>
+                                    </Border>
+                                </Grid>
+                            </Border>
                         </Button>
                     </Grid>
                 </Grid>
