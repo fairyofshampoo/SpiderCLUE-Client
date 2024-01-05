@@ -245,12 +245,14 @@ namespace Spider_Clue.Views
 
         private void SetPasswordIcon(string iconPassword)
         {
-            Uri newImageUri = new Uri($"/Images/Icons/{iconPassword}", UriKind.Relative);
-            BitmapImage newImageSource = new BitmapImage(newImageUri);
-            Image imgPasswordIcon = new Image();
-            imgPasswordIcon = btnPasswordVisibility.Template.FindName("imgPasswordIcon", btnPasswordVisibility) as Image;
-            imgPasswordIcon.Source = newImageSource;
+            Image imgPasswordIcon = btnPasswordVisibility.Template.FindName("imgPasswordIcon", btnPasswordVisibility) as Image;
+
+            if (imgPasswordIcon != null)
+            {
+                imgPasswordIcon.Source = new BitmapImage(new Uri($"/Images/Icons/{iconPassword}", UriKind.Relative));
+            }
         }
+
 
         private void BtnMinimize_Click(object sender, RoutedEventArgs e)
         {

@@ -90,7 +90,7 @@ namespace Spider_Clue.Views
             listBoxChat.Items.Clear();
             foreach (Message message in messages)
             {
-                string textToShow = string.Concat(message.GamerTag + ": " + message.Text + "\n");
+                string textToShow = $"{message.GamerTag}: {message.Text}\n";
                 listBoxChat.Items.Add(textToShow);
                 listBoxChat.ScrollIntoView(listBoxChat.Items[listBoxChat.Items.Count - 1]);
             }

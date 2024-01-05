@@ -41,7 +41,7 @@ namespace Spider_Clue.Views
         {
             bool registerResult = false;
 
-            if (AreDataValid())
+            if (AreDataValid() && IsEmailVerified())
             {
                 registerResult = RegisterGamerInDatabase();
             }
@@ -53,7 +53,7 @@ namespace Spider_Clue.Views
         {
             String toEmail = txtEmail.Text;
             return Utilities.SendEmailWithCode(toEmail, Window.GetWindow(this));
-            
+
         }
 
         private bool AreDataValid()
@@ -61,18 +61,16 @@ namespace Spider_Clue.Views
             bool accountDataValid = ValidateAccountData();
             bool userDataValid = ValidateUserData();
             bool passwordsMatch = ArePasswordsMatching();
-            bool emailDuplication = IsEmailVerified();
             bool duplicationValidation = VerifyDuplications();
-            return accountDataValid && userDataValid && passwordsMatch && emailDuplication && !duplicationValidation;
+            return accountDataValid && userDataValid && passwordsMatch && !duplicationValidation;
         }
 
         private bool ValidateAccountData()
         {
             SecureString securePassword = txtPassword.SecurePassword;
-            string password = new NetworkCredential(string.Empty, securePassword).Password;
             string email = txtEmail.Text;
 
-            bool passwordValid = Validations.IsPasswordValid(password);
+            bool passwordValid = Validations.ValidatePassword(securePassword);
             bool emailValid = Validations.IsEmailValid(email);
 
             if (!passwordValid)
@@ -117,13 +115,11 @@ namespace Spider_Clue.Views
         {
             SecureString securePassword = txtPassword.SecurePassword;
             SecureString securePasswordToConfirm = txtConfirmPassword.SecurePassword;
-            string password = new NetworkCredential(string.Empty, securePassword).Password;
-            string passwordToConfirm = new NetworkCredential(string.Empty, securePasswordToConfirm).Password;
+            
             bool passwordsValidation = false;
-
-            if (!string.IsNullOrWhiteSpace(password) || !string.IsNullOrWhiteSpace(passwordToConfirm))
+            if (Validations.ValidatePassword(securePassword))
             {
-                if (string.Equals(password, passwordToConfirm))
+                if (Validations.ArePasswordsMatching(securePassword, securePasswordToConfirm))
                 {
                     passwordsValidation = true;
                 }
@@ -132,7 +128,6 @@ namespace Spider_Clue.Views
             {
                 lblPasswordsDontMatch.Visibility = Visibility.Visible;
             }
-
             return passwordsValidation;
         }
 

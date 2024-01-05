@@ -194,7 +194,7 @@ namespace Spider_Clue.Views
         private void KickPlayer_Click(object sender, MouseButtonEventArgs e)
         {
             string selectedGamer = OpenKickPlayerDialog();
-            if (!selectedGamer.Equals(String.Empty))
+            if (!string.IsNullOrEmpty(selectedGamer))
             {
                 LobbyManager.KickPlayer(selectedGamer);
             }

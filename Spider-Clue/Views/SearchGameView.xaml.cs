@@ -65,9 +65,9 @@ namespace Spider_Clue.Views
             matchManagerClient.GetGamersInMatch(gamertag, matchCode);
         }
 
-        public void ReceiveGamersInMatch(Dictionary<string, Pawn> gamers)
+        public void ReceiveGamersInMatch(Dictionary<string, Pawn> characters)
         {
-            int numberOfGamersInMatch = gamers.Count;
+            int numberOfGamersInMatch = characters.Count;
             GoToLobby(numberOfGamersInMatch);
         }
 

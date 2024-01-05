@@ -30,55 +30,63 @@ namespace Spider_Clue
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea cerrar la app?", "Confirmar cierre", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = ShowConfirmationDialog("¿Desea cerrar la app?", "Confirmar cierre");
+
             if (result == MessageBoxResult.No)
             {
                 e.Cancel = true;
             }
             else
             {
-                if (NavigationFrame.Content is Page currentPage)
-                {
-                    if (currentPage is LobbyView lobby)
-                    {
-                        lobby.GoToMainMenu();
-                    }
+                HandleNavigation();
+                HandleUserDisconnect();
+                UserSingleton.Instance.Clear();
+            }
+        }
 
-                    if (currentPage is GameBoardView gameBoard)
-                    {
-                        gameBoard.LeaveGame();
-                    }
+        private MessageBoxResult ShowConfirmationDialog(string message, string title)
+        {
+            return MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+        }
+
+        private void HandleNavigation()
+        {
+            if (NavigationFrame.Content is Page currentPage)
+            {
+                if (currentPage is LobbyView lobby)
+                {
+                    lobby.GoToMainMenu();
                 }
 
-                if (UserSingleton.Instance.GamerTag != null)
+                if (currentPage is GameBoardView gameBoard)
                 {
-                    SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                    gameBoard.LeaveGame();
+                }
+            }
+        }
+
+        private void HandleUserDisconnect()
+        {
+            if (UserSingleton.Instance.GamerTag != null)
+            {
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+
+                try
+                {
                     if (UserSingleton.Instance.IsGuestPlayer)
                     {
-                        try
-                        {
-                            userManager.DeleteGuestPlayer(UserSingleton.Instance.GamerTag);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"Error en Disconnect: {ex.Message}");
-                        }
+                        userManager.DeleteGuestPlayer(UserSingleton.Instance.GamerTag);
                     }
                     else
                     {
-                        try
-                        {
-                            SpiderClueService.ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
-                            sessionManager.Disconnect(UserSingleton.Instance.GamerTag);
-                        }
-                        catch (Exception ex)
-                        {
-                            Console.WriteLine($"Error en Disconnect: {ex.Message}");
-                        }
+                        SpiderClueService.ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
+                        sessionManager.Disconnect(UserSingleton.Instance.GamerTag);
                     }
                 }
-
-                UserSingleton.Instance.Clear();
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Error en Disconnect: {ex.Message}");
+                }
             }
         }
 

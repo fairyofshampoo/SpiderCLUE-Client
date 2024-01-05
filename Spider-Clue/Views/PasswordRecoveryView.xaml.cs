@@ -25,48 +25,20 @@ namespace Spider_Clue.Views
 
         private bool ValidatePassword()
         {
-            
-            bool passwordValid = IsPasswordValid();
-            bool passwordsMatching = ArePasswordsMatching();
+            bool passwordValid = Validations.ValidatePassword(txtPassword.SecurePassword);
+            bool passwordsMatching = Validations.ArePasswordsMatching(txtPassword.SecurePassword, txtConfirmPassword.SecurePassword);
 
-            return passwordValid && passwordsMatching;
-        }
-
-        private bool IsPasswordValid()
-        {
-            SecureString securePassword = txtPassword.SecurePassword;
-            string password = new NetworkCredential(string.Empty, securePassword).Password;
-            bool passwordValid = Validations.IsPasswordValid(password);
-
-            if(!passwordValid)
+            if (!passwordValid)
             {
                 lblPasswordInvalid.Visibility = Visibility.Visible;
             }
 
-            return passwordValid;
-        }
-
-        private bool ArePasswordsMatching()
-        {
-            SecureString securePassword = txtPassword.SecurePassword;
-            SecureString securePasswordToConfirm = txtConfirmPassword.SecurePassword;
-            string password = new NetworkCredential(string.Empty, securePassword).Password;
-            string passwordToConfirm = new NetworkCredential(string.Empty, securePasswordToConfirm).Password;
-            bool passwordsValidation = false;
-
-            if (!string.IsNullOrWhiteSpace(password) || !string.IsNullOrWhiteSpace(passwordToConfirm))
-            {
-                if (string.Equals(password, passwordToConfirm))
-                {
-                    passwordsValidation = true;
-                }
-            }
-            else
+            if (!passwordsMatching)
             {
                 lblPasswordsDontMatch.Visibility = Visibility.Visible;
             }
 
-            return passwordsValidation;
+            return passwordValid && passwordsMatching;
         }
 
         private void BtnConfirm_Click(object sender, System.Windows.RoutedEventArgs e)
