@@ -36,31 +36,16 @@ namespace Spider_Clue.Views
 
             if(villainsDeck.Any())
             {
-                Console.WriteLine("Villanos");
-                foreach(var card in villainsDeck)
-                {
-                    Console.WriteLine(card.ID);
-                }
                 ShowVillainsCards(villainsDeck);
             }
 
             if(motiveDeck.Any())
             {
-                Console.WriteLine("Motivos");
-                foreach (var card in motiveDeck)
-                {
-                    Console.WriteLine(card.ID);
-                }
                 ShowMotiveCards(motiveDeck);
             }
 
             if(placeDeck.Any())
             {
-                Console.WriteLine("Lugares");
-                foreach (var card in placeDeck)
-                {
-                    Console.WriteLine(card.ID);
-                }
                 ShowPlaceCards(placeDeck);
             }
 
@@ -69,38 +54,38 @@ namespace Spider_Clue.Views
         public void ShowVillainsCards (List<Card> villainsDeck)
         {
             int index = 1;
-            foreach (var card in villainsDeck)
+            foreach (var card in villainsDeck.Select(card => card.ID))
             {
                 switch (index)
                 {
                     case 1:
                         Villain1Path.Visibility = Visibility.Visible;
-                        ShowDeck("Villain1Path", card.ID);
+                        ShowDeck("Villain1Path", card);
                         break;
 
                     case 2:
                         Villain2Path.Visibility = Visibility.Visible;
-                        ShowDeck("Villain2Path", card.ID);
+                        ShowDeck("Villain2Path", card);
                         break;
 
                     case 3:
                         Villain3Path.Visibility = Visibility.Visible;
-                        ShowDeck("Villain3Path", card.ID);
+                        ShowDeck("Villain3Path", card);
                         break;
 
                     case 4:
                         Villain4Path.Visibility = Visibility.Visible;
-                        ShowDeck("Villain4Path", card.ID);
+                        ShowDeck("Villain4Path", card);
                         break;
 
                     case 5:
                         Villain5Path.Visibility = Visibility.Visible;
-                        ShowDeck("Villain5Path", card.ID);
+                        ShowDeck("Villain5Path", card);
                         break;
 
                     case 6:
                         Villain6Path.Visibility = Visibility.Visible;
-                        ShowDeck("Villain6Path", card.ID);
+                        ShowDeck("Villain6Path", card);
                         break;
                 }
                 index++;
@@ -146,38 +131,38 @@ namespace Spider_Clue.Views
         public void ShowPlaceCards(List<Card> placeDeck)
         {
             int index = 1;
-            foreach (var card in placeDeck)
+            foreach (var card in placeDeck.Select(card => card.ID))
             {
                 switch (index)
                 {
                     case 1:
                         Place1Path.Visibility = Visibility.Visible;
-                        ShowDeck("Place1Path", card.ID);
+                        ShowDeck("Place1Path", card);
                         break;
 
                     case 2:
                         Place2Path.Visibility = Visibility.Visible;
-                        ShowDeck("Place2Path", card.ID);
+                        ShowDeck("Place2Path", card);
                         break;
 
                     case 3:
                         Place3Path.Visibility = Visibility.Visible;
-                        ShowDeck("Place3Path", card.ID);
+                        ShowDeck("Place3Path", card);
                         break;
 
                     case 4:
                         Place4Path.Visibility = Visibility.Visible;
-                        ShowDeck("Place4Path", card.ID);
+                        ShowDeck("Place4Path", card);
                         break;
 
                     case 5:
                         Place5Path.Visibility = Visibility.Visible;
-                        ShowDeck("Place5Path", card.ID);
+                        ShowDeck("Place5Path", card);
                         break;
 
                     case 6:
                         Place6Path.Visibility = Visibility.Visible;
-                        ShowDeck("Place6Path", card.ID);
+                        ShowDeck("Place6Path", card);
                         break;
                 }
                 index++;
@@ -221,38 +206,38 @@ namespace Spider_Clue.Views
         public void ShowMotiveCards(List<Card> motiveDeck)
         {
             int index = 1;
-            foreach (var card in motiveDeck)
+            foreach (var card in motiveDeck.Select(card => card.ID))
             {
                 switch (index)
                 {
                     case 1:
                         Motive1Path.Visibility = Visibility.Visible;
-                        ShowDeck("Motive1Path", card.ID);
+                        ShowDeck("Motive1Path", card);
                         break;
 
                     case 2:
                         Motive2Path.Visibility = Visibility.Visible;
-                        ShowDeck("Motive2Path", card.ID);
+                        ShowDeck("Motive2Path", card);
                         break;
 
                     case 3:
                         Motive3Path.Visibility = Visibility.Visible;
-                        ShowDeck("Motive3Path", card.ID);
+                        ShowDeck("Motive3Path", card);
                         break;
 
                     case 4:
                         Motive4Path.Visibility = Visibility.Visible;
-                        ShowDeck("Motive4Path", card.ID);
+                        ShowDeck("Motive4Path", card);
                         break;
 
                     case 5:
                         Motive5Path.Visibility = Visibility.Visible;
-                        ShowDeck("Motive5Path", card.ID);
+                        ShowDeck("Motive5Path", card);
                         break;
 
                     case 6:
                         Motive6Path .Visibility = Visibility.Visible;
-                        ShowDeck("Motive6Path", card.ID);
+                        ShowDeck("Motive6Path", card);
                         break;
                 }
                 index++;

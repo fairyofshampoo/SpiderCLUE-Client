@@ -21,7 +21,7 @@ namespace Spider_Clue.Views
     public partial class KickPlayersView : Window 
     {
         public string[] PlayersInLobby { get; set; }
-        public string PlayerToKick = string.Empty;
+        public string PlayerToKick { get; set; }
 
         public KickPlayersView(string[] playersInLobby)
         {

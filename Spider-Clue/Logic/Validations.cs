@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
-using System.Text;
+using System.Security;
+using System.Windows;
+using System.Windows.Controls;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -113,6 +116,20 @@ namespace Spider_Clue.Logic
                 RegexOptions.None, TimeSpan.FromMilliseconds(limitTime));
 
             return isValid && ValidateWithTimeout(gamerTag, gamerTagRegex);
+        }
+
+        public static bool ValidatePassword(SecureString securePassword)
+        {
+            string password = new NetworkCredential(string.Empty, securePassword).Password;
+            return IsPasswordValid(password);
+        }
+
+        public static bool ArePasswordsMatching(SecureString password, SecureString passwordToConfirm)
+        {
+            string plainPassword = new NetworkCredential(string.Empty, password).Password;
+            string plainPasswordToConfirm = new NetworkCredential(string.Empty, passwordToConfirm).Password;
+
+            return string.Equals(plainPassword, plainPasswordToConfirm);
         }
     }
 }

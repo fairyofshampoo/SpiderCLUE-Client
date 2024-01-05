@@ -37,7 +37,7 @@ namespace Spider_Clue.Views
 
         private void JoinFriendListView()
         {
-            SpiderClueService.IFriendsManager friendsManager = new SpiderClueService.FriendsManagerClient(new InstanceContext(this)); ;
+            SpiderClueService.IFriendsManager friendsManager = new SpiderClueService.FriendsManagerClient(new InstanceContext(this));
             friendsManager.JoinFriendsConnected(UserSingleton.Instance.GamerTag);
         }
 

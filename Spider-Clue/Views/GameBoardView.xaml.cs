@@ -179,19 +179,16 @@ namespace Spider_Clue.Views
 
         public void ReceiveFinalAccusationOption(bool isEnabled)
         {
-            if(isEnabled)
+            if (isEnabled && ShowConfirmationFinalAccusation() == MessageBoxResult.OK)
             {
-                if (ShowConfirmationFinalAccusation() == MessageBoxResult.OK)
-                {
-                    string sinister = OpenDialogSixSinistersCard();
-                    string motive = OpenDialogMotiveCard();
-                    string place = OpenDialogPlaceCard();
-                    string[] cards = new string[3];
-                    cards[0] = sinister;
-                    cards[1] = motive;
-                    cards[2] = place;
-                    GameManager.MakeFinalAccusation(cards, matchCode, UserSingleton.Instance.GamerTag);
-                }
+                string sinister = OpenDialogSixSinistersCard();
+                string motive = OpenDialogMotiveCard();
+                string place = OpenDialogPlaceCard();
+                string[] cards = new string[3];
+                cards[0] = sinister;
+                cards[1] = motive;
+                cards[2] = place;
+                GameManager.MakeFinalAccusation(cards, matchCode, UserSingleton.Instance.GamerTag);
             }
         }
 
