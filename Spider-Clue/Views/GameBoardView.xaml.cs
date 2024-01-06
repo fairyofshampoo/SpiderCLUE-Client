@@ -12,7 +12,6 @@ namespace Spider_Clue.Views
     public partial class GameBoardView : Page , IGameManagerCallback
     {
         public readonly GameManagerClient GameManager;
-        public readonly SpiderClueService.ICardManager CardManager;
         private Dictionary<string, Pawn> gamersInGame;
         private string matchCode;
         private int diceNumber = 0;
@@ -21,7 +20,6 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
             GameManager = new GameManagerClient(new InstanceContext(this));
-            CardManager = new SpiderClueService.CardManagerClient();
         }
 
         public void ConfigureWindow(string matchCode, Dictionary<string, Pawn> gamersInGame)
