@@ -147,15 +147,12 @@ namespace Spider_Clue.Views
 
         private void ConnectToService()
         {
-            try 
-            {
-                SessionManager.Connect(UserSingleton.Instance.GamerTag);
-            }
-            catch (FaultException<SpiderClueException>)
-            {
-                GoToLoginView();
-                MessageBox.Show("Ya has iniciado sesión", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
-            }
+                int result = SessionManager.Connect(UserSingleton.Instance.GamerTag);
+                if(result == 0)
+                {
+                    GoToLoginView();
+                    MessageBox.Show("Ya has iniciado sesión", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                } 
         }
 
         private void GoToLoginView()
