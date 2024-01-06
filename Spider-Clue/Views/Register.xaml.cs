@@ -157,6 +157,7 @@ namespace Spider_Clue.Views
             bool emailDuplication = userManager.IsEmailExisting(txtEmail.Text);
             if (emailDuplication)
             {
+                lblInvalidGamerTag.Content = Properties.Resources.LblEmailUsed;
                 lblInvalidEmail.Visibility = Visibility.Visible;
             }
             return emailDuplication;
@@ -168,6 +169,7 @@ namespace Spider_Clue.Views
             bool gamerTagDuplication = userManager.IsGamertagExisting(txtGamerTag.Text);
             if (gamerTagDuplication)
             {
+                lblInvalidGamerTag.Content = Properties.Resources.LblGamerTagUsed;
                 lblInvalidGamerTag.Visibility = Visibility.Visible;
             }
 
@@ -175,7 +177,7 @@ namespace Spider_Clue.Views
 
         }
 
-        private Boolean RegisterGamerInDatabase()
+        private bool RegisterGamerInDatabase()
         {
             string defaultIcon = "Icon0.jpg";
             bool result = false;
@@ -209,11 +211,13 @@ namespace Spider_Clue.Views
 
         private void TypingGamerTag(object sender, TextChangedEventArgs e)
         {
+            lblInvalidGamerTag.Content = Properties.Resources.LblInvalidGamerTag;
             lblInvalidGamerTag.Visibility = Visibility.Hidden;
         }
 
         private void TypingEMail(object sender, TextChangedEventArgs e)
         {
+            lblInvalidGamerTag.Content = Properties.Resources.LblInvalidEMail;
             lblInvalidEmail.Visibility = Visibility.Hidden;
         }
 

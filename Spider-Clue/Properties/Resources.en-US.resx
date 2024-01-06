@@ -437,4 +437,7 @@
   <data name="DlgInvalidMove" xml:space="preserve">
     <value>Your move is not valid. Please try again.</value>
   </data>
+  <data name="LblEmailUsed" xml:space="preserve">
+    <value>The email is already in use, try another one.</value>
+  </data>
 </root>
