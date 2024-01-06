@@ -44,7 +44,33 @@ namespace Spider_Clue.Views
         private void SetPawnInBoard()
         {
             string pawnColor = gamersInGame[UserSingleton.Instance.GamerTag].Color;
-            txtblckPawnColor.Text = "Tu peón es: " + pawnColor;
+            switch (pawnColor)
+            {
+                case "BluePawn.png":
+                    this.DataContext = new { PawnColor = "#5283AF" };
+                    break;
+
+                case "GreenPawn.png":
+                    this.DataContext = new { PawnColor = "#1D4A24" };
+                    break;
+
+                case "PurplePawn.png":
+                    this.DataContext = new { PawnColor = "#3E185D" };
+                    break;
+
+                case "RedPawn.png":
+                    this.DataContext = new { PawnColor = "#920808" };
+                    break;
+
+                case "WhitePawn.png":
+                    this.DataContext = new { PawnColor = "#F2EFEB" };
+                    break;
+
+                case "YellowPawn.png":
+                    this.DataContext = new { PawnColor = "#FFBD59" };
+                    break;
+
+            }
         }
 
         private void GoToMainMenu()
@@ -93,6 +119,8 @@ namespace Spider_Clue.Views
             diceNumber = GameManager.RollDice(matchCode);
             OpenDialogRollDice(diceNumber);
             btnRollDice.Visibility = Visibility.Collapsed;
+            RollDiceBorder.Visibility = Visibility.Visible;
+            txtRollDice.Text = diceNumber.ToString();   
         }
 
         public void ReceivePawnsMove(Pawn pawn)
@@ -156,12 +184,15 @@ namespace Spider_Clue.Views
             {
                 if (diceNumber == 0)
                 {
-                    btnRollDice.Visibility = Visibility.Visible;
+                    btnRollDice.Visibility = Visibility.Visible;   
                 }
+                TurnGreenColor.Visibility = Visibility.Visible;
                 GameBoardGrid.IsEnabled = true;
             } else
             {
+                TurnGreenColor.Visibility = Visibility.Hidden;
                 btnRollDice.Visibility = Visibility.Collapsed;
+                RollDiceBorder.Visibility = Visibility.Collapsed;
                 GameBoardGrid.IsEnabled = false;
             }
         }

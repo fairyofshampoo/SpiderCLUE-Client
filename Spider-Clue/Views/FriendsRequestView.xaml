@@ -104,7 +104,9 @@
                                                 HorizontalAlignment="Center"
                                                 CornerRadius="10">
                                                 <Border.Background>
-                                                    <ImageBrush ImageSource = "{Binding Icon}"
+                                                    <ImageBrush 
+                                                    x:Name="ImageBrushFriendRequest"
+                                                    ImageSource = "{Binding Icon}"
                                                     Stretch = "Fill">
                                                     </ImageBrush>
                                                 </Border.Background>

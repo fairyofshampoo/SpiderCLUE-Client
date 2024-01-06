@@ -19,13 +19,13 @@
                 Height="400"
                 Width="800"
                 CornerRadius="10">
-            
+
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                
+
                 <Label x:Name = "lblTop3Global" Content = "{x:Static p:Resources.LblDeck}"
                        Width="750"
                        Foreground ="White"
@@ -51,7 +51,7 @@
                         </Style>
                     </DataGrid.ColumnHeaderStyle>
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn x:Name = "Icon" Header="Icon" Width="*">
+                        <DataGridTemplateColumn x:Name = "IconName" Header="Icon" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Border 
@@ -60,8 +60,10 @@
                                       HorizontalAlignment="Center"
                                       CornerRadius="10">
                                         <Border.Background>
-                                            <ImageBrush ImageSource = "{Binding Icon}"
-                                                    Stretch = "Fill">
+                                            <ImageBrush 
+                                                    x:Name="ImageBrush"
+                                                    ImageSource="{Binding Icon}"
+                                                    Stretch = "UniformToFill">
                                             </ImageBrush>
                                         </Border.Background>
                                     </Border>

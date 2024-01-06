@@ -290,23 +290,39 @@
                             Stretch = "UniformToFill"/>
                         </Button>
                     </Border>
+
+                    <Border 
+                        x:Name="RollDiceBorder"
+                        CornerRadius = "30"
+                        Background = "#EEF8EB"
+                        Width = "100"
+                        Height = "100"
+                        Margin = "0,50,0,0"
+                        Grid.Row="3"
+                        Visibility="Collapsed">
+                        <TextBlock x:Name="txtRollDice"
+                                   FontSize="50"
+                                   FontFamily="Monserrat"
+                                   Text="0"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center">
+                        </TextBlock>
+                    </Border>
                 </Grid>
 
                 <StackPanel Orientation="Vertical" Grid.Column="2">
                     <Border
-
-Width="306"
-Height="670"
-HorizontalAlignment="Left"
-Margin="30,5,5,5">
+                    Width="306"
+                    Height="670"
+                    HorizontalAlignment="Left"
+                    Margin="30,5,5,5">
                         <Border.Background>
                             <ImageBrush ImageSource="/Images/Elements/ClipBoard.png" 
-                    Stretch="Fill"/>
+                                        Stretch="Fill"/>
                         </Border.Background>
                         <Grid Width="237"
-          HorizontalAlignment="Left"
-          Margin="10,127,0,21"
-          >
+                              HorizontalAlignment="Left"
+                              Margin="10,127,0,21">
 
                             <Grid.Resources>
 
@@ -354,281 +370,281 @@ Margin="30,5,5,5">
 
 
                             <Label Content = "{x:Static p:Resources.LblNotes}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "20"
-                   FontFamily = "Monsterrat"
-                   HorizontalContentAlignment="Center" Margin="94,0,0,0"/>
+                                   Grid.Row="0"
+                                   Foreground ="Black"
+                                   FontWeight = "Medium"
+                                   FontSize = "20"
+                                   FontFamily = "Monsterrat"
+                                   HorizontalContentAlignment="Center" Margin="94,0,0,0"/>
 
                             <Border Grid.Row="1"
-                Grid.ColumnSpan="5"
-                Background="Gray">
+                                    Grid.ColumnSpan="5"
+                                    Background="Gray">
                                 <Label Content = "SOSPECHOSO"
-                   Grid.Row="0"
-                   Foreground ="White"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="White"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="2">
                                 <Label Content = "Doc Och"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="3">
                                 <Label Content = "MysteRevo"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="4">
                                 <Label Content = "RhinoSidro"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="5">
                                 <Label Content = "Electro-Juan"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="6">
                                 <Label Content = "Xand-Man"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="7">
                                 <Label Content = "Vernom"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="8"
-                Grid.ColumnSpan="5"
-                Background="Gray">
+                                    Grid.ColumnSpan="5"
+                                    Background="Gray">
                                 <Label Content = "MOTIVO"
-                   Grid.Row="0"
-                   Foreground ="White"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="White"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="9">
                                 <Label Content = "{x:Static p:Resources.NotSubmitHomeworkCard}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="21"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="21"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="10">
                                 <Label Content = "{x:Static p:Resources.NotTakeExamCard}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="11">
                                 <Label Content = "{x:Static p:Resources.NotSubmitProject}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="12">
                                 <Label Content = "{x:Static p:Resources.NoAttendanceCard}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="13">
                                 <Label Content = "{x:Static p:Resources.FailedProficiencyExamCard}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="14">
                                 <Label Content = "{x:Static p:Resources.ChoseToBeHappyCard}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="15"
-                Grid.ColumnSpan="5"
-                Background="Gray">
+                                    Grid.ColumnSpan="5"
+                                    Background="Gray">
                                 <Label Content = "LUGAR"
-                   Grid.Row="0"
-                   Foreground ="White"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="White"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="16">
                                 <Label Content = "{x:Static p:Resources.GlassRoomCard}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="17">
                                 <Label Content = "{x:Static p:Resources.ComputerCenterCard}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="18">
                                 <Label Content = "{x:Static p:Resources.TeachersLoungecard}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="19">
                                 <Label Content = "{x:Static p:Resources.F103ClassroomCard}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="20">
                                 <Label Content = "{x:Static p:Resources.CourtCard}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="21">
                                 <Label Content = "{x:Static p:Resources.ParkingLotCard}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="22">
                                 <Label Content = "{x:Static p:Resources.CubiclesCard}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="23">
                                 <Label Content = "{x:Static p:Resources.LaboratoryCard}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="24">
                                 <Label Content = "{x:Static p:Resources.AmphitheaterCard}"
-                   Grid.Row="0"
-                   Foreground ="Black"
-                   FontWeight = "Medium"
-                   FontSize = "10"
-                   FontFamily = "Monsterrat"
-                   Height="20"
-                   HorizontalContentAlignment="Left"/>
+                                       Grid.Row="0"
+                                       Foreground ="Black"
+                                       FontWeight = "Medium"
+                                       FontSize = "10"
+                                       FontFamily = "Monsterrat"
+                                       Height="20"
+                                       HorizontalContentAlignment="Left"/>
                             </Border>
 
                             <Border Grid.Row="2" Grid.Column="1"/>
@@ -740,9 +756,54 @@ Margin="30,5,5,5">
 
                         </Grid>
                     </Border>
-                    <TextBlock x:Name="txtblckPawnColor" Background="White" TextWrapping="Wrap" FontSize="15">
-                        
-                    </TextBlock>
+                    <Border
+                        Width="290"
+                        Height="30"
+                        CornerRadius="8"
+                        Background="#7F7A7A">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border 
+                                    Name="TurnGreenColor"
+                                    CornerRadius = "10"
+                                    Background = "Green"
+                                    Grid.Column="0"
+                                    Width="20"
+                                    Height="20"
+                                    Margin="10,0,0,0"
+                                    Visibility="Hidden">
+                            </Border>
+
+                            <Label Content="{x:Static p:Resources.LblCode}"
+                                   Grid.Column="1"
+                                   FontWeight="Bold" 
+                                   HorizontalContentAlignment="Left">
+                            </Label>
+
+                            <Border 
+                                    CornerRadius = "10"
+                                    Background = "{Binding PawnColor}"
+                                    Grid.Column="2"
+                                    Width="20"
+                                    Height="20"
+                                    Margin="10,0,0,0">
+                            </Border>
+
+                            <Label Content="{x:Static p:Resources.LblCode}"
+                                   Grid.Column="3"
+                                   FontWeight="Bold" 
+                                   HorizontalContentAlignment="Left">
+                            </Label>
+
+
+                        </Grid>
+                    </Border>
                 </StackPanel>
             </Grid>
         </Border>
