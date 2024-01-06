@@ -7,9 +7,7 @@ using System.Windows.Input;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for SendFriendRequest.xaml
-    /// </summary>
+
     public partial class SendFriendRequest : Window
     {
         public SendFriendRequest()

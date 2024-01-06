@@ -43,7 +43,7 @@ namespace Spider_Clue.Views
 
         private void ShowFriendList()
         {
-            FriendsConnectedGrid.Items.Clear();
+            dtgFriendsConnected.Items.Clear();
             string[] friendList = GetFriends();
             string statusColor = "Red";
             for(int firstIndex = 0; firstIndex < friendList.Length; firstIndex++)
@@ -60,7 +60,7 @@ namespace Spider_Clue.Views
                     Gamertag = friendList[firstIndex],
                     Status = statusColor
                 };
-                FriendsConnectedGrid.Items.Add(player);
+                dtgFriendsConnected.Items.Add(player);
                 statusColor = "Red";
             }           
         }
@@ -131,7 +131,6 @@ namespace Spider_Clue.Views
             {
                gamertag = dataObject.Gamertag;
             }
-            Console.WriteLine(gamertag);
             return gamertag;
         }
 

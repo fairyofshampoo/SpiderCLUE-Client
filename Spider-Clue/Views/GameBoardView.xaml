@@ -31,7 +31,7 @@
                             <ImageBrush ImageSource = "/Images/Elements/ClueBoard.png">
                             </ImageBrush>
                         </Border.Background>
-                        <Grid Margin="42,26,42,24" x:Name="GameBoardGrid" MouseDown = "Grid_Click" Background="Transparent">
+                        <Grid Margin="42,26,42,24" x:Name="dtgGameBoard" MouseDown = "Grid_Click" Background="Transparent">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="23"/>
                                 <RowDefinition Height="24"/>
@@ -85,12 +85,12 @@
                                 <ColumnDefinition Width="30"/>
                             </Grid.ColumnDefinitions>
 
-                            <Image x:Name="bluePawn" Source="/Images/Characters/BluePawn.png" Grid.Row="17" Grid.Column="0"/>
-                            <Image x:Name="purplePawn" Source="/Images/Characters/PurplePawn.png" Grid.Row="4" Grid.Column="0"/>
-                            <Image x:Name="whitePawn" Source="/Images/Characters/WhitePawn.png" Grid.Row="22" Grid.Column="13"/>
-                            <Image x:Name="redPawn" Source="/Images/Characters/RedPawn.png" Grid.Row="0" Grid.Column="15"/>
-                            <Image x:Name="yellowPawn" Source="/Images/Characters/YellowPawn.png" Grid.Row="6" Grid.Column="21"/>
-                            <Image x:Name="greenPawn" Source="/Images/Characters/GreenPawn.png" Grid.Row="22" Grid.Column="8"/>
+                            <Image x:Name="imgBluePawn" Source="/Images/Characters/BluePawn.png" Grid.Row="17" Grid.Column="0"/>
+                            <Image x:Name="imgPurplePawn" Source="/Images/Characters/PurplePawn.png" Grid.Row="4" Grid.Column="0"/>
+                            <Image x:Name="imgWhitePawn" Source="/Images/Characters/WhitePawn.png" Grid.Row="22" Grid.Column="13"/>
+                            <Image x:Name="imgRedPawn" Source="/Images/Characters/RedPawn.png" Grid.Row="0" Grid.Column="15"/>
+                            <Image x:Name="imgYellowPawn" Source="/Images/Characters/YellowPawn.png" Grid.Row="6" Grid.Column="21"/>
+                            <Image x:Name="imgGreenPawn" Source="/Images/Characters/GreenPawn.png" Grid.Row="22" Grid.Column="8"/>
 
                             <Border Background="Black"
                                 Grid.ColumnSpan = "4"
@@ -277,7 +277,7 @@
                     </Border>
 
                     <Border 
-                        x:Name="btnRollDice"
+                        x:Name="brRollDice"
                         CornerRadius = "30"
                         Background = "#EEF8EB"
                         Width = "100"
@@ -292,7 +292,7 @@
                     </Border>
 
                     <Border 
-                        x:Name="RollDiceBorder"
+                        x:Name="brDiceRoll"
                         CornerRadius = "30"
                         Background = "#EEF8EB"
                         Width = "100"
@@ -770,7 +770,7 @@
                             </Grid.ColumnDefinitions>
 
                             <Border 
-                                    Name="TurnGreenColor"
+                                    Name="brTurnGreenColor"
                                     CornerRadius = "10"
                                     Background = "Green"
                                     Grid.Column="0"

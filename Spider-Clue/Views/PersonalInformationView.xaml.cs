@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for PersonalInformationView.xaml
-    /// </summary>
     public partial class PersonalInformationView : Page
     {
         public PersonalInformationView()

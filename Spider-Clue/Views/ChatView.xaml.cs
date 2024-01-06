@@ -18,9 +18,7 @@ using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for ChatView.xaml
-    /// </summary>
+
     public partial class ChatView : Page, IChatManagerCallback
     {
         public readonly ChatManagerClient ChatManager;
@@ -87,12 +85,12 @@ namespace Spider_Clue.Views
 
         public void ReceiveMessages(Message[] messages)
         {
-            listBoxChat.Items.Clear();
+            lbxChat.Items.Clear();
             foreach (Message message in messages)
             {
                 string textToShow = $"{message.GamerTag}: {message.Text}\n";
-                listBoxChat.Items.Add(textToShow);
-                listBoxChat.ScrollIntoView(listBoxChat.Items[listBoxChat.Items.Count - 1]);
+                lbxChat.Items.Add(textToShow);
+                lbxChat.ScrollIntoView(lbxChat.Items[lbxChat.Items.Count - 1]);
             }
         }
 

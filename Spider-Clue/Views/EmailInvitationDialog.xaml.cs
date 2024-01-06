@@ -1,25 +1,11 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for EmailInvitationDialog.xaml
-    /// </summary>
+
     public partial class EmailInvitationDialog : Window
     {
         private string MatchCode;
@@ -86,14 +72,14 @@ namespace Spider_Clue.Views
 
         private void SendEmail_Click(object sender, MouseButtonEventArgs e)
         {
-            stckPanelCopyCode.Visibility = Visibility.Collapsed;
-            stckPanelSendEmail.Visibility = Visibility.Visible;
+            stpCopyCode.Visibility = Visibility.Collapsed;
+            stpSendEmail.Visibility = Visibility.Visible;
         }
 
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
-            stckPanelCopyCode.Visibility = Visibility.Visible;
-            stckPanelSendEmail.Visibility = Visibility.Collapsed;
+            stpCopyCode.Visibility = Visibility.Visible;
+            stpSendEmail.Visibility = Visibility.Collapsed;
         }
     }
 }

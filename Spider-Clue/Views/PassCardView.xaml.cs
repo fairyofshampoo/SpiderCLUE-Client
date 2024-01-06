@@ -1,18 +1,7 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
@@ -35,17 +24,17 @@ namespace Spider_Clue.Views
                 switch(card.Type)
                 {
                     case "Place":
-                         BtnPlace.Visibility = Visibility.Visible;
+                         btnPlace.Visibility = Visibility.Visible;
                          ShowCard("PlaceCardPath", card.ID);
                          break;
 
                     case "Character":
-                        BtnSinister.Visibility = Visibility.Visible;
+                        btnSinister.Visibility = Visibility.Visible;
                         ShowCard("SinisterCardPath", card.ID);
                         break;
 
                     case "Motive":
-                        BtnMotive.Visibility = Visibility.Visible;
+                        btnMotive.Visibility = Visibility.Visible;
                         ShowCard("MotiveCardPath", card.ID);
                         break;
                 }

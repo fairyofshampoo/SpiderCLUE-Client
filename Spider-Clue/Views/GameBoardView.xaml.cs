@@ -87,10 +87,10 @@ namespace Spider_Clue.Views
 
         private void Grid_Click(object sender, MouseButtonEventArgs mouseEvent)
         {
-            Point click = mouseEvent.GetPosition(GameBoardGrid);
-            int columnClick = (int)(click.X / (int)GameBoardGrid.ActualWidth * GameBoardGrid.ColumnDefinitions.Count);
-            int rowClick = (int)(click.Y / (int)GameBoardGrid.ActualHeight * GameBoardGrid.RowDefinitions.Count);
-            GameBoardGrid.IsEnabled = false;
+            Point click = mouseEvent.GetPosition(dtgGameBoard);
+            int columnClick = (int)(click.X / (int)dtgGameBoard.ActualWidth * dtgGameBoard.ColumnDefinitions.Count);
+            int rowClick = (int)(click.Y / (int)dtgGameBoard.ActualHeight * dtgGameBoard.RowDefinitions.Count);
+            dtgGameBoard.IsEnabled = false;
             GameManager.MovePawn(columnClick, rowClick, UserSingleton.Instance.GamerTag, matchCode);
         }
 
@@ -116,8 +116,8 @@ namespace Spider_Clue.Views
         {
             diceNumber = GameManager.RollDice(matchCode);
             OpenDialogRollDice(diceNumber);
-            btnRollDice.Visibility = Visibility.Collapsed;
-            RollDiceBorder.Visibility = Visibility.Visible;
+            brRollDice.Visibility = Visibility.Collapsed;
+            brDiceRoll.Visibility = Visibility.Visible;
             txtRollDice.Text = diceNumber.ToString();   
         }
 
@@ -127,33 +127,33 @@ namespace Spider_Clue.Views
             switch (pawn.Color)
             {
                 case "BluePawn.png":
-                    Grid.SetRow(bluePawn, pawn.YPosition);
-                    Grid.SetColumn(bluePawn, pawn.XPosition);
+                    Grid.SetRow(imgBluePawn, pawn.YPosition);
+                    Grid.SetColumn(imgBluePawn, pawn.XPosition);
                     break;
 
                 case "PurplePawn.png":
-                    Grid.SetRow(purplePawn, pawn.YPosition);
-                    Grid.SetColumn(purplePawn, pawn.XPosition);
+                    Grid.SetRow(imgPurplePawn, pawn.YPosition);
+                    Grid.SetColumn(imgPurplePawn, pawn.XPosition);
                     break;
 
                 case "WhitePawn.png":
-                    Grid.SetRow(whitePawn, pawn.YPosition);
-                    Grid.SetColumn(whitePawn, pawn.XPosition);
+                    Grid.SetRow(imgWhitePawn, pawn.YPosition);
+                    Grid.SetColumn(imgWhitePawn, pawn.XPosition);
                     break;
 
                 case "RedPawn.png":
-                    Grid.SetRow(redPawn, pawn.YPosition);
-                    Grid.SetColumn(redPawn, pawn.XPosition);
+                    Grid.SetRow(imgRedPawn, pawn.YPosition);
+                    Grid.SetColumn(imgRedPawn, pawn.XPosition);
                     break;
 
                 case "YellowPawn.png":
-                    Grid.SetRow(yellowPawn, pawn.YPosition);
-                    Grid.SetColumn(yellowPawn, pawn.XPosition);
+                    Grid.SetRow(imgYellowPawn, pawn.YPosition);
+                    Grid.SetColumn(imgYellowPawn, pawn.XPosition);
                     break;
 
                 case "GreenPawn.png":
-                    Grid.SetRow(greenPawn, pawn.YPosition);
-                    Grid.SetColumn(greenPawn, pawn.XPosition);
+                    Grid.SetRow(imgGreenPawn, pawn.YPosition);
+                    Grid.SetColumn(imgGreenPawn, pawn.XPosition);
                     break; 
             }
         }
@@ -182,16 +182,16 @@ namespace Spider_Clue.Views
             {
                 if (diceNumber == 0)
                 {
-                    btnRollDice.Visibility = Visibility.Visible;   
+                    brRollDice.Visibility = Visibility.Visible;   
                 }
-                TurnGreenColor.Visibility = Visibility.Visible;
-                GameBoardGrid.IsEnabled = true;
+                brTurnGreenColor.Visibility = Visibility.Visible;
+                dtgGameBoard.IsEnabled = true;
             } else
             {
-                TurnGreenColor.Visibility = Visibility.Hidden;
-                btnRollDice.Visibility = Visibility.Collapsed;
-                RollDiceBorder.Visibility = Visibility.Collapsed;
-                GameBoardGrid.IsEnabled = false;
+                brTurnGreenColor.Visibility = Visibility.Hidden;
+                brRollDice.Visibility = Visibility.Collapsed;
+                brDiceRoll.Visibility = Visibility.Collapsed;
+                dtgGameBoard.IsEnabled = false;
             }
         }
 

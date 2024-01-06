@@ -9,9 +9,6 @@ using System.Windows.Media.Imaging;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for AudioSettingsView.xaml
-    /// </summary>
     public partial class AudioSettingsView : Page
     {
         private readonly Configuration gameConfiguration;
@@ -35,10 +32,10 @@ namespace Spider_Clue.Views
         private void SetMusicAndSoundSettings()
         {
             Boolean isMusicOn = musicStatus.Value.Equals("true");
-            btnMusicSettings.IsChecked = isMusicOn;
+            tgbtnMusicSettings.IsChecked = isMusicOn;
             ToggleMusicVisibility(isMusicOn);
             Boolean isSoundOn = soundStatus.Value.Equals("true");
-            btnSoundSettings.IsChecked = isSoundOn;
+            tgbtnSoundSettings.IsChecked = isSoundOn;
             ToggleSoundVisibility(isSoundOn);
         }
 
@@ -46,7 +43,7 @@ namespace Spider_Clue.Views
         {
             Utilities.PlayButtonClickSound();
             musicStatus.Value = "true";
-            btnSoundSettings.IsChecked = false;
+            tgbtnSoundSettings.IsChecked = false;
             ToggleMusicVisibility(true);
         }
 

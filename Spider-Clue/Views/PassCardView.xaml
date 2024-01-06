@@ -43,7 +43,7 @@
                         <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button Name="BtnSinister"
+                    <Button Name="btnSinister"
                             Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Column="0"
@@ -56,7 +56,7 @@
                                Stretch="UniformToFill"/>
                     </Button>
 
-                    <Button Name="BtnPlace"
+                    <Button Name="btnPlace"
                             Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Column="1"
@@ -69,7 +69,7 @@
                                Stretch="UniformToFill"/>
                     </Button>
 
-                    <Button Name="BtnMotive"
+                    <Button Name="btnMotive"
                             Background="Transparent" 
                             BorderBrush="Transparent"
                             Grid.Column="2"

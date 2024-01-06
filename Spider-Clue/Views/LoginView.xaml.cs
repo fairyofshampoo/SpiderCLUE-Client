@@ -10,9 +10,6 @@ using System.Windows.Media.Imaging;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for LoginView.xaml
-    /// </summary>
     public partial class LoginView : Page
     {
         public LoginView()
@@ -143,12 +140,12 @@ namespace Spider_Clue.Views
 
         private String GetPassword()
         {
-            bool isChecked = btnPasswordVisibility.IsChecked ?? false;
+            bool isChecked = tgbtnPasswordVisibility.IsChecked ?? false;
             String password = txtPasswordDisplay.Text;
 
             if (!isChecked)
             {
-                SecureString passwordToAccess = txtPassword.SecurePassword;
+                SecureString passwordToAccess = pwbPassword.SecurePassword;
                 password = new NetworkCredential(string.Empty, passwordToAccess).Password;
             }
 
@@ -222,30 +219,30 @@ namespace Spider_Clue.Views
         {
             if (isVisible)
             {
-                bdrPassword.Visibility = Visibility.Collapsed;
-                bdrPasswordDisplay.Visibility = Visibility.Visible;
+                brPassword.Visibility = Visibility.Collapsed;
+                brPasswordDisplay.Visibility = Visibility.Visible;
             }
             else
             {
-                bdrPassword.Visibility = Visibility.Visible;
-                bdrPasswordDisplay.Visibility = Visibility.Collapsed;
+                brPassword.Visibility = Visibility.Visible;
+                brPasswordDisplay.Visibility = Visibility.Collapsed;
             }
 
             if (isVisible)
             {
-                txtPasswordDisplay.Text = txtPassword.Password;
+                txtPasswordDisplay.Text = pwbPassword.Password;
                 SetPasswordIcon("InvisibleIcon.png");
             }
             else
             {
-                txtPassword.Password = txtPasswordDisplay.Text;
+                pwbPassword.Password = txtPasswordDisplay.Text;
                 SetPasswordIcon("VisibleIcon.png");
             }
         }
 
         private void SetPasswordIcon(string iconPassword)
         {
-            Image imgPasswordIcon = btnPasswordVisibility.Template.FindName("imgPasswordIcon", btnPasswordVisibility) as Image;
+            Image imgPasswordIcon = tgbtnPasswordVisibility.Template.FindName("imgPasswordIcon", tgbtnPasswordVisibility) as Image;
 
             if (imgPasswordIcon != null)
             {

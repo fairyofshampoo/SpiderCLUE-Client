@@ -42,7 +42,7 @@ namespace Spider_Clue.Views
                     Icon = iconPath,
                     Gamertag = PlayersInLobby[Index],
                 };
-                KickPlayersGrid.Items.Add(player);
+                dtgKickPlayers.Items.Add(player);
             }
         }
 

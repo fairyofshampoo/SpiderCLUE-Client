@@ -16,7 +16,7 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
             FriendRequests = new ObservableCollection<FriendRequest>();
-            FriendRequestGrid.ItemsSource = FriendRequests;
+            dtgFriendRequest.ItemsSource = FriendRequests;
             friendsManagerClient = new FriendsManagerClient(new InstanceContext(this));
             ShowFriendRequestList();          
         }

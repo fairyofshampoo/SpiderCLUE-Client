@@ -79,9 +79,9 @@
                                 <ColumnDefinition Width="350" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Border x:Name="bdrPassword" CornerRadius="5" BorderBrush="LightGray" BorderThickness="3" Grid.Row="4" Grid.Column="0"
+                            <Border x:Name="brPassword" CornerRadius="5" BorderBrush="LightGray" BorderThickness="3" Grid.Row="4" Grid.Column="0"
                                     Margin="100,0,0,0" Height="35" Visibility="Visible">
-                                <PasswordBox x:Name="txtPassword"
+                                <PasswordBox x:Name="pwbPassword"
                                              FontSize="15"
                                              FontWeight="Medium"
                                              FontFamily = "Segoe UI Variable Display"
@@ -91,7 +91,7 @@
                                              PasswordChanged="TypingPassword">
                                 </PasswordBox>
                             </Border>
-                            <ToggleButton x:Name = "btnPasswordVisibility" Grid.Column = "1" Cursor = "Hand"
+                            <ToggleButton x:Name = "tgbtnPasswordVisibility" Grid.Column = "1" Cursor = "Hand"
                                     Checked = "BtnPasswordVisibility_Checked" Unchecked = "BtnPasswordVisibility_Unchecked">
                                 <ToggleButton.Template>
                                     <ControlTemplate>
@@ -99,7 +99,7 @@
                                     </ControlTemplate>
                                 </ToggleButton.Template>
                             </ToggleButton>
-                            <Border x:Name="bdrPasswordDisplay" CornerRadius="5" BorderBrush="LightGray" BorderThickness="3" Grid.Row="4" Grid.Column="0" Margin="100,0,0,0" Height="35" Visibility="Collapsed">
+                            <Border x:Name="brPasswordDisplay" CornerRadius="5" BorderBrush="LightGray" BorderThickness="3" Grid.Row="4" Grid.Column="0" Margin="100,0,0,0" Height="35" Visibility="Collapsed">
                                 <TextBox x:Name="txtPasswordDisplay"
                                         FontSize="15"
                                         FontWeight="Medium"

@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for ReasonCardsView.xaml
-    /// </summary>
+
     public partial class ReasonCardsView : Page
     {
         public ReasonCardsView()

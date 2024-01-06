@@ -73,7 +73,7 @@
                             <RowDefinition Height = "Auto"/>
                             <RowDefinition Height = "Auto"/>
                         </Grid.RowDefinitions>
-                        <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriendsRequest}"
+                        <Label x:Name = "lblFriendsRequest" Content = "{x:Static p:Resources.LblFriendsRequest}"
                                    Width="440"
                                    Foreground ="White"
                                    FontWeight = "Medium"
@@ -86,7 +86,7 @@
 
 
 
-                        <DataGrid Grid.Row="1"  AutoGenerateColumns="False" CanUserAddRows="False" Name = "FriendRequestGrid" Margin = "0,10,65,0" HorizontalAlignment="Right" Width="900">
+                        <DataGrid Grid.Row="1"  AutoGenerateColumns="False" CanUserAddRows="False" Name = "dtgFriendRequest" Margin = "0,10,65,0" HorizontalAlignment="Right" Width="900">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="FontSize" Value="28"/>
@@ -95,7 +95,7 @@
                                 </Style>
                             </DataGrid.ColumnHeaderStyle>
                             <DataGrid.Columns>
-                                <DataGridTemplateColumn x:Name = "Icon" Header="Icon" Width="*">
+                                <DataGridTemplateColumn x:Name = "dtgtcIcon" Header="Icon" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Border 
@@ -105,7 +105,7 @@
                                                 CornerRadius="10">
                                                 <Border.Background>
                                                     <ImageBrush 
-                                                    x:Name="ImageBrushFriendRequest"
+                                                    x:Name="imgbFriendRequest"
                                                     ImageSource = "{Binding Icon}"
                                                     Stretch = "Fill">
                                                     </ImageBrush>
@@ -115,7 +115,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                                 <DataGridTextColumn  Header="Gamertag" Width="300" FontSize="28" Binding="{Binding Gamertag}"/>
-                                <DataGridTemplateColumn x:Name = "Accept" Header="Accept" Width="*">
+                                <DataGridTemplateColumn x:Name = "dtgtcAccept" Header="Accept" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button Background="Transparent" BorderBrush="Transparent" Click="BtnAcceptFriendRequest">
@@ -126,7 +126,7 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTemplateColumn x:Name = "Decline" Header="Reject" Width="*">
+                                <DataGridTemplateColumn x:Name = "dtgtcDecline" Header="Reject" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button Background="Transparent" BorderBrush="Transparent" Click="BtnRejectFriendRequest">

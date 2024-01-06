@@ -23,7 +23,7 @@ namespace Spider_Clue.Views
         public LobbyView()
         {
             InitializeComponent();
-            Utilities.PlayMainThemeSong(mainThemePlayer);
+            Utilities.PlayMainThemeSong(meMainThemePlayer);
             MatchManager = new MatchManagerClient(new InstanceContext(this));
             LobbyManager = new LobbyManagerClient(new InstanceContext(this));
         }
@@ -31,7 +31,7 @@ namespace Spider_Clue.Views
         public void SetChatInLobby()
         {
             chatView.ConfigureWindow(MatchCode);
-            chatFrame.NavigationService.Navigate(chatView);
+            frChat.NavigationService.Navigate(chatView);
         }
 
         public void SetMatchDataInPage(string matchCode)
@@ -53,7 +53,7 @@ namespace Spider_Clue.Views
             if (isOwnerOfMatch)
             {
                 btnReady.Visibility = Visibility.Visible;
-                bdrKickPlayer.Visibility = Visibility.Visible;
+                brKickPlayer.Visibility = Visibility.Visible;
             }
         }
 
@@ -73,7 +73,7 @@ namespace Spider_Clue.Views
                 })
                 .ToList();
 
-            GamersInMatchListBox.ItemsSource = gamersList;
+            lbxGamersInMatch.ItemsSource = gamersList;
         }
 
         private string[] GetArrayWithGamerTags(Dictionary<string, Pawn> gamers)
