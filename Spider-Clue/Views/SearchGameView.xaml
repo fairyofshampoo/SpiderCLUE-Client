@@ -61,7 +61,7 @@
                                                  Foreground="Black"
                                                  BorderThickness="0" Width="170"/>
                                         <Border Background="LightGray" Grid.Column="1" MouseDown="Search_Click">
-                                            <Image x:Name="SearchIcon" Stretch="UniformToFill"
+                                            <Image x:Name="imgSearchIcon" Stretch="UniformToFill"
                                                    Width="15" Height="15"
                                                    Source="/Images/Icons/SearchIcon.png"/>
                                         </Border>
@@ -69,7 +69,7 @@
                                 </Border>
                             </Grid>
 
-                            <Border x:Name="bdrNotFound" Grid.Row="1"
+                            <Border x:Name="brNotFound" Grid.Row="1"
                                     Background="#655E73"
                                     CornerRadius="5"
                                     Margin="5,10,5,10"
@@ -104,7 +104,7 @@
                                 </Grid>
                             </Border>
 
-                            <Border x:Name ="bdrMatchFound" Grid.Row="1"
+                            <Border x:Name ="brMatchFound" Grid.Row="1"
                                     Background="#655E73"
                                     CornerRadius="5"
                                     Margin="50,10,57,-11"

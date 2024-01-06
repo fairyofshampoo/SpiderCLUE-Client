@@ -35,7 +35,7 @@ namespace Spider_Clue.Views
 
         private void SearchMatch()
         {
-            bdrMatchFound.Visibility = Visibility.Visible;
+            brMatchFound.Visibility = Visibility.Visible;
             string matchCodeToSearch = txtMatchToSearch.Text;
             Match matchFound = matchManagerClient.GetMatchInformation(matchCodeToSearch);
             if (matchFound != null)
@@ -45,8 +45,8 @@ namespace Spider_Clue.Views
             }
             else
             {
-                bdrMatchFound.Visibility = Visibility.Collapsed;
-                bdrNotFound.Visibility = Visibility.Visible;
+                brMatchFound.Visibility = Visibility.Collapsed;
+                brNotFound.Visibility = Visibility.Visible;
             }
         }
 

@@ -240,7 +240,7 @@
                                     Grid.Column="1"
                                     Height="25"
                                 Margin="15,20,12,0">
-                                    <PasswordBox x:Name="txtPassword"
+                                    <PasswordBox x:Name="pwbPassword"
                                  FontSize="13"
                                  FontWeight="Medium"
                                  FontFamily = "Segoe UI Variable Display"

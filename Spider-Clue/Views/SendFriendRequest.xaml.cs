@@ -17,7 +17,7 @@ namespace Spider_Clue.Views
 
         private void Search_Click(object sender, MouseButtonEventArgs e)
         {
-            searchData.Visibility = Visibility.Visible;
+            brSearchData.Visibility = Visibility.Visible;
             string gamertag = txtSearchGamer.Text;
             IUserManager userManager = new SpiderClueService.UserManagerClient();
             if (userManager.IsGamertagExisting(gamertag))
