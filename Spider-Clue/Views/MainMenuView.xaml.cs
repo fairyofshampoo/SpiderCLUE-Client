@@ -121,6 +121,12 @@ namespace Spider_Clue.Views
         {
             ShowFriendsList();
         }
+        private void BtnTopGlobal_Click(object sender, RoutedEventArgs e)
+        {
+            Utilities.PlayButtonClickSound();
+            Top3GlobalView top3GlobalView = new Top3GlobalView();
+            NavigationService.Navigate(top3GlobalView);
+        }
 
         private void ShowFriendsList()
         {

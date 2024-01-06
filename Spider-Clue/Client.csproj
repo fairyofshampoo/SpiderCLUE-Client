@@ -196,6 +196,9 @@
     <Compile Include="Views\SinisterSixCardsView.xaml.cs">
       <DependentUpon>SinisterSixCardsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Top3GlobalView.xaml.cs">
+      <DependentUpon>Top3GlobalView.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -352,6 +355,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Top3GlobalView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -424,6 +431,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Match.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Winner.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
@@ -592,6 +602,8 @@
     <Resource Include="Images\Background\PassCardBackground.png" />
     <Resource Include="Images\GameCards\DefaultCard.png" />
     <Resource Include="Images\Background\ShowWinnerBackground.png" />
+    <Resource Include="Images\Background\Top3MundialBackground.jpg" />
+    <Resource Include="Images\Icons\TopGlobalIcon.png" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />
