@@ -85,12 +85,12 @@ namespace Spider_Clue.Views
 
         public void ReceiveMessages(Message[] messages)
         {
-            listBoxChat.Items.Clear();
+            lbxChat.Items.Clear();
             foreach (Message message in messages)
             {
                 string textToShow = $"{message.GamerTag}: {message.Text}\n";
-                listBoxChat.Items.Add(textToShow);
-                listBoxChat.ScrollIntoView(listBoxChat.Items[listBoxChat.Items.Count - 1]);
+                lbxChat.Items.Add(textToShow);
+                lbxChat.ScrollIntoView(lbxChat.Items[lbxChat.Items.Count - 1]);
             }
         }
 

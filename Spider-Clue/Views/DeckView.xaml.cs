@@ -1,19 +1,10 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace Spider_Clue.Views
 {
@@ -59,32 +50,32 @@ namespace Spider_Clue.Views
                 switch (index)
                 {
                     case 1:
-                        Villain1Path.Visibility = Visibility.Visible;
+                        brVillain1Path.Visibility = Visibility.Visible;
                         ShowDeck("Villain1Path", card);
                         break;
 
                     case 2:
-                        Villain2Path.Visibility = Visibility.Visible;
+                        brVillain2Path.Visibility = Visibility.Visible;
                         ShowDeck("Villain2Path", card);
                         break;
 
                     case 3:
-                        Villain3Path.Visibility = Visibility.Visible;
+                        brVillain3Path.Visibility = Visibility.Visible;
                         ShowDeck("Villain3Path", card);
                         break;
 
                     case 4:
-                        Villain4Path.Visibility = Visibility.Visible;
+                        brVillain4Path.Visibility = Visibility.Visible;
                         ShowDeck("Villain4Path", card);
                         break;
 
                     case 5:
-                        Villain5Path.Visibility = Visibility.Visible;
+                        brVillain5Path.Visibility = Visibility.Visible;
                         ShowDeck("Villain5Path", card);
                         break;
 
                     case 6:
-                        Villain6Path.Visibility = Visibility.Visible;
+                        brVillain6Path.Visibility = Visibility.Visible;
                         ShowDeck("Villain6Path", card);
                         break;
                 }
@@ -136,32 +127,32 @@ namespace Spider_Clue.Views
                 switch (index)
                 {
                     case 1:
-                        Place1Path.Visibility = Visibility.Visible;
+                        brPlace1Path.Visibility = Visibility.Visible;
                         ShowDeck("Place1Path", card);
                         break;
 
                     case 2:
-                        Place2Path.Visibility = Visibility.Visible;
+                        brPlace2Path.Visibility = Visibility.Visible;
                         ShowDeck("Place2Path", card);
                         break;
 
                     case 3:
-                        Place3Path.Visibility = Visibility.Visible;
+                        brPlace3Path.Visibility = Visibility.Visible;
                         ShowDeck("Place3Path", card);
                         break;
 
                     case 4:
-                        Place4Path.Visibility = Visibility.Visible;
+                        brPlace4Path.Visibility = Visibility.Visible;
                         ShowDeck("Place4Path", card);
                         break;
 
                     case 5:
-                        Place5Path.Visibility = Visibility.Visible;
+                        brPlace5Path.Visibility = Visibility.Visible;
                         ShowDeck("Place5Path", card);
                         break;
 
                     case 6:
-                        Place6Path.Visibility = Visibility.Visible;
+                        brPlace6Path.Visibility = Visibility.Visible;
                         ShowDeck("Place6Path", card);
                         break;
                 }
@@ -211,32 +202,32 @@ namespace Spider_Clue.Views
                 switch (index)
                 {
                     case 1:
-                        Motive1Path.Visibility = Visibility.Visible;
+                        brMotive1Path.Visibility = Visibility.Visible;
                         ShowDeck("Motive1Path", card);
                         break;
 
                     case 2:
-                        Motive2Path.Visibility = Visibility.Visible;
+                        brMotive2Path.Visibility = Visibility.Visible;
                         ShowDeck("Motive2Path", card);
                         break;
 
                     case 3:
-                        Motive3Path.Visibility = Visibility.Visible;
+                        brMotive3Path.Visibility = Visibility.Visible;
                         ShowDeck("Motive3Path", card);
                         break;
 
                     case 4:
-                        Motive4Path.Visibility = Visibility.Visible;
+                        brMotive4Path.Visibility = Visibility.Visible;
                         ShowDeck("Motive4Path", card);
                         break;
 
                     case 5:
-                        Motive5Path.Visibility = Visibility.Visible;
+                        brMotive5Path.Visibility = Visibility.Visible;
                         ShowDeck("Motive5Path", card);
                         break;
 
                     case 6:
-                        Motive6Path .Visibility = Visibility.Visible;
+                        brMotive6Path .Visibility = Visibility.Visible;
                         ShowDeck("Motive6Path", card);
                         break;
                 }

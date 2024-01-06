@@ -11,7 +11,7 @@
     <Viewbox Stretch="Fill">
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <Grid>
-                <MediaElement x:Name = "mainThemePlayer" LoadedBehavior = "Manual"/>
+                <MediaElement x:Name = "meMainThemePlayer" LoadedBehavior = "Manual"/>
                 <Border>
                     <Border.Background>
                         <ImageBrush ImageSource="/Images/Background/LobbyBackground.jpg" Stretch="UniformToFill" />
@@ -24,7 +24,7 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Orientation="Horizontal" Grid.Row="0">
-                        <ListBox x:Name="GamersInMatchListBox" Margin="10,10,10,0" 
+                        <ListBox x:Name="lbxGamersInMatch" Margin="10,10,10,0" 
                                  HorizontalAlignment="Left" VerticalAlignment="Top"
                                  Height="200" Width="Auto" Background="Transparent">
                             <ListBox.ItemTemplate>
@@ -37,7 +37,7 @@
                             </ListBox.ItemTemplate>
                         </ListBox>
 
-                        <Border x:Name="bdrKickPlayer" CornerRadius = "40" Background = "#94857B"
+                        <Border x:Name="brKickPlayer" CornerRadius = "40" Background = "#94857B"
                                 Width = "50" Height = "50"
                                 VerticalAlignment="Top" Visibility="Hidden"
                                 HorizontalAlignment="Right" Cursor="Hand"
@@ -111,8 +111,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <Viewbox x:Name="chatViewBox" Grid.Column="0" Margin="0,10,7,0">
-                            <Frame Name="chatFrame"/>
+                        <Viewbox x:Name="vbChatViewBox" Grid.Column="0" Margin="0,10,7,0">
+                            <Frame Name="frChat"/>
                         </Viewbox>
                         <StackPanel Orientation="Horizontal"
                                     Grid.Column="1">

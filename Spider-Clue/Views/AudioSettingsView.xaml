@@ -39,14 +39,14 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnMusicSettings"
+                    <ToggleButton x:Name="tgbtnMusicSettings"
                                   Background="Transparent"
                                   Checked="BtnMusic_Checked"
                                   Unchecked="BtnMusic_Unchecked">
                         <Image x:Name="imgMusicIcon" Source="{Binding Path= MusicImagePath}" Width = "40" Height = "40" HorizontalAlignment = "Center" Margin = "15,0,0,0" />
                     </ToggleButton>
 
-                    <ToggleButton x:Name="btnSoundSettings"
+                    <ToggleButton x:Name="tgbtnSoundSettings"
                                   Background="Transparent"
                                   Checked="BtnSound_Checked"
                                   Unchecked="BtnSound_Unchecked"

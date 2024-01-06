@@ -1,5 +1,4 @@
-﻿using Spider_Clue.SpiderClueService;
-using System.Net;
+﻿using System.Net;
 using System.Security;
 using System.Windows.Controls;
 using Spider_Clue.Logic;
@@ -22,8 +21,8 @@ namespace Spider_Clue.Views
 
         private bool ValidatePassword()
         {
-            bool passwordValid = Validations.ValidatePassword(txtPassword.SecurePassword);
-            bool passwordsMatching = Validations.ArePasswordsMatching(txtPassword.SecurePassword, txtConfirmPassword.SecurePassword);
+            bool passwordValid = Validations.ValidatePassword(pwbPassword.SecurePassword);
+            bool passwordsMatching = Validations.ArePasswordsMatching(pwbPassword.SecurePassword, pwbConfirmPassword.SecurePassword);
 
             if (!passwordValid)
             {
@@ -66,7 +65,7 @@ namespace Spider_Clue.Views
         private bool UpdateGamerPassword()
         {
             bool result = false;
-            SecureString securePassword = txtPassword.SecurePassword;
+            SecureString securePassword = pwbPassword.SecurePassword;
             string password = new NetworkCredential(string.Empty, securePassword).Password;
             string newPassword = Utilities.CalculateSHA1Hash(password);
             SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();

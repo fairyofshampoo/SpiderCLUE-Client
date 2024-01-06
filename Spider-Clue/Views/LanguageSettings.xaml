@@ -77,7 +77,7 @@
                             <ColumnDefinition Width = "Auto"/>
                         </Grid.ColumnDefinitions>
 
-                        <Label x:Name = "LblLanguageSpanish" Content = "{x:Static p:Resources.LblLanguageSpanish}"
+                        <Label x:Name = "lblLanguageSpanish" Content = "{x:Static p:Resources.LblLanguageSpanish}"
                            Foreground = "White"
                            FontWeight = "Light"
                            FontSize = "20"
@@ -85,7 +85,7 @@
                            Grid.Column = "0"
                            Margin="120,0,0,0"/>
 
-                        <Label x:Name = "LblLanguageEnglish" Content = "{x:Static p:Resources.LblLanguageEnglish}"
+                        <Label x:Name = "lblLanguageEnglish" Content = "{x:Static p:Resources.LblLanguageEnglish}"
                            Foreground = "White"
                            FontWeight = "Light"
                            FontSize = "20"

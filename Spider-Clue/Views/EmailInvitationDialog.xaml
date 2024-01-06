@@ -15,7 +15,7 @@
             </Border.Background>
         </Border>
 
-        <StackPanel x:Name="stckPanelCopyCode" Visibility="Visible"
+        <StackPanel x:Name="stpCopyCode" Visibility="Visible"
             Width="Auto" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#B4A859" Opacity="0.90">
             <Label Content="{x:Static p:Resources.LblInviteYourFriends}" FontFamily = "Segoe UI Variable Display Semibold" FontSize="50" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             <Label Content="{x:Static p:Resources.LblSendMatchCode}" FontFamily ="Segoe UI Variable Display Semibold" FontSize="20"  HorizontalAlignment="Center"/>
@@ -39,7 +39,7 @@
             </Border>
         </StackPanel>
         
-        <StackPanel x:Name="stckPanelSendEmail" Width="Auto" Visibility="Collapsed" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#B4A859" Opacity="0.93">
+        <StackPanel x:Name="stpSendEmail" Width="Auto" Visibility="Collapsed" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Background="#B4A859" Opacity="0.93">
             <StackPanel Orientation="Horizontal">
                 <Button VerticalAlignment="Top" Width="50" Height="50" BorderThickness="0" Click="BtnGoBack_Click" Cursor="Hand" Margin="10,10,10,10">
                     <Button.Template>
