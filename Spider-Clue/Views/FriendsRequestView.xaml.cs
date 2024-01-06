@@ -41,7 +41,7 @@ namespace Spider_Clue.Views
         private string[] GetFriendRequestList()
         {
             SpiderClueService.IFriendRequestManager friendRequestManager = new SpiderClueService.FriendRequestManagerClient();
-            string[] friendRequestList = friendRequestManager.GetFriendsRequets(UserSingleton.Instance.GamerTag);
+            string[] friendRequestList = friendRequestManager.GetFriendsRequest(UserSingleton.Instance.GamerTag);
             return friendRequestList;
         }
 
