@@ -45,5 +45,30 @@ namespace Spider_Clue.Views
             public string Icon { get; set; }
             public string GamesWon { get; set; }
         }
+
+        private void BtnGoBack_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Utilities.PlayButtonClickSound();
+            if (UserSingleton.Instance.IsGuestPlayer)
+            {
+                GoToMainMenuGuestView();
+            }
+            else
+            {
+                GoToMainMenuView();
+            }
+        }
+
+        private void GoToMainMenuView()
+        {
+            MainMenuView mainMenuView = new MainMenuView();
+            this.NavigationService.Navigate(mainMenuView);
+        }
+
+        private void GoToMainMenuGuestView()
+        {
+            MainMenuForGuestView mainMenuGuestView = new MainMenuForGuestView();
+            this.NavigationService.Navigate(mainMenuGuestView);
+        }
     }
 }

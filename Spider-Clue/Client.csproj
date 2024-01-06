@@ -496,7 +496,6 @@
     <Resource Include="Images\Icons\EUAFlag.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SpiderClueService\item1.disco" />
     <Resource Include="Images\Avatars\Icon7.jpg" />
     <Resource Include="Images\Avatars\Icon2.jpg" />
     <Resource Include="Images\Avatars\Icon1.jpg" />
@@ -583,6 +582,7 @@
     <Resource Include="Images\Background\ShowWinnerBackground.png" />
     <Resource Include="Images\Background\Top3MundialBackground.jpg" />
     <Resource Include="Images\Icons\TopGlobalIcon.png" />
+    <None Include="Connected Services\SpiderClueService\item1.disco" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />
