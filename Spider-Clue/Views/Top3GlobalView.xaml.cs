@@ -15,7 +15,7 @@ namespace Spider_Clue.Views
         {
             InitializeComponent();
             TopGlobals = new ObservableCollection<TopGlobal>();
-            Top3GlobalGrid.ItemsSource = TopGlobals;
+            dtgTop3Global.ItemsSource = TopGlobals;
             ShowTop3Global();
         }
 

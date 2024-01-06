@@ -55,7 +55,7 @@ namespace Spider_Clue.Views
         {
             Utilities.PlayButtonClickSound();
             LanguageSettings languageSettings = new LanguageSettings();
-            SettingsFrame.NavigationService.Navigate(languageSettings);
+            frSettings.NavigationService.Navigate(languageSettings);
             LanguageSettings.SettingsView = this;
         }
 
@@ -63,7 +63,7 @@ namespace Spider_Clue.Views
         {
             Utilities.PlayButtonClickSound();
             AudioSettingsView audioSettingsView = new AudioSettingsView();  
-            SettingsFrame.NavigationService.Navigate(audioSettingsView);
+            frSettings.NavigationService.Navigate(audioSettingsView);
             AudioSettingsView.SettingsView = this;
         }
     }

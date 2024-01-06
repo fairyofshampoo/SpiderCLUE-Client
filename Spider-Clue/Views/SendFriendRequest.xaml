@@ -50,7 +50,7 @@
                             <Border
                                     Background="LightGray"
                                     Grid.Column="1">
-                                <Image x:Name="SearchIcon"  
+                                <Image x:Name="imgSearchIcon"  
                                            Stretch="UniformToFill" 
                                            Width="20" Height="20"
                                            Source="/Images/Icons/SearchIcon.png"
@@ -61,7 +61,7 @@
                     </Border>
                 </Grid>
                 <Border 
-                    x:Name="searchData"
+                    x:Name="brSearchData"
                     CornerRadius = "13"
                     Grid.Row = "1"
                     Background = "#655E73"

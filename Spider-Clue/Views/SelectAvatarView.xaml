@@ -41,7 +41,7 @@
                 <RowDefinition Height = "Auto"/>
             </Grid.RowDefinitions>
 
-            <Label x:Name = "lblAudio" Content = "{x:Static p:Resources.LblSelectIcon}"
+            <Label x:Name = "lblChangeAvatar" Content = "{x:Static p:Resources.LblSelectIcon}"
                    Foreground = "White"
                    FontWeight = "Regular"
                    FontSize = "60"
@@ -73,7 +73,7 @@
                             CornerRadius = "10"
                             BorderBrush = "Black"
 >
-                        <Image x:Name = "Icon1" 
+                        <Image x:Name = "imgIcon1" 
                                Source = "/Images/Avatars/Icon1.JPG"
                                Height = "100"
                                Margin = "45,30,0,0"
@@ -84,7 +84,7 @@
 
                     <Border Grid.Row = "0"
                             Grid.Column = "1">
-                        <Image x:Name = "Icon2" 
+                        <Image x:Name = "imgIcon2" 
                                Source = "/Images/Avatars/Icon2.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
@@ -94,7 +94,7 @@
 
                     <Border Grid.Row = "0"
                             Grid.Column = "2">
-                        <Image x:Name = "Icon3" 
+                        <Image x:Name = "imgIcon3" 
                                Source = "/Images/Avatars/Icon3.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
@@ -104,7 +104,7 @@
 
                     <Border Grid.Row = "0"
                             Grid.Column = "3">
-                        <Image x:Name = "Icon4" 
+                        <Image x:Name = "imgIcon4" 
                                Source = "/Images/Avatars/Icon4.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
@@ -114,7 +114,7 @@
 
                     <Border Grid.Row = "1"
                             Grid.Column = "0">
-                        <Image x:Name = "Icon5" 
+                        <Image x:Name = "imgIcon5" 
                                Source = "/Images/Avatars/Icon5.JPG"
                                Height = "100"
                                Margin = "45,30,0,0"
@@ -124,7 +124,7 @@
 
                     <Border Grid.Row = "1"
                             Grid.Column = "1">
-                        <Image x:Name = "Icon6" 
+                        <Image x:Name = "imgIcon6" 
                                Source = "/Images/Avatars/Icon6.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
@@ -134,7 +134,7 @@
 
                     <Border Grid.Row = "1"
                             Grid.Column = "2">
-                        <Image x:Name = "Icon7" 
+                        <Image x:Name = "imgIcon7" 
                                Source = "/Images/Avatars/Icon7.JPG"
                                Height = "100"
                                Margin="35,30,0,0"
@@ -144,7 +144,7 @@
 
                     <Border Grid.Row = "1"
                             Grid.Column = "3">
-                        <Image x:Name = "Icon8" 
+                        <Image x:Name = "imgIcon8" 
                                Source = "/Images/Avatars/Icon8.JPG"
                                Height = "100"
                                Margin="35,30,0,0"

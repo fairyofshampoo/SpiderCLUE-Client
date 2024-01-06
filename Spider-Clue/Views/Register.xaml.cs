@@ -67,7 +67,7 @@ namespace Spider_Clue.Views
 
         private bool ValidateAccountData()
         {
-            SecureString securePassword = txtPassword.SecurePassword;
+            SecureString securePassword = pwbPassword.SecurePassword;
             string email = txtEmail.Text;
 
             bool passwordValid = Validations.ValidatePassword(securePassword);
@@ -113,7 +113,7 @@ namespace Spider_Clue.Views
         }
         private bool ArePasswordsMatching()
         {
-            SecureString securePassword = txtPassword.SecurePassword;
+            SecureString securePassword = pwbPassword.SecurePassword;
             SecureString securePasswordToConfirm = txtConfirmPassword.SecurePassword;
             
             bool passwordsValidation = false;
@@ -179,7 +179,7 @@ namespace Spider_Clue.Views
         {
             string defaultIcon = "Icon0.jpg";
             bool result = false;
-            string passwordHashed = Utilities.CalculateSHA1Hash(txtPassword.Password);
+            string passwordHashed = Utilities.CalculateSHA1Hash(pwbPassword.Password);
             Gamer gamer = new Gamer()
             {
                 FirstName = txtName.Text,

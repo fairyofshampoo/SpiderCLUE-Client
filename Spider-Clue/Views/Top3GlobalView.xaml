@@ -39,7 +39,7 @@
                 <DataGrid Grid.Row="1"  
                           AutoGenerateColumns="False" 
                           CanUserAddRows="False" 
-                          Name = "Top3GlobalGrid" 
+                          Name = "dtgTop3Global" 
                           HorizontalAlignment="Center" 
                           Width="750" Height="300"
                           GridLinesVisibility="None">
@@ -51,7 +51,7 @@
                         </Style>
                     </DataGrid.ColumnHeaderStyle>
                     <DataGrid.Columns>
-                        <DataGridTemplateColumn x:Name = "IconName" Header="Icon" Width="*">
+                        <DataGridTemplateColumn x:Name = "dtgtcIconName" Header="Icon" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
                                     <Border 

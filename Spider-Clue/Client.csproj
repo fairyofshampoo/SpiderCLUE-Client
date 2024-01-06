@@ -151,14 +151,8 @@
     <Compile Include="Views\PlaceOfFailureCardsView.xaml.cs">
       <DependentUpon>PlaceOfFailureCardsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PlacesCardsView.xaml.cs">
-      <DependentUpon>PlacesCardsView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\ProfileEditionView.xaml.cs">
       <DependentUpon>ProfileEditionView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\ReasonCardsView.xaml.cs">
-      <DependentUpon>ReasonCardsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ReasonForFailureCardsView.xaml.cs">
       <DependentUpon>ReasonForFailureCardsView.xaml</DependentUpon>
@@ -292,17 +286,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PlacesCardsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\ProfileEditionView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\ReasonCardsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ReasonForFailureCardsView.xaml">
       <SubType>Designer</SubType>
