@@ -112,7 +112,6 @@
                                     Width="200"
                                     Margin="0,25,0,0">
                             <TextBox x:Name="txtName"
-                                  Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="15"
                                  FontWeight="Medium"
                                  FontFamily="Montserrat"
@@ -152,7 +151,6 @@
                                     Height="20"
                                     Margin="0,25,0,0">
                             <TextBox x:Name="txtLastName"
-                                  Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"
                                  FontSize="13"
                                  FontWeight="Medium"
                                  FontFamily="Montserrat"

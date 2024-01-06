@@ -9,17 +9,37 @@
       d:DesignHeight="720" d:DesignWidth="1280"
       Title="Top3GlobalView">
 
-    <Grid>
+    <Grid>  
         <Border>
             <Border.Background>
                 <ImageBrush ImageSource="/Images/Background/Top3MundialBackground.jpg" Stretch="UniformToFill" />
             </Border.Background>
         </Border>
+
+        <Button
+            VerticalAlignment="Top"
+            Grid.Column="0"
+            Grid.Row = "0"
+            Width = "70"
+            Height = "70"
+            HorizontalAlignment = "Left"
+            Margin="20,5,0,0"
+            Click="BtnGoBack_Click"
+            Cursor="Hand">
+            <Button.Template>
+                <ControlTemplate>
+                    <Image Source="/Images/Icons/GoBackIcon.png" 
+                                    Stretch="Uniform">
+                    </Image>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
         <Border Background="#A21932AA"
                 Height="400"
                 Width="800"
                 CornerRadius="10">
-
+           
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
