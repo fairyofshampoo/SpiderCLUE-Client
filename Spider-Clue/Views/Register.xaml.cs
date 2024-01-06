@@ -157,7 +157,7 @@ namespace Spider_Clue.Views
             bool emailDuplication = userManager.IsEmailExisting(txtEmail.Text);
             if (emailDuplication)
             {
-                lblInvalidGamerTag.Content = Properties.Resources.LblEmailUsed;
+                lblInvalidEmail.Content = Properties.Resources.LblEmailUsed;
                 lblInvalidEmail.Visibility = Visibility.Visible;
             }
             return emailDuplication;

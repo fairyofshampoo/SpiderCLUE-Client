@@ -249,23 +249,5 @@ namespace Spider_Clue.Views
                 imgPasswordIcon.Source = new BitmapImage(new Uri($"/Images/Icons/{iconPassword}", UriKind.Relative));
             }
         }
-
-
-        private void BtnMinimize_Click(object sender, RoutedEventArgs e)
-        {
-            Window mainWindow = Window.GetWindow(this);
-            mainWindow.WindowState = WindowState.Minimized;
-        }
-
-        private void BtnClose_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
-
-        private void BtnMaximize_Click(object sender, MouseButtonEventArgs e)
-        {
-            Window mainWindow = Window.GetWindow(this);
-            mainWindow.WindowState = WindowState.Maximized;
-        }
     }
 }
