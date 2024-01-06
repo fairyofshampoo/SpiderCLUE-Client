@@ -151,9 +151,10 @@ namespace Spider_Clue.Views
             {
                 SessionManager.Connect(UserSingleton.Instance.GamerTag);
             }
-            catch (Exception)
+            catch (FaultException)
             {
                 GoToLoginView();
+                MessageBox.Show("Ya has iniciado sesión", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -162,7 +163,6 @@ namespace Spider_Clue.Views
             LoginView loginView = new LoginView();
             UserSingleton.Instance.Clear();
             NavigationService.Navigate(loginView);
-            MessageBox.Show("Ya has iniciado sesión", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }
