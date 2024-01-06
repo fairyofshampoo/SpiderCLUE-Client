@@ -17,9 +17,7 @@ using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for EmailInvitationDialog.xaml
-    /// </summary>
+
     public partial class EmailInvitationDialog : Window
     {
         private string MatchCode;

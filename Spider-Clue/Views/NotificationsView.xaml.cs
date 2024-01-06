@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for NotificationsView.xaml
-    /// </summary>
+
     public partial class NotificationsView : Page
     {
         public NotificationsView()

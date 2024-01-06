@@ -11,9 +11,6 @@ using System.Reflection;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for LanguageSettings.xaml
-    /// </summary>
     public partial class LanguageSettings : Page
     {
         private readonly Configuration gameConfiguration;

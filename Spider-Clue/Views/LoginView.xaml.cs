@@ -10,9 +10,6 @@ using System.Windows.Media.Imaging;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for LoginView.xaml
-    /// </summary>
     public partial class LoginView : Page
     {
         public LoginView()

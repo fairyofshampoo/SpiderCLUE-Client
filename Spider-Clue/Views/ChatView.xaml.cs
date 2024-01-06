@@ -18,9 +18,7 @@ using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for ChatView.xaml
-    /// </summary>
+
     public partial class ChatView : Page, IChatManagerCallback
     {
         public readonly ChatManagerClient ChatManager;

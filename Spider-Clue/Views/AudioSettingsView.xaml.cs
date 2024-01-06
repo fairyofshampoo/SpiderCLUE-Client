@@ -9,9 +9,6 @@ using System.Windows.Media.Imaging;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for AudioSettingsView.xaml
-    /// </summary>
     public partial class AudioSettingsView : Page
     {
         private readonly Configuration gameConfiguration;

@@ -15,9 +15,7 @@ using System.Windows.Navigation;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for SearchGameView.xaml
-    /// </summary>
+
     public partial class SearchGameView : Window, IMatchManagerCallback
     {
         private readonly MatchManagerClient matchManagerClient;

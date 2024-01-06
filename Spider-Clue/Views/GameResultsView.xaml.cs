@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for GameResultsView.xaml
-    /// </summary>
+
     public partial class GameResultsView : Page
     {
         public GameResultsView()

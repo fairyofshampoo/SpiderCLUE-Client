@@ -14,7 +14,6 @@ using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-
     public partial class PlaceOfFailureCardsView : Window
     {
         public string PlaceCard { get; set; }

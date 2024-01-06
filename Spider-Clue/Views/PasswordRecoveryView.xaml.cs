@@ -7,9 +7,6 @@ using System.Windows;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for PasswordRecoveryView.xaml
-    /// </summary>
     public partial class PasswordRecoveryView : Page
     {
         private string gamertag;

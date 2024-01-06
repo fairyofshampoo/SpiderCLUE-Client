@@ -20,9 +20,7 @@ using System.Xml.Linq;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for ProfileEditionView.xaml
-    /// </summary>
+
     public partial class ProfileEditionView : Page
     {
         public ProfileEditionView()

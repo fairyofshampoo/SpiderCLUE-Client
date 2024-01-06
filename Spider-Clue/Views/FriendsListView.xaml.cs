@@ -131,7 +131,6 @@ namespace Spider_Clue.Views
             {
                gamertag = dataObject.Gamertag;
             }
-            Console.WriteLine(gamertag);
             return gamertag;
         }
 
