@@ -592,6 +592,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The email is already in use, try another one..
+        /// </summary>
+        public static string LblEmailUsed {
+            get {
+                return ResourceManager.GetString("LblEmailUsed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter the email address to send the match code..
         /// </summary>
         public static string LblEnterEmail {

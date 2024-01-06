@@ -443,4 +443,7 @@
   <data name="DlgInvalidMove" xml:space="preserve">
     <value>Tu movimiento es inválido. Por favor, intenta de nuevo.</value>
   </data>
+  <data name="LblEmailUsed" xml:space="preserve">
+    <value>El correo ya está en uso, intenta otro.</value>
+  </data>
 </root>
