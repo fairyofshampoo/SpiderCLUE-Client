@@ -403,6 +403,9 @@
     <None Include="Connected Services\SpiderClueService\item8.xsd">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Connected Services\SpiderClueService\item9.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Card.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
