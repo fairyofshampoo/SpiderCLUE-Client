@@ -1,10 +1,7 @@
 ﻿using System;
-using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 using Spider_Clue.Logic;
-using System.Collections.Generic;
 using System.ServiceModel;
 using Spider_Clue.SpiderClueService;
 

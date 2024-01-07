@@ -780,7 +780,7 @@
                                     Visibility="Hidden">
                             </Border>
 
-                            <Label Content="{x:Static p:Resources.LblCode}"
+                            <Label Content="{x:Static p:Resources.LblTurn}"
                                    Grid.Column="1"
                                    FontWeight="Bold" 
                                    HorizontalContentAlignment="Left">
@@ -795,7 +795,7 @@
                                     Margin="10,0,0,0">
                             </Border>
 
-                            <Label Content="{x:Static p:Resources.LblCode}"
+                            <Label Content="{x:Static p:Resources.LblPawn}"
                                    Grid.Column="3"
                                    FontWeight="Bold" 
                                    HorizontalContentAlignment="Left">

@@ -56,7 +56,7 @@
 
                 </Grid>
                 <Button x:Name="btnSaveChanges" Grid.Column="0" BorderThickness="0"
-                                    Content="Save Changes"
+                                    Content="{x:Static p:Resources.BtnSave}"
                                     Foreground="Black"
                                     FontSize="15"
                                     FontFamily="Montserrat"

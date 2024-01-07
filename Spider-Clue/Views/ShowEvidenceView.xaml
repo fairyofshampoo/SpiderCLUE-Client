@@ -21,8 +21,8 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label x:Name = "lblEvidenceTitle" Content = "{x:Static p:Resources.LblDeck}"
-                       Width="300"
+            <Label x:Name = "lblEvidenceTitle" Content = "{x:Static p:Resources.LblCardShown}"
+                       Width="400"
                        Foreground ="White"
                        FontWeight = "Medium"
                        FontSize = "50"

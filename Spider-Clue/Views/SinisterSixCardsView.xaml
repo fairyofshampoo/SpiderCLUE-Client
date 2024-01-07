@@ -22,8 +22,8 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label x:Name = "lblSinisterSixTitle" Content = "{x:Static p:Resources.LblDeck}"
-                       Width="300"
+            <Label x:Name = "lblSinisterSixTitle" Content = "{x:Static p:Resources.LblSinisterSixCards}"
+                       Width="500"
                        Foreground ="White"
                        FontWeight = "Medium"
                        FontSize = "50"

@@ -21,7 +21,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label x:Name = "lblShowCommonAccusation" Content = "{x:Static p:Resources.LblDeck}"
+            <Label x:Name = "lblShowCommonAccusation" Content = "{x:Static p:Resources.LblCommonAccusation}"
                        Width="300"
                        Foreground ="White"
                        FontWeight = "Medium"
