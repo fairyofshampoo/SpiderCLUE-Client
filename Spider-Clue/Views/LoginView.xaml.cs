@@ -177,7 +177,10 @@ namespace Spider_Clue.Views
         private void DisplayMainMenuView()
         {
             MainMenuView mainMenuView = new MainMenuView();
-            this.NavigationService.Navigate(mainMenuView);
+            if(mainMenuView.ConnectToService() == 1)
+            {
+                this.NavigationService.Navigate(mainMenuView);
+            }
         }
 
         private void DisplayMainMenuGuestView()

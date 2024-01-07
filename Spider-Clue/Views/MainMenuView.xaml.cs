@@ -21,7 +21,6 @@ namespace Spider_Clue.Views
             Loaded += PageLoaded;
             Utilities.PlayMainThemeSong(mainThemePlayer);
             friendsManagerClient = new FriendsManagerClient(new InstanceContext(this));
-            ConnectToService();
         }
 
         private void PageLoaded(object sender, RoutedEventArgs e)
@@ -145,20 +144,15 @@ namespace Spider_Clue.Views
             NavigationService.Navigate(friendListView);
         }
 
-        private void ConnectToService()
+        public int ConnectToService()
         {
-                int result = SessionManager.Connect(UserSingleton.Instance.GamerTag);
-                if(result == -1)
-                {
-                    GoToLoginView();
-                    MessageBox.Show("Ya has iniciado sesión", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
-                } 
-        }
+            int result = SessionManager.Connect(UserSingleton.Instance.GamerTag);
+            if (result == -1)
+            {
+                MessageBox.Show("Ya has iniciado sesión", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
-        private void GoToLoginView()
-        {
-            LoginView loginView = new LoginView();
-            NavigationService.Navigate(loginView);
+            return result;
         }
     }
 }
