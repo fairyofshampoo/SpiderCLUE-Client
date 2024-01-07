@@ -158,7 +158,6 @@ namespace Spider_Clue.Views
         private void GoToLoginView()
         {
             LoginView loginView = new LoginView();
-            UserSingleton.Instance.Clear();
             NavigationService.Navigate(loginView);
         }
     }
