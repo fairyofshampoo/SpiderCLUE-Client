@@ -1,6 +1,9 @@
 ﻿using Spider_Clue.Logic;
+using Spider_Clue.SpiderClueService;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.ServiceModel;
 using System.Windows.Controls;
 
 
@@ -21,21 +24,47 @@ namespace Spider_Clue.Views
 
         private void ShowTop3Global()
         {
-            SpiderClueService.IWinnersManager winners = new SpiderClueService.WinnersManagerClient();
-            var topGlobals = winners.GetTopGlobalWinners();
-            if(topGlobals.Any())
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
             {
-                foreach (var top in topGlobals)
+                SpiderClueService.IWinnersManager winners = new SpiderClueService.WinnersManagerClient();
+                var topGlobals = winners.GetTopGlobalWinners();
+
+                if (topGlobals.Any())
                 {
-                    string icon = Utilities.GetImagePathForIcon(top.Icon);
-                    TopGlobal topGlobal = new TopGlobal
+                    foreach (var top in topGlobals)
                     {
-                        Gamertag = top.Gamertag,
-                        Icon = icon,
-                        GamesWon = top.GamesWon.ToString()
-                    };
-                    TopGlobals.Add(topGlobal);
+                        string icon = Utilities.GetImagePathForIcon(top.Icon);
+                        TopGlobal topGlobal = new TopGlobal
+                        {
+                            Gamertag = top.Gamertag,
+                            Icon = icon,
+                            GamesWon = top.GamesWon.ToString()
+                        };
+                        TopGlobals.Add(topGlobal);
+                    }
                 }
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
             }
         }
 

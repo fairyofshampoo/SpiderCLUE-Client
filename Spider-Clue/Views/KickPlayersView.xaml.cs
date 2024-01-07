@@ -3,6 +3,7 @@ using Spider_Clue.SpiderClueService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -32,17 +33,42 @@ namespace Spider_Clue.Views
 
         public void ShowPlayersInLobby()
         {
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            for (int Index = 0; Index < PlayersInLobby.Length; Index++)
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
             {
-                string gamerIcon = userManager.GetIcon(PlayersInLobby[Index]);
-                string iconPath = Utilities.GetImagePathForIcon(gamerIcon);
-                FriendRequest player = new FriendRequest
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                for (int Index = 0; Index < PlayersInLobby.Length; Index++)
                 {
-                    Icon = iconPath,
-                    Gamertag = PlayersInLobby[Index],
-                };
-                dtgKickPlayers.Items.Add(player);
+                    string gamerIcon = userManager.GetIcon(PlayersInLobby[Index]);
+                    string iconPath = Utilities.GetImagePathForIcon(gamerIcon);
+                    FriendRequest player = new FriendRequest
+                    {
+                        Icon = iconPath,
+                        Gamertag = PlayersInLobby[Index],
+                    };
+                    dtgKickPlayers.Items.Add(player);
+                }
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
             }
         }
 
@@ -58,7 +84,7 @@ namespace Spider_Clue.Views
 
         private MessageBoxResult ShowConfirmationMessageToKickPlayer()
         {
-            return MessageBox.Show(Properties.Resources.DlgConfirmDeleteFriend, Properties.Resources.DeleteFriendTitle, MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            return MessageBox.Show(Properties.Resources.DlgKickPlayer, Properties.Resources.InformationTitle, MessageBoxButton.OKCancel, MessageBoxImage.Question);
         }
 
         public void GetPlayerData(object sender)

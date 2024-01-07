@@ -1,7 +1,9 @@
 ﻿using Spider_Clue.Logic;
+using Spider_Clue.SpiderClueService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -42,9 +44,43 @@ namespace Spider_Clue.Views
 
         private void ChangeIcon()
         {
-            UserSingleton.Instance.ImageCode = newIconName;
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            userManager.ChangeIcon(UserSingleton.Instance.GamerTag, newIconName);
+            LoggerManager logger = new LoggerManager(this.GetType());
+            int result = 0;
+            try
+            {
+                UserSingleton.Instance.ImageCode = newIconName;
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                result = userManager.ChangeIcon(UserSingleton.Instance.GamerTag, newIconName);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+
+            if (result == 1)
+            {
+                DialogManager.ShowSuccessMessageBox(Properties.Resources.DlgSuccessfulChange);
+            }
+            else
+            {
+                DialogManager.ShowWarningMessageBox(Properties.Resources.DlgWrongChange);
+            }
         }
 
         private void BtnSaveChanges_Click(object sender, RoutedEventArgs e)

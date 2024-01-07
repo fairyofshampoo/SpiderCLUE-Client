@@ -1,7 +1,10 @@
-﻿using Spider_Clue.Logic;
+﻿using log4net.Repository.Hierarchy;
+using Spider_Clue.Logic;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Reflection;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -22,21 +25,41 @@ namespace Spider_Clue.Views
 
         public AudioSettingsView()
         {
-            gameConfiguration = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
-            musicStatus = gameConfiguration.AppSettings.Settings[MusicKey];
-            soundStatus = gameConfiguration.AppSettings.Settings[SoundKey];
+            LoggerManager logger = new LoggerManager(this.GetType());
             InitializeComponent();
-            SetMusicAndSoundSettings();
+            try
+            {
+                gameConfiguration = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
+                musicStatus = gameConfiguration.AppSettings.Settings[MusicKey];
+                soundStatus = gameConfiguration.AppSettings.Settings[SoundKey];
+                
+                SetMusicAndSoundSettings();
+            } 
+            catch (ConfigurationErrorsException configurationException)
+            {
+                logger.LogError(configurationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgConfigurationException);
+            }
+            
         }
 
         private void SetMusicAndSoundSettings()
         {
-            Boolean isMusicOn = musicStatus.Value.Equals("true");
-            tgbtnMusicSettings.IsChecked = isMusicOn;
-            ToggleMusicVisibility(isMusicOn);
-            Boolean isSoundOn = soundStatus.Value.Equals("true");
-            tgbtnSoundSettings.IsChecked = isSoundOn;
-            ToggleSoundVisibility(isSoundOn);
+            LoggerManager logger = new LoggerManager(this.GetType());
+            try
+            {
+                bool isMusicOn = musicStatus.Value.Equals("true");
+                tgbtnMusicSettings.IsChecked = isMusicOn;
+                ToggleMusicVisibility(isMusicOn);
+                bool isSoundOn = soundStatus.Value.Equals("true");
+                tgbtnSoundSettings.IsChecked = isSoundOn;
+                ToggleSoundVisibility(isSoundOn);
+            }
+            catch (KeyNotFoundException keyNotFoundException)
+            {
+                logger.LogError(keyNotFoundException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgConfigurationException);
+            }
         }
 
         private void BtnMusic_Checked(object sender, RoutedEventArgs e)
@@ -125,16 +148,33 @@ namespace Spider_Clue.Views
         }
         private void SetMusicIcon(string iconFileName)
         {
-            string iconPath = Utilities.GetImagePathForImages() + "Icons\\" + iconFileName;
-            imgMusicIcon.Source = new BitmapImage(new Uri(iconPath, UriKind.RelativeOrAbsolute));
+            LoggerManager logger = new LoggerManager(this.GetType());
+            try
+            {
+                string iconPath = Utilities.GetImagePathForImages() + "Icons\\" + iconFileName;
+                imgMusicIcon.Source = new BitmapImage(new Uri(iconPath, UriKind.RelativeOrAbsolute));
+            }
+            catch (UriFormatException uriException)
+            {
+                logger.LogError(uriException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgIconException);
+            }
         }
 
         private void SetSoundIcon(string iconFileName)
         {
-            string iconPath = Utilities.GetImagePathForImages() + "Icons\\" + iconFileName;
-            imgSoundIcon.Source = new BitmapImage(new Uri(iconPath, UriKind.RelativeOrAbsolute));
+            LoggerManager logger = new LoggerManager(this.GetType());
+            try
+            {
+                string iconPath = Utilities.GetImagePathForImages() + "Icons\\" + iconFileName;
+                imgSoundIcon.Source = new BitmapImage(new Uri(iconPath, UriKind.RelativeOrAbsolute));
+            }
+            catch (UriFormatException uriException)
+            {
+                logger.LogError(uriException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgIconException);
+            }
         }
-
 
     }
 }

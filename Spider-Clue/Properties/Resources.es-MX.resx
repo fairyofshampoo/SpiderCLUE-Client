@@ -527,4 +527,49 @@
   <data name="LblWithoutAttendance" xml:space="preserve">
     <value>Sin Asistencias</value>
   </data>
+  <data name="DlgEndpointException" xml:space="preserve">
+    <value>No se pudo encontrar el punto de conexión. Por favor, verifica la configuración del servidor y vuelve a intentarlo</value>
+  </data>
+  <data name="DlgFatalException" xml:space="preserve">
+    <value>Ocurrió un error inesperado. Por favor, contacta al soporte técnico para obtener ayuda.</value>
+  </data>
+  <data name="DlgTimeoutException" xml:space="preserve">
+    <value>Se agotó el tiempo de espera. Verifica tu conexión al servidor o inténtalo de nuevo más tarde.</value>
+  </data>
+  <data name="DlgConfigurationException" xml:space="preserve">
+    <value>Error al abrir el archivo de configuración. Intente de nuevo.</value>
+  </data>
+  <data name="DlgIconException" xml:space="preserve">
+    <value>No se pudo establecer el icono deseado debido a un error de formato. Asegúrate de que el archivo de icono sea válido. Si el problema persiste, contacta al soporte técnico para obtener asistencia.</value>
+  </data>
+  <data name="WarningTitle" xml:space="preserve">
+    <value>Advertencia</value>
+  </data>
+  <data name="DlgFinalAccusation" xml:space="preserve">
+    <value>¿Deseas hacer la acusación final?</value>
+  </data>
+  <data name="FinalAccusationTitle" xml:space="preserve">
+    <value>Acusación Final</value>
+  </data>
+  <data name="DlgKickPlayer" xml:space="preserve">
+    <value>¿Deseas expulsar a este jugador de la partida?</value>
+  </data>
+  <data name="DlgNobodyAnswers" xml:space="preserve">
+    <value>Nadie ha podido responder a tu acusación.</value>
+  </data>
+  <data name="DlgAlreadyLogin" xml:space="preserve">
+    <value>Ya has iniciado sesión previamente</value>
+  </data>
+  <data name="DlgMatchCreationError" xml:space="preserve">
+    <value>Error al crear la partida. Inténtalo de nuevo.</value>
+  </data>
+  <data name="ConfirmClosingTitle" xml:space="preserve">
+    <value>Confirmar cierre</value>
+  </data>
+  <data name="DlgConfirmShutdown" xml:space="preserve">
+    <value>¿Desea cerrar la app?</value>
+  </data>
+  <data name="DlgMusicException" xml:space="preserve">
+    <value>No se pudo reproducir la música de fondo</value>
+  </data>
 </root>

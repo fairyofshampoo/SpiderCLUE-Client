@@ -3,6 +3,7 @@ using Spider_Clue.SpiderClueService;
 using System;
 using System.Net;
 using System.Security;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -42,18 +43,48 @@ namespace Spider_Clue.Views
         {
             int minimumGamesWon = 0;
             string guestPlayerUsername = GenerateGuestPlayerUsername();
-            UserSingleton.Instance.GamerTag = guestPlayerUsername;
-            UserSingleton.Instance.GamesWon = minimumGamesWon;
-            UserSingleton.Instance.ImageCode = "Icon0.jpg";
-            UserSingleton.Instance.Name = "Guest";
-            UserSingleton.Instance.LastName = "Player";
-            UserSingleton.Instance.IsGuestPlayer = true;
+            if(!string.IsNullOrEmpty(guestPlayerUsername))
+            {
+                UserSingleton.Instance.GamerTag = guestPlayerUsername;
+                UserSingleton.Instance.GamesWon = minimumGamesWon;
+                UserSingleton.Instance.ImageCode = "Icon0.jpg";
+                UserSingleton.Instance.Name = "Guest";
+                UserSingleton.Instance.LastName = "Player";
+                UserSingleton.Instance.IsGuestPlayer = true;
+            }
         }
 
         private string GenerateGuestPlayerUsername()
         {
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            return userManager.RequestGuestPlayer();
+            LoggerManager logger = new LoggerManager(this.GetType());
+            string username = string.Empty;
+            try
+            {
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                username = userManager.RequestGuestPlayer();
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+            
+            return username;
         }
 
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
@@ -61,16 +92,41 @@ namespace Spider_Clue.Views
             Utilities.PlayButtonClickSound();
             if (HandleLoginAttempt())
             {
-                ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
+                LoggerManager logger = new LoggerManager(this.GetType());
 
-                if (sessionManager.IsGamerAlreadyOnline(txtUsername.Text))
+                try
                 {
-                    ShowUserAlreadyOnlineMessage();
+                    ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
+
+                    if (sessionManager.IsGamerAlreadyOnline(txtUsername.Text))
+                    {
+                        ShowUserAlreadyOnlineMessage();
+                    }
+                    else
+                    {
+                        SaveSession();
+                        DisplayMainMenuView();
+                    }
                 }
-                else
+                catch (EndpointNotFoundException endpointException)
                 {
-                    SaveSession();
-                    DisplayMainMenuView();
+                    logger.LogError(endpointException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+                }
+                catch (TimeoutException timeoutException)
+                {
+                    logger.LogError(timeoutException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+                }
+                catch (CommunicationException communicationException)
+                {
+                    logger.LogError(communicationException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+                }
+                catch (Exception exception)
+                {
+                    logger.LogFatal(exception);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
                 }
             }
             else
@@ -88,13 +144,44 @@ namespace Spider_Clue.Views
         {
             string gamerTag = txtUsername.Text;
             Gamer gamer = GetGamerData(gamerTag);
-            UserSingleton.Instance.Initialize(gamer);
+            if(gamer != null)
+            {
+                UserSingleton.Instance.Initialize(gamer);
+            }
         }
 
-        private Gamer GetGamerData(String gamerTag)
+        private Gamer GetGamerData(string gamerTag)
         {
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            return userManager.GetGamerByGamertag(gamerTag);
+            LoggerManager logger = new LoggerManager(this.GetType());
+            Gamer gamer = null;
+
+            try
+            {
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                gamer = userManager.GetGamerByGamertag(gamerTag);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+            
+            return gamer;
         }
 
         private void ShowWrongDataMessage()
@@ -104,7 +191,7 @@ namespace Spider_Clue.Views
 
         private void ShowUserAlreadyOnlineMessage()
         {
-            MessageBox.Show("Ya has iniciado sesión", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            DialogManager.ShowWarningMessageBox(Properties.Resources.DlgAlreadyLogin);
         }
 
         private bool HandleLoginAttempt()
@@ -121,7 +208,7 @@ namespace Spider_Clue.Views
 
         private bool VerifyFields()
         {
-            String gamerTag = txtUsername.Text;
+            string gamerTag = txtUsername.Text;
             string password = GetPassword();
             bool passwordValidation = VerifyPassword(password);
             bool gamerTagValidation = VerifyGamertag(gamerTag);
@@ -138,10 +225,10 @@ namespace Spider_Clue.Views
             return passwordValidation && gamerTagValidation;
         }
 
-        private String GetPassword()
+        private string GetPassword()
         {
             bool isChecked = tgbtnPasswordVisibility.IsChecked ?? false;
-            String password = txtPasswordDisplay.Text;
+            string password = txtPasswordDisplay.Text;
 
             if (!isChecked)
             {
@@ -191,11 +278,42 @@ namespace Spider_Clue.Views
 
         private bool ValidateCredentials()
         {
-            string username = txtUsername.Text;
-            string password = GetPassword();
-            string passwordHashed = Utilities.CalculateSHA1Hash(password);
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            return userManager.AuthenticateAccount(username, passwordHashed);
+            bool result = false;
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                string username = txtUsername.Text;
+                string password = GetPassword();
+                string passwordHashed = Utilities.CalculateSHA1Hash(password);
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                result = userManager.AuthenticateAccount(username, passwordHashed);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                result = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                result = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                result = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                result = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+            return result;
         }
 
         private void TypingGamerTag(object sender, TextChangedEventArgs e)
@@ -245,11 +363,20 @@ namespace Spider_Clue.Views
 
         private void SetPasswordIcon(string iconPassword)
         {
-            Image imgPasswordIcon = tgbtnPasswordVisibility.Template.FindName("imgPasswordIcon", tgbtnPasswordVisibility) as Image;
-
-            if (imgPasswordIcon != null)
+            LoggerManager logger = new LoggerManager(this.GetType());
+            try
             {
-                imgPasswordIcon.Source = new BitmapImage(new Uri($"/Images/Icons/{iconPassword}", UriKind.Relative));
+                Image imgPasswordIcon = tgbtnPasswordVisibility.Template.FindName("imgPasswordIcon", tgbtnPasswordVisibility) as Image;
+
+                if (imgPasswordIcon != null)
+                {
+                    imgPasswordIcon.Source = new BitmapImage(new Uri($"/Images/Icons/{iconPassword}", UriKind.Relative));
+                }
+            }
+            catch (UriFormatException uriException)
+            {
+                logger.LogError(uriException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgIconException);
             }
         }
     }

@@ -36,15 +36,41 @@ namespace Spider_Clue.Views
 
         public void SetMatchDataInPage(string matchCode)
         {
-            MatchCode = matchCode;
-            txtMatchCode.Text = matchCode;
-            string gamertag = UserSingleton.Instance.GamerTag;
+            LoggerManager logger = new LoggerManager(this.GetType());
 
-            MatchManager.ConnectToMatch(gamertag, matchCode);
-            LobbyManager.ConnectToLobbyAsync(gamertag);
+            try
+            {
+                MatchCode = matchCode;
+                txtMatchCode.Text = matchCode;
+                string gamertag = UserSingleton.Instance.GamerTag;
 
-            SetOwnerButtons();
-            SetChatInLobby();
+                MatchManager.ConnectToMatch(gamertag, matchCode);
+                LobbyManager.ConnectToLobbyAsync(gamertag);
+
+                SetOwnerButtons();
+                SetChatInLobby();
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+            
         }
 
         private void SetOwnerButtons()
@@ -59,8 +85,36 @@ namespace Spider_Clue.Views
 
         private bool CheckMatchOwnership()
         {
-            string gamertag = UserSingleton.Instance.GamerTag;
-            return LobbyManager.IsOwnerOfTheMatch(gamertag, MatchCode);
+            bool result = false;
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                string gamertag = UserSingleton.Instance.GamerTag;
+                result = LobbyManager.IsOwnerOfTheMatch(gamertag, MatchCode);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+
+            return result;
         }
 
         private void SetGamersList(string[] gamertags)
@@ -83,8 +137,34 @@ namespace Spider_Clue.Views
 
         private string GetIconImagePathForGamer(string gamertag)
         {
-            IUserManager UserManager = new SpiderClueService.UserManagerClient();
-            string iconName = UserManager.GetIcon(gamertag);
+            LoggerManager logger = new LoggerManager(this.GetType());
+            string iconName = "Icon0.png";
+            try
+            {
+                IUserManager UserManager = new SpiderClueService.UserManagerClient();
+                iconName = UserManager.GetIcon(gamertag);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+
             return Utilities.GetImagePathForIcon(iconName);
         }
 
@@ -105,32 +185,83 @@ namespace Spider_Clue.Views
 
         private void KickAllPlayersFromMatch()
         {
-            string[] gamersToKick = GetGamersInLobbyExceptOwner();
-            foreach (string gamer in gamersToKick)
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
             {
-                LobbyManager.KickPlayerAsync(gamer);
+                string[] gamersToKick = GetGamersInLobbyExceptOwner();
+                foreach (string gamer in gamersToKick)
+                {
+                    LobbyManager.KickPlayerAsync(gamer);
+                }
             }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+            
         }
 
         public void GoToMainMenu()
         {
-            if (UserSingleton.Instance.IsGuestPlayer)
-            {
-                MainMenuForGuestView mainMenuForGuestView = new MainMenuForGuestView();
-                this.NavigationService.Navigate(mainMenuForGuestView);
-            }
-            else
-            {
-                MainMenuView mainMenuView = new MainMenuView();
-                this.NavigationService.Navigate(mainMenuView);
-            }
-            if (isOwnerOfMatch)
-            {
-                KickAllPlayersFromMatch();
+            LoggerManager logger = new LoggerManager(this.GetType());
 
+            try
+            {
+                if (UserSingleton.Instance.IsGuestPlayer)
+                {
+                    MainMenuForGuestView mainMenuForGuestView = new MainMenuForGuestView();
+                    this.NavigationService.Navigate(mainMenuForGuestView);
+                }
+                else
+                {
+                    MainMenuView mainMenuView = new MainMenuView();
+                    this.NavigationService.Navigate(mainMenuView);
+                }
+                if (isOwnerOfMatch)
+                {
+                    KickAllPlayersFromMatch();
+
+                }
+                chatView.CloseChat();
+                MatchManager.LeaveMatchAsync(UserSingleton.Instance.GamerTag, MatchCode);
             }
-            chatView.CloseChat();
-            MatchManager.LeaveMatchAsync(UserSingleton.Instance.GamerTag, MatchCode);
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
 
         private void ClearCharacterLabels()
@@ -193,10 +324,36 @@ namespace Spider_Clue.Views
 
         private void KickPlayer_Click(object sender, MouseButtonEventArgs e)
         {
-            string selectedGamer = OpenKickPlayerDialog();
-            if (!string.IsNullOrEmpty(selectedGamer))
+            Utilities.PlayButtonClickSound();
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
             {
-                LobbyManager.KickPlayer(selectedGamer);
+                string selectedGamer = OpenKickPlayerDialog();
+                if (!string.IsNullOrEmpty(selectedGamer))
+                {
+                    LobbyManager.KickPlayer(selectedGamer);
+                }
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
             }
         }
 
@@ -226,22 +383,41 @@ namespace Spider_Clue.Views
 
         private void BtnCancel_Click(object sender, RoutedEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
             GoToMainMenu();
 
         }
 
         private void BtnReady_Click(object sender, RoutedEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
             if (gamersInLobby.Count == 3)
             {
+                LoggerManager logger = new LoggerManager(this.GetType());
+
                 try
                 {
                     LobbyManager.BeginMatch(MatchCode);
                 }
-                catch (CommunicationException)
+                catch (EndpointNotFoundException endpointException)
                 {
-                    MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle);
-                    GoToMainMenu();
+                    logger.LogError(endpointException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+                }
+                catch (TimeoutException timeoutException)
+                {
+                    logger.LogError(timeoutException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+                }
+                catch (CommunicationException communicationException)
+                {
+                    logger.LogError(communicationException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+                }
+                catch (Exception exception)
+                {
+                    logger.LogFatal(exception);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
                 }
             }
             else
@@ -252,6 +428,7 @@ namespace Spider_Clue.Views
 
         private void SendInvitation_Click(object sender, MouseButtonEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
             SendMailWithCodeMatch();
         }
 

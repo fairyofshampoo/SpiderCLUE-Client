@@ -12,6 +12,7 @@ using System.Windows.Input;
 using Spider_Clue.SpiderClueService;
 using System.ServiceModel;
 using System.Windows.Navigation;
+using log4net.Repository.Hierarchy;
 
 namespace Spider_Clue.Views
 {
@@ -35,9 +36,36 @@ namespace Spider_Clue.Views
 
         private void SearchMatch()
         {
+            LoggerManager logger = new LoggerManager(this.GetType());
             brMatchFound.Visibility = Visibility.Visible;
             string matchCodeToSearch = txtMatchToSearch.Text;
-            Match matchFound = matchManagerClient.GetMatchInformation(matchCodeToSearch);
+            Match matchFound = null;
+
+            try
+            {
+                matchFound = matchManagerClient.GetMatchInformation(matchCodeToSearch);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+
             if (matchFound != null)
             {
                 lblCreator.Content = matchFound.CreatedBy;
@@ -58,9 +86,34 @@ namespace Spider_Clue.Views
 
         private void JoinMatch()
         {
-            String matchCode = txtMatchToSearch.Text;
-            String gamertag = UserSingleton.Instance.GamerTag;
-            matchManagerClient.GetGamersInMatch(gamertag, matchCode);
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                string matchCode = txtMatchToSearch.Text;
+                string gamertag = UserSingleton.Instance.GamerTag;
+                matchManagerClient.GetGamersInMatch(gamertag, matchCode);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
 
         public void ReceiveGamersInMatch(Dictionary<string, Pawn> characters)
