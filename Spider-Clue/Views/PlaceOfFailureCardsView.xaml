@@ -24,7 +24,7 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Label x:Name = "lblPlacesCardsTitle" Content = "{x:Static p:Resources.LblFriendsRequest}"
+            <Label x:Name = "lblPlacesCardsTitle" Content = "{x:Static p:Resources.LblPlaceCards}"
                    Width="440"
                    Foreground ="White"
                    FontWeight = "Medium"
@@ -64,14 +64,13 @@
                                 Width="100"
                                 Height="20"
                                 CornerRadius="10">
-                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
-                                   Width="60"
+                    <Label Content = "{x:Static p:Resources.LblGlassRoom}"
+                                   Width="70"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "10"
                                    FontFamily = "Monsterrat"
-                                   HorizontalContentAlignment="Center" 
-                                   Height = "50"/>
+                                   Height = "20"/>
                 </Border>
 
                 <Button Background="Transparent" 
@@ -87,17 +86,17 @@
                 <Border Background="Black"
                                 Grid.Column="1"
                                 Grid.Row="1"
-                                Width="100"
+                                Width="110"
                                 Height="20"
                                 CornerRadius="10">
-                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
-                                   Width="60"
+                    <Label Content = "{x:Static p:Resources.LblComputerCenter}"
+                                   Width="99"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "10"
                                    FontFamily = "Monsterrat"
                                    HorizontalContentAlignment="Center" 
-                                   Height = "50"/>
+                                   Height = "20"/>
                 </Border>
 
                 <Button Background="Transparent" 
@@ -116,14 +115,14 @@
                                 Width="100"
                                 Height="20"
                                 CornerRadius="10">
-                    <Label Content = "{x:Static p:Resources.LblAccountVerification}"
-                                   Width="60"
+                    <Label Content = "{x:Static p:Resources.LblProfessorsRoom}"
+                                   Width="100"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "10"
                                    FontFamily = "Monsterrat"
                                    HorizontalContentAlignment="Center" 
-                                   Height = "50"/>
+                                   Height = "20"/>
                 </Border>
 
                 <Button Background="Transparent" 
@@ -139,17 +138,17 @@
                 <Border Background="Black"
                                 Grid.Column="3"
                                 Grid.Row="1"
-                                Width="100"
+                                Width="80"
                                 Height="20"
                                 CornerRadius="10">
-                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
+                    <Label Content = "{x:Static p:Resources.LblCourt}"
                                    Width="60"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "10"
                                    FontFamily = "Monsterrat"
                                    HorizontalContentAlignment="Center" 
-                                   Height = "50"/>
+                                   Height = "20"/>
                 </Border>
 
                 <Button Background="Transparent" 
@@ -168,14 +167,14 @@
                                 Width="100"
                                 Height="20"
                                 CornerRadius="10">
-                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
-                                   Width="60"
+                    <Label Content = "{x:Static p:Resources.LblParkingLot}"
+                                   Width="90"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "10"
                                    FontFamily = "Monsterrat"
                                    HorizontalContentAlignment="Center" 
-                                   Height = "50"/>
+                                   Height = "20"/>
                 </Border>
             </Grid>
 
@@ -204,17 +203,17 @@
                 <Border Background="Black"
                                 Grid.Column="0"
                                 Grid.Row="1"
-                                Width="100"
+                                Width="80"
                                 Height="20"
                                 CornerRadius="10">
-                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
+                    <Label Content = "{x:Static p:Resources.LblF103}"
                                    Width="60"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "10"
                                    FontFamily = "Monsterrat"
                                    HorizontalContentAlignment="Center" 
-                                   Height = "50"/>
+                                   Height = "20"/>
                 </Border>
 
                 <Button Background="Transparent" 
@@ -233,14 +232,14 @@
                                 Width="100"
                                 Height="20"
                                 CornerRadius="10">
-                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
+                    <Label Content = "{x:Static p:Resources.LblCubicles}"
                                    Width="60"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "10"
                                    FontFamily = "Monsterrat"
                                    HorizontalContentAlignment="Center" 
-                                   Height = "50"/>
+                                   Height = "20"/>
                 </Border>
 
                 <Button Background="Transparent" 
@@ -259,14 +258,14 @@
                                 Width="100"
                                 Height="20"
                                 CornerRadius="10">
-                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
-                                   Width="60"
+                    <Label Content = "{x:Static p:Resources.LblLaboratory}"
+                                   Width="80"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "10"
                                    FontFamily = "Monsterrat"
                                    HorizontalContentAlignment="Center" 
-                                   Height = "50"/>
+                                   Height = "20"/>
                 </Border>
 
                 <Button Background="Transparent" 
@@ -285,14 +284,14 @@
                                 Width="100"
                                 Height="20"
                                 CornerRadius="10">
-                    <Label Content = "{x:Static p:Resources.LblFriendsRequest}"
+                    <Label Content = "{x:Static p:Resources.LblAmphitheater}"
                                    Width="60"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "10"
                                    FontFamily = "Monsterrat"
                                    HorizontalContentAlignment="Center" 
-                                   Height = "50"/>
+                                   Height = "20"/>
                 </Border>
             </Grid>
         </Grid>

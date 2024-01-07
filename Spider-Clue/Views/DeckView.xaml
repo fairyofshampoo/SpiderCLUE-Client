@@ -55,14 +55,14 @@
                                    Grid.Row="0"
                                    Height = "40"/>
 
-                <Label x:Name = "lblVillains" Content = "{x:Static p:Resources.LblDeck}"
-                                   Width="100"
+                <Label x:Name = "lblVillains" Content = "{x:Static p:Resources.LblSinisterSixCards}"
+                                   Width="300"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "14"
-                                   Grid.ColumnSpan = "2"
+                                   Grid.ColumnSpan = "4"
                                    FontFamily = "Monsterrat"
-                                   HorizontalContentAlignment="Center"
+                                   HorizontalContentAlignment="Left"
                                    Grid.Row="1"
                                    Height = "25"/>
                 <Border 
@@ -167,14 +167,14 @@
                     </Border.Background>
                 </Border>
 
-                <Label x:Name = "lblMotive" Content = "{x:Static p:Resources.LblDeck}"
+                <Label x:Name = "lblMotive" Content = "{x:Static p:Resources.LblMotiveCards}"
                                    Width="100"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "14"
                                    Grid.ColumnSpan = "2"
                                    FontFamily = "Monsterrat"
-                                   HorizontalContentAlignment="Center"
+                                   HorizontalContentAlignment="Left"
                                    Grid.Row="3"
                                    Height = "25"/>
 
@@ -280,14 +280,14 @@
                     </Border.Background>
                 </Border>
 
-                <Label x:Name = "lblPlace" Content = "{x:Static p:Resources.LblDeck}"
+                <Label x:Name = "lblPlace" Content = "{x:Static p:Resources.LblPlaceCards}"
                                    Width="100"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "14"
                                    Grid.ColumnSpan = "2"
                                    FontFamily = "Monsterrat"
-                                   HorizontalContentAlignment="Center"
+                                   HorizontalContentAlignment="Left"
                                    Grid.Row="5"
                                    Height = "25"/>
 

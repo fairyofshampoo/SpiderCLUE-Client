@@ -446,4 +446,85 @@
   <data name="LblEmailUsed" xml:space="preserve">
     <value>El correo ya está en uso, intenta otro.</value>
   </data>
+  <data name="LblAmphitheater" xml:space="preserve">
+    <value>Anfiteatro</value>
+  </data>
+  <data name="LblCardShown" xml:space="preserve">
+    <value>Carta Mostrada</value>
+  </data>
+  <data name="LblChoseToBeHappy" xml:space="preserve">
+    <value>Eligió Ser Feliz</value>
+  </data>
+  <data name="LblCommonAccusation" xml:space="preserve">
+    <value>Acusación</value>
+  </data>
+  <data name="LblComputerCenter" xml:space="preserve">
+    <value>Centro de Cómputo</value>
+  </data>
+  <data name="LblCourt" xml:space="preserve">
+    <value>Cancha</value>
+  </data>
+  <data name="LblCubicles" xml:space="preserve">
+    <value>Cubículos</value>
+  </data>
+  <data name="LblDidNotSubmitHomework" xml:space="preserve">
+    <value>No entregó tareas</value>
+  </data>
+  <data name="LblDidNotSubmitTheProject" xml:space="preserve">
+    <value>No Presentó El Proyecto</value>
+  </data>
+  <data name="LblDidNotTakeTheExam" xml:space="preserve">
+    <value>No Presentó Examen</value>
+  </data>
+  <data name="LblF103" xml:space="preserve">
+    <value>F-103</value>
+  </data>
+  <data name="LblFriendRequests" xml:space="preserve">
+    <value>Solicitudes de amistad</value>
+  </data>
+  <data name="LblGlassRoom" xml:space="preserve">
+    <value>Salón Cristal</value>
+  </data>
+  <data name="LblLaboratory" xml:space="preserve">
+    <value>Laboratorio</value>
+  </data>
+  <data name="LblMotiveCards" xml:space="preserve">
+    <value>Motivos</value>
+  </data>
+  <data name="LblParkingLot" xml:space="preserve">
+    <value>Estacionamiento</value>
+  </data>
+  <data name="LblPassCard" xml:space="preserve">
+    <value>Selecciona una carta para mostrarla</value>
+  </data>
+  <data name="LblPawn" xml:space="preserve">
+    <value>Color del peón</value>
+  </data>
+  <data name="LblPlaceCards" xml:space="preserve">
+    <value>Lugares</value>
+  </data>
+  <data name="LblProfessorsRoom" xml:space="preserve">
+    <value>Salón de Profesores</value>
+  </data>
+  <data name="LblRollDice" xml:space="preserve">
+    <value>Resultado </value>
+  </data>
+  <data name="LblSinisterSixCards" xml:space="preserve">
+    <value>Seis Siniestros</value>
+  </data>
+  <data name="LblSleptInClass" xml:space="preserve">
+    <value>Se Dormía En Clase</value>
+  </data>
+  <data name="LblTopGlobal" xml:space="preserve">
+    <value>Top Global</value>
+  </data>
+  <data name="LblTurn" xml:space="preserve">
+    <value>Es tu turno</value>
+  </data>
+  <data name="LblWinner" xml:space="preserve">
+    <value>Ganador</value>
+  </data>
+  <data name="LblWithoutAttendance" xml:space="preserve">
+    <value>Sin Asistencias</value>
+  </data>
 </root>

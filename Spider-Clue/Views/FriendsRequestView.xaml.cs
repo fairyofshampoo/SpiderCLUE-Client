@@ -1,6 +1,7 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,17 +25,20 @@ namespace Spider_Clue.Views
         private void ShowFriendRequestList()
         {
             string[] friendRequestList = GetFriendRequestList();
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            for (int i = 0; i < friendRequestList.Length; i++)
+            if(friendRequestList != null)
             {
-                string gamerIcon = userManager.GetIcon(friendRequestList[i]);
-                string iconPath = Utilities.GetImagePathForIcon(gamerIcon);
-                FriendRequest friend = new FriendRequest
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                for (int i = 0; i < friendRequestList.Length; i++)
                 {
-                    Gamertag = friendRequestList[i],
-                    Icon = iconPath,
-                };
-                FriendRequests.Add(friend);
+                    string gamerIcon = userManager.GetIcon(friendRequestList[i]);
+                    string iconPath = Utilities.GetImagePathForIcon(gamerIcon);
+                    FriendRequest friend = new FriendRequest
+                    {
+                        Gamertag = friendRequestList[i],
+                        Icon = iconPath,
+                    };
+                    FriendRequests.Add(friend);
+                }
             }
         }
 

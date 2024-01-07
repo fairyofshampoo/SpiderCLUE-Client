@@ -22,15 +22,15 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Label x:Name = "lblPassCardView" Content = "{x:Static p:Resources.LblDeck}"
-                       Width="300"
+            <TextBlock x:Name = "txtbPassCardView" Text = "{x:Static p:Resources.LblPassCard}"
+                       Width="500"
                        Foreground ="White"
                        FontWeight = "Medium"
-                       FontSize = "50"
+                       FontSize = "30"
                        FontFamily = "Monsterrat"
                        Grid.Row="0"
-                       HorizontalContentAlignment="Center"
-                       Height = "60"/>
+                       Height = "Auto"
+                       TextWrapping="WrapWithOverflow"/>
 
             <StackPanel
                 Grid.Row="1"
