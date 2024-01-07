@@ -148,7 +148,7 @@ namespace Spider_Clue.Views
         private void ConnectToService()
         {
                 int result = SessionManager.Connect(UserSingleton.Instance.GamerTag);
-                if(result == 0)
+                if(result == -1)
                 {
                     GoToLoginView();
                     MessageBox.Show("Ya has iniciado sesión", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
@@ -158,7 +158,6 @@ namespace Spider_Clue.Views
         private void GoToLoginView()
         {
             LoginView loginView = new LoginView();
-            UserSingleton.Instance.Clear();
             NavigationService.Navigate(loginView);
         }
     }
