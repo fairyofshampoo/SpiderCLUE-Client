@@ -11,10 +11,8 @@ using System.Threading.Tasks;
 
 namespace Spider_Clue.Logic
 {
-    internal class Validations
+    public static class Validations
     {
-        protected Validations() { }
-
         private static bool ValidateWithTimeout(string input, Regex regex)
         {
             bool isValid;
@@ -97,7 +95,7 @@ namespace Spider_Clue.Logic
                 isValid = false;
             }
 
-            var nameRegex = new Regex("^[\\p{L}\\p{M}\\s]{1,50}",
+            var nameRegex = new Regex("^[\\p{L}\\p{M}\\s]{1,50}$",
                 RegexOptions.None, TimeSpan.FromMilliseconds(limitTime));
 
             return isValid && ValidateWithTimeout(name, nameRegex);
@@ -112,7 +110,7 @@ namespace Spider_Clue.Logic
             {
                 isValid = false;
             }
-            var gamerTagRegex = new Regex("^[A-Za-z0-9]{1,15}",
+            var gamerTagRegex = new Regex("^[A-Za-z0-9]{1,15}$",
                 RegexOptions.None, TimeSpan.FromMilliseconds(limitTime));
 
             return isValid && ValidateWithTimeout(gamerTag, gamerTagRegex);
