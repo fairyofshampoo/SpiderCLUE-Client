@@ -27,6 +27,7 @@ namespace Spider_Clue.Views
 
         private void BtnChangeInformation_Click(object sender, RoutedEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
             ProfileEditionView profileEditionView = new ProfileEditionView();
             this.NavigationService.Navigate(profileEditionView);
         }

@@ -250,6 +250,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Confirm closing.
+        /// </summary>
+        public static string ConfirmClosingTitle {
+            get {
+                return ResourceManager.GetString("ConfirmClosingTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Court.
         /// </summary>
         public static string CourtCard {
@@ -286,11 +295,29 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You are already logged in..
+        /// </summary>
+        public static string DlgAlreadyLogin {
+            get {
+                return ResourceManager.GetString("DlgAlreadyLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to establish a connection with the server. Please check your internet connection, ensure the server is available, and try again..
         /// </summary>
         public static string DlgCommunicationException {
             get {
                 return ResourceManager.GetString("DlgCommunicationException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error opening the configuration file. Try again..
+        /// </summary>
+        public static string DlgConfigurationException {
+            get {
+                return ResourceManager.GetString("DlgConfigurationException", resourceCulture);
             }
         }
         
@@ -304,11 +331,56 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you want to close the app?.
+        /// </summary>
+        public static string DlgConfirmShutdown {
+            get {
+                return ResourceManager.GetString("DlgConfirmShutdown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to find the endpoint. Please check the server configuration and try again..
+        /// </summary>
+        public static string DlgEndpointException {
+            get {
+                return ResourceManager.GetString("DlgEndpointException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unable to send the game code. Please check your connection and try again later..
         /// </summary>
         public static string DlgErrorInvitation {
             get {
                 return ResourceManager.GetString("DlgErrorInvitation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An unexpected error occurred. Please contact technical support for assistance..
+        /// </summary>
+        public static string DlgFatalException {
+            get {
+                return ResourceManager.GetString("DlgFatalException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you want to make the final accusation?.
+        /// </summary>
+        public static string DlgFinalAccusation {
+            get {
+                return ResourceManager.GetString("DlgFinalAccusation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to set the desired icon due to a format error. Ensure that the icon file is valid. If the issue persists, please contact technical support for assistance..
+        /// </summary>
+        public static string DlgIconException {
+            get {
+                return ResourceManager.GetString("DlgIconException", resourceCulture);
             }
         }
         
@@ -340,11 +412,47 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you want to kick this player out of the game?.
+        /// </summary>
+        public static string DlgKickPlayer {
+            get {
+                return ResourceManager.GetString("DlgKickPlayer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Match code copied to clipboard..
         /// </summary>
         public static string DlgMatchCodeCopied {
             get {
                 return ResourceManager.GetString("DlgMatchCodeCopied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error creating the game. Please try again..
+        /// </summary>
+        public static string DlgMatchCreationError {
+            get {
+                return ResourceManager.GetString("DlgMatchCreationError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The background music couldn&apos;t be played..
+        /// </summary>
+        public static string DlgMusicException {
+            get {
+                return ResourceManager.GetString("DlgMusicException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nobody has been able to answer your accusation..
+        /// </summary>
+        public static string DlgNobodyAnswers {
+            get {
+                return ResourceManager.GetString("DlgNobodyAnswers", resourceCulture);
             }
         }
         
@@ -381,6 +489,15 @@ namespace Spider_Clue.Properties {
         public static string DlgSuccessfulChange {
             get {
                 return ResourceManager.GetString("DlgSuccessfulChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The waiting time has expired. Check your connection to the server or try again later..
+        /// </summary>
+        public static string DlgTimeoutException {
+            get {
+                return ResourceManager.GetString("DlgTimeoutException", resourceCulture);
             }
         }
         
@@ -426,6 +543,15 @@ namespace Spider_Clue.Properties {
         public static string FailedProficiencyExamCard {
             get {
                 return ResourceManager.GetString("FailedProficiencyExamCard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Final Accusation.
+        /// </summary>
+        public static string FinalAccusationTitle {
+            get {
+                return ResourceManager.GetString("FinalAccusationTitle", resourceCulture);
             }
         }
         
@@ -1290,6 +1416,15 @@ namespace Spider_Clue.Properties {
         public static string TeachersLoungecard {
             get {
                 return ResourceManager.GetString("TeachersLoungecard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WARNING.
+        /// </summary>
+        public static string WarningTitle {
+            get {
+                return ResourceManager.GetString("WarningTitle", resourceCulture);
             }
         }
     }

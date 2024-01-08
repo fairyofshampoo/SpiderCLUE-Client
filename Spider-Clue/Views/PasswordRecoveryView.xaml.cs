@@ -3,6 +3,9 @@ using System.Security;
 using System.Windows.Controls;
 using Spider_Clue.Logic;
 using System.Windows;
+using Spider_Clue.SpiderClueService;
+using System.ServiceModel;
+using System;
 
 namespace Spider_Clue.Views
 {
@@ -45,12 +48,12 @@ namespace Spider_Clue.Views
             {
                 if (UpdateGamerPassword())
                 {
-                    ShowSuccessMessage();
+                    DialogManager.ShowSuccessMessageBox(Properties.Resources.DlgSuccessfulChange);
                     GoToLoginView();
                 }
                 else
                 {
-                    ShowErrorMessage();
+                    DialogManager.ShowWarningMessageBox(Properties.Resources.DlgWrongChange);
                 }
             }
         }
@@ -68,13 +71,41 @@ namespace Spider_Clue.Views
             SecureString securePassword = pwbPassword.SecurePassword;
             string password = new NetworkCredential(string.Empty, securePassword).Password;
             string newPassword = Utilities.CalculateSHA1Hash(password);
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+            LoggerManager logger = new LoggerManager(this.GetType());
 
-            if (userManager.UpdatePassword(gamertag, newPassword) == 1)
+            try
             {
-                result = true;
-            }
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
 
+                if (userManager.UpdatePassword(gamertag, newPassword) == 1)
+                {
+                    result = true;
+                }
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                result = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                result = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                result = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                result = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
             return result;
         }
 
@@ -82,16 +113,6 @@ namespace Spider_Clue.Views
         {
             Utilities.PlayButtonClickSound();
             this.NavigationService.GoBack();
-        }
-
-        private void ShowSuccessMessage()
-        {
-            MessageBox.Show(Properties.Resources.DlgSuccessfulChange, Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        private void ShowErrorMessage()
-        {
-            MessageBox.Show(Properties.Resources.DlgWrongChange, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void TypingConfirmPassword(object sender, RoutedEventArgs e)

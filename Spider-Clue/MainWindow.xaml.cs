@@ -4,6 +4,7 @@ using Spider_Clue.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,7 +31,7 @@ namespace Spider_Clue
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = ShowConfirmationDialog("¿Desea cerrar la app?", "Confirmar cierre");
+            MessageBoxResult result = ShowConfirmationDialog(Properties.Resources.DlgConfirmShutdown, Properties.Resources.ConfirmClosingTitle);
 
             if (result == MessageBoxResult.No)
             {
@@ -70,6 +71,7 @@ namespace Spider_Clue
             if (UserSingleton.Instance.GamerTag != null)
             {
                 SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                LoggerManager logger = new LoggerManager(this.GetType());
 
                 try
                 {
@@ -83,9 +85,25 @@ namespace Spider_Clue
                         sessionManager.Disconnect(UserSingleton.Instance.GamerTag);
                     }
                 }
-                catch (Exception ex)
+                catch (EndpointNotFoundException endpointException)
                 {
-                    Console.WriteLine($"Error en Disconnect: {ex.Message}");
+                    logger.LogError(endpointException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+                }
+                catch (TimeoutException timeoutException)
+                {
+                    logger.LogError(timeoutException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+                }
+                catch (CommunicationException communicationException)
+                {
+                    logger.LogError(communicationException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+                }
+                catch (Exception exception)
+                {
+                    logger.LogFatal(exception);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
                 }
             }
         }

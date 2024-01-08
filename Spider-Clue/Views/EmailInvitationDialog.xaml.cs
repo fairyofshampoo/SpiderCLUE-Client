@@ -1,5 +1,7 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
+using System.ServiceModel;
+using System;
 using System.Windows;
 using System.Windows.Input;
 
@@ -27,8 +29,7 @@ namespace Spider_Clue.Views
         private void CopyMatchCode()
         {
             Clipboard.SetText(MatchCode);
-            MessageBox.Show(Properties.Resources.DlgMatchCodeCopied, Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
-
+            DialogManager.ShowSuccessMessageBox(Properties.Resources.DlgMatchCodeCopied);
         }
 
         private void BtnSendCode_Click(object sender, RoutedEventArgs e)
@@ -39,30 +40,47 @@ namespace Spider_Clue.Views
             }
             else
             {
-                ShowErrorMessageBox(Properties.Resources.DlgInvalidData);
+                DialogManager.ShowWarningMessageBox(Properties.Resources.DlgInvalidData);
             }
 
-        }
-        private void ShowErrorMessageBox(string errorMessage)
-        {
-            MessageBox.Show(errorMessage, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
-        }
-
-        private void ShowSuccessMessageBox(string successMessage)
-        {
-            MessageBox.Show(successMessage, Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void SendInvitation()
         {
-            bool invitationResult = InvitationManager.SendInvitation(txtEmail.Text, MatchCode, UserSingleton.Instance.GamerTag);
-            if (invitationResult)
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
             {
-                ShowSuccessMessageBox(Properties.Resources.DlgInvitationSent);
+                bool invitationResult = InvitationManager.SendInvitation(txtEmail.Text, MatchCode, UserSingleton.Instance.GamerTag);
+
+                if (invitationResult)
+                {
+                    DialogManager.ShowSuccessMessageBox(Properties.Resources.DlgInvitationSent);
+                }
+                else
+                {
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgErrorInvitation);
+                }
             }
-            else
+            catch (EndpointNotFoundException endpointException)
             {
-                ShowErrorMessageBox(Properties.Resources.DlgErrorInvitation);
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
             }
         }
         private bool ValidateEmail(string toEmail)

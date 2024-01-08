@@ -28,13 +28,34 @@ namespace Spider_Clue.Views
             this.gamersInGame = gamersInGame;
             SetPawnInBoard();
 
+            LoggerManager logger = new LoggerManager(this.GetType());
+
             try
             {
                 GameManager.ConnectGamerToGameBoard(UserSingleton.Instance.GamerTag, matchCode);
             }
-            catch (CommunicationException)
+            catch (EndpointNotFoundException endpointException)
             {
-                MessageBox.Show(Properties.Resources.DlgCommunicationException, Properties.Resources.ErrorTitle);
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+                GoToMainMenu();
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+                GoToMainMenu();
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+                GoToMainMenu();
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
                 GoToMainMenu();
             }
         }
@@ -87,11 +108,36 @@ namespace Spider_Clue.Views
 
         private void Grid_Click(object sender, MouseButtonEventArgs mouseEvent)
         {
-            Point click = mouseEvent.GetPosition(dtgGameBoard);
-            int columnClick = (int)(click.X / (int)dtgGameBoard.ActualWidth * dtgGameBoard.ColumnDefinitions.Count);
-            int rowClick = (int)(click.Y / (int)dtgGameBoard.ActualHeight * dtgGameBoard.RowDefinitions.Count);
-            dtgGameBoard.IsEnabled = false;
-            GameManager.MovePawn(columnClick, rowClick, UserSingleton.Instance.GamerTag, matchCode);
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                Point click = mouseEvent.GetPosition(dtgGameBoard);
+                int columnClick = (int)(click.X / (int)dtgGameBoard.ActualWidth * dtgGameBoard.ColumnDefinitions.Count);
+                int rowClick = (int)(click.Y / (int)dtgGameBoard.ActualHeight * dtgGameBoard.RowDefinitions.Count);
+                dtgGameBoard.IsEnabled = false;
+                GameManager.MovePawn(columnClick, rowClick, UserSingleton.Instance.GamerTag, matchCode);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
 
         private void BtnLeaveGame_Click(object sender, RoutedEventArgs e)
@@ -101,24 +147,100 @@ namespace Spider_Clue.Views
 
         public void LeaveGame()
         {
-            GameManager.EndGameAsync(matchCode);
-            GoToMainMenu();
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                GameManager.EndGameAsync(matchCode);
+                GoToMainMenu();
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
 
         private void BtnShowCards_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            Card[] cards = GameManager.GetDeck(UserSingleton.Instance.GamerTag);
-            OpenDialogDeck(cards);
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                Card[] cards = GameManager.GetDeck(UserSingleton.Instance.GamerTag);
+                OpenDialogDeck(cards);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
 
         private void BtnRollDice_Click(object sender, RoutedEventArgs e)
         {
-            diceNumber = GameManager.RollDice(matchCode);
-            OpenDialogRollDice(diceNumber);
-            brRollDice.Visibility = Visibility.Collapsed;
-            brDiceRoll.Visibility = Visibility.Visible;
-            txtRollDice.Text = diceNumber.ToString();   
+            Utilities.PlayButtonClickSound();
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                diceNumber = GameManager.RollDice(matchCode);
+                OpenDialogRollDice(diceNumber);
+                brRollDice.Visibility = Visibility.Collapsed;
+                brDiceRoll.Visibility = Visibility.Visible;
+                txtRollDice.Text = diceNumber.ToString();
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
 
         public void ReceivePawnsMove(Pawn pawn)
@@ -208,36 +330,86 @@ namespace Spider_Clue.Views
 
         public void ReceiveFinalAccusationOption(bool isEnabled)
         {
-            if (isEnabled && ShowConfirmationFinalAccusation() == MessageBoxResult.OK)
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
             {
-                string sinister = OpenDialogSixSinistersCard();
-                string motive = OpenDialogMotiveCard();
-                string place = OpenDialogPlaceCard();
-                string[] cards = new string[3];
-                cards[0] = sinister;
-                cards[1] = motive;
-                cards[2] = place;
-                GameManager.MakeFinalAccusation(cards, matchCode, UserSingleton.Instance.GamerTag);
+                if (isEnabled && ShowConfirmationFinalAccusation() == MessageBoxResult.OK)
+                {
+                    string sinister = OpenDialogSixSinistersCard();
+                    string motive = OpenDialogMotiveCard();
+                    string place = OpenDialogPlaceCard();
+                    string[] cards = new string[3];
+                    cards[0] = sinister;
+                    cards[1] = motive;
+                    cards[2] = place;
+                    GameManager.MakeFinalAccusation(cards, matchCode, UserSingleton.Instance.GamerTag);
+                }
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
             }
         }
 
         private MessageBoxResult ShowConfirmationFinalAccusation()
         {
-            //Cambiar el mensaje para que pregunte si quiere realizar la acusación final
-            return MessageBox.Show(Properties.Resources.DlgConfirmDeleteFriend, Properties.Resources.DeleteFriendTitle, MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            return MessageBox.Show(Properties.Resources.DlgFinalAccusation, Properties.Resources.FinalAccusationTitle, MessageBoxButton.OKCancel, MessageBoxImage.Question);
         }
 
         public void ReceiveCommonAccusationOption(bool isEnabled, Door door)
         {
-            string sinister = OpenDialogSixSinistersCard();
-            string motive = OpenDialogMotiveCard();
-            string place = door.ZoneName;
+            LoggerManager logger = new LoggerManager(this.GetType());
 
-            string[] cards = new string[3];
-            cards[0] = place;
-            cards[1] = sinister;
-            cards[2] = motive;
-            GameManager.ShowCommonAccusation(cards, matchCode, UserSingleton.Instance.GamerTag);
+            try
+            {
+                string sinister = OpenDialogSixSinistersCard();
+                string motive = OpenDialogMotiveCard();
+                string place = door.ZoneName;
+
+                string[] cards = new string[3];
+                cards[0] = place;
+                cards[1] = sinister;
+                cards[2] = motive;
+                GameManager.ShowCommonAccusation(cards, matchCode, UserSingleton.Instance.GamerTag);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+            
         }
 
         public void ReceiveCommonAccusationByOtherGamer(string[] accusation)
@@ -252,16 +424,42 @@ namespace Spider_Clue.Views
 
         public void RequestShowCard(Card[] cards, string accuser)
         {
-            string typeSelected = OpenDialogPassCard(cards);
-            Card selectedCard = new Card();
-            foreach (var card in cards)
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
             {
-                if (card.Type == typeSelected)
+                string typeSelected = OpenDialogPassCard(cards);
+                Card selectedCard = new Card();
+                foreach (var card in cards)
                 {
-                    selectedCard = card; break;
+                    if (card.Type == typeSelected)
+                    {
+                        selectedCard = card; break;
+                    }
                 }
+                GameManager.ShowCard(selectedCard, matchCode, accuser);
             }
-            GameManager.ShowCard(selectedCard, matchCode, accuser);
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+            
         }
 
         public void ReceiveWinner(string winnerGamertag, string gamerIcon)
@@ -357,8 +555,7 @@ namespace Spider_Clue.Views
 
         public void ShowNobodyAnswers()
         {
-            //Cambiar mensajito
-            MessageBox.Show(Properties.Resources.DlgConfirmDeleteFriend, Properties.Resources.DeleteFriendTitle, MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            MessageBox.Show(Properties.Resources.DlgNobodyAnswers, Properties.Resources.InformationTitle, MessageBoxButton.OKCancel, MessageBoxImage.Question);
         }
     }
 }

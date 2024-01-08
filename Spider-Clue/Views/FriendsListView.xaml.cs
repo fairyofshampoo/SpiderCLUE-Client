@@ -16,8 +16,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static Spider_Clue.Views.FriendsRequestView;
 
 namespace Spider_Clue.Views
 {
@@ -37,8 +35,33 @@ namespace Spider_Clue.Views
 
         private void JoinFriendListView()
         {
-            SpiderClueService.IFriendsManager friendsManager = new SpiderClueService.FriendsManagerClient(new InstanceContext(this));
-            friendsManager.JoinFriendsConnected(UserSingleton.Instance.GamerTag);
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                SpiderClueService.IFriendsManager friendsManager = new SpiderClueService.FriendsManagerClient(new InstanceContext(this));
+                friendsManager.JoinFriendsConnected(UserSingleton.Instance.GamerTag);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
 
         private void ShowFriendList()
@@ -46,29 +69,60 @@ namespace Spider_Clue.Views
             dtgFriendsConnected.Items.Clear();
             string[] friendList = GetFriends();
             string statusColor = "Red";
-            for(int firstIndex = 0; firstIndex < friendList.Length; firstIndex++)
+
+            if(friendList != null)
             {
-                for (int secondIndex = 0; secondIndex < FriendsConnected.Length; secondIndex++)
+                for (int firstIndex = 0; firstIndex < friendList.Length; firstIndex++)
                 {
-                    if (friendList[firstIndex] == FriendsConnected[secondIndex])
+                    for (int secondIndex = 0; secondIndex < FriendsConnected.Length; secondIndex++)
                     {
-                        statusColor = "Green";
+                        if (friendList[firstIndex] == FriendsConnected[secondIndex])
+                        {
+                            statusColor = "Green";
+                        }
                     }
+                    Player player = new Player
+                    {
+                        Gamertag = friendList[firstIndex],
+                        Status = statusColor
+                    };
+                    dtgFriendsConnected.Items.Add(player);
+                    statusColor = "Red";
                 }
-                Player player = new Player
-                {
-                    Gamertag = friendList[firstIndex],
-                    Status = statusColor
-                };
-                dtgFriendsConnected.Items.Add(player);
-                statusColor = "Red";
             }           
         }
 
         private string [] GetFriends()
         {
-            SpiderClueService.IFriendshipManager friendRequest = new SpiderClueService.FriendshipManagerClient();
-            string [] friendList = friendRequest.GetFriendList(UserSingleton.Instance.GamerTag);
+            LoggerManager logger = new LoggerManager(this.GetType());
+            string[] friendList = null;
+
+            try
+            {
+                SpiderClueService.IFriendshipManager friendRequest = new SpiderClueService.FriendshipManagerClient();
+                friendList = friendRequest.GetFriendList(UserSingleton.Instance.GamerTag);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+            
             return friendList;
         }
 
@@ -136,15 +190,65 @@ namespace Spider_Clue.Views
 
         private void DeleteFriend(string friend)
         {
-            SpiderClueService.IFriendshipManager friendship = new SpiderClueService.FriendshipManagerClient();
-            friendship.DeleteFriend(UserSingleton.Instance.GamerTag, friend);
-            ShowFriendList();
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                SpiderClueService.IFriendshipManager friendship = new SpiderClueService.FriendshipManagerClient();
+                friendship.DeleteFriend(UserSingleton.Instance.GamerTag, friend);
+                ShowFriendList();
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
 
         private void DeleteFriendsRequest(string friend)
         {
-            SpiderClueService.IFriendRequestManager friendRequest = new SpiderClueService.FriendRequestManagerClient();
-            friendRequest.DeleteFriendRequest(UserSingleton.Instance.GamerTag, friend);
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                SpiderClueService.IFriendRequestManager friendRequest = new SpiderClueService.FriendRequestManagerClient();
+                friendRequest.DeleteFriendRequest(UserSingleton.Instance.GamerTag, friend);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
 
         public void ReceiveConnectedFriends(string[] connectedFriends)

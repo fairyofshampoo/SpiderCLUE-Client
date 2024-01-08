@@ -3,6 +3,7 @@ using Spider_Clue.SpiderClueService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -12,15 +13,9 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using System.Xml.Linq;
 
 namespace Spider_Clue.Views
 {
-
     public partial class ProfileEditionView : Page
     {
         public ProfileEditionView()
@@ -37,34 +32,26 @@ namespace Spider_Clue.Views
 
         private void BtnSave_Click(object sender, RoutedEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
+
             if (ValidateData())
             {
                 if (UpdateData() == 1)
                 {
-                    ShowSuccessMessage();
+                    DialogManager.ShowSuccessMessageBox(Properties.Resources.DlgSuccessfulChange);
                 }
                 else
                 {
-                    ShowErrorMessage();
+                    DialogManager.ShowWarningMessageBox(Properties.Resources.DlgWrongChange);
                 }
             }
             
         }
 
-        private void ShowSuccessMessage()
-        {
-            MessageBox.Show("Cambio realizado", Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        private void ShowErrorMessage()
-        {
-            MessageBox.Show("Error en el cambio", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
-        }
-
         private bool ValidateData()
         {
-            String newName = txtName.Text;
-            String newLastName = txtLastName.Text;
+            string newName = txtName.Text;
+            string newLastName = txtLastName.Text;
             bool nameValid = Validations.IsNameValid(newName);
             bool lastNameValid = Validations.IsNameValid(newLastName);
 
@@ -83,15 +70,47 @@ namespace Spider_Clue.Views
 
         private int UpdateData()
         {
-            String newName = txtName.Text;
-            String newLastName = txtLastName.Text;
-            String gamertag = UserSingleton.Instance.GamerTag;
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            return userManager.ModifyAccount(gamertag, newName, newLastName);
+            LoggerManager logger = new LoggerManager(this.GetType());
+            int result = 0;
+            try
+            {
+                string newName = txtName.Text;
+                string newLastName = txtLastName.Text;
+                string gamertag = UserSingleton.Instance.GamerTag;
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                result = userManager.ModifyAccount(gamertag, newName, newLastName);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                result = 0;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                result = 0;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                result = 0;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                result = 0;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+
+            return result;
         }
 
         private void BtnChangePassword_Click(object sender, RoutedEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
             GoToChangePasswordView();
         }
 

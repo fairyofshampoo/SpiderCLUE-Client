@@ -8,6 +8,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
+using Spider_Clue.SpiderClueService;
+using System.ServiceModel;
+using System.Runtime.CompilerServices;
 
 
 namespace Spider_Clue.Logic
@@ -44,23 +47,44 @@ namespace Spider_Clue.Logic
 
         public static void PlayMainThemeSong(MediaElement mediaElement)
         {
-            if (ConfigurationManager.AppSettings["MUSIC_ON"].Equals("true"))
+            LoggerManager logger = new LoggerManager(mediaElement.GetType());
+            try
             {
-                mediaElement.Source = new Uri(GetMainThemeSongPath(), UriKind.RelativeOrAbsolute);
-                mediaElement.MediaEnded += (sender, e) =>
+                if (ConfigurationManager.AppSettings["MUSIC_ON"].Equals("true"))
                 {
-                    mediaElement.Position = TimeSpan.Zero;
+                    mediaElement.Source = new Uri(GetMainThemeSongPath(), UriKind.RelativeOrAbsolute);
+                    mediaElement.MediaEnded += (sender, e) =>
+                    {
+                        mediaElement.Position = TimeSpan.Zero;
+                        mediaElement.Play();
+                    };
                     mediaElement.Play();
-                };
-                mediaElement.Play();
+                }
+            }
+            catch (UriFormatException uriFormatException)
+            {
+                logger.LogError(uriFormatException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgMusicException);
             }
         }
 
         private static string GetMainThemeSongPath()
         {
-            string PathDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string PathProyectoDirectory = Path.GetFullPath(Path.Combine(PathDirectory, "../../../"));
-            return PathProyectoDirectory + "Spider-Clue\\Audio\\MainMenuSong.wav";
+            string path = string.Empty;
+            LoggerManager logger = new LoggerManager(AppDomain.CurrentDomain.BaseDirectory.GetType());
+            try
+            {
+                string PathDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string PathProyectoDirectory = Path.GetFullPath(Path.Combine(PathDirectory, "../../../"));
+                path = PathProyectoDirectory + "Spider-Clue\\Audio\\MainMenuSong.wav";
+
+            } 
+            catch (PathTooLongException pathTooLongException)
+            {
+                logger.LogError(pathTooLongException);
+            }
+
+            return path;
         }
 
         public static string GetImagePathForIcon(string imageCode)
@@ -70,9 +94,20 @@ namespace Spider_Clue.Logic
 
         public static string GetImagePathForImages()
         {
-            string PathDirectory = AppDomain.CurrentDomain.BaseDirectory;
-            string PathProyectoDirectory = Path.GetFullPath(Path.Combine(PathDirectory, "../../../"));
-            return PathProyectoDirectory + "Spider-Clue\\Images\\";
+            string path = string.Empty;
+            LoggerManager logger = new LoggerManager(AppDomain.CurrentDomain.BaseDirectory.GetType());
+            try
+            {
+                string PathDirectory = AppDomain.CurrentDomain.BaseDirectory;
+                string PathProyectoDirectory = Path.GetFullPath(Path.Combine(PathDirectory, "../../../"));
+                path = PathProyectoDirectory + "Spider-Clue\\Images\\";
+            }
+            catch (PathTooLongException pathTooLongException)
+            {
+                logger.LogError(pathTooLongException);
+            }
+
+            return path;
         }
 
         public static string GetImagePathForCards(string imageCode)
@@ -82,10 +117,37 @@ namespace Spider_Clue.Logic
 
         public static bool SendEmailWithCode(string toEmail, Window mainWindow)
         {
-            SpiderClueService.IEmailVerificationManager emailVerificationManager = new SpiderClueService.EmailVerificationManagerClient();
-            emailVerificationManager.GenerateVerificationCode(toEmail);
-            String codeToValidate = OpenDialogForEmailVerification(mainWindow);
-            return emailVerificationManager.VerifyCode(toEmail, codeToValidate);
+            bool result = false;
+            LoggerManager logger = new LoggerManager(mainWindow.GetType());
+
+            try
+            {
+                SpiderClueService.IEmailVerificationManager emailVerificationManager = new SpiderClueService.EmailVerificationManagerClient();
+                emailVerificationManager.GenerateVerificationCode(toEmail);
+                string codeToValidate = OpenDialogForEmailVerification(mainWindow);
+                result = emailVerificationManager.VerifyCode(toEmail, codeToValidate);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+            return result;
         }
 
         private static string OpenDialogForEmailVerification(Window mainWindow)

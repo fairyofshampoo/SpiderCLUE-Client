@@ -1,10 +1,10 @@
 ﻿using Spider_Clue.SpiderClueService;
 using System;
-using System.Net;
 using System.Security;
 using System.Windows;
 using System.Windows.Controls;
 using Spider_Clue.Logic;
+using System.ServiceModel;
 
 namespace Spider_Clue.Views
 {
@@ -17,26 +17,19 @@ namespace Spider_Clue.Views
 
         private void BtnRegister_Click(object sender, RoutedEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
+
             if (RegisterUser())
             {
-                ShowSuccessMessage();
+                DialogManager.ShowSuccessMessageBox(Properties.Resources.DlgRegisterSuccessful);
                 GoToLoginView();
             }
             else
             {
-                ShowErrorMessage();
+                DialogManager.ShowWarningMessageBox(Properties.Resources.DlgRegisterError);
             }
         }
 
-        private void ShowSuccessMessage()
-        {
-            MessageBox.Show(Properties.Resources.DlgRegisterSuccessful, Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        private void ShowErrorMessage()
-        {
-            MessageBox.Show(Properties.Resources.DlgRegisterError, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
-        }
         private bool RegisterUser()
         {
             bool registerResult = false;
@@ -48,12 +41,10 @@ namespace Spider_Clue.Views
             return registerResult;
         }
 
-
         private bool IsEmailVerified()
         {
-            String toEmail = txtEmail.Text;
+            string toEmail = txtEmail.Text;
             return Utilities.SendEmailWithCode(toEmail, Window.GetWindow(this));
-
         }
 
         private bool AreDataValid()
@@ -153,28 +144,89 @@ namespace Spider_Clue.Views
 
         private bool SearchEmailDuplication()
         {
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            bool emailDuplication = userManager.IsEmailExisting(txtEmail.Text);
-            if (emailDuplication)
+            bool emailDuplication = false;
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
             {
-                lblInvalidEmail.Content = Properties.Resources.LblEmailUsed;
-                lblInvalidEmail.Visibility = Visibility.Visible;
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                emailDuplication = userManager.IsEmailExisting(txtEmail.Text);
+                if (emailDuplication)
+                {
+                    lblInvalidEmail.Content = Properties.Resources.LblEmailUsed;
+                    lblInvalidEmail.Visibility = Visibility.Visible;
+                }
             }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                emailDuplication = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                emailDuplication = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                emailDuplication = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                emailDuplication = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+
+
             return emailDuplication;
         }
 
         private bool SearchGamerTagDuplication()
         {
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            bool gamerTagDuplication = userManager.IsGamertagExisting(txtGamerTag.Text);
-            if (gamerTagDuplication)
+            LoggerManager logger = new LoggerManager(this.GetType());
+            bool gamerTagDuplication = false;
+
+            try
             {
-                lblInvalidGamerTag.Content = Properties.Resources.LblGamerTagUsed;
-                lblInvalidGamerTag.Visibility = Visibility.Visible;
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                gamerTagDuplication = userManager.IsGamertagExisting(txtGamerTag.Text);
+                if (gamerTagDuplication)
+                {
+                    lblInvalidGamerTag.Content = Properties.Resources.LblGamerTagUsed;
+                    lblInvalidGamerTag.Visibility = Visibility.Visible;
+                }
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+                gamerTagDuplication = false;
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+                gamerTagDuplication = false;
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+                gamerTagDuplication = false;
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+                gamerTagDuplication = false;
             }
 
             return gamerTagDuplication;
-
         }
 
         private bool RegisterGamerInDatabase()
@@ -191,11 +243,37 @@ namespace Spider_Clue.Views
                 Password = passwordHashed,
                 ImageCode = defaultIcon,
             };
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            if (userManager.AddUserTransaction(gamer) == 1)
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
             {
-                result = true;
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                if (userManager.AddUserTransaction(gamer) == 1)
+                {
+                    result = true;
+                }
             }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+            
             return result;
         }
 
