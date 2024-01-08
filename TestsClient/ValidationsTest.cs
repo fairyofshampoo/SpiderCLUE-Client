@@ -106,6 +106,26 @@ namespace TestsClient
         }
 
         [Fact]
+        public void TestIsNameValidWithTooMuchCharacters()
+        {
+            bool result = false;
+            string nameText = "Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe";
+
+            result = Validations.IsNameValid(nameText);
+            Assert.False(result);
+        }
+
+        [Fact]
+        public void TestIsNameValidEmpty()
+        {
+            bool result = false;
+            string nameText = " ";
+
+            result = Validations.IsNameValid(nameText);
+            Assert.False(result);
+        }
+
+        [Fact]
         public void TestIsGamertagValidSuccess()
         {
             bool result = false;
