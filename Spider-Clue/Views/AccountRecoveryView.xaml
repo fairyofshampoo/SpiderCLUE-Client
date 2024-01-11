@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
       d:DesignHeight = "720" d:DesignWidth = "1280"
-      mc:Ignorable="d" 
-      Title="AccountRecoveryView">
+      mc:Ignorable="d">
     <DockPanel>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <Grid>

@@ -10,19 +10,19 @@ using System.Windows.Controls;
 namespace Spider_Clue.Views
 {
 
-    public partial class Top3GlobalView : Page
+    public partial class TopGlobalView : Page
     {
         public ObservableCollection<TopGlobal> TopGlobals { get; set; }
 
-        public Top3GlobalView()
+        public TopGlobalView()
         {
             InitializeComponent();
             TopGlobals = new ObservableCollection<TopGlobal>();
-            dtgTop3Global.ItemsSource = TopGlobals;
-            ShowTop3Global();
+            dtgTopGlobal.ItemsSource = TopGlobals;
+            ShowTopGlobal();
         }
 
-        private void ShowTop3Global()
+        private void ShowTopGlobal()
         {
             LoggerManager logger = new LoggerManager(this.GetType());
 

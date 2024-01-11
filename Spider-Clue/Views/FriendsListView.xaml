@@ -5,8 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
-      mc:Ignorable="d"
-      d:DesignHeight="720" d:DesignWidth="1280">
+      mc:Ignorable="d" d:DesignHeight="720" d:DesignWidth="1280">
 
     <Grid>
         <Border>
@@ -29,15 +28,10 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button
-                                VerticalAlignment="Top"
-                                Grid.Column="0"
-                                Grid.Row = "0"
-                                Width = "70"
-                                Height = "70"
-                                Margin="20,5,0,0"
-                                Click="BtnGoBack_Click"
-                                Cursor="Hand">
+                    <Button VerticalAlignment="Top" Grid.Column="0" 
+                            Grid.Row = "0" Width = "70" Height = "70"
+                            Margin="20,5,0,0" Click="BtnGoBack_Click" 
+                            Cursor="Hand">
                         <Button.Template>
                             <ControlTemplate>
                                 <Image Source="/Images/Icons/GoBackIcon.png" 
@@ -69,7 +63,7 @@
                         HorizontalAlignment="Left"
                         Margin = "60,50,0,0"
                         Grid.Column="2">
-                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnChangeFriendRequest">
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnChangeFriendRequest_Click">
                             <Image Source="/Images/Icons/NotificationIcon.png"
                                    Stretch="UniformToFill"/>
                         </Button>

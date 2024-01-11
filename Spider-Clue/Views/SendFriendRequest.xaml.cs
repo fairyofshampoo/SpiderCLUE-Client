@@ -1,7 +1,6 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
 using System;
-using System.Drawing;
 using System.ServiceModel;
 using System.Windows;
 using System.Windows.Input;
@@ -16,7 +15,7 @@ namespace Spider_Clue.Views
             InitializeComponent();
         }
 
-        private void Search_Click(object sender, MouseButtonEventArgs e)
+        private void ImgSearch_Click(object sender, MouseButtonEventArgs e)
         {
             LoggerManager logger = new LoggerManager(this.GetType());
 

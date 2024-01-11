@@ -14,7 +14,7 @@ namespace Spider_Clue.Views
         public readonly GameManagerClient GameManager;
         private Dictionary<string, Pawn> gamersInGame;
         private string matchCode;
-        private int diceNumber = 0;
+        private int diceNumber = Constants.DefaultDiceNumber;
 
         public GameBoardView()
         {
@@ -106,7 +106,7 @@ namespace Spider_Clue.Views
             }
         }
 
-        private void Grid_Click(object sender, MouseButtonEventArgs mouseEvent)
+        private void DtgGameBoard_Click(object sender, MouseButtonEventArgs mouseEvent)
         {
             LoggerManager logger = new LoggerManager(this.GetType());
 
@@ -245,7 +245,7 @@ namespace Spider_Clue.Views
 
         public void ReceivePawnsMove(Pawn pawn)
         {
-            diceNumber = 0;
+            diceNumber = Constants.DefaultDiceNumber;
             switch (pawn.Color)
             {
                 case "BluePawn.png":
@@ -302,7 +302,7 @@ namespace Spider_Clue.Views
         {
             if(isYourTurn)
             {
-                if (diceNumber == 0)
+                if (diceNumber == Constants.DefaultDiceNumber)
                 {
                     brRollDice.Visibility = Visibility.Visible;   
                 }
@@ -339,7 +339,7 @@ namespace Spider_Clue.Views
                     string sinister = OpenDialogSixSinistersCard();
                     string motive = OpenDialogMotiveCard();
                     string place = OpenDialogPlaceCard();
-                    string[] cards = new string[3];
+                    string[] cards = new string[Constants.LimitOfGamersInMatch];
                     cards[0] = sinister;
                     cards[1] = motive;
                     cards[2] = place;
@@ -383,7 +383,7 @@ namespace Spider_Clue.Views
                 string motive = OpenDialogMotiveCard();
                 string place = door.ZoneName;
 
-                string[] cards = new string[3];
+                string[] cards = new string[Constants.LimitOfGamersInMatch];
                 cards[0] = place;
                 cards[1] = sinister;
                 cards[2] = motive;

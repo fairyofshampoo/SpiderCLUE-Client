@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Spider_Clue.Views"
         mc:Ignorable="d"
         xmlns:p = "clr-namespace:Spider_Clue.Properties"
-        Title="ShowWinner" Height="500" Width="700">
+        Height="500" Width="700">
     <Grid>
         <Border>
             <Border.Background>

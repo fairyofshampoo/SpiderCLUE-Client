@@ -10,7 +10,7 @@ namespace Spider_Clue.Views
 
     public partial class EmailInvitationDialog : Window
     {
-        private string MatchCode;
+        private string matchCode;
         public readonly IInvitationManager InvitationManager = new SpiderClueService.InvitationManagerClient();
         public EmailInvitationDialog()
         {
@@ -19,20 +19,20 @@ namespace Spider_Clue.Views
 
         public void SetMatchCodeInPage(string matchCode)
         {
-            MatchCode = matchCode;
+            this.matchCode = matchCode;
             lblCodeMatch.Content = matchCode;
         }
-        private void Copy_Click(object sender, MouseButtonEventArgs e)
+        private void ImgCopyCode_Click(object sender, MouseButtonEventArgs e)
         {
             CopyMatchCode();
         }
         private void CopyMatchCode()
         {
-            Clipboard.SetText(MatchCode);
+            Clipboard.SetText(matchCode);
             DialogManager.ShowSuccessMessageBox(Properties.Resources.DlgMatchCodeCopied);
         }
 
-        private void BtnSendCode_Click(object sender, RoutedEventArgs e)
+        private void BtnSendCodeEmail_Click(object sender, RoutedEventArgs e)
         {
             if (ValidateEmail(txtEmail.Text))
             {
@@ -51,7 +51,7 @@ namespace Spider_Clue.Views
 
             try
             {
-                bool invitationResult = InvitationManager.SendInvitation(txtEmail.Text, MatchCode, UserSingleton.Instance.GamerTag);
+                bool invitationResult = InvitationManager.SendInvitation(txtEmail.Text, matchCode, UserSingleton.Instance.GamerTag);
 
                 if (invitationResult)
                 {
@@ -88,7 +88,7 @@ namespace Spider_Clue.Views
             return Validations.IsEmailValid(toEmail);
         }
 
-        private void SendEmail_Click(object sender, MouseButtonEventArgs e)
+        private void BrSendEmail_Click(object sender, MouseButtonEventArgs e)
         {
             stpCopyCode.Visibility = Visibility.Collapsed;
             stpSendEmail.Visibility = Visibility.Visible;

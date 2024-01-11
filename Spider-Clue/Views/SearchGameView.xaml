@@ -60,7 +60,7 @@
                                                  Background="LightGray"
                                                  Foreground="Black"
                                                  BorderThickness="0" Width="170"/>
-                                        <Border Background="LightGray" Grid.Column="1" MouseDown="Search_Click">
+                                        <Border Background="LightGray" Grid.Column="1" MouseDown="BrSearch_Click">
                                             <Image x:Name="imgSearchIcon" Stretch="UniformToFill"
                                                    Width="15" Height="15"
                                                    Source="/Images/Icons/SearchIcon.png"/>
@@ -161,7 +161,7 @@
                                         </Button.Style>
                                         <Button.Template>
                                             <ControlTemplate TargetType="Button">
-                                                <Border Width="60" Height="15"
+                                                <Border Width="Auto" Height="20"
                                                 CornerRadius="5"
                                                 Background="{TemplateBinding Background}">
                                                     <ContentPresenter VerticalAlignment="Center"

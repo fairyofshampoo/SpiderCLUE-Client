@@ -18,7 +18,7 @@ namespace Spider_Clue.Views
             InitializeComponent();
         }
 
-        private void LblRegister_Clicked(object sender, MouseButtonEventArgs mouseEvent)
+        private void LblRegister_Click(object sender, MouseButtonEventArgs mouseEvent)
         {
             Utilities.PlayButtonClickSound();
             Register registerView = new Register();
@@ -32,7 +32,7 @@ namespace Spider_Clue.Views
             DisplayMainMenuGuestView();
         }
 
-        private void LblForgotPassword_Clicked(object sender, MouseButtonEventArgs e)
+        private void LblForgotPassword_Click(object sender, MouseButtonEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             AccountRecoveryView accountRecoveryView = new AccountRecoveryView();
@@ -42,14 +42,18 @@ namespace Spider_Clue.Views
         private void SetGuessPlayerData()
         {
             int minimumGamesWon = 0;
+            string defaultImageIcon = "Icon0.jpg";
+            string defaultName = "Guest";
+            string defaultLastName = "Player";
             string guestPlayerUsername = GenerateGuestPlayerUsername();
+
             if(!string.IsNullOrEmpty(guestPlayerUsername))
             {
                 UserSingleton.Instance.GamerTag = guestPlayerUsername;
                 UserSingleton.Instance.GamesWon = minimumGamesWon;
-                UserSingleton.Instance.ImageCode = "Icon0.jpg";
-                UserSingleton.Instance.Name = "Guest";
-                UserSingleton.Instance.LastName = "Player";
+                UserSingleton.Instance.ImageCode = defaultImageIcon;
+                UserSingleton.Instance.Name = defaultName;
+                UserSingleton.Instance.LastName = defaultLastName;
                 UserSingleton.Instance.IsGuestPlayer = true;
             }
         }
@@ -263,8 +267,10 @@ namespace Spider_Clue.Views
 
         private void DisplayMainMenuView()
         {
+            int successfulResult = 1;
             MainMenuView mainMenuView = new MainMenuView();
-            if(mainMenuView.ConnectToService() == 1)
+
+            if(mainMenuView.ConnectToService() == successfulResult)
             {
                 this.NavigationService.Navigate(mainMenuView);
             }
@@ -326,12 +332,12 @@ namespace Spider_Clue.Views
             lblPasswordInvalid.Visibility = Visibility.Hidden;
         }
 
-        private void BtnPasswordVisibility_Checked(object sender, RoutedEventArgs e)
+        private void TgbtnPasswordVisibility_Checked(object sender, RoutedEventArgs e)
         {
             TogglePasswordVisibility(true);
         }
 
-        private void BtnPasswordVisibility_Unchecked(object sender, RoutedEventArgs e)
+        private void TgbtnPasswordVisibility_Unchecked(object sender, RoutedEventArgs e)
         {
             TogglePasswordVisibility(false);
         }

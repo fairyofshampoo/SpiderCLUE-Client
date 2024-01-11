@@ -37,7 +37,7 @@
                         HorizontalAlignment="Left"
                         Margin = "120,50,0,0"
                         Grid.Column="0">
-                        <Button Background = "Transparent" BorderBrush = "Transparent" Click = "BtnChangeFriendRequest">
+                        <Button Background = "Transparent" BorderBrush = "Transparent" Click = "BtnChangeFriendRequest_Click">
                             <Image Source = "/Images/Icons/FriendsListIcon.png"
                                    Stretch = "UniformToFill"/>
                         </Button>
@@ -118,7 +118,7 @@
                                 <DataGridTemplateColumn x:Name = "dtgtcAccept" Header="Accept" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Background="Transparent" BorderBrush="Transparent" Click="BtnAcceptFriendRequest">
+                                            <Button Background="Transparent" BorderBrush="Transparent" Click="BtnAcceptFriendRequest_Click">
                                                 <Image Source="/Images/Icons/AcceptIcon.png" 
                                                        Width="60" 
                                                        Height="50"/>
@@ -129,7 +129,7 @@
                                 <DataGridTemplateColumn x:Name = "dtgtcDecline" Header="Reject" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <Button Background="Transparent" BorderBrush="Transparent" Click="BtnRejectFriendRequest">
+                                            <Button Background="Transparent" BorderBrush="Transparent" Click="BtnRejectFriendRequest_Click">
                                                 <Image Source="/Images/Icons/RejectIcon.png" 
                                                        Width="60" 
                                                        Height="50"/>

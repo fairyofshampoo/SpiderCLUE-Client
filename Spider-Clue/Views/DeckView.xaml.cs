@@ -86,7 +86,8 @@ namespace Spider_Clue.Views
 
         public void SetDefaultVillainCards(int index)
         {
-            while(index <= 6)
+            int totalOfCards = 6;
+            while(index <= totalOfCards)
             {
                 switch (index)
                 {
@@ -162,8 +163,9 @@ namespace Spider_Clue.Views
         }
 
         public void SetPlaceDefaultCards(int index)
-        { 
-            while(index <=6) { 
+        {
+            int totalOfCards = 6;
+            while (index <= totalOfCards) { 
                 switch (index)
                 {
                     case 1:
@@ -238,7 +240,8 @@ namespace Spider_Clue.Views
 
         public void ShowMotiveDefaultCards (int index)
         {
-            while(index <= 6)
+            int totalOfCards = 6;
+            while (index <= totalOfCards)
             {
                 switch (index)
                 {

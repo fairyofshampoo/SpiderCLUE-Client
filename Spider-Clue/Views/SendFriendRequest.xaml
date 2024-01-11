@@ -54,7 +54,7 @@
                                            Stretch="UniformToFill" 
                                            Width="20" Height="20"
                                            Source="/Images/Icons/SearchIcon.png"
-                                           MouseDown="Search_Click"
+                                           MouseDown="ImgSearch_Click"
                                            HorizontalAlignment="Right"/>
                             </Border>
                         </Grid>

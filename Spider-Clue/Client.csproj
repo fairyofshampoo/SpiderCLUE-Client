@@ -76,6 +76,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Logic\Constants.cs" />
     <Compile Include="Logic\DialogManager.cs" />
     <Compile Include="Logic\GamerForListBox.cs" />
     <Compile Include="Logic\LoggerManager.cs" />
@@ -190,8 +191,8 @@
     <Compile Include="Views\SinisterSixCardsView.xaml.cs">
       <DependentUpon>SinisterSixCardsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Top3GlobalView.xaml.cs">
-      <DependentUpon>Top3GlobalView.xaml</DependentUpon>
+    <Compile Include="Views\TopGlobalView.xaml.cs">
+      <DependentUpon>TopGlobalView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -329,7 +330,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Top3GlobalView.xaml">
+    <Page Include="Views\TopGlobalView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -579,6 +580,8 @@
     <Resource Include="Images\Background\Top3MundialBackground.jpg" />
     <Resource Include="Images\Icons\TopGlobalIcon.png" />
     <None Include="Connected Services\SpiderClueService\item1.disco" />
+    <Resource Include="Images\Background\editProfileBackground.jpg" />
+    <Resource Include="Images\Background\configBackground.jpg" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />

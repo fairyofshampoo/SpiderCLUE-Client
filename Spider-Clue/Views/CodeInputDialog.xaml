@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Spider_Clue.Views"
         xmlns:p = "clr-namespace:Spider_Clue.Properties"
-        mc:Ignorable="d" Height="300" Width="400" Background="Transparent">
+        mc:Ignorable="d" Height="400" Width="500" Background="Transparent">
     <Grid>
         <Border>
             <Border.Background>
@@ -18,7 +18,7 @@
         <StackPanel Width="Auto"
                     Orientation="Vertical"
                     HorizontalAlignment="Center"
-                        Margin="0,0,0,0">
+                    Margin="0,0,0,0">
 
             <Label x:Name = "lblAccountRecovery" Content = "{x:Static p:Resources.LblAccountVerification}"
                    Foreground = "White"

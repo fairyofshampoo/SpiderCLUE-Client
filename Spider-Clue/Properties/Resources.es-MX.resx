@@ -572,4 +572,13 @@
   <data name="DlgMusicException" xml:space="preserve">
     <value>No se pudo reproducir la música de fondo</value>
   </data>
+  <data name="LblMotive" xml:space="preserve">
+    <value>MOTIVOS</value>
+  </data>
+  <data name="LblPlace" xml:space="preserve">
+    <value>LUGARES</value>
+  </data>
+  <data name="LblSuspect" xml:space="preserve">
+    <value>SOSPECHOSOS</value>
+  </data>
 </root>

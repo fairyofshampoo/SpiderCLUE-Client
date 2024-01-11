@@ -248,7 +248,7 @@ namespace Spider_Clue.Views
             try
             {
                 SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-                if (userManager.AddUserTransaction(gamer) == 1)
+                if (userManager.AddUserTransaction(gamer) == Constants.SuccessfulOperation)
                 {
                     result = true;
                 }

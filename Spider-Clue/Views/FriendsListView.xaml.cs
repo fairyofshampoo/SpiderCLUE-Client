@@ -1,20 +1,9 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
 using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Reflection;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 
 namespace Spider_Clue.Views
@@ -147,7 +136,7 @@ namespace Spider_Clue.Views
             sendFriendRequest.ShowDialog();
         }
 
-        private void BtnChangeFriendRequest(object sender, RoutedEventArgs e)
+        private void BtnChangeFriendRequest_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             FriendsRequestView friendRequestView = new FriendsRequestView();

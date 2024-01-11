@@ -103,16 +103,18 @@ namespace Spider_Clue.Views
             return friendRequestList;
         }
 
-        private void BtnAcceptFriendRequest(object sender, RoutedEventArgs e)
+        private void BtnAcceptFriendRequest_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            GetFriendRequestData(sender, "Accepted");
+            string acceptedStatus = "Accepted";
+            GetFriendRequestData(sender, acceptedStatus);
         }
 
-        private void BtnRejectFriendRequest(object sender, RoutedEventArgs e)
+        private void BtnRejectFriendRequest_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            GetFriendRequestData(sender, "Reject");
+            string rejectedStatus = "Reject";
+            GetFriendRequestData(sender, rejectedStatus);
         }
 
         private void GetFriendRequestData(object sender, string response)
@@ -134,7 +136,8 @@ namespace Spider_Clue.Views
             {
                 SpiderClueService.IFriendRequestManager friendRequestManager = new SpiderClueService.FriendRequestManagerClient();
                 friendRequestManager.ResponseFriendRequest(UserSingleton.Instance.GamerTag, gamertag, response);
-                if (response == "Accepted")
+                string acceptedStatus = "Accepted";
+                if (response == acceptedStatus)
                 {
                     AddFriends(gamertag);
                 }
@@ -207,7 +210,7 @@ namespace Spider_Clue.Views
             public string Icon { get; set; }
         }
 
-        private void BtnChangeFriendRequest(object sender, RoutedEventArgs e)
+        private void BtnChangeFriendRequest_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             LoggerManager logger = new LoggerManager(this.GetType());
