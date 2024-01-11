@@ -6,7 +6,7 @@ namespace TestsClient
     public class ValidationsTest
     {
         [Fact]
-        public void TestIsPasswordValidSuccess()
+        public void IsPasswordValidSuccessTest()
         {
             bool result = false;
             string passwordText = "@byFairy0fShampoo";
@@ -16,7 +16,7 @@ namespace TestsClient
         }
 
         [Fact]
-        public void TestIsPasswordValidFail()
+        public void IsPasswordValidFailTest()
         {
             bool result = false;
             string passwordText = "gatito1";
@@ -26,7 +26,7 @@ namespace TestsClient
         }
 
         [Fact]
-        public void TestIsMessageValidSuccess()
+        public void IsMessageValidSuccessTest()
         {
             bool result = false;
             string messageText = "¡Empecemos la partida ya!";
@@ -36,7 +36,7 @@ namespace TestsClient
         }
 
         [Fact]
-        public void TestIsMessageValidFail()
+        public void IsMessageValidFailTest()
         {
             bool result = false;
             string messageText = "En el tranquilo rincón de la galaxia, " +
@@ -66,7 +66,7 @@ namespace TestsClient
         }
 
         [Fact]
-        public void TestIsEmailValidSuccess()
+        public void IsEmailValidSuccessTest()
         {
             bool result = false;
             string emailText = "michellemoreno1313@gmail.com";
@@ -76,7 +76,7 @@ namespace TestsClient
         }
 
         [Fact]
-        public void TestIsEmailValidFail()
+        public void IsEmailValidFailTest()
         {
             bool result = false;
             string emailText = "@spiderclue.xx";
@@ -86,7 +86,7 @@ namespace TestsClient
         }
 
         [Fact]
-        public void TestIsNameValidSuccess()
+        public void IsNameValidSuccessTest()
         {
             bool result = false;
             string nameText = "Aneth Michelle";
@@ -96,7 +96,7 @@ namespace TestsClient
         }
 
         [Fact]
-        public void TestIsNameValidFail()
+        public void IsNameValidFailTest()
         {
             bool result = false;
             string nameText = "pollitopio1";
@@ -106,7 +106,7 @@ namespace TestsClient
         }
 
         [Fact]
-        public void TestIsNameValidWithTooMuchCharacters()
+        public void IsNameValidWithTooMuchCharactersTest()
         {
             bool result = false;
             string nameText = "Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe Ana Guadalupe";
@@ -116,7 +116,7 @@ namespace TestsClient
         }
 
         [Fact]
-        public void TestIsNameValidEmpty()
+        public void IsNameValidEmptyTest()
         {
             bool result = false;
             string nameText = " ";
@@ -126,7 +126,7 @@ namespace TestsClient
         }
 
         [Fact]
-        public void TestIsGamertagValidSuccess()
+        public void IsGamertagValidSuccessTest()
         {
             bool result = false;
             string gamertagText = "Star3oy";
@@ -136,7 +136,7 @@ namespace TestsClient
         }
 
         [Fact]
-        public void TestIsGamertagValidFail()
+        public void IsGamertagValidFailTest()
         {
             bool result = false;
             string gamertagText = " ";
