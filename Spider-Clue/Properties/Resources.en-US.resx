@@ -566,4 +566,13 @@
   <data name="DlgMusicException" xml:space="preserve">
     <value>The background music couldn't be played.</value>
   </data>
+  <data name="LblMotive" xml:space="preserve">
+    <value>MOTIVES</value>
+  </data>
+  <data name="LblPlace" xml:space="preserve">
+    <value>PLACES</value>
+  </data>
+  <data name="LblSuspect" xml:space="preserve">
+    <value>SUSPECTS</value>
+  </data>
 </root>

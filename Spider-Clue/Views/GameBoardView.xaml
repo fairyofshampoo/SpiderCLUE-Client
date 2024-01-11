@@ -379,7 +379,7 @@
                             <Border Grid.Row="1"
                                     Grid.ColumnSpan="5"
                                     Background="Gray">
-                                <Label Content = "SOSPECHOSO"
+                                <Label Content = "{x:Static p:Resources.LblSuspect}"
                                        Grid.Row="0"
                                        Foreground ="White"
                                        FontWeight = "Medium"
@@ -458,7 +458,7 @@
                             <Border Grid.Row="8"
                                     Grid.ColumnSpan="5"
                                     Background="Gray">
-                                <Label Content = "MOTIVO"
+                                <Label Content = "{x:Static p:Resources.LblMotive}"
                                        Grid.Row="0"
                                        Foreground ="White"
                                        FontWeight = "Medium"
@@ -537,7 +537,7 @@
                             <Border Grid.Row="15"
                                     Grid.ColumnSpan="5"
                                     Background="Gray">
-                                <Label Content = "LUGAR"
+                                <Label Content = "{x:Static p:Resources.LblPlace}"
                                        Grid.Row="0"
                                        Foreground ="White"
                                        FontWeight = "Medium"

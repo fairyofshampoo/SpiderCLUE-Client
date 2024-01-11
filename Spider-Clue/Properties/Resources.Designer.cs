@@ -1051,6 +1051,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to MOTIVES.
+        /// </summary>
+        public static string LblMotive {
+            get {
+                return ResourceManager.GetString("LblMotive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Motives.
         /// </summary>
         public static string LblMotiveCards {
@@ -1159,6 +1168,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to PLACES.
+        /// </summary>
+        public static string LblPlace {
+            get {
+                return ResourceManager.GetString("LblPlace", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Places.
         /// </summary>
         public static string LblPlaceCards {
@@ -1254,6 +1272,15 @@ namespace Spider_Clue.Properties {
         public static string LblSleptInClass {
             get {
                 return ResourceManager.GetString("LblSleptInClass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SUSPECTS.
+        /// </summary>
+        public static string LblSuspect {
+            get {
+                return ResourceManager.GetString("LblSuspect", resourceCulture);
             }
         }
         
