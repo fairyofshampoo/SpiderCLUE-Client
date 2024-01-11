@@ -19,10 +19,6 @@ namespace Spider_Clue.Views
         private readonly KeyValueConfigurationElement soundStatus;
 
         public static SettingsView SettingsView { get; set; }
-
-        private const string MusicKey = "MUSIC_ON";
-        private const string SoundKey = "SOUNDS_ON";
-
         public AudioSettingsView()
         {
             LoggerManager logger = new LoggerManager(this.GetType());
@@ -30,8 +26,8 @@ namespace Spider_Clue.Views
             try
             {
                 gameConfiguration = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
-                musicStatus = gameConfiguration.AppSettings.Settings[MusicKey];
-                soundStatus = gameConfiguration.AppSettings.Settings[SoundKey];
+                musicStatus = gameConfiguration.AppSettings.Settings[Constants.MusicKey];
+                soundStatus = gameConfiguration.AppSettings.Settings[Constants.SoundKey];
                 
                 SetMusicAndSoundSettings();
             } 
@@ -50,10 +46,10 @@ namespace Spider_Clue.Views
             {
                 bool isMusicOn = musicStatus.Value.Equals("true");
                 tgbtnMusicSettings.IsChecked = isMusicOn;
-                ToggleMusicVisibility(isMusicOn);
+                ChangeToggleMusicVisibility(isMusicOn);
                 bool isSoundOn = soundStatus.Value.Equals("true");
                 tgbtnSoundSettings.IsChecked = isSoundOn;
-                ToggleSoundVisibility(isSoundOn);
+                ChangeToggleSoundVisibility(isSoundOn);
             }
             catch (KeyNotFoundException keyNotFoundException)
             {
@@ -62,39 +58,40 @@ namespace Spider_Clue.Views
             }
         }
 
-        private void BtnMusic_Checked(object sender, RoutedEventArgs e)
+        private void TgbtnMusic_Checked(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             musicStatus.Value = "true";
             tgbtnSoundSettings.IsChecked = false;
-            ToggleMusicVisibility(true);
+            ChangeToggleMusicVisibility(true);
         }
 
-        private void BtnMusic_Unchecked(object sender, RoutedEventArgs e)
+        private void TgbtnMusic_Unchecked(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             musicStatus.Value = "false";
-            ToggleMusicVisibility(false);
+            ChangeToggleMusicVisibility(false);
         }
 
-        private void BtnSound_Checked(object sender, RoutedEventArgs e)
+        private void TgbtnSound_Checked(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             soundStatus.Value = "true";
-            ToggleSoundVisibility(true);
+            ChangeToggleSoundVisibility(true);
         }
 
-        private void BtnSound_Unchecked(object sender, RoutedEventArgs e)
+        private void TgbtnSound_Unchecked(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             soundStatus.Value = "false";
-            ToggleSoundVisibility(false);
+            ChangeToggleSoundVisibility(false);
         }
 
         private void SaveConfiguration()
         {
+            string appConfigSection = "appSettings";
             gameConfiguration.Save();
-            ConfigurationManager.RefreshSection("appSettings");
+            ConfigurationManager.RefreshSection(appConfigSection);
         }
 
         private void GoToMainMenuView()
@@ -123,7 +120,7 @@ namespace Spider_Clue.Views
         }
 
 
-        private void ToggleMusicVisibility(bool isVisible)
+        private void ChangeToggleMusicVisibility(bool isVisible)
         {
             if(isVisible)
             {
@@ -135,7 +132,7 @@ namespace Spider_Clue.Views
             }
         }
 
-        private void ToggleSoundVisibility(bool isVisible)
+        private void ChangeToggleSoundVisibility(bool isVisible)
         {
             if (isVisible)
             {

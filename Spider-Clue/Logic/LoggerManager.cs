@@ -1,6 +1,5 @@
 ﻿using log4net;
 using System;
-using System.Windows.Navigation;
 
 [assembly: log4net.Config.XmlConfigurator(Watch = true)]
 
@@ -9,7 +8,6 @@ namespace Spider_Clue.Logic
     public class LoggerManager
     {
         public ILog Logger { get; set; }
-
 
         public LoggerManager(Type type)
         {

@@ -24,23 +24,23 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
                 <Label x:Name = "lblYourCards" Content = "{x:Static p:Resources.LblDeck}"
@@ -56,7 +56,7 @@
                                    Height = "40"/>
 
                 <Label x:Name = "lblVillains" Content = "{x:Static p:Resources.LblSinisterSixCards}"
-                                   Width="300"
+                                   Width="150"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "14"
@@ -168,7 +168,7 @@
                 </Border>
 
                 <Label x:Name = "lblMotive" Content = "{x:Static p:Resources.LblMotiveCards}"
-                                   Width="100"
+                                   Width="150"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "14"
@@ -281,7 +281,7 @@
                 </Border>
 
                 <Label x:Name = "lblPlace" Content = "{x:Static p:Resources.LblPlaceCards}"
-                                   Width="100"
+                                   Width="150"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "14"

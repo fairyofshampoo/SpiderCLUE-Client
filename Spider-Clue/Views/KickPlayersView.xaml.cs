@@ -1,20 +1,7 @@
 ﻿using Spider_Clue.Logic;
-using Spider_Clue.SpiderClueService;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
-using static Spider_Clue.Views.FriendsListView;
 using static Spider_Clue.Views.FriendsRequestView;
 
 namespace Spider_Clue.Views
@@ -38,14 +25,14 @@ namespace Spider_Clue.Views
             try
             {
                 SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-                for (int Index = 0; Index < PlayersInLobby.Length; Index++)
+                for (int i = 0; i < PlayersInLobby.Length; i++)
                 {
-                    string gamerIcon = userManager.GetIcon(PlayersInLobby[Index]);
+                    string gamerIcon = userManager.GetIcon(PlayersInLobby[i]);
                     string iconPath = Utilities.GetImagePathForIcon(gamerIcon);
                     FriendRequest player = new FriendRequest
                     {
                         Icon = iconPath,
-                        Gamertag = PlayersInLobby[Index],
+                        Gamertag = PlayersInLobby[i],
                     };
                     dtgKickPlayers.Items.Add(player);
                 }

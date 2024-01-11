@@ -3,14 +3,11 @@ using System;
 using System.Configuration;
 using System.IO;
 using System.Media;
-using System.Windows.Media.Imaging;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using Spider_Clue.SpiderClueService;
 using System.ServiceModel;
-using System.Runtime.CompilerServices;
 
 
 namespace Spider_Clue.Logic
@@ -22,6 +19,7 @@ namespace Spider_Clue.Logic
         {
             using (SHA1 sha1 = new SHA1CryptoServiceProvider())
             {
+                string hexadecimalFormat = "x2";
                 byte[] bytes = Encoding.UTF8.GetBytes(textToHash);
                 byte[] hash = sha1.ComputeHash(bytes);
 
@@ -29,7 +27,7 @@ namespace Spider_Clue.Logic
 
                 for (int i = 0; i < hash.Length; i++)
                 {
-                    textToHashBuilder.Append(hash[i].ToString("x2"));
+                    textToHashBuilder.Append(hash[i].ToString(hexadecimalFormat));
                 }
 
                 return textToHashBuilder.ToString();
@@ -39,7 +37,7 @@ namespace Spider_Clue.Logic
         public static void PlayButtonClickSound()
         {
             SoundPlayer buttonClick = new SoundPlayer(Properties.Resources.MinecraftButtonSound);
-            if (ConfigurationManager.AppSettings["SOUNDS_ON"].Equals("true"))
+            if (ConfigurationManager.AppSettings[Constants.SoundKey].Equals("true"))
             {
                 buttonClick.Play();
             }
@@ -50,7 +48,7 @@ namespace Spider_Clue.Logic
             LoggerManager logger = new LoggerManager(mediaElement.GetType());
             try
             {
-                if (ConfigurationManager.AppSettings["MUSIC_ON"].Equals("true"))
+                if (ConfigurationManager.AppSettings[Constants.MusicKey].Equals("true"))
                 {
                     mediaElement.Source = new Uri(GetMainThemeSongPath(), UriKind.RelativeOrAbsolute);
                     mediaElement.MediaEnded += (sender, e) =>

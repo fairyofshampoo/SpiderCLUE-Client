@@ -1,27 +1,17 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
 
     public partial class SelectAvatarView : Page
     {
-        private Image SelectedImage = null;
+        private Image selectedImage = null;
         private string newIconName = "Icon0.jpg";
 
 
@@ -32,20 +22,20 @@ namespace Spider_Clue.Views
 
         private void Image_Click(object sender, MouseButtonEventArgs e)
         {
-            if (SelectedImage != null)
+            if (selectedImage != null)
             {
-                SelectedImage.Opacity = .5;
+                selectedImage.Opacity = .5;
             }
 
-            SelectedImage = (Image)sender;
-            newIconName = SelectedImage.Name +".jpg";
-            SelectedImage.Opacity = 1;
+            selectedImage = (Image)sender;
+            newIconName = selectedImage.Name +".jpg";
+            selectedImage.Opacity = 1;
         }
 
         private void ChangeIcon()
         {
             LoggerManager logger = new LoggerManager(this.GetType());
-            int result = 0;
+            int result = Constants.DefaultResultOperation;
             try
             {
                 UserSingleton.Instance.ImageCode = newIconName;
@@ -73,7 +63,7 @@ namespace Spider_Clue.Views
                 DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
             }
 
-            if (result == 1)
+            if (result == Constants.SuccessfulOperation)
             {
                 DialogManager.ShowSuccessMessageBox(Properties.Resources.DlgSuccessfulChange);
             }

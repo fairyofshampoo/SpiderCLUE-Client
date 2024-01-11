@@ -65,7 +65,7 @@
                         <DataGridTemplateColumn x:Name = "dtgtcDelete" Header="Kick" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Background="Transparent" BorderBrush="Transparent" Click="BtnKickPlayer_Click">
+                                    <Button Background="Transparent" BorderBrush="Transparent" Click="BtnKickPlayer_Click" Cursor="Hand">
                                         <Image Source="/Images/Icons/KickPlayerIcon.png" 
                                                        Width="28" 
                                                        Height="24"/>

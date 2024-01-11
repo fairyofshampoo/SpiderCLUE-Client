@@ -30,11 +30,13 @@ namespace Spider_Clue.Views
         private void ChangeLanguage(string language)
         {
             LoggerManager logger = new LoggerManager(this.GetType());
+            string appConfigSection = "appSettings";
+
             try
             {
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(language);
                 gameConfiguration.Save();
-                ConfigurationManager.RefreshSection("appSettings");
+                ConfigurationManager.RefreshSection(appConfigSection);
             }
             catch (ConfigurationErrorsException configurationException)
             {
@@ -47,7 +49,8 @@ namespace Spider_Clue.Views
         private void BtnMXFlag_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            ChangeLanguage("es-MX");
+            string mexicanSpanish = "es-MX";
+            ChangeLanguage(mexicanSpanish);
             ReloadSettingsPage();
         }
         private void ReloadSettingsPage()
@@ -59,7 +62,8 @@ namespace Spider_Clue.Views
         private void BtnUSFlag_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            ChangeLanguage("en-US");
+            string americanEnglish = "en-US";
+            ChangeLanguage(americanEnglish);
             ReloadSettingsPage();
         }
     }

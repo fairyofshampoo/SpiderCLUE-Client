@@ -50,17 +50,20 @@ namespace Spider_Clue.Views
 
         private void BtnMotiveCard_Click(object sender, RoutedEventArgs e)
         {
-            GetCardSelected("Motive");
+            string cardType = "Motive";
+            GetCardSelected(cardType);
         }
 
         private void BtnPlaceCard_Click(object sender, RoutedEventArgs e)
         {
-            GetCardSelected("Place");
+            string cardType = "Place";
+            GetCardSelected(cardType);
         }
 
         private void BtnSiniesterCard_Click(object sender, RoutedEventArgs e)
         {
-            GetCardSelected("Character");
+            string cardType = "Character";
+            GetCardSelected(cardType);
         }
 
         private void GetCardSelected(string cardType)

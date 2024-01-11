@@ -6,8 +6,7 @@
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p="clr-namespace:Spider_Clue.Properties"
       mc:Ignorable="d"
-      d:DesignHeight="720" d:DesignWidth="1280"
-      Title="{x:Static p:Resources.LoginTitle}">
+      d:DesignHeight="720" d:DesignWidth="1280">
     <DockPanel>
         <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
             <Grid>
@@ -92,7 +91,7 @@
                                 </PasswordBox>
                             </Border>
                             <ToggleButton x:Name = "tgbtnPasswordVisibility" Grid.Column = "1" Cursor = "Hand"
-                                    Checked = "BtnPasswordVisibility_Checked" Unchecked = "BtnPasswordVisibility_Unchecked">
+                                    Checked = "TgbtnPasswordVisibility_Checked" Unchecked = "TgbtnPasswordVisibility_Unchecked">
                                 <ToggleButton.Template>
                                     <ControlTemplate>
                                         <Image x:Name="imgPasswordIcon" Source = "/Images/Icons/VisibleIcon.png" Width = "30" Height = "30" HorizontalAlignment = "Left" Margin = "15,0,0,0" />
@@ -192,7 +191,7 @@
                                VerticalAlignment="Center"
                                Margin="100,15,0,0"
                                Cursor="Hand"
-                               MouseLeftButtonDown="LblForgotPassword_Clicked" />
+                               MouseLeftButtonDown="LblForgotPassword_Click" />
 
                         <Label x:Name="lblRegister" Content="{x:Static p:Resources.LblRegister}"
                                Foreground="White"
@@ -203,7 +202,7 @@
                                VerticalAlignment="Center"
                                Margin="100,5,0,0"
                                Cursor="Hand"
-                               MouseLeftButtonDown="LblRegister_Clicked" />
+                               MouseLeftButtonDown="LblRegister_Click" />
                     </StackPanel>
                 </Grid>
             </Grid>

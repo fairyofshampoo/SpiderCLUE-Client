@@ -3,7 +3,6 @@ using System.Security;
 using System.Windows.Controls;
 using Spider_Clue.Logic;
 using System.Windows;
-using Spider_Clue.SpiderClueService;
 using System.ServiceModel;
 using System;
 

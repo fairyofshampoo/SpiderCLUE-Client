@@ -28,7 +28,7 @@ namespace Spider_Clue.Views
             matchManagerClient = new MatchManagerClient(new InstanceContext(this));
         }
 
-        private void Search_Click(object sender, MouseButtonEventArgs e)
+        private void BrSearch_Click(object sender, MouseButtonEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             SearchMatch();
@@ -124,7 +124,7 @@ namespace Spider_Clue.Views
 
         private void GoToLobby(int numberOfGamers)
         {
-            int maximumOfPlayers = 3;
+            int maximumOfPlayers = Constants.LimitOfGamersInMatch;
             int numberOfPlayersEmptyMatch = 0;
 
             if(numberOfGamers > numberOfPlayersEmptyMatch)

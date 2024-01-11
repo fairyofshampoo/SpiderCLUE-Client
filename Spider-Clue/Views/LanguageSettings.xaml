@@ -6,7 +6,6 @@
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
       mc:Ignorable="d" 
-      Title="SettingsView"
       Background="Transparent">
     <DockPanel>
         <Grid>

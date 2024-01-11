@@ -13,7 +13,7 @@ namespace Spider_Clue.Views
 {
     public partial class LobbyView : Page, IMatchManagerCallback, ILobbyManagerCallback
     {
-        private string MatchCode;
+        private string matchCode;
         public readonly MatchManagerClient MatchManager;
         public readonly LobbyManagerClient LobbyManager;
         private Dictionary<string, Pawn> gamersInLobby;
@@ -30,7 +30,7 @@ namespace Spider_Clue.Views
 
         public void SetChatInLobby()
         {
-            chatView.ConfigureWindow(MatchCode);
+            chatView.ConfigureWindow(matchCode);
             frChat.NavigationService.Navigate(chatView);
         }
 
@@ -40,7 +40,7 @@ namespace Spider_Clue.Views
 
             try
             {
-                MatchCode = matchCode;
+                this.matchCode = matchCode;
                 txtMatchCode.Text = matchCode;
                 string gamertag = UserSingleton.Instance.GamerTag;
 
@@ -91,7 +91,7 @@ namespace Spider_Clue.Views
             try
             {
                 string gamertag = UserSingleton.Instance.GamerTag;
-                result = LobbyManager.IsOwnerOfTheMatch(gamertag, MatchCode);
+                result = LobbyManager.IsOwnerOfTheMatch(gamertag, matchCode);
             }
             catch (EndpointNotFoundException endpointException)
             {
@@ -240,7 +240,7 @@ namespace Spider_Clue.Views
 
                 }
                 chatView.CloseChat();
-                MatchManager.LeaveMatchAsync(UserSingleton.Instance.GamerTag, MatchCode);
+                MatchManager.LeaveMatchAsync(UserSingleton.Instance.GamerTag, matchCode);
             }
             catch (EndpointNotFoundException endpointException)
             {
@@ -322,7 +322,7 @@ namespace Spider_Clue.Views
             return resultLabel;
         }
 
-        private void KickPlayer_Click(object sender, MouseButtonEventArgs e)
+        private void BrKickPlayer_Click(object sender, MouseButtonEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             LoggerManager logger = new LoggerManager(this.GetType());
@@ -385,19 +385,18 @@ namespace Spider_Clue.Views
         {
             Utilities.PlayButtonClickSound();
             GoToMainMenu();
-
         }
 
         private void BtnReady_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            if (gamersInLobby.Count == 3)
+            if (gamersInLobby.Count == Constants.LimitOfGamersInMatch)
             {
                 LoggerManager logger = new LoggerManager(this.GetType());
 
                 try
                 {
-                    LobbyManager.BeginMatch(MatchCode);
+                    LobbyManager.BeginMatch(matchCode);
                 }
                 catch (EndpointNotFoundException endpointException)
                 {
@@ -426,7 +425,7 @@ namespace Spider_Clue.Views
             }
         }
 
-        private void SendInvitation_Click(object sender, MouseButtonEventArgs e)
+        private void BrSendInvitation_Click(object sender, MouseButtonEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             SendMailWithCodeMatch();
@@ -436,7 +435,7 @@ namespace Spider_Clue.Views
         {
             EmailInvitationDialog invitationDialog = new EmailInvitationDialog();
             invitationDialog.Owner = Window.GetWindow(this);
-            invitationDialog.SetMatchCodeInPage(MatchCode);
+            invitationDialog.SetMatchCodeInPage(matchCode);
             invitationDialog.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             invitationDialog.ShowDialog();
         }
@@ -444,7 +443,7 @@ namespace Spider_Clue.Views
         public void StartGame()
         {
             GameBoardView gameBoardView = new GameBoardView();
-            gameBoardView.ConfigureWindow(MatchCode, gamersInLobby);
+            gameBoardView.ConfigureWindow(matchCode, gamersInLobby);
             NavigationService.Navigate(gameBoardView);
         }
     }

@@ -1,19 +1,11 @@
 ﻿using Spider_Clue.SpiderClueService;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Spider_Clue.Logic
 {
     internal class UserSingleton
     {
-        private static readonly UserSingleton _instance = new UserSingleton();
-
-        public String GamerTag { get; set; }
+        private static readonly UserSingleton instance = new UserSingleton();
+        public string GamerTag { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -44,7 +36,7 @@ namespace Spider_Clue.Logic
         }
 
 
-        public static UserSingleton Instance => _instance;
+        public static UserSingleton Instance => instance;
     }
     
 }

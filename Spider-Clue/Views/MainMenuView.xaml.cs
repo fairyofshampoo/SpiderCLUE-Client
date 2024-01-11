@@ -195,8 +195,8 @@ namespace Spider_Clue.Views
         private void BtnTopGlobal_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            Top3GlobalView top3GlobalView = new Top3GlobalView();
-            NavigationService.Navigate(top3GlobalView);
+            TopGlobalView topGlobalView = new TopGlobalView();
+            NavigationService.Navigate(topGlobalView);
         }
 
         private void ShowFriendsList()
@@ -244,12 +244,13 @@ namespace Spider_Clue.Views
         public int ConnectToService()
         {
             int result = -1;
+            int failResult = -1;
             LoggerManager logger = new LoggerManager(this.GetType());
 
             try
             {
                 result = SessionManager.Connect(UserSingleton.Instance.GamerTag);
-                if (result == -1)
+                if (result == failResult)
                 {
                     DialogManager.ShowWarningMessageBox(Properties.Resources.DlgAlreadyLogin);
                 }
