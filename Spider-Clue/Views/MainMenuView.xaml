@@ -318,7 +318,7 @@
                                         <RowDefinition Height = "Auto"/>
                                         <RowDefinition Height = "Auto"/>
                                     </Grid.RowDefinitions>
-                                    <Label x:Name = "lblTopGlobal" Content = "{x:Static p:Resources.LblFriends}"
+                                    <Label x:Name = "lblTopGlobal" Content = "{x:Static p:Resources.LblTopGlobal}"
                                        Foreground = "White"
                                        FontWeight = "Light"
                                        FontSize = "25"
@@ -327,7 +327,7 @@
                                        VerticalAlignment="Top"
                                        Grid.Row="0"
                                        Margin="0,40,0,0" 
-                                       Width="100">
+                                       Width="110" Height="32">
                                         <Label.LayoutTransform>
                                             <RotateTransform   Angle="270"/>
                                         </Label.LayoutTransform>
