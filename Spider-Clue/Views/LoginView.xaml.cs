@@ -29,7 +29,6 @@ namespace Spider_Clue.Views
         {
             Utilities.PlayButtonClickSound();
             SetGuessPlayerData();
-            DisplayMainMenuGuestView();
         }
 
         private void LblForgotPassword_Click(object sender, MouseButtonEventArgs e)
@@ -55,6 +54,7 @@ namespace Spider_Clue.Views
                 UserSingleton.Instance.Name = defaultName;
                 UserSingleton.Instance.LastName = defaultLastName;
                 UserSingleton.Instance.IsGuestPlayer = true;
+                DisplayMainMenuGuestView();
             }
         }
 

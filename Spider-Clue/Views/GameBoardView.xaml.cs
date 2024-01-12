@@ -97,12 +97,12 @@ namespace Spider_Clue.Views
             if (UserSingleton.Instance.IsGuestPlayer)
             {
                 MainMenuForGuestView mainMenuForGuestView = new MainMenuForGuestView();
-                this.NavigationService.Navigate(mainMenuForGuestView);
+                NavigationService.Navigate(mainMenuForGuestView);
             }
             else
             {
                 MainMenuView mainMenuView = new MainMenuView();
-                this.NavigationService.Navigate(mainMenuView);
+                NavigationService.Navigate(mainMenuView);
             }
         }
 
@@ -152,7 +152,6 @@ namespace Spider_Clue.Views
             try
             {
                 GameManager.EndGameAsync(matchCode);
-                GoToMainMenu();
             }
             catch (EndpointNotFoundException endpointException)
             {
