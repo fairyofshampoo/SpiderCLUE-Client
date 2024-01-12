@@ -286,14 +286,14 @@ namespace Spider_Clue.Views
         {
             bool result = false;
             LoggerManager logger = new LoggerManager(this.GetType());
-
+            int authenticateResult = Constants.DefaultResultOperation;
             try
             {
                 string username = txtUsername.Text;
                 string password = GetPassword();
                 string passwordHashed = Utilities.CalculateSHA1Hash(password);
                 SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-                result = userManager.AuthenticateAccount(username, passwordHashed);
+                authenticateResult = userManager.AuthenticateAccount(username, passwordHashed);
             }
             catch (EndpointNotFoundException endpointException)
             {
@@ -318,6 +318,19 @@ namespace Spider_Clue.Views
                 logger.LogFatal(exception);
                 result = false;
                 DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+            switch (authenticateResult)
+            {
+                case Constants.SuccessfulOperation:
+                    result = true;
+                    break;
+                case Constants.ExceptionResultOperation:
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgDataBaseError);
+                    result = false;
+                    break;
+                case Constants.DefaultResultOperation:
+                    result = false;
+                    break;
             }
             return result;
         }

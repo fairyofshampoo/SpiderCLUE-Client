@@ -581,4 +581,10 @@
   <data name="LblSuspect" xml:space="preserve">
     <value>SOSPECHOSOS</value>
   </data>
+  <data name="DlgDataBaseError" xml:space="preserve">
+    <value>Error con la base de datos, inténtelo más tarde. </value>
+  </data>
+  <data name="DlgNotDataFound" xml:space="preserve">
+    <value>No se pudo recuperar la información</value>
+  </data>
 </root>

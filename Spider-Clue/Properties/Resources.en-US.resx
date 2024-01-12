@@ -575,4 +575,10 @@
   <data name="LblSuspect" xml:space="preserve">
     <value>SUSPECTS</value>
   </data>
+  <data name="DlgDataBaseError" xml:space="preserve">
+    <value>Database error, please try again later</value>
+  </data>
+  <data name="DlgNotDataFound" xml:space="preserve">
+    <value>Could not retrieve the information</value>
+  </data>
 </root>

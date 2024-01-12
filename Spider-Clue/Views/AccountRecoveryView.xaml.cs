@@ -88,10 +88,10 @@ namespace Spider_Clue.Views
         {
             bool result = false;
             LoggerManager logger = new LoggerManager(this.GetType());
-
+            int resultExistence = Constants.SuccessfulOperation;
             try
             {
-                result = userManager.IsEmailExisting(email);
+                resultExistence = userManager.IsEmailExisting(email);
             }
             catch (EndpointNotFoundException endpointException)
             {
@@ -114,6 +114,19 @@ namespace Spider_Clue.Views
                 DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
             }
 
+            switch (resultExistence)
+            {
+                case Constants.SuccessfulOperation:
+                    result = false;
+                    break;
+                case Constants.ExceptionResultOperation:
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgDataBaseError);
+                    result = false;
+                    break;
+                case Constants.DefaultResultOperation:
+                    result = true;
+                    break;
+            }
             return result;
         }
     }
