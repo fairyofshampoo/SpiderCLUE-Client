@@ -579,9 +579,9 @@
     <Resource Include="Images\Background\ShowWinnerBackground.png" />
     <Resource Include="Images\Background\Top3MundialBackground.jpg" />
     <Resource Include="Images\Icons\TopGlobalIcon.png" />
-    <None Include="Connected Services\SpiderClueService\item1.disco" />
     <Resource Include="Images\Background\editProfileBackground.jpg" />
     <Resource Include="Images\Background\configBackground.jpg" />
+    <None Include="Connected Services\SpiderClueService\item1.disco" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />

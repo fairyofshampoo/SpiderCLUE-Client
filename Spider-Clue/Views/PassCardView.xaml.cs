@@ -61,7 +61,14 @@ namespace Spider_Clue.Views
         private void ShowCard(string propertyName, string cardValue)
         {
             string cardPath = Utilities.GetImagePathForCards(cardValue);
-            imageEvidencePath[propertyName] = cardPath;
+            if (!imageEvidencePath.ContainsKey(propertyName))
+            {
+                imageEvidencePath[propertyName] = cardPath;
+            } 
+            else
+            {
+                imageEvidencePath[propertyName] = cardPath;
+            }
             this.DataContext = imageEvidencePath;
         }
 

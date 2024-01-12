@@ -29,15 +29,30 @@ namespace Spider_Clue.Views
             {
                 ShowVillainsCards(villainsDeck);
             }
+            else
+            {
+                int index = 1;
+                SetDefaultVillainCards(index);
+            }
 
             if(motiveDeck.Any())
             {
                 ShowMotiveCards(motiveDeck);
             }
+            else
+            {
+                int index = 1;
+                ShowMotiveDefaultCards(index);
+            }
 
             if(placeDeck.Any())
             {
                 ShowPlaceCards(placeDeck);
+            }
+            else
+            {
+                int index = 1;
+                SetPlaceDefaultCards(index);
             }
 
         }

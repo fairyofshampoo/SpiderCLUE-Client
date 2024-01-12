@@ -50,6 +50,7 @@
                             Margin="0,60,0,0"
                             Visibility="Collapsed">
                         <Image Source="{Binding Path = [SinisterCardPath]}" 
+                               Name="imgSinisterCard"
                                Height="236"
                                Width="160"
                                Stretch="UniformToFill"/>
@@ -63,6 +64,7 @@
                             Margin="0,60,0,0"
                             Visibility="Collapsed">
                         <Image Source="{Binding Path = [PlaceCardPath]}" 
+                               Name="imgPlaceCard"
                                Height="236"
                                Width="160"
                                Stretch="UniformToFill"/>
@@ -76,6 +78,7 @@
                             Margin="0,60,0,0"
                             Visibility="Collapsed">
                         <Image Source="{Binding Path = [MotiveCardPath]}" 
+                               Name="imgMotiveCard"
                                Height="236"
                                Width="160"
                                Stretch="UniformToFill"/>
