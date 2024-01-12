@@ -463,7 +463,15 @@ namespace Spider_Clue.Views
 
         public void ReceiveWinner(string winnerGamertag, string gamerIcon)
         {
-            OpenDialogShowWinner(winnerGamertag, gamerIcon);
+            if (winnerGamertag != null)
+            {
+                OpenDialogShowWinner(winnerGamertag, gamerIcon);
+            } 
+            else
+            {
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgDataBaseError);
+            }
+            
         }
 
         public void OpenDialogShowWinner(string winnerGamertag, string gamerIcon)
