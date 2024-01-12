@@ -7,17 +7,16 @@ namespace Spider_Clue.Views
 {
     public partial class PassCardView : Window
     {
-        private Dictionary<string, string> imageEvidencePath;
+        private static readonly Dictionary<string, string> imageEvidencePath = new Dictionary<string, string>();
         public string TypeSelected { get; set; }
 
         public PassCardView(Card[] cards)
         {
             InitializeComponent();
-            imageEvidencePath = new Dictionary<string, string>();
-            ShowCards(cards);
+            SelectCards(cards);
         }
 
-        private void ShowCards(Card[] cards)
+        private void SelectCards(Card[] cards)
         {
             foreach(var card in cards)
             {
@@ -62,10 +61,6 @@ namespace Spider_Clue.Views
         {
             string cardPath = Utilities.GetImagePathForCards(cardValue);
             if (!imageEvidencePath.ContainsKey(propertyName))
-            {
-                imageEvidencePath[propertyName] = cardPath;
-            } 
-            else
             {
                 imageEvidencePath[propertyName] = cardPath;
             }
