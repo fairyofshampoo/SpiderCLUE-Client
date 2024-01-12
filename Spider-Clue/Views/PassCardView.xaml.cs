@@ -39,6 +39,23 @@ namespace Spider_Clue.Views
                         break;
                 }
             }
+            PrepareCards();
+        }
+
+        private void PrepareCards()
+        {
+            if (btnPlace.Visibility == Visibility.Collapsed)
+            {
+                ShowCard("PlaceCardPath", "DefaultCard.png");
+            }
+            else if (btnSinister.Visibility == Visibility.Collapsed)
+            {
+                ShowCard("SinisterCardPath", "DefaultCard.png");
+            }
+            else if (btnMotive.Visibility == Visibility.Collapsed)
+            {
+                ShowCard("MotiveCardPath", "DefaultCard.png");
+            }
         }
 
         private void ShowCard(string propertyName, string cardValue)
