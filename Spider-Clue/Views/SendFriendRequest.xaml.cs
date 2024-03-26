@@ -1,15 +1,13 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
 using System;
-using System.Drawing;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Input;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for SendFriendRequest.xaml
-    /// </summary>
+
     public partial class SendFriendRequest : Window
     {
         public SendFriendRequest()
@@ -17,50 +15,132 @@ namespace Spider_Clue.Views
             InitializeComponent();
         }
 
-        private void Search_Click(object sender, MouseButtonEventArgs e)
+        private void ImgSearch_Click(object sender, MouseButtonEventArgs e)
         {
-            searchData.Visibility = Visibility.Visible;
-            string gamertag = txtSearchGamer.Text;
-            IUserManager userManager = new SpiderClueService.UserManagerClient();
-            if (userManager.IsGamertagExisting(gamertag))
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
             {
-                if (IsSearchValid(gamertag))
+                brSearchData.Visibility = Visibility.Visible;
+                string gamertag = txtSearchGamer.Text;
+                IUserManager userManager = new SpiderClueService.UserManagerClient();
+                if (userManager.IsGamertagExisting(gamertag))
                 {
-                    string icon = userManager.GetIcon(gamertag);
-                    SetGamerData(gamertag, icon);
-                    btnSendFriendRequest.Visibility = Visibility.Visible;
-                }else
+                    if (IsSearchValid(gamertag))
+                    {
+                        string icon = userManager.GetIcon(gamertag);
+                        SetGamerData(gamertag, icon);
+                        btnSendFriendRequest.Visibility = Visibility.Visible;
+                    }
+                    else
+                    {
+                        string icon = userManager.GetIcon(gamertag);
+                        SetGamerData(gamertag, icon);
+                    }
+                }
+                else
                 {
-                    string icon = userManager.GetIcon(gamertag);
-                    SetGamerData(gamertag, icon);
+                    ShowNotFoundMessage();
                 }
             }
-            else
+            catch (EndpointNotFoundException endpointException)
             {
-                ShowNotFoundMessage();
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
             }
         }
 
-        private Boolean IsSearchValid(string friendGamertag)
+        private bool IsSearchValid(string friendGamertag)
         {
             return AreNotFriends(friendGamertag) && IsNotASelfFriendRequest(friendGamertag) && ThereIsNoFriendRequest(friendGamertag);
         }
 
-        private Boolean AreNotFriends(string friendGamertag)
+        private bool AreNotFriends(string friendGamertag)
         {
-            SpiderClueService.IFriendshipManager friendshipManager = new SpiderClueService.FriendshipManagerClient();
-            return friendshipManager.AreNotFriends(UserSingleton.Instance.GamerTag, friendGamertag);
+            bool result = false;
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                SpiderClueService.IFriendshipManager friendshipManager = new SpiderClueService.FriendshipManagerClient();
+                result = friendshipManager.AreNotFriends(UserSingleton.Instance.GamerTag, friendGamertag);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+
+            return result;
         }
 
-        private Boolean ThereIsNoFriendRequest(string friendGamertag)
+        private bool ThereIsNoFriendRequest(string friendGamertag)
         {
-            SpiderClueService.IFriendshipManager friendshipManager = new SpiderClueService.FriendshipManagerClient();
-            return friendshipManager.ThereIsNoFriendRequest(UserSingleton.Instance.GamerTag, friendGamertag);
+            bool result = false;
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                SpiderClueService.IFriendshipManager friendshipManager = new SpiderClueService.FriendshipManagerClient();
+                result = friendshipManager.ThereIsNoFriendRequest(UserSingleton.Instance.GamerTag, friendGamertag);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+
+            return result;
         }
 
-        private Boolean IsNotASelfFriendRequest(string friendGamertag)
+        private bool IsNotASelfFriendRequest(string friendGamertag)
         {
-            Boolean result = false;
+            bool result = false;
             if (friendGamertag != UserSingleton.Instance.GamerTag)
             {
                 result = true;
@@ -85,9 +165,35 @@ namespace Spider_Clue.Views
 
         private void BtnSendFriendRequest_Click(object sender, RoutedEventArgs e)
         {
-            IFriendRequestManager friend = new SpiderClueService.FriendRequestManagerClient();
-            friend.CreateFriendRequest(UserSingleton.Instance.GamerTag, lblGamertag.Content.ToString());
-            this.Close();
+            Utilities.PlayButtonClickSound();
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                IFriendRequestManager friend = new SpiderClueService.FriendRequestManagerClient();
+                friend.CreateFriendRequest(UserSingleton.Instance.GamerTag, lblGamertag.Content.ToString());
+                this.Close();
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
 
     }

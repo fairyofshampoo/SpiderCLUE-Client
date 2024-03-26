@@ -1,10 +1,7 @@
 ﻿using System;
-using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 using Spider_Clue.Logic;
-using System.Collections.Generic;
 using System.ServiceModel;
 using Spider_Clue.SpiderClueService;
 
@@ -21,7 +18,6 @@ namespace Spider_Clue.Views
             Loaded += PageLoaded;
             Utilities.PlayMainThemeSong(mainThemePlayer);
             friendsManagerClient = new FriendsManagerClient(new InstanceContext(this));
-            ConnectToService();
         }
 
         private void PageLoaded(object sender, RoutedEventArgs e)
@@ -31,9 +27,42 @@ namespace Spider_Clue.Views
         private void SetGamerData()
         {
             lblUserName.Content = UserSingleton.Instance.GamerTag;
+            UpdateGamesWon();
             lblLevel.Content = UserSingleton.Instance.GamesWon;
             string iconPath = Utilities.GetImagePathForIcon(UserSingleton.Instance.ImageCode);
             this.DataContext = new { ImagePath = iconPath };
+        }
+
+        private void UpdateGamesWon()
+        {
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                Gamer gamer = userManager.GetGamerByGamertag(UserSingleton.Instance.GamerTag);
+                UserSingleton.Instance.GamesWon = gamer.GamesWon;
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
         private void BtnSettings_Click(object sender, RoutedEventArgs e)
         {
@@ -66,16 +95,35 @@ namespace Spider_Clue.Views
 
         private void BtnExit_Click(object sender, RoutedEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
             if (UserSingleton.Instance.GamerTag != null)
             {
+                LoggerManager logger = new LoggerManager(this.GetType());
+
                 try
                 {
                     SpiderClueService.ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
                     sessionManager.Disconnect(UserSingleton.Instance.GamerTag);
                 }
-                catch (Exception ex)
+                catch (EndpointNotFoundException endpointException)
                 {
-                    Console.WriteLine($"Error en Disconnect: {ex.Message}");
+                    logger.LogError(endpointException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+                }
+                catch (TimeoutException timeoutException)
+                {
+                    logger.LogError(timeoutException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+                }
+                catch (CommunicationException communicationException)
+                {
+                    logger.LogError(communicationException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+                }
+                catch (Exception exception)
+                {
+                    logger.LogFatal(exception);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
                 }
             }
 
@@ -84,11 +132,13 @@ namespace Spider_Clue.Views
 
         private void BtnPlay_Click(object sender, RoutedEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
+
             string matchCode = CreateMatch();
 
             if (string.IsNullOrEmpty(matchCode))
             {
-                MessageBox.Show("Error al crear la partida. Inténtalo de nuevo.", Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgMatchCreationError);
             }
             else
             {
@@ -98,8 +148,36 @@ namespace Spider_Clue.Views
 
         private string CreateMatch()
         {
-            SpiderClueService.IMatchCreationManager matchCreationManager = new SpiderClueService.MatchCreationManagerClient();
-            return matchCreationManager.CreateMatch(UserSingleton.Instance.GamerTag);
+            LoggerManager logger = new LoggerManager(this.GetType());
+            string matchCode = string.Empty;
+
+            try
+            {
+                SpiderClueService.IMatchCreationManager matchCreationManager = new SpiderClueService.MatchCreationManagerClient();
+                matchCode = matchCreationManager.CreateMatch(UserSingleton.Instance.GamerTag);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+            
+            return matchCode;
         }
 
         private void GoToLobbyView(string matchCode)
@@ -111,12 +189,44 @@ namespace Spider_Clue.Views
 
         private void BtnFriends_Click(object sender, RoutedEventArgs e)
         {
+            Utilities.PlayButtonClickSound();
             ShowFriendsList();
+        }
+        private void BtnTopGlobal_Click(object sender, RoutedEventArgs e)
+        {
+            Utilities.PlayButtonClickSound();
+            TopGlobalView topGlobalView = new TopGlobalView();
+            NavigationService.Navigate(topGlobalView);
         }
 
         private void ShowFriendsList()
         {
-            friendsManagerClient.GetConnectedFriends(UserSingleton.Instance.GamerTag);
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                friendsManagerClient.GetConnectedFriends(UserSingleton.Instance.GamerTag);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
 
         public void ReceiveConnectedFriends(string[] connectedFriends)
@@ -131,9 +241,42 @@ namespace Spider_Clue.Views
             NavigationService.Navigate(friendListView);
         }
 
-        private void ConnectToService()
+        public int ConnectToService()
         {
-            SessionManager.Connect(UserSingleton.Instance.GamerTag);
+            int result = -1;
+            int failResult = -1;
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                result = SessionManager.Connect(UserSingleton.Instance.GamerTag);
+                if (result == failResult)
+                {
+                    DialogManager.ShowWarningMessageBox(Properties.Resources.DlgAlreadyLogin);
+                }
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+
+            return result;
         }
     }
 }

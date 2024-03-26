@@ -1,0 +1,92 @@
+﻿<Window x:Class="Spider_Clue.Views.PassCardView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Spider_Clue.Views"
+        mc:Ignorable="d"
+        xmlns:p = "clr-namespace:Spider_Clue.Properties" Height="500" Width="700">
+    
+    <Grid>
+        <Border>
+            <Border.Background>
+                <ImageBrush ImageSource = "/Images/Background/PassCardBackground.png"
+                            Stretch = "UniformToFill">
+                </ImageBrush>
+            </Border.Background>
+        </Border>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock x:Name = "txtbPassCardView" Text = "{x:Static p:Resources.LblPassCard}"
+                       Width="500"
+                       Foreground ="White"
+                       FontWeight = "Medium"
+                       FontSize = "30"
+                       FontFamily = "Monsterrat"
+                       Grid.Row="0"
+                       Height = "Auto"
+                       TextWrapping="WrapWithOverflow"/>
+
+            <StackPanel
+                Grid.Row="1"
+                Height="400"
+                Width="650">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Name="btnSinister"
+                            Background="Transparent" 
+                            BorderBrush="Transparent"
+                            Grid.Column="0"
+                            Click="BtnSiniesterCard_Click"
+                            Margin="0,60,0,0"
+                            Visibility="Collapsed">
+                        <Image Source="{Binding Path = [SinisterCardPath]}" 
+                               Name="imgSinisterCard"
+                               Height="236"
+                               Width="160"
+                               Stretch="UniformToFill"/>
+                    </Button>
+
+                    <Button Name="btnPlace"
+                            Background="Transparent" 
+                            BorderBrush="Transparent"
+                            Grid.Column="1"
+                            Click="BtnPlaceCard_Click"
+                            Margin="0,60,0,0"
+                            Visibility="Collapsed">
+                        <Image Source="{Binding Path = [PlaceCardPath]}" 
+                               Name="imgPlaceCard"
+                               Height="236"
+                               Width="160"
+                               Stretch="UniformToFill"/>
+                    </Button>
+
+                    <Button Name="btnMotive"
+                            Background="Transparent" 
+                            BorderBrush="Transparent"
+                            Grid.Column="2"
+                            Click="BtnMotiveCard_Click"
+                            Margin="0,60,0,0"
+                            Visibility="Collapsed">
+                        <Image Source="{Binding Path = [MotiveCardPath]}" 
+                               Name="imgMotiveCard"
+                               Height="236"
+                               Width="160"
+                               Stretch="UniformToFill"/>
+                    </Button>
+
+
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

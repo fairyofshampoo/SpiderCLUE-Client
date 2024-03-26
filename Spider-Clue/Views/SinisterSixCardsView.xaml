@@ -1,0 +1,120 @@
+﻿<Window x:Class="Spider_Clue.Views.SinisterSixCardsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Spider_Clue.Views"
+        mc:Ignorable="d" xmlns:p = "clr-namespace:Spider_Clue.Properties" Height="500" Width="700">
+    <Grid>
+        <Border>
+            <Border.Background>
+                <ImageBrush ImageSource = "/Images/Background/SinistersSixCardsBackground.jpg"
+                            Stretch = "UniformToFill">
+                </ImageBrush>
+            </Border.Background>
+        </Border>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Label x:Name = "lblSinisterSixTitle" Content = "{x:Static p:Resources.LblSinisterSixCards}"
+                       Width="500"
+                       Foreground ="White"
+                       FontWeight = "Medium"
+                       FontSize = "50"
+                       FontFamily = "Monsterrat"
+                       Grid.Row="0"
+                       HorizontalContentAlignment="Center"
+                       Height = "60"/>
+            <StackPanel
+                Grid.Row="1"
+                Height="400"
+                Width="650">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Background="Transparent" 
+                            BorderBrush="Transparent"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            Click="BtnDocOchCard_Click">
+                        <Image Source="/Images/GameCards/DocOchCard.png" 
+                               Width="127" 
+                               Height="180"
+                               Stretch="UniformToFill"/>
+                    </Button>
+
+                    <Button Background="Transparent" 
+                            BorderBrush="Transparent"
+                            Grid.Row="0"
+                            Grid.Column="1"
+                            Click="BtnMysteRevoCard_Click">
+                        <Image Source="/Images/GameCards/MysteRevoCard.png" 
+                               Width="127" 
+                               Height="180"
+                               Stretch="UniformToFill"/>
+                    </Button>
+
+                    <Button Background="Transparent" 
+                            BorderBrush="Transparent"
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            Click="BtnRhinosidroCard_Click">
+                        <Image Source="/Images/GameCards/RhinosidroCard.png" 
+                               Width="127" 
+                               Height="180"
+                               Stretch="UniformToFill"/>
+                    </Button>
+
+                    <Button Background="Transparent" 
+                            BorderBrush="Transparent"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Click="BtnElectroJuanCard_Click">
+                        <Image Source="/Images/GameCards/ElectroJuanCard.png" 
+                                Width="127" 
+                               Height="180"
+                               Stretch="UniformToFill"/>
+                    </Button>
+
+                    <Button Background="Transparent" 
+                            BorderBrush="Transparent"
+                            Grid.Row="1"
+                            Grid.Column="1"
+                            Click="BtnXandManCard_Click">
+                        <Image Source="/Images/GameCards/XandManCard.png" 
+                                Width="127" 
+                               Height="180"
+                               Stretch="UniformToFill"/>
+                    </Button>
+
+                    <Button Background="Transparent" 
+                            BorderBrush="Transparent"
+                            Grid.Row="1"
+                            Grid.Column="2"
+                            Click="BtnVernomCard_Click">
+                        <Image Source="/Images/GameCards/VernomCard.png" 
+                                Width="127" 
+                               Height="180"
+                               Stretch="UniformToFill"/>
+                    </Button>
+
+                </Grid>
+
+            </StackPanel>
+        </Grid>
+
+    </Grid>
+</Window>

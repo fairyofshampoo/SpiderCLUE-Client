@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Mail;
-using System.Text;
+using System.Security;
+using System.Windows;
+using System.Windows.Controls;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Spider_Clue.Logic
 {
-    internal class Validations
+    public static class Validations
     {
-        protected Validations() { }
-
         private static bool ValidateWithTimeout(string input, Regex regex)
         {
             bool isValid;
@@ -94,7 +95,7 @@ namespace Spider_Clue.Logic
                 isValid = false;
             }
 
-            var nameRegex = new Regex("^[\\p{L}\\p{M}\\s]{1,50}",
+            var nameRegex = new Regex("^[\\p{L}\\p{M}\\s]{1,50}$",
                 RegexOptions.None, TimeSpan.FromMilliseconds(limitTime));
 
             return isValid && ValidateWithTimeout(name, nameRegex);
@@ -109,10 +110,24 @@ namespace Spider_Clue.Logic
             {
                 isValid = false;
             }
-            var gamerTagRegex = new Regex("^[A-Za-z0-9]{1,15}",
+            var gamerTagRegex = new Regex("^[A-Za-z0-9]{1,15}$",
                 RegexOptions.None, TimeSpan.FromMilliseconds(limitTime));
 
             return isValid && ValidateWithTimeout(gamerTag, gamerTagRegex);
+        }
+
+        public static bool ValidatePassword(SecureString securePassword)
+        {
+            string password = new NetworkCredential(string.Empty, securePassword).Password;
+            return IsPasswordValid(password);
+        }
+
+        public static bool ArePasswordsMatching(SecureString password, SecureString passwordToConfirm)
+        {
+            string plainPassword = new NetworkCredential(string.Empty, password).Password;
+            string plainPasswordToConfirm = new NetworkCredential(string.Empty, passwordToConfirm).Password;
+
+            return string.Equals(plainPassword, plainPasswordToConfirm);
         }
     }
 }

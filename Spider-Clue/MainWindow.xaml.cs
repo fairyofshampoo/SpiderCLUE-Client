@@ -4,6 +4,7 @@ using Spider_Clue.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -30,35 +31,80 @@ namespace Spider_Clue
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("¿Desea cerrar la app?", "Confirmar cierre", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            MessageBoxResult result = ShowConfirmationDialog(Properties.Resources.DlgConfirmShutdown, Properties.Resources.ConfirmClosingTitle);
+
             if (result == MessageBoxResult.No)
             {
                 e.Cancel = true;
             }
             else
             {
-                if (NavigationFrame.Content is Page currentPage)
+                HandleNavigation();
+                HandleUserDisconnect();
+                UserSingleton.Instance.Clear();
+            }
+        }
+
+        private MessageBoxResult ShowConfirmationDialog(string message, string title)
+        {
+            return MessageBox.Show(message, title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+        }
+
+        private void HandleNavigation()
+        {
+            if (NavigationFrame.Content is Page currentPage)
+            {
+                if (currentPage is LobbyView lobby)
                 {
-                    if (currentPage is LobbyView lobby)
-                    {
-                        lobby.GoToMainMenu();
-                    }
+                    lobby.GoToMainMenu();
                 }
 
-                if (UserSingleton.Instance.GamerTag != null)
+                if (currentPage is GameBoardView gameBoard)
                 {
-                    try
+                    gameBoard.LeaveGame();
+                }
+            }
+        }
+
+        private void HandleUserDisconnect()
+        {
+            if (UserSingleton.Instance.GamerTag != null)
+            {
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                LoggerManager logger = new LoggerManager(this.GetType());
+
+                try
+                {
+                    if (UserSingleton.Instance.IsGuestPlayer)
+                    {
+                        userManager.DeleteGuestPlayer(UserSingleton.Instance.GamerTag);
+                    }
+                    else
                     {
                         SpiderClueService.ISessionManager sessionManager = new SpiderClueService.SessionManagerClient();
                         sessionManager.Disconnect(UserSingleton.Instance.GamerTag);
                     }
-                    catch (Exception ex)
-                    {
-                        Console.WriteLine($"Error en Disconnect: {ex.Message}");
-                    }
                 }
-
-                UserSingleton.Instance.Clear();
+                catch (EndpointNotFoundException endpointException)
+                {
+                    logger.LogError(endpointException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+                }
+                catch (TimeoutException timeoutException)
+                {
+                    logger.LogError(timeoutException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+                }
+                catch (CommunicationException communicationException)
+                {
+                    logger.LogError(communicationException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+                }
+                catch (Exception exception)
+                {
+                    logger.LogFatal(exception);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+                }
             }
         }
 

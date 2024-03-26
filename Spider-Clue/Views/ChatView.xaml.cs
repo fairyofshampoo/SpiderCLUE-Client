@@ -11,16 +11,9 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for ChatView.xaml
-    /// </summary>
     public partial class ChatView : Page, IChatManagerCallback
     {
         public readonly ChatManagerClient ChatManager;
@@ -36,13 +29,31 @@ namespace Spider_Clue.Views
             this.matchCode = matchCode;
             string gamertag = UserSingleton.Instance.GamerTag;
 
+            LoggerManager logger = new LoggerManager(this.GetType());
+
             try
             {
                 ChatManager.ConnectToChat(gamertag, matchCode);
             }
-            catch (CommunicationException)
+            catch (EndpointNotFoundException endpointException)
             {
-                ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
             }
         }
 
@@ -53,13 +64,11 @@ namespace Spider_Clue.Views
                 SendMessage(txtMessage.Text);
             }
         }
-        private void ShowErrorMessageBox(string errorMessage)
-        {
-            MessageBox.Show(errorMessage, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
-        }
 
         private void SendMessage(string messageText)
         {
+            LoggerManager logger = new LoggerManager(this.GetType());
+
             if (Validations.IsMessageValid(messageText))
             {
                 var message = new Message
@@ -73,39 +82,72 @@ namespace Spider_Clue.Views
                     ChatManager.BroadcastMessage(matchCode, message);
                     txtMessage.Clear();
                 }
-                catch (CommunicationException)
+                catch (EndpointNotFoundException endpointException)
                 {
-                    ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+                    logger.LogError(endpointException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+                }
+                catch (TimeoutException timeoutException)
+                {
+                    logger.LogError(timeoutException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+                }
+                catch (CommunicationException communicationException)
+                {
+                    logger.LogError(communicationException);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+                }
+                catch (Exception exception)
+                {
+                    logger.LogFatal(exception);
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
                 }
             }
             else
             {
-                ShowErrorMessageBox(Properties.Resources.DlgInvalidData);
+                DialogManager.ShowWarningMessageBox(Properties.Resources.DlgInvalidData);
             }
 
         }
 
         public void ReceiveMessages(Message[] messages)
         {
-            listBoxChat.Items.Clear();
+            lbxChat.Items.Clear();
             foreach (Message message in messages)
             {
-                string textToShow = string.Concat(message.GamerTag + ": " + message.Text + "\n");
-                listBoxChat.Items.Add(textToShow);
-                listBoxChat.ScrollIntoView(listBoxChat.Items[listBoxChat.Items.Count - 1]);
+                string textToShow = $"{message.GamerTag}: {message.Text}\n";
+                lbxChat.Items.Add(textToShow);
+                lbxChat.ScrollIntoView(lbxChat.Items[lbxChat.Items.Count - 1]);
             }
         }
 
         public void CloseChat()
         {
+            LoggerManager logger = new LoggerManager(this.GetType());
+
             try
             {
-                //revisar esto con cuidado
                 ChatManager.DisconnectFromChatAsync(UserSingleton.Instance.GamerTag);
             }
-            catch (CommunicationException)
+            catch (EndpointNotFoundException endpointException)
             {
-                ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
             }
         }
     }

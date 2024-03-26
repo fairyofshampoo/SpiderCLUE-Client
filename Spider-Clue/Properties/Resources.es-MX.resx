@@ -437,4 +437,148 @@
   <data name="LblDeck" xml:space="preserve">
     <value>Tus cartas</value>
   </data>
+  <data name="DlgNotEnoughPlayers" xml:space="preserve">
+    <value>Jugadores insuficientes para comenzar partida.</value>
+  </data>
+  <data name="DlgInvalidMove" xml:space="preserve">
+    <value>Tu movimiento es inválido. Por favor, intenta de nuevo.</value>
+  </data>
+  <data name="LblEmailUsed" xml:space="preserve">
+    <value>El correo ya está en uso, intenta otro.</value>
+  </data>
+  <data name="LblAmphitheater" xml:space="preserve">
+    <value>Anfiteatro</value>
+  </data>
+  <data name="LblCardShown" xml:space="preserve">
+    <value>Carta Mostrada</value>
+  </data>
+  <data name="LblChoseToBeHappy" xml:space="preserve">
+    <value>Eligió Ser Feliz</value>
+  </data>
+  <data name="LblCommonAccusation" xml:space="preserve">
+    <value>Acusación</value>
+  </data>
+  <data name="LblComputerCenter" xml:space="preserve">
+    <value>Centro de Cómputo</value>
+  </data>
+  <data name="LblCourt" xml:space="preserve">
+    <value>Cancha</value>
+  </data>
+  <data name="LblCubicles" xml:space="preserve">
+    <value>Cubículos</value>
+  </data>
+  <data name="LblDidNotSubmitHomework" xml:space="preserve">
+    <value>No entregó tareas</value>
+  </data>
+  <data name="LblDidNotSubmitTheProject" xml:space="preserve">
+    <value>No Presentó El Proyecto</value>
+  </data>
+  <data name="LblDidNotTakeTheExam" xml:space="preserve">
+    <value>No Presentó Examen</value>
+  </data>
+  <data name="LblF103" xml:space="preserve">
+    <value>F-103</value>
+  </data>
+  <data name="LblFriendRequests" xml:space="preserve">
+    <value>Solicitudes de amistad</value>
+  </data>
+  <data name="LblGlassRoom" xml:space="preserve">
+    <value>Salón Cristal</value>
+  </data>
+  <data name="LblLaboratory" xml:space="preserve">
+    <value>Laboratorio</value>
+  </data>
+  <data name="LblMotiveCards" xml:space="preserve">
+    <value>Motivos</value>
+  </data>
+  <data name="LblParkingLot" xml:space="preserve">
+    <value>Estacionamiento</value>
+  </data>
+  <data name="LblPassCard" xml:space="preserve">
+    <value>Selecciona una carta para mostrarla</value>
+  </data>
+  <data name="LblPawn" xml:space="preserve">
+    <value>Color del peón</value>
+  </data>
+  <data name="LblPlaceCards" xml:space="preserve">
+    <value>Lugares</value>
+  </data>
+  <data name="LblProfessorsRoom" xml:space="preserve">
+    <value>Salón de Profesores</value>
+  </data>
+  <data name="LblRollDice" xml:space="preserve">
+    <value>Resultado </value>
+  </data>
+  <data name="LblSinisterSixCards" xml:space="preserve">
+    <value>Seis Siniestros</value>
+  </data>
+  <data name="LblSleptInClass" xml:space="preserve">
+    <value>Se Dormía En Clase</value>
+  </data>
+  <data name="LblTopGlobal" xml:space="preserve">
+    <value>Top Global</value>
+  </data>
+  <data name="LblTurn" xml:space="preserve">
+    <value>Es tu turno</value>
+  </data>
+  <data name="LblWinner" xml:space="preserve">
+    <value>Ganador</value>
+  </data>
+  <data name="LblWithoutAttendance" xml:space="preserve">
+    <value>Sin Asistencias</value>
+  </data>
+  <data name="DlgEndpointException" xml:space="preserve">
+    <value>No se pudo encontrar el punto de conexión. Por favor, verifica la configuración del servidor y vuelve a intentarlo</value>
+  </data>
+  <data name="DlgFatalException" xml:space="preserve">
+    <value>Ocurrió un error inesperado. Por favor, contacta al soporte técnico para obtener ayuda.</value>
+  </data>
+  <data name="DlgTimeoutException" xml:space="preserve">
+    <value>Se agotó el tiempo de espera. Verifica tu conexión al servidor o inténtalo de nuevo más tarde.</value>
+  </data>
+  <data name="DlgConfigurationException" xml:space="preserve">
+    <value>Error al abrir el archivo de configuración. Intente de nuevo.</value>
+  </data>
+  <data name="DlgIconException" xml:space="preserve">
+    <value>No se pudo establecer el icono deseado debido a un error de formato. Asegúrate de que el archivo de icono sea válido. Si el problema persiste, contacta al soporte técnico para obtener asistencia.</value>
+  </data>
+  <data name="WarningTitle" xml:space="preserve">
+    <value>Advertencia</value>
+  </data>
+  <data name="DlgFinalAccusation" xml:space="preserve">
+    <value>¿Deseas hacer la acusación final?</value>
+  </data>
+  <data name="FinalAccusationTitle" xml:space="preserve">
+    <value>Acusación Final</value>
+  </data>
+  <data name="DlgKickPlayer" xml:space="preserve">
+    <value>¿Deseas expulsar a este jugador de la partida?</value>
+  </data>
+  <data name="DlgNobodyAnswers" xml:space="preserve">
+    <value>Nadie ha podido responder a tu acusación.</value>
+  </data>
+  <data name="DlgAlreadyLogin" xml:space="preserve">
+    <value>Ya has iniciado sesión previamente</value>
+  </data>
+  <data name="DlgMatchCreationError" xml:space="preserve">
+    <value>Error al crear la partida. Inténtalo de nuevo.</value>
+  </data>
+  <data name="ConfirmClosingTitle" xml:space="preserve">
+    <value>Confirmar cierre</value>
+  </data>
+  <data name="DlgConfirmShutdown" xml:space="preserve">
+    <value>¿Desea cerrar la app?</value>
+  </data>
+  <data name="DlgMusicException" xml:space="preserve">
+    <value>No se pudo reproducir la música de fondo</value>
+  </data>
+  <data name="LblMotive" xml:space="preserve">
+    <value>MOTIVOS</value>
+  </data>
+  <data name="LblPlace" xml:space="preserve">
+    <value>LUGARES</value>
+  </data>
+  <data name="LblSuspect" xml:space="preserve">
+    <value>SOSPECHOSOS</value>
+  </data>
 </root>

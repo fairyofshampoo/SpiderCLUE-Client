@@ -39,31 +39,28 @@
                         <ColumnDefinition />
                         <ColumnDefinition />
                     </Grid.ColumnDefinitions>
-                    <ToggleButton x:Name="btnMusicSettings"
+                    <ToggleButton x:Name="tgbtnMusicSettings"
                                   Background="Transparent"
-                                  Checked="BtnMusic_Checked"
-                                  Unchecked="BtnMusic_Unchecked">
+                                  Checked="TgbtnMusic_Checked"
+                                  Unchecked="TgbtnMusic_Unchecked">
                         <Image x:Name="imgMusicIcon" Source="{Binding Path= MusicImagePath}" Width = "40" Height = "40" HorizontalAlignment = "Center" Margin = "15,0,0,0" />
                     </ToggleButton>
 
-                    <ToggleButton x:Name="btnSoundSettings"
+                    <ToggleButton x:Name="tgbtnSoundSettings"
                                   Background="Transparent"
-                                  Checked="BtnSound_Checked"
-                                  Unchecked="BtnSound_Unchecked"
+                                  Checked="TgbtnSound_Checked"
+                                  Unchecked="TgbtnSound_Unchecked"
                                   Grid.Column ="1">
                         <Image x:Name="imgSoundIcon" Source="{Binding Path= SoundImagePath}" Width = "40" Height = "40" HorizontalAlignment = "Center" Margin = "15,0,0,0" />
                     </ToggleButton>
 
                 </Grid>
                 <Button x:Name="btnSaveChanges" Grid.Column="0" BorderThickness="0"
-                                    Content="Save Changes"
-                                    Foreground="Black"
-                                    FontSize="15"
-                                    FontFamily="Montserrat"
-                                    Cursor="Hand"
-                                    Margin="0,10,0,0"
+                        Content="{x:Static p:Resources.BtnSave}"
+                        Foreground="Black" FontSize="15" FontFamily="Montserrat" Cursor="Hand"
+                        Margin="0,10,0,0"
                         Grid.Row="2"
-                                    HorizontalAlignment="Center" Click="BtnSaveChanges_Click">
+                        HorizontalAlignment="Center" Click="BtnSaveChanges_Click">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Background" Value="PaleVioletRed" />

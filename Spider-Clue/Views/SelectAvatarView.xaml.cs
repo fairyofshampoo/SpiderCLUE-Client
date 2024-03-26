@@ -1,27 +1,17 @@
 ﻿using Spider_Clue.Logic;
+using Spider_Clue.SpiderClueService;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for SelectAvatarView.xaml
-    /// </summary>
+
     public partial class SelectAvatarView : Page
     {
-        private Image SelectedImage = null;
+        private Image selectedImage = null;
         private string newIconName = "Icon0.jpg";
 
 
@@ -32,21 +22,55 @@ namespace Spider_Clue.Views
 
         private void Image_Click(object sender, MouseButtonEventArgs e)
         {
-            if (SelectedImage != null)
+            if (selectedImage != null)
             {
-                SelectedImage.Opacity = .5;
+                selectedImage.Opacity = .5;
             }
 
-            SelectedImage = (Image)sender;
-            newIconName = SelectedImage.Name +".jpg";
-            SelectedImage.Opacity = 1;
+            selectedImage = (Image)sender;
+            newIconName = selectedImage.Name +".jpg";
+            selectedImage.Opacity = 1;
         }
 
         private void ChangeIcon()
         {
-            UserSingleton.Instance.ImageCode = newIconName;
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-            userManager.ChangeIcon(UserSingleton.Instance.GamerTag, newIconName);
+            LoggerManager logger = new LoggerManager(this.GetType());
+            int result = Constants.DefaultResultOperation;
+            try
+            {
+                UserSingleton.Instance.ImageCode = newIconName;
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+                result = userManager.ChangeIcon(UserSingleton.Instance.GamerTag, newIconName);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+
+            if (result == Constants.SuccessfulOperation)
+            {
+                DialogManager.ShowSuccessMessageBox(Properties.Resources.DlgSuccessfulChange);
+            }
+            else
+            {
+                DialogManager.ShowWarningMessageBox(Properties.Resources.DlgWrongChange);
+            }
         }
 
         private void BtnSaveChanges_Click(object sender, RoutedEventArgs e)

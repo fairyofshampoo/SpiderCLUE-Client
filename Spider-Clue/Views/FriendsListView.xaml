@@ -5,8 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Spider_Clue.Views"
       xmlns:p = "clr-namespace:Spider_Clue.Properties"
-      mc:Ignorable="d"
-      d:DesignHeight="720" d:DesignWidth="1280">
+      mc:Ignorable="d" d:DesignHeight="720" d:DesignWidth="1280">
 
     <Grid>
         <Border>
@@ -29,15 +28,10 @@
                         <ColumnDefinition Width="Auto"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button
-                                VerticalAlignment="Top"
-                                Grid.Column="0"
-                                Grid.Row = "0"
-                                Width = "70"
-                                Height = "70"
-                                Margin="20,5,0,0"
-                                Click="BtnGoBack_Click"
-                                Cursor="Hand">
+                    <Button VerticalAlignment="Top" Grid.Column="0" 
+                            Grid.Row = "0" Width = "70" Height = "70"
+                            Margin="20,5,0,0" Click="BtnGoBack_Click" 
+                            Cursor="Hand">
                         <Button.Template>
                             <ControlTemplate>
                                 <Image Source="/Images/Icons/GoBackIcon.png" 
@@ -69,7 +63,7 @@
                         HorizontalAlignment="Left"
                         Margin = "60,50,0,0"
                         Grid.Column="2">
-                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnChangeFriendRequest">
+                        <Button Background="Transparent" BorderBrush="Transparent" Click="BtnChangeFriendRequest_Click">
                             <Image Source="/Images/Icons/NotificationIcon.png"
                                    Stretch="UniformToFill"/>
                         </Button>
@@ -88,17 +82,17 @@
                             <RowDefinition Height = "Auto"/>
                             <RowDefinition Height = "Auto"/>
                         </Grid.RowDefinitions>
-                        <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriends}"
-                                   Width="220"
+                        <Label x:Name = "lblFriends" Content = "{x:Static p:Resources.LblFriendRequests}"
+                                   Width="620"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "60"
                                    FontFamily = "Monsterrat"
-                                   HorizontalContentAlignment="Left"
-                                   Margin="-650,0,0,0" 
+                                   HorizontalContentAlignment="Center"
+                                   Margin="-250,0,0,0" 
                                    Grid.Row="0"
                                    Height = "70"/>
-                        <DataGrid Grid.Row="1" AutoGenerateColumns = "False" Name = "FriendsConnectedGrid" Margin = "0,10,65,0" HorizontalAlignment="Right" Width="900">
+                        <DataGrid Grid.Row="1" AutoGenerateColumns = "False" Name = "dtgFriendsConnected" Margin = "0,10,65,0" HorizontalAlignment="Right" Width="900">
                             <DataGrid.ColumnHeaderStyle>
                                 <Style TargetType="DataGridColumnHeader">
                                     <Setter Property="FontSize" Value="28"/>
@@ -117,7 +111,7 @@
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                                 <DataGridTextColumn  Header="Gamertag" Width="300" FontSize="28" Binding="{Binding Gamertag}"/>
-                                <DataGridTemplateColumn x:Name = "Delete" Header="Delete" Width="*">
+                                <DataGridTemplateColumn x:Name = "dtgtcDelete" Header="Delete" Width="*">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button Background="Transparent" BorderBrush="Transparent" Click="BtnDeleteFiend_Click">

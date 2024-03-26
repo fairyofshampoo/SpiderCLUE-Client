@@ -18,14 +18,15 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <ListBox x:Name="listBoxChat" 
+                <ListBox x:Name="lbxChat" 
                          HorizontalAlignment="Left" 
                          Height="132" Margin="5,5,5,5" 
                          VerticalAlignment="Top" Width="256" 
                          FontSize="13" Background="Transparent" 
                          Foreground="#FF0E0101" Grid.Row="0"
                          VerticalContentAlignment="Top"/>
-                <TextBox x:Name="txtMessage"  HorizontalAlignment="Left"  Height="19" Margin="5,0,0,0"  TextWrapping="Wrap" VerticalAlignment="Top"  Width="256" KeyDown="TxtMessage_KeyDown" 
+                <TextBox x:Name="txtMessage"  HorizontalAlignment="Left"  Height="19" Margin="5,0,0,0"  TextWrapping="Wrap" 
+                         VerticalAlignment="Top"  Width="256" KeyDown="TxtMessage_KeyDown" 
                          FontSize="14"  Background="Black"  Foreground="White" Grid.Row="1"/>
             </Grid>
         </Border>

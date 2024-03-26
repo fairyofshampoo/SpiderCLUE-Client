@@ -1,15 +1,13 @@
-﻿using Spider_Clue.SpiderClueService;
-using System.Net;
+﻿using System.Net;
 using System.Security;
 using System.Windows.Controls;
 using Spider_Clue.Logic;
 using System.Windows;
+using System.ServiceModel;
+using System;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for PasswordRecoveryView.xaml
-    /// </summary>
     public partial class PasswordRecoveryView : Page
     {
         private string gamertag;
@@ -25,48 +23,20 @@ namespace Spider_Clue.Views
 
         private bool ValidatePassword()
         {
-            
-            bool passwordValid = IsPasswordValid();
-            bool passwordsMatching = ArePasswordsMatching();
+            bool passwordValid = Validations.ValidatePassword(pwbPassword.SecurePassword);
+            bool passwordsMatching = Validations.ArePasswordsMatching(pwbPassword.SecurePassword, pwbConfirmPassword.SecurePassword);
 
-            return passwordValid && passwordsMatching;
-        }
-
-        private bool IsPasswordValid()
-        {
-            SecureString securePassword = txtPassword.SecurePassword;
-            string password = new NetworkCredential(string.Empty, securePassword).Password;
-            bool passwordValid = Validations.IsPasswordValid(password);
-
-            if(!passwordValid)
+            if (!passwordValid)
             {
                 lblPasswordInvalid.Visibility = Visibility.Visible;
             }
 
-            return passwordValid;
-        }
-
-        private bool ArePasswordsMatching()
-        {
-            SecureString securePassword = txtPassword.SecurePassword;
-            SecureString securePasswordToConfirm = txtConfirmPassword.SecurePassword;
-            string password = new NetworkCredential(string.Empty, securePassword).Password;
-            string passwordToConfirm = new NetworkCredential(string.Empty, securePasswordToConfirm).Password;
-            bool passwordsValidation = false;
-
-            if (!string.IsNullOrWhiteSpace(password) || !string.IsNullOrWhiteSpace(passwordToConfirm))
-            {
-                if (string.Equals(password, passwordToConfirm))
-                {
-                    passwordsValidation = true;
-                }
-            }
-            else
+            if (!passwordsMatching)
             {
                 lblPasswordsDontMatch.Visibility = Visibility.Visible;
             }
 
-            return passwordsValidation;
+            return passwordValid && passwordsMatching;
         }
 
         private void BtnConfirm_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -77,12 +47,12 @@ namespace Spider_Clue.Views
             {
                 if (UpdateGamerPassword())
                 {
-                    ShowSuccessMessage();
+                    DialogManager.ShowSuccessMessageBox(Properties.Resources.DlgSuccessfulChange);
                     GoToLoginView();
                 }
                 else
                 {
-                    ShowErrorMessage();
+                    DialogManager.ShowWarningMessageBox(Properties.Resources.DlgWrongChange);
                 }
             }
         }
@@ -97,16 +67,44 @@ namespace Spider_Clue.Views
         private bool UpdateGamerPassword()
         {
             bool result = false;
-            SecureString securePassword = txtPassword.SecurePassword;
+            SecureString securePassword = pwbPassword.SecurePassword;
             string password = new NetworkCredential(string.Empty, securePassword).Password;
             string newPassword = Utilities.CalculateSHA1Hash(password);
-            SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
+            LoggerManager logger = new LoggerManager(this.GetType());
 
-            if (userManager.UpdatePassword(gamertag, newPassword) == 1)
+            try
             {
-                result = true;
-            }
+                SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
 
+                if (userManager.UpdatePassword(gamertag, newPassword) == 1)
+                {
+                    result = true;
+                }
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                result = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                result = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                result = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                result = false;
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
             return result;
         }
 
@@ -114,16 +112,6 @@ namespace Spider_Clue.Views
         {
             Utilities.PlayButtonClickSound();
             this.NavigationService.GoBack();
-        }
-
-        private void ShowSuccessMessage()
-        {
-            MessageBox.Show(Properties.Resources.DlgSuccessfulChange, Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
-        }
-
-        private void ShowErrorMessage()
-        {
-            MessageBox.Show(Properties.Resources.DlgWrongChange, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
         }
 
         private void TypingConfirmPassword(object sender, RoutedEventArgs e)

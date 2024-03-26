@@ -5,3 +5,6 @@ Spider-Clue/.vs/
 Spider-Clue/Connected Services/
 Spider-Clue/App.config
 Spider-Clue/.sonarqube
+TestsClient/obj/
+TestsClient/bin/
+TestsClient/.vs/

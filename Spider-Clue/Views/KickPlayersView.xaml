@@ -35,7 +35,7 @@
                        Grid.Row="0"
                        Height = "Auto"/>
 
-                <DataGrid Grid.Row="1" AutoGenerateColumns = "False" Name = "KickPlayersGrid" Margin = "0,0,0,10" HorizontalAlignment="Center" Width="300">
+                <DataGrid Grid.Row="1" AutoGenerateColumns = "False" Name = "dtgKickPlayers" Margin = "0,0,0,10" HorizontalAlignment="Center" Width="300">
                     <DataGrid.ColumnHeaderStyle>
                         <Style TargetType="DataGridColumnHeader">
                             <Setter Property="FontSize" Value="10"/>
@@ -62,10 +62,10 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTextColumn  Width="150" Header="Gamertag" FontSize="20" Binding="{Binding Gamertag}"/>
-                        <DataGridTemplateColumn x:Name = "Delete" Header="Kick" Width="*">
+                        <DataGridTemplateColumn x:Name = "dtgtcDelete" Header="Kick" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Background="Transparent" BorderBrush="Transparent" Click="BtnKickPlayer_Click">
+                                    <Button Background="Transparent" BorderBrush="Transparent" Click="BtnKickPlayer_Click" Cursor="Hand">
                                         <Image Source="/Images/Icons/KickPlayerIcon.png" 
                                                        Width="28" 
                                                        Height="24"/>

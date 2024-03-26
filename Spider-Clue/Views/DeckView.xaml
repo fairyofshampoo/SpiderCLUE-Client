@@ -24,23 +24,23 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="10"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
                 <Label x:Name = "lblYourCards" Content = "{x:Static p:Resources.LblDeck}"
@@ -55,17 +55,19 @@
                                    Grid.Row="0"
                                    Height = "40"/>
 
-                <Label x:Name = "lblVillains" Content = "{x:Static p:Resources.LblDeck}"
-                                   Width="100"
+                <Label x:Name = "lblVillains" Content = "{x:Static p:Resources.LblSinisterSixCards}"
+                                   Width="150"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "14"
-                                   Grid.ColumnSpan = "2"
+                                   Grid.ColumnSpan = "4"
                                    FontFamily = "Monsterrat"
-                                   HorizontalContentAlignment="Center"
+                                   HorizontalContentAlignment="Left"
                                    Grid.Row="1"
                                    Height = "25"/>
                 <Border 
+                    x:Name="brVillain1Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -74,13 +76,15 @@
                     Grid.Column="1"
                     CornerRadius="10">
                 <Border.Background>
-                    <ImageBrush ImageSource ="{Binding Path = Villain1Path}"
+                    <ImageBrush ImageSource ="{Binding Path = [Villain1Path]}"
                                     Stretch = "Fill">
                     </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brVillain2Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -89,13 +93,15 @@
                     Grid.Column="2"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Villain2Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Villain2Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brVillain3Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -104,13 +110,15 @@
                     Grid.Column="3"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Villain3Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Villain3Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brVillain4Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -119,13 +127,15 @@
                     Grid.Column="4"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Villain4Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Villain4Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brVillain5Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -134,13 +144,15 @@
                     Grid.Column="5"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Villain5Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Villain5Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brVillain6Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -149,24 +161,26 @@
                     Grid.Column="6"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Villain6Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Villain6Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
-                <Label x:Name = "lblMotive" Content = "{x:Static p:Resources.LblDeck}"
-                                   Width="100"
+                <Label x:Name = "lblMotive" Content = "{x:Static p:Resources.LblMotiveCards}"
+                                   Width="150"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "14"
                                    Grid.ColumnSpan = "2"
                                    FontFamily = "Monsterrat"
-                                   HorizontalContentAlignment="Center"
+                                   HorizontalContentAlignment="Left"
                                    Grid.Row="3"
                                    Height = "25"/>
 
                 <Border 
+                    x:Name="brMotive1Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -175,13 +189,15 @@
                     Grid.Column="1"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Motive1Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Motive1Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brMotive2Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -190,13 +206,15 @@
                     Grid.Column="2"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Motive2Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Motive2Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brMotive3Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -205,13 +223,15 @@
                     Grid.Column="3"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Motive3Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Motive3Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brMotive4Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -220,13 +240,15 @@
                     Grid.Column="4"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Motive4Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Motive4Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brMotive5Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -235,13 +257,15 @@
                     Grid.Column="5"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Motive5Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Motive5Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brMotive6Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -250,24 +274,26 @@
                     Grid.Column="6"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Motive6Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Motive6Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
-                <Label x:Name = "lblPlace" Content = "{x:Static p:Resources.LblDeck}"
-                                   Width="100"
+                <Label x:Name = "lblPlace" Content = "{x:Static p:Resources.LblPlaceCards}"
+                                   Width="150"
                                    Foreground ="White"
                                    FontWeight = "Medium"
                                    FontSize = "14"
                                    Grid.ColumnSpan = "2"
                                    FontFamily = "Monsterrat"
-                                   HorizontalContentAlignment="Center"
+                                   HorizontalContentAlignment="Left"
                                    Grid.Row="5"
                                    Height = "25"/>
 
                 <Border 
+                    x:Name="brPlace1Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -276,13 +302,15 @@
                     Grid.Column="1"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Place1Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Place1Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brPlace2Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -291,13 +319,15 @@
                     Grid.Column="2"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Place2Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Place2Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brPlace3Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -306,13 +336,15 @@
                     Grid.Column="3"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Place3Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Place3Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brPlace4Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -321,13 +353,15 @@
                     Grid.Column="4"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Place4Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Place4Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brPlace5Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -336,13 +370,15 @@
                     Grid.Column="5"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Place5Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Place5Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
 
                 <Border 
+                    x:Name="brPlace6Path"
+                    Visibility="Collapsed"
                     Height="80"
                     Width="80"
                     HorizontalAlignment="Center"
@@ -351,7 +387,7 @@
                     Grid.Column="6"
                     CornerRadius="10">
                     <Border.Background>
-                        <ImageBrush ImageSource ="{Binding Path = Place6Path}"
+                        <ImageBrush ImageSource ="{Binding Path = [Place6Path]}"
                                     Stretch = "Fill">
                         </ImageBrush>
                     </Border.Background>

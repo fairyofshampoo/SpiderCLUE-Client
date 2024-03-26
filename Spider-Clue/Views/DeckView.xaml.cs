@@ -1,47 +1,58 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
-using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+
 
 namespace Spider_Clue.Views
 {
     public partial class DeckView : Window
     {
-        public DeckView()
+        private readonly Dictionary<string, string> imageDeckPaths;
+
+        public DeckView(Card[] gamerDeck)
         {
             InitializeComponent();
+            imageDeckPaths = new Dictionary<string, string>();
+            ShowGamerDeck(gamerDeck);
         }
 
-        public void ShowGamerDeck()
+        public void ShowGamerDeck(Card[] gamerDeck)
         {
-            Card[] gamerDeck = GetGamerDeck();
             List<Card> villainsDeck = GetVillainsDeck(gamerDeck);
             List<Card> motiveDeck = GetMotiveDeck(gamerDeck);
             List<Card> placeDeck = GetPlaceDeck(gamerDeck);
-            if(villainsDeck != null)
+
+            if(villainsDeck.Any())
             {
                 ShowVillainsCards(villainsDeck);
             }
+            else
+            {
+                int index = 1;
+                SetDefaultVillainCards(index);
+            }
 
-            if(motiveDeck != null)
+            if(motiveDeck.Any())
             {
                 ShowMotiveCards(motiveDeck);
             }
+            else
+            {
+                int index = 1;
+                ShowMotiveDefaultCards(index);
+            }
 
-            if(placeDeck != null)
+            if(placeDeck.Any())
             {
                 ShowPlaceCards(placeDeck);
+            }
+            else
+            {
+                int index = 1;
+                SetPlaceDefaultCards(index);
             }
 
         }
@@ -49,33 +60,75 @@ namespace Spider_Clue.Views
         public void ShowVillainsCards (List<Card> villainsDeck)
         {
             int index = 1;
-            foreach (var card in villainsDeck)
+            foreach (var card in villainsDeck.Select(card => card.ID))
             {
-                string cardPath = Utilities.GetImagePathForCards(card.ID);
                 switch (index)
                 {
                     case 1:
-                        this.DataContext = new { Villain1Path = cardPath };
+                        brVillain1Path.Visibility = Visibility.Visible;
+                        ShowDeck("Villain1Path", card);
                         break;
 
                     case 2:
-                        this.DataContext = new { Villain2Path = cardPath };
+                        brVillain2Path.Visibility = Visibility.Visible;
+                        ShowDeck("Villain2Path", card);
                         break;
 
                     case 3:
-                        this.DataContext = new { Villain3Path = cardPath };
+                        brVillain3Path.Visibility = Visibility.Visible;
+                        ShowDeck("Villain3Path", card);
                         break;
 
                     case 4:
-                        this.DataContext = new { Villain4Path = cardPath };
+                        brVillain4Path.Visibility = Visibility.Visible;
+                        ShowDeck("Villain4Path", card);
                         break;
 
                     case 5:
-                        this.DataContext = new { Villain5Path = cardPath };
+                        brVillain5Path.Visibility = Visibility.Visible;
+                        ShowDeck("Villain5Path", card);
                         break;
 
                     case 6:
-                        this.DataContext = new { Villain6Path = cardPath };
+                        brVillain6Path.Visibility = Visibility.Visible;
+                        ShowDeck("Villain6Path", card);
+                        break;
+                }
+                index++;
+            }
+            SetDefaultVillainCards(index);
+        }
+
+        public void SetDefaultVillainCards(int index)
+        {
+            int totalOfCards = 6;
+            while(index <= totalOfCards)
+            {
+                switch (index)
+                {
+                    case 1:
+
+                        ShowDeck("Villain1Path", "DefaultCard.png");
+                        break;
+
+                    case 2:
+                        ShowDeck("Villain2Path", "DefaultCard.png");
+                        break;
+
+                    case 3:
+                        ShowDeck("Villain3Path", "DefaultCard.png");
+                        break;
+
+                    case 4:
+                        ShowDeck("Villain4Path", "DefaultCard.png");
+                        break;
+
+                    case 5:
+                        ShowDeck("Villain5Path", "DefaultCard.png");
+                        break;
+
+                    case 6:
+                        ShowDeck("Villain6Path", "DefaultCard.png");
                         break;
                 }
                 index++;
@@ -85,33 +138,73 @@ namespace Spider_Clue.Views
         public void ShowPlaceCards(List<Card> placeDeck)
         {
             int index = 1;
-            foreach (var card in placeDeck)
+            foreach (var card in placeDeck.Select(card => card.ID))
             {
-                string cardPath = Utilities.GetImagePathForCards(card.ID);
                 switch (index)
                 {
                     case 1:
-                        this.DataContext = new { Place1Path = cardPath };
+                        brPlace1Path.Visibility = Visibility.Visible;
+                        ShowDeck("Place1Path", card);
                         break;
 
                     case 2:
-                        this.DataContext = new { Place2Path = cardPath };
+                        brPlace2Path.Visibility = Visibility.Visible;
+                        ShowDeck("Place2Path", card);
                         break;
 
                     case 3:
-                        this.DataContext = new { Place3Path = cardPath };
+                        brPlace3Path.Visibility = Visibility.Visible;
+                        ShowDeck("Place3Path", card);
                         break;
 
                     case 4:
-                        this.DataContext = new { Place4Path = cardPath };
+                        brPlace4Path.Visibility = Visibility.Visible;
+                        ShowDeck("Place4Path", card);
                         break;
 
                     case 5:
-                        this.DataContext = new { Place5Path = cardPath };
+                        brPlace5Path.Visibility = Visibility.Visible;
+                        ShowDeck("Place5Path", card);
                         break;
 
                     case 6:
-                        this.DataContext = new { Place6Path = cardPath };
+                        brPlace6Path.Visibility = Visibility.Visible;
+                        ShowDeck("Place6Path", card);
+                        break;
+                }
+                index++;
+            }
+            SetPlaceDefaultCards(index);
+        }
+
+        public void SetPlaceDefaultCards(int index)
+        {
+            int totalOfCards = 6;
+            while (index <= totalOfCards) { 
+                switch (index)
+                {
+                    case 1:
+                        ShowDeck("Place1Path", "DefaultCard.png");
+                        break;
+
+                    case 2:
+                        ShowDeck("Place2Path", "DefaultCard.png");
+                        break;
+
+                    case 3:
+                        ShowDeck("Place3Path", "DefaultCard.png");
+                        break;
+
+                    case 4:
+                        ShowDeck("Place4Path", "DefaultCard.png");
+                        break;
+
+                    case 5:
+                        ShowDeck("Place5Path", "DefaultCard.png");
+                        break;
+
+                    case 6:
+                        ShowDeck("Place6Path", "DefaultCard.png");
                         break;
                 }
                 index++;
@@ -121,44 +214,78 @@ namespace Spider_Clue.Views
         public void ShowMotiveCards(List<Card> motiveDeck)
         {
             int index = 1;
-            foreach (var card in motiveDeck)
+            foreach (var card in motiveDeck.Select(card => card.ID))
             {
-                string cardPath = Utilities.GetImagePathForCards(card.ID);
                 switch (index)
                 {
                     case 1:
-                        this.DataContext = new { Motive1Path = cardPath };
+                        brMotive1Path.Visibility = Visibility.Visible;
+                        ShowDeck("Motive1Path", card);
                         break;
 
                     case 2:
-                        this.DataContext = new { Motive2Path = cardPath };
+                        brMotive2Path.Visibility = Visibility.Visible;
+                        ShowDeck("Motive2Path", card);
                         break;
 
                     case 3:
-                        this.DataContext = new { Motive3Path = cardPath };
+                        brMotive3Path.Visibility = Visibility.Visible;
+                        ShowDeck("Motive3Path", card);
                         break;
 
                     case 4:
-                        this.DataContext = new { Motive4Path = cardPath };
+                        brMotive4Path.Visibility = Visibility.Visible;
+                        ShowDeck("Motive4Path", card);
                         break;
 
                     case 5:
-                        this.DataContext = new { Motive5Path = cardPath };
+                        brMotive5Path.Visibility = Visibility.Visible;
+                        ShowDeck("Motive5Path", card);
                         break;
 
                     case 6:
-                        this.DataContext = new { Motive6Path = cardPath };
+                        brMotive6Path .Visibility = Visibility.Visible;
+                        ShowDeck("Motive6Path", card);
                         break;
                 }
                 index++;
             }
+            ShowMotiveDefaultCards(index);
         }
 
-        public Card [] GetGamerDeck()
+        public void ShowMotiveDefaultCards (int index)
         {
-            SpiderClueService.ICardManager cardManager = new SpiderClueService.CardManagerClient();
-            Card [] deck = cardManager.GetDeck(UserSingleton.Instance.GamerTag);
-            return deck;
+            int totalOfCards = 6;
+            while (index <= totalOfCards)
+            {
+                switch (index)
+                {
+                    case 1:
+                        ShowDeck("Motive1Path", "DefaultCard.png");
+                        break;
+
+                    case 2:
+                        ShowDeck("Motive2Path", "DefaultCard.png");
+                        break;
+
+                    case 3:
+                        ShowDeck("Motive3Path", "DefaultCard.png");
+                        break;
+
+                    case 4:
+                        ShowDeck("Motive4Path", "DefaultCard.png");
+                        break;
+
+                    case 5:
+                        ShowDeck("Motive5Path", "DefaultCard.png");
+                        break;
+
+                    case 6:
+                        ShowDeck("Motive6Path", "DefaultCard.png");
+                        break;
+                }
+                index++;
+            }
         }
 
         public List<Card> GetVillainsDeck(Card[] gamerDeck)
@@ -198,6 +325,13 @@ namespace Spider_Clue.Views
                 }
             }
             return MotiveDeck;
+        }
+
+        private void ShowDeck(string propertyName, string cardValue)
+        {
+            string cardPath = Utilities.GetImagePathForCards(cardValue);
+            imageDeckPaths[propertyName] = cardPath;
+            this.DataContext = imageDeckPaths;
         }
 
     }

@@ -12,12 +12,11 @@ using System.Windows.Input;
 using Spider_Clue.SpiderClueService;
 using System.ServiceModel;
 using System.Windows.Navigation;
+using log4net.Repository.Hierarchy;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for SearchGameView.xaml
-    /// </summary>
+
     public partial class SearchGameView : Window, IMatchManagerCallback
     {
         private readonly MatchManagerClient matchManagerClient;
@@ -29,7 +28,7 @@ namespace Spider_Clue.Views
             matchManagerClient = new MatchManagerClient(new InstanceContext(this));
         }
 
-        private void Search_Click(object sender, MouseButtonEventArgs e)
+        private void BrSearch_Click(object sender, MouseButtonEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             SearchMatch();
@@ -37,9 +36,36 @@ namespace Spider_Clue.Views
 
         private void SearchMatch()
         {
-            bdrMatchFound.Visibility = Visibility.Visible;
+            LoggerManager logger = new LoggerManager(this.GetType());
+            brMatchFound.Visibility = Visibility.Visible;
             string matchCodeToSearch = txtMatchToSearch.Text;
-            Match matchFound = matchManagerClient.GetMatchInformation(matchCodeToSearch);
+            Match matchFound = null;
+
+            try
+            {
+                matchFound = matchManagerClient.GetMatchInformation(matchCodeToSearch);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+
             if (matchFound != null)
             {
                 lblCreator.Content = matchFound.CreatedBy;
@@ -47,8 +73,8 @@ namespace Spider_Clue.Views
             }
             else
             {
-                bdrMatchFound.Visibility = Visibility.Collapsed;
-                bdrNotFound.Visibility = Visibility.Visible;
+                brMatchFound.Visibility = Visibility.Collapsed;
+                brNotFound.Visibility = Visibility.Visible;
             }
         }
 
@@ -60,20 +86,45 @@ namespace Spider_Clue.Views
 
         private void JoinMatch()
         {
-            String matchCode = txtMatchToSearch.Text;
-            String gamertag = UserSingleton.Instance.GamerTag;
-            matchManagerClient.GetGamersInMatch(gamertag, matchCode);
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
+            {
+                string matchCode = txtMatchToSearch.Text;
+                string gamertag = UserSingleton.Instance.GamerTag;
+                matchManagerClient.GetGamersInMatch(gamertag, matchCode);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
 
-        public void ReceiveGamersInMatch(Dictionary<string, Pawn> gamers)
+        public void ReceiveGamersInMatch(Dictionary<string, Pawn> characters)
         {
-            int numberOfGamersInMatch = gamers.Count;
+            int numberOfGamersInMatch = characters.Count;
             GoToLobby(numberOfGamersInMatch);
         }
 
         private void GoToLobby(int numberOfGamers)
         {
-            int maximumOfPlayers = 3;
+            int maximumOfPlayers = Constants.LimitOfGamersInMatch;
             int numberOfPlayersEmptyMatch = 0;
 
             if(numberOfGamers > numberOfPlayersEmptyMatch)

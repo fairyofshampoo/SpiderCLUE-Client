@@ -15,8 +15,8 @@
                 <Border
                     Width = "Auto" Height = "Auto">
                     <Border.Background>
-                        <ImageBrush ImageSource="/Images/Background/SettingsFinalBackground.png"
-                            Stretch = "Fill">
+                        <ImageBrush ImageSource="/Images/Background/configBackground.jpg"
+                            Stretch = "UniformToFill">
                         </ImageBrush>
                     </Border.Background>
                 </Border>
@@ -79,8 +79,8 @@
                            HorizontalAlignment = "Left"
                            Grid.Row="1" 
                            Margin = "40,70,0,0"
-                                       Cursor="Hand"
-                       MouseLeftButtonDown="LblLanguage_Click"/>
+                                       Cursor="Hand" 
+                                       MouseLeftButtonDown="LblLanguage_Click"/>
 
                                 <Label x:Name = "lblAudio" Content = "{x:Static p:Resources.LblAudio}"
                                    Foreground = "Black"
@@ -100,10 +100,10 @@
                 </Border>
                 <Border CornerRadius = "10" Height = "Auto"
                     Width = "Auto" Margin = "500,0,150,0">
-                    <Viewbox x:Name="SettingsViewBox"
+                    <Viewbox x:Name="vbSettingsViewBox"
                                 VerticalAlignment="Center"
                     Grid.Column = "1">
-                        <Frame Name="SettingsFrame"/>
+                        <Frame Name="frSettings"/>
                     </Viewbox>
                 </Border>
             </Grid>

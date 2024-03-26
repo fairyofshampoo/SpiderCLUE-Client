@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\xunit.core.2.6.5\build\xunit.core.props" Condition="Exists('packages\xunit.core.2.6.5\build\xunit.core.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -14,6 +15,8 @@
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -38,6 +41,9 @@
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="log4net, Version=2.0.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.2.0.15\lib\net45\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
@@ -45,6 +51,7 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -69,7 +76,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Logic\Constants.cs" />
+    <Compile Include="Logic\DialogManager.cs" />
     <Compile Include="Logic\GamerForListBox.cs" />
+    <Compile Include="Logic\LoggerManager.cs" />
     <Compile Include="Logic\Utilities.cs" />
     <Compile Include="Logic\UserSingleton.cs" />
     <Compile Include="Logic\Validations.cs" />
@@ -100,9 +110,6 @@
     <Compile Include="Views\AudioSettingsView.xaml.cs">
       <DependentUpon>AudioSettingsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ConfirmPasswordView.xaml.cs">
-      <DependentUpon>ConfirmPasswordView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\DeckView.xaml.cs">
       <DependentUpon>DeckView.xaml</DependentUpon>
     </Compile>
@@ -117,9 +124,6 @@
     </Compile>
     <Compile Include="Views\GameBoardView.xaml.cs">
       <DependentUpon>GameBoardView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\GameResultsView.xaml.cs">
-      <DependentUpon>GameResultsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\KickPlayersView.xaml.cs">
       <DependentUpon>KickPlayersView.xaml</DependentUpon>
@@ -139,8 +143,8 @@
     <Compile Include="Views\MainMenuView.xaml.cs">
       <DependentUpon>MainMenuView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\NotificationsView.xaml.cs">
-      <DependentUpon>NotificationsView.xaml</DependentUpon>
+    <Compile Include="Views\PassCardView.xaml.cs">
+      <DependentUpon>PassCardView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PasswordRecoveryView.xaml.cs">
       <DependentUpon>PasswordRecoveryView.xaml</DependentUpon>
@@ -148,14 +152,14 @@
     <Compile Include="Views\PersonalInformationView.xaml.cs">
       <DependentUpon>PersonalInformationView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PlacesCardsView.xaml.cs">
-      <DependentUpon>PlacesCardsView.xaml</DependentUpon>
+    <Compile Include="Views\PlaceOfFailureCardsView.xaml.cs">
+      <DependentUpon>PlaceOfFailureCardsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProfileEditionView.xaml.cs">
       <DependentUpon>ProfileEditionView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ReasonCardsView.xaml.cs">
-      <DependentUpon>ReasonCardsView.xaml</DependentUpon>
+    <Compile Include="Views\ReasonForFailureCardsView.xaml.cs">
+      <DependentUpon>ReasonForFailureCardsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
@@ -174,6 +178,21 @@
     </Compile>
     <Compile Include="Views\SettingsView.xaml.cs">
       <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShowCommonAccusationView.xaml.cs">
+      <DependentUpon>ShowCommonAccusationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShowEvidenceView.xaml.cs">
+      <DependentUpon>ShowEvidenceView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShowWinner.xaml.cs">
+      <DependentUpon>ShowWinner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SinisterSixCardsView.xaml.cs">
+      <DependentUpon>SinisterSixCardsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TopGlobalView.xaml.cs">
+      <DependentUpon>TopGlobalView.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -203,10 +222,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ConfirmPasswordView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Views\DeckView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -224,10 +239,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\GameBoardView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\GameResultsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -255,7 +266,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\NotificationsView.xaml">
+    <Page Include="Views\PassCardView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -267,7 +278,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PlacesCardsView.xaml">
+    <Page Include="Views\PlaceOfFailureCardsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -275,7 +286,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\ReasonCardsView.xaml">
+    <Page Include="Views\ReasonForFailureCardsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -300,6 +311,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShowCommonAccusationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShowEvidenceView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShowWinner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SinisterSixCardsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TopGlobalView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -377,6 +408,10 @@
     <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Match.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\SpiderClueService\Spider_Clue.SpiderClueService.Winner.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -458,7 +493,6 @@
     <Resource Include="Images\Icons\EUAFlag.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\SpiderClueService\item1.disco" />
     <Resource Include="Images\Avatars\Icon7.jpg" />
     <Resource Include="Images\Avatars\Icon2.jpg" />
     <Resource Include="Images\Avatars\Icon1.jpg" />
@@ -490,7 +524,6 @@
     <Resource Include="Images\GameCards\motive2.png" />
     <Resource Include="Images\GameCards\motive3.png" />
     <Resource Include="Images\GameCards\motive4.png" />
-    <Resource Include="Images\GameCards\motive5.png" />
     <Resource Include="Images\GameCards\motive6.png" />
     <Resource Include="Images\GameCards\place1.png" />
     <Resource Include="Images\GameCards\place2.png" />
@@ -530,8 +563,35 @@
     <Resource Include="Images\Background\kickPlayerBackground.jpg" />
     <Resource Include="Images\Background\deckBackground.jpeg" />
     <Resource Include="Images\Background\rollDiceBackground.jpg" />
+    <Resource Include="Images\GameCards\DocOchCard.png" />
+    <Resource Include="Images\GameCards\ElectroJuanCard.png" />
+    <Resource Include="Images\GameCards\MysteRevoCard.png" />
+    <Resource Include="Images\GameCards\RhinosidroCard.png" />
+    <Resource Include="Images\GameCards\VernomCard.png" />
+    <Resource Include="Images\GameCards\XandManCard.png" />
+    <Resource Include="Images\GameCards\motive5.png" />
+    <Resource Include="Images\Background\MotivesCardsBackground.png" />
+    <Resource Include="Images\Background\PlacesCardsBackground.png" />
+    <Resource Include="Images\Background\SinistersSixCardsBackground.jpg" />
+    <Resource Include="Images\Background\CommonAccusationBackground.png" />
+    <Resource Include="Images\Background\PassCardBackground.png" />
+    <Resource Include="Images\GameCards\DefaultCard.png" />
+    <Resource Include="Images\Background\ShowWinnerBackground.png" />
+    <Resource Include="Images\Background\Top3MundialBackground.jpg" />
+    <Resource Include="Images\Icons\TopGlobalIcon.png" />
+    <Resource Include="Images\Background\editProfileBackground.jpg" />
+    <Resource Include="Images\Background\configBackground.jpg" />
+    <None Include="Connected Services\SpiderClueService\item1.disco" />
     <Content Include="Video\LoadingScreen.mp4" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\xunit.core.2.6.5\build\xunit.core.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\xunit.core.2.6.5\build\xunit.core.props'))" />
+    <Error Condition="!Exists('packages\xunit.core.2.6.5\build\xunit.core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\xunit.core.2.6.5\build\xunit.core.targets'))" />
+  </Target>
+  <Import Project="packages\xunit.core.2.6.5\build\xunit.core.targets" Condition="Exists('packages\xunit.core.2.6.5\build\xunit.core.targets')" />
 </Project>

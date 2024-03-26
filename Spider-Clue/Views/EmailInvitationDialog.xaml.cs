@@ -1,28 +1,16 @@
 ﻿using Spider_Clue.Logic;
 using Spider_Clue.SpiderClueService;
+using System.ServiceModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for EmailInvitationDialog.xaml
-    /// </summary>
+
     public partial class EmailInvitationDialog : Window
     {
-        private string MatchCode;
+        private string matchCode;
         public readonly IInvitationManager InvitationManager = new SpiderClueService.InvitationManagerClient();
         public EmailInvitationDialog()
         {
@@ -31,21 +19,20 @@ namespace Spider_Clue.Views
 
         public void SetMatchCodeInPage(string matchCode)
         {
-            MatchCode = matchCode;
+            this.matchCode = matchCode;
             lblCodeMatch.Content = matchCode;
         }
-        private void Copy_Click(object sender, MouseButtonEventArgs e)
+        private void ImgCopyCode_Click(object sender, MouseButtonEventArgs e)
         {
             CopyMatchCode();
         }
         private void CopyMatchCode()
         {
-            Clipboard.SetText(MatchCode);
-            MessageBox.Show(Properties.Resources.DlgMatchCodeCopied, Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
-
+            Clipboard.SetText(matchCode);
+            DialogManager.ShowSuccessMessageBox(Properties.Resources.DlgMatchCodeCopied);
         }
 
-        private void BtnSendCode_Click(object sender, RoutedEventArgs e)
+        private void BtnSendCodeEmail_Click(object sender, RoutedEventArgs e)
         {
             if (ValidateEmail(txtEmail.Text))
             {
@@ -53,30 +40,47 @@ namespace Spider_Clue.Views
             }
             else
             {
-                ShowErrorMessageBox(Properties.Resources.DlgInvalidData);
+                DialogManager.ShowWarningMessageBox(Properties.Resources.DlgInvalidData);
             }
 
-        }
-        private void ShowErrorMessageBox(string errorMessage)
-        {
-            MessageBox.Show(errorMessage, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
-        }
-
-        private void ShowSuccessMessageBox(string successMessage)
-        {
-            MessageBox.Show(successMessage, Properties.Resources.SuccessTitle, MessageBoxButton.OK, MessageBoxImage.Information);
         }
 
         private void SendInvitation()
         {
-            bool invitationResult = InvitationManager.SendInvitation(txtEmail.Text, MatchCode, UserSingleton.Instance.GamerTag);
-            if (invitationResult)
+            LoggerManager logger = new LoggerManager(this.GetType());
+
+            try
             {
-                ShowSuccessMessageBox(Properties.Resources.DlgInvitationSent);
+                bool invitationResult = InvitationManager.SendInvitation(txtEmail.Text, matchCode, UserSingleton.Instance.GamerTag);
+
+                if (invitationResult)
+                {
+                    DialogManager.ShowSuccessMessageBox(Properties.Resources.DlgInvitationSent);
+                }
+                else
+                {
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgErrorInvitation);
+                }
             }
-            else
+            catch (EndpointNotFoundException endpointException)
             {
-                ShowErrorMessageBox(Properties.Resources.DlgErrorInvitation);
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
             }
         }
         private bool ValidateEmail(string toEmail)
@@ -84,16 +88,16 @@ namespace Spider_Clue.Views
             return Validations.IsEmailValid(toEmail);
         }
 
-        private void SendEmail_Click(object sender, MouseButtonEventArgs e)
+        private void BrSendEmail_Click(object sender, MouseButtonEventArgs e)
         {
-            stckPanelCopyCode.Visibility = Visibility.Collapsed;
-            stckPanelSendEmail.Visibility = Visibility.Visible;
+            stpCopyCode.Visibility = Visibility.Collapsed;
+            stpSendEmail.Visibility = Visibility.Visible;
         }
 
         private void BtnGoBack_Click(object sender, RoutedEventArgs e)
         {
-            stckPanelCopyCode.Visibility = Visibility.Visible;
-            stckPanelSendEmail.Visibility = Visibility.Collapsed;
+            stpCopyCode.Visibility = Visibility.Visible;
+            stpSendEmail.Visibility = Visibility.Collapsed;
         }
     }
 }

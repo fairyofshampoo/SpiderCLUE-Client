@@ -1,7 +1,10 @@
-﻿using Spider_Clue.Logic;
+﻿using log4net.Repository.Hierarchy;
+using Spider_Clue.Logic;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Reflection;
+using System.ServiceModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -9,9 +12,6 @@ using System.Windows.Media.Imaging;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for AudioSettingsView.xaml
-    /// </summary>
     public partial class AudioSettingsView : Page
     {
         private readonly Configuration gameConfiguration;
@@ -19,62 +19,79 @@ namespace Spider_Clue.Views
         private readonly KeyValueConfigurationElement soundStatus;
 
         public static SettingsView SettingsView { get; set; }
-
-        private const string MusicKey = "MUSIC_ON";
-        private const string SoundKey = "SOUNDS_ON";
-
         public AudioSettingsView()
         {
-            gameConfiguration = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
-            musicStatus = gameConfiguration.AppSettings.Settings[MusicKey];
-            soundStatus = gameConfiguration.AppSettings.Settings[SoundKey];
+            LoggerManager logger = new LoggerManager(this.GetType());
             InitializeComponent();
-            SetMusicAndSoundSettings();
+            try
+            {
+                gameConfiguration = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
+                musicStatus = gameConfiguration.AppSettings.Settings[Constants.MusicKey];
+                soundStatus = gameConfiguration.AppSettings.Settings[Constants.SoundKey];
+                
+                SetMusicAndSoundSettings();
+            } 
+            catch (ConfigurationErrorsException configurationException)
+            {
+                logger.LogError(configurationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgConfigurationException);
+            }
+            
         }
 
         private void SetMusicAndSoundSettings()
         {
-            Boolean isMusicOn = musicStatus.Value.Equals("true");
-            btnMusicSettings.IsChecked = isMusicOn;
-            ToggleMusicVisibility(isMusicOn);
-            Boolean isSoundOn = soundStatus.Value.Equals("true");
-            btnSoundSettings.IsChecked = isSoundOn;
-            ToggleSoundVisibility(isSoundOn);
+            LoggerManager logger = new LoggerManager(this.GetType());
+            try
+            {
+                bool isMusicOn = musicStatus.Value.Equals("true");
+                tgbtnMusicSettings.IsChecked = isMusicOn;
+                ChangeToggleMusicVisibility(isMusicOn);
+                bool isSoundOn = soundStatus.Value.Equals("true");
+                tgbtnSoundSettings.IsChecked = isSoundOn;
+                ChangeToggleSoundVisibility(isSoundOn);
+            }
+            catch (KeyNotFoundException keyNotFoundException)
+            {
+                logger.LogError(keyNotFoundException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgConfigurationException);
+            }
         }
 
-        private void BtnMusic_Checked(object sender, RoutedEventArgs e)
+        private void TgbtnMusic_Checked(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             musicStatus.Value = "true";
-            btnSoundSettings.IsChecked = false;
-            ToggleMusicVisibility(true);
+            tgbtnSoundSettings.IsChecked = false;
+            ChangeToggleMusicVisibility(true);
         }
 
-        private void BtnMusic_Unchecked(object sender, RoutedEventArgs e)
+        private void TgbtnMusic_Unchecked(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             musicStatus.Value = "false";
-            ToggleMusicVisibility(false);
+            ChangeToggleMusicVisibility(false);
         }
 
-        private void BtnSound_Checked(object sender, RoutedEventArgs e)
+        private void TgbtnSound_Checked(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             soundStatus.Value = "true";
-            ToggleSoundVisibility(true);
+            ChangeToggleSoundVisibility(true);
         }
 
-        private void BtnSound_Unchecked(object sender, RoutedEventArgs e)
+        private void TgbtnSound_Unchecked(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
             soundStatus.Value = "false";
-            ToggleSoundVisibility(false);
+            ChangeToggleSoundVisibility(false);
         }
 
         private void SaveConfiguration()
         {
+            string appConfigSection = "appSettings";
             gameConfiguration.Save();
-            ConfigurationManager.RefreshSection("appSettings");
+            ConfigurationManager.RefreshSection(appConfigSection);
         }
 
         private void GoToMainMenuView()
@@ -103,7 +120,7 @@ namespace Spider_Clue.Views
         }
 
 
-        private void ToggleMusicVisibility(bool isVisible)
+        private void ChangeToggleMusicVisibility(bool isVisible)
         {
             if(isVisible)
             {
@@ -115,7 +132,7 @@ namespace Spider_Clue.Views
             }
         }
 
-        private void ToggleSoundVisibility(bool isVisible)
+        private void ChangeToggleSoundVisibility(bool isVisible)
         {
             if (isVisible)
             {
@@ -128,16 +145,33 @@ namespace Spider_Clue.Views
         }
         private void SetMusicIcon(string iconFileName)
         {
-            string iconPath = Utilities.GetImagePathForImages() + "Icons\\" + iconFileName;
-            imgMusicIcon.Source = new BitmapImage(new Uri(iconPath, UriKind.RelativeOrAbsolute));
+            LoggerManager logger = new LoggerManager(this.GetType());
+            try
+            {
+                string iconPath = Utilities.GetImagePathForImages() + "Icons\\" + iconFileName;
+                imgMusicIcon.Source = new BitmapImage(new Uri(iconPath, UriKind.RelativeOrAbsolute));
+            }
+            catch (UriFormatException uriException)
+            {
+                logger.LogError(uriException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgIconException);
+            }
         }
 
         private void SetSoundIcon(string iconFileName)
         {
-            string iconPath = Utilities.GetImagePathForImages() + "Icons\\" + iconFileName;
-            imgSoundIcon.Source = new BitmapImage(new Uri(iconPath, UriKind.RelativeOrAbsolute));
+            LoggerManager logger = new LoggerManager(this.GetType());
+            try
+            {
+                string iconPath = Utilities.GetImagePathForImages() + "Icons\\" + iconFileName;
+                imgSoundIcon.Source = new BitmapImage(new Uri(iconPath, UriKind.RelativeOrAbsolute));
+            }
+            catch (UriFormatException uriException)
+            {
+                logger.LogError(uriException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgIconException);
+            }
         }
-
 
     }
 }

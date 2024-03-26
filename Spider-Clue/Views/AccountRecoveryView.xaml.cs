@@ -1,6 +1,7 @@
 ﻿using Spider_Clue.Logic;
 using System;
 using System.Windows;
+using System.ServiceModel;
 using System.Windows.Controls;
 using Spider_Clue.SpiderClueService;
 
@@ -37,7 +38,7 @@ namespace Spider_Clue.Views
             }
             else
             {
-                ShowErrorMessageBox(Properties.Resources.DlgInvalidData);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgInvalidData);
             }
         }
 
@@ -53,20 +54,67 @@ namespace Spider_Clue.Views
 
         private void GoToChangePasswordView(string email)
         {
-            Gamer gamer = userManager.GetGamerByEmail(email);
-            PasswordRecoveryView changePasswordView = new PasswordRecoveryView();
-            changePasswordView.SetGamertagInWindow(gamer.Gamertag);
-            NavigationService.Navigate(changePasswordView);
+            LoggerManager logger = new LoggerManager(this.GetType());
+            try
+            {
+                Gamer gamer = userManager.GetGamerByEmail(email);
+                PasswordRecoveryView changePasswordView = new PasswordRecoveryView();
+                changePasswordView.SetGamertagInWindow(gamer.Gamertag);
+                NavigationService.Navigate(changePasswordView);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
 
         private bool CheckPlayerExistence(string email)
         {
-            return userManager.IsEmailExisting(email);
-        }
+            bool result = false;
+            LoggerManager logger = new LoggerManager(this.GetType());
 
-        private void ShowErrorMessageBox(string errorMessage)
-        {
-            MessageBox.Show(errorMessage, Properties.Resources.ErrorTitle, MessageBoxButton.OK, MessageBoxImage.Error);
+            try
+            {
+                result = userManager.IsEmailExisting(email);
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
+
+            return result;
         }
     }
 }

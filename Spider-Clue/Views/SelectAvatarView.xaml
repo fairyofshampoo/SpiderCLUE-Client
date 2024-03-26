@@ -11,7 +11,7 @@
     <Grid>
         <Border>
             <Border.Background>
-                <ImageBrush ImageSource = "/Images/Background/backgroundREGISTER.png"
+                <ImageBrush ImageSource = "/Images/Background/editProfileBackground.jpg"
                             Stretch = "UniformToFill">
                 </ImageBrush>
             </Border.Background>
@@ -41,8 +41,8 @@
                 <RowDefinition Height = "Auto"/>
             </Grid.RowDefinitions>
 
-            <Label x:Name = "lblAudio" Content = "{x:Static p:Resources.LblSelectIcon}"
-                   Foreground = "White"
+            <Label x:Name = "lblChangeAvatar" Content = "{x:Static p:Resources.LblSelectIcon}"
+                   Foreground = "White" Background="#5f80a3"
                    FontWeight = "Regular"
                    FontSize = "60"
                    FontFamily = "Monsterrat"
@@ -54,7 +54,7 @@
                 Width = "600"
                 Height = "300"
                 CornerRadius = "15"
-                Background = "#B45959"
+                Background = "#FC5C4A"
                 Margin = "0,40,0,0">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -154,7 +154,7 @@
                 </Grid>
             </Border>
 
-            <Button x:Name="btnRegister"
+            <Button x:Name="btnSaveChanges"
                         BorderThickness="0"
                         Content="{x:Static p:Resources.BtnSave}"
                         Foreground="White"
@@ -166,7 +166,7 @@
                         Click="BtnSaveChanges_Click">
                 <Button.Style>
                     <Style TargetType="Button">
-                        <Setter Property="Background" Value="#AB2E2E"/>
+                        <Setter Property="Background" Value="#770C18"/>
                     </Style>
                 </Button.Style>
                 <Button.Template>

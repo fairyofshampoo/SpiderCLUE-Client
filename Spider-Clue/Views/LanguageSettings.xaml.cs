@@ -1,19 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using Spider_Clue.Logic;
 using System.Configuration;
 using System.Reflection;
+using log4net.Repository.Hierarchy;
 
 namespace Spider_Clue.Views
 {
-    /// <summary>
-    /// Interaction logic for LanguageSettings.xaml
-    /// </summary>
     public partial class LanguageSettings : Page
     {
         private readonly Configuration gameConfiguration;
@@ -21,34 +14,56 @@ namespace Spider_Clue.Views
 
         public LanguageSettings()
         {
-            gameConfiguration = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
+            LoggerManager logger = new LoggerManager(this.GetType());
             InitializeComponent();
+            try
+            {
+                gameConfiguration = ConfigurationManager.OpenExeConfiguration(Assembly.GetExecutingAssembly().Location);
+            }
+            catch (ConfigurationErrorsException configurationException)
+            {
+                logger.LogError(configurationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgConfigurationException);
+            }
         }
 
         private void ChangeLanguage(string language)
         {
-            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(language);
-            gameConfiguration.Save();
-            ConfigurationManager.RefreshSection("appSettings");
+            LoggerManager logger = new LoggerManager(this.GetType());
+            string appConfigSection = "appSettings";
+
+            try
+            {
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo(language);
+                gameConfiguration.Save();
+                ConfigurationManager.RefreshSection(appConfigSection);
+            }
+            catch (ConfigurationErrorsException configurationException)
+            {
+                logger.LogError(configurationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgConfigurationException);
+            }
+            
         }
 
         private void BtnMXFlag_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            ChangeLanguage("es-MX");
+            string mexicanSpanish = "es-MX";
+            ChangeLanguage(mexicanSpanish);
             ReloadSettingsPage();
         }
         private void ReloadSettingsPage()
         {
             SettingsView newSettingsView = new SettingsView();
             SettingsView.NavigationService.Navigate(newSettingsView);
-
         }
 
         private void BtnUSFlag_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            ChangeLanguage("en-US");
+            string americanEnglish = "en-US";
+            ChangeLanguage(americanEnglish);
             ReloadSettingsPage();
         }
     }
