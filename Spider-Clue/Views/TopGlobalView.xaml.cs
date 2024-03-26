@@ -14,57 +14,26 @@ namespace Spider_Clue.Views
     {
         public ObservableCollection<TopGlobal> TopGlobals { get; set; }
 
-        public TopGlobalView()
+        public TopGlobalView(Winner[] top3Global)
         {
             InitializeComponent();
             TopGlobals = new ObservableCollection<TopGlobal>();
             dtgTopGlobal.ItemsSource = TopGlobals;
-            ShowTopGlobal();
+            ShowTopGlobal(top3Global);
         }
 
-        private void ShowTopGlobal()
+        private void ShowTopGlobal(Winner[] top3Global)
         {
-            LoggerManager logger = new LoggerManager(this.GetType());
-
-            try
+            foreach (var top in top3Global)
             {
-                SpiderClueService.IWinnersManager winners = new SpiderClueService.WinnersManagerClient();
-                var topGlobals = winners.GetTopGlobalWinners();
-
-                if (topGlobals.Any())
+                string icon = Utilities.GetImagePathForIcon(top.Icon);
+                TopGlobal topGlobal = new TopGlobal
                 {
-                    foreach (var top in topGlobals)
-                    {
-                        string icon = Utilities.GetImagePathForIcon(top.Icon);
-                        TopGlobal topGlobal = new TopGlobal
-                        {
-                            Gamertag = top.Gamertag,
-                            Icon = icon,
-                            GamesWon = top.GamesWon.ToString()
-                        };
-                        TopGlobals.Add(topGlobal);
-                    }
-                }
-            }
-            catch (EndpointNotFoundException endpointException)
-            {
-                logger.LogError(endpointException);
-                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
-            }
-            catch (TimeoutException timeoutException)
-            {
-                logger.LogError(timeoutException);
-                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
-            }
-            catch (CommunicationException communicationException)
-            {
-                logger.LogError(communicationException);
-                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
-            }
-            catch (Exception exception)
-            {
-                logger.LogFatal(exception);
-                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+                Gamertag = top.Gamertag,
+                Icon = icon,
+                GamesWon = top.GamesWon.ToString()
+                };
+                TopGlobals.Add(topGlobal);
             }
         }
 

@@ -24,7 +24,7 @@ namespace Spider_Clue.Views
                 brSearchData.Visibility = Visibility.Visible;
                 string gamertag = txtSearchGamer.Text;
                 IUserManager userManager = new SpiderClueService.UserManagerClient();
-                if (userManager.IsGamertagExisting(gamertag))
+                if (userManager.IsGamertagExisting(gamertag) == Constants.DefaultResultOperation)
                 {
                     if (IsSearchValid(gamertag))
                     {
