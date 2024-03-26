@@ -14,5 +14,6 @@ namespace Spider_Clue.Logic
         public const int LimitOfGamersInMatch = 3;
         public const int SuccessfulOperation = 1;
         public const int DefaultResultOperation = 0;
+        public const int ExceptionResultOperation = -2;
     }
 }

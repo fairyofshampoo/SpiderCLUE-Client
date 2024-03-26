@@ -4,6 +4,8 @@ using System.Windows.Controls;
 using Spider_Clue.Logic;
 using System.ServiceModel;
 using Spider_Clue.SpiderClueService;
+using static Spider_Clue.Views.TopGlobalView;
+using System.Linq;
 
 namespace Spider_Clue.Views
 {
@@ -195,8 +197,47 @@ namespace Spider_Clue.Views
         private void BtnTopGlobal_Click(object sender, RoutedEventArgs e)
         {
             Utilities.PlayButtonClickSound();
-            TopGlobalView topGlobalView = new TopGlobalView();
-            NavigationService.Navigate(topGlobalView);
+            GetTopGlobal();
+        }
+
+        private void GetTopGlobal ()
+        {
+            LoggerManager logger = new LoggerManager(this.GetType());
+            try
+            {
+                SpiderClueService.IWinnersManager winners = new SpiderClueService.WinnersManagerClient();
+                var topGlobals = winners.GetTopGlobalWinners();
+                if (topGlobals.Any())
+                {
+                    TopGlobalView topGlobalView = new TopGlobalView(topGlobals);
+                    NavigationService.Navigate(topGlobalView);
+                }
+                else
+                {
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgNotDataFound);
+
+                }
+            }
+            catch (EndpointNotFoundException endpointException)
+            {
+                logger.LogError(endpointException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgEndpointException);
+            }
+            catch (TimeoutException timeoutException)
+            {
+                logger.LogError(timeoutException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgTimeoutException);
+            }
+            catch (CommunicationException communicationException)
+            {
+                logger.LogError(communicationException);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgCommunicationException);
+            }
+            catch (Exception exception)
+            {
+                logger.LogFatal(exception);
+                DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
+            }
         }
 
         private void ShowFriendsList()

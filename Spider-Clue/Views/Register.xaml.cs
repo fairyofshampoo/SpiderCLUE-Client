@@ -53,7 +53,7 @@ namespace Spider_Clue.Views
             bool userDataValid = ValidateUserData();
             bool passwordsMatch = ArePasswordsMatching();
             bool duplicationValidation = VerifyDuplications();
-            return accountDataValid && userDataValid && passwordsMatch && !duplicationValidation;
+            return accountDataValid && userDataValid && passwordsMatch && duplicationValidation;
         }
 
         private bool ValidateAccountData()
@@ -146,16 +146,12 @@ namespace Spider_Clue.Views
         {
             bool emailDuplication = false;
             LoggerManager logger = new LoggerManager(this.GetType());
-
+            int emailExistingResult = Constants.SuccessfulOperation;
             try
             {
                 SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-                emailDuplication = userManager.IsEmailExisting(txtEmail.Text);
-                if (emailDuplication)
-                {
-                    lblInvalidEmail.Content = Properties.Resources.LblEmailUsed;
-                    lblInvalidEmail.Visibility = Visibility.Visible;
-                }
+                 emailExistingResult = userManager.IsEmailExisting(txtEmail.Text);
+                
             }
             catch (EndpointNotFoundException endpointException)
             {
@@ -182,6 +178,21 @@ namespace Spider_Clue.Views
                 DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
             }
 
+            switch (emailExistingResult)
+            {
+                case Constants.SuccessfulOperation:
+                    lblInvalidEmail.Content = Properties.Resources.LblEmailUsed;
+                    lblInvalidEmail.Visibility = Visibility.Visible;
+                    emailDuplication = false;
+                    break;
+                case Constants.ExceptionResultOperation:
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgDataBaseError);
+                    emailDuplication = false;
+                    break;
+                case Constants.DefaultResultOperation:
+                    emailDuplication = true;
+                    break;
+            }
 
             return emailDuplication;
         }
@@ -190,16 +201,12 @@ namespace Spider_Clue.Views
         {
             LoggerManager logger = new LoggerManager(this.GetType());
             bool gamerTagDuplication = false;
-
+            int gamerTagResult = Constants.SuccessfulOperation;
             try
             {
                 SpiderClueService.IUserManager userManager = new SpiderClueService.UserManagerClient();
-                gamerTagDuplication = userManager.IsGamertagExisting(txtGamerTag.Text);
-                if (gamerTagDuplication)
-                {
-                    lblInvalidGamerTag.Content = Properties.Resources.LblGamerTagUsed;
-                    lblInvalidGamerTag.Visibility = Visibility.Visible;
-                }
+                gamerTagResult = userManager.IsGamertagExisting(txtGamerTag.Text);
+                
             }
             catch (EndpointNotFoundException endpointException)
             {
@@ -225,7 +232,21 @@ namespace Spider_Clue.Views
                 DialogManager.ShowErrorMessageBox(Properties.Resources.DlgFatalException);
                 gamerTagDuplication = false;
             }
-
+            switch (gamerTagResult)
+            {
+                case Constants.SuccessfulOperation:
+                    lblInvalidGamerTag.Content = Properties.Resources.LblGamerTagUsed;
+                    lblInvalidGamerTag.Visibility = Visibility.Visible;
+                    gamerTagDuplication = false;
+                    break;
+                case Constants.ExceptionResultOperation:
+                    DialogManager.ShowErrorMessageBox(Properties.Resources.DlgDataBaseError);
+                    gamerTagDuplication = false;
+                    break;
+                case Constants.DefaultResultOperation:
+                    gamerTagDuplication = true;
+                    break;
+            }
             return gamerTagDuplication;
         }
 

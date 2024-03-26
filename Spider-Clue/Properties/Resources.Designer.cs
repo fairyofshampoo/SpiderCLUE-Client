@@ -340,6 +340,15 @@ namespace Spider_Clue.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Database error, please try again later.
+        /// </summary>
+        public static string DlgDataBaseError {
+            get {
+                return ResourceManager.GetString("DlgDataBaseError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to find the endpoint. Please check the server configuration and try again..
         /// </summary>
         public static string DlgEndpointException {
@@ -453,6 +462,15 @@ namespace Spider_Clue.Properties {
         public static string DlgNobodyAnswers {
             get {
                 return ResourceManager.GetString("DlgNobodyAnswers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Could not retrieve the information.
+        /// </summary>
+        public static string DlgNotDataFound {
+            get {
+                return ResourceManager.GetString("DlgNotDataFound", resourceCulture);
             }
         }
         
