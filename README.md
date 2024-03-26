@@ -1,14 +1,14 @@
 # Spider-Clue (FEI's version)
 
-## Descripción
+## Description
 
-Spider-Clue (FEI's version) es un proyecto educativo que busca desarrollar una versión digital del juego de mesa "CLUEDO". El objetivo principal es proporcionar a los estudiantes de la Facultad de Estadística e Informática una experiencia práctica en el desarrollo de software y aplicaciones utilizando tecnologías como C#, WPF y WCF en el entorno de Visual Studio para la Experiencia Educativa de Tecnologías para la Construcción de Software.
+Spider-Clue (FEI's version) is an educational project aimed at developing a digital version of the board game "CLUEDO". The main goal is to provide students at the Faculty of Statistics and Informatics with hands-on experience in software and application development using technologies such as C#, WPF, and WCF within the Visual Studio environment for the Educational Experience of Software Construction Technologies.
 
-## Estado del Proyecto
+## Project Status
 
-En Desarrollo
+Completed
 
-## Tecnologías Utilizadas
+## Technologies Used
 
 - C#
 - WPF (Windows Presentation Foundation)
@@ -17,28 +17,27 @@ En Desarrollo
 - log4net
 - Visual Studio
 
-## Instalación
+## Installation
 
 ```bash
-# Clona el repositorio
+# Clone the repository
 git clone https://github.com/fairyofshampoo/SpiderCLUE-Client.git
 
-# Ingresa al directorio del proyecto
+# Navigate to the project directory
 cd SpiderCLUE-Client
 ```
 
-## Uso
+## Usage
 
-Después de la instalación, abre la aplicación y sigue las instrucciones en pantalla para disfrutar del juego. Puedes personalizar tu perfil, invitar a amigos y participar en partidas.
+After installation, open the application and follow the on-screen instructions to enjoy the game. You can customize your profile, invite friends, and participate in matches.
 
-## Contacto
+## Contact
 
-Para cualquier pregunta o comentario, puedes ponerte en contacto con nosotros a través de [correo electrónico](mailto:lalocel09@gmail.com)
+For any questions or comments, feel free to contact us via [email](mailto:lalocel09@gmail.com)
 
+## Additional Notes
 
-## Notas Adicionales
-
-- Este proyecto es parte del curso de Tecnologías para la Construcción de Software en la Facultad de Estadística e Informática.
-- Actualizado por última vez: 19/12/2023
+- This project is part of the Software Construction Technologies course at the Faculty of Statistics and Informatics.
+- Last updated: 26/03/2024
 
 ---
